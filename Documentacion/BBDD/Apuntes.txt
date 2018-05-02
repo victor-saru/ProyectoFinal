@@ -1,0 +1,8 @@
+TABLA USUARIOS
+
+	// Hacemos que la clave primaria sea un ID autoincremental y no el email, ya que nos facilitará los joins. Sin embargo, el email será único y el usuario tendrá que logearse con este.
+
+Para encriptar la contraseña del usuario -> INSERT INTO `users` (`email`, `pswd`) VALUES ('user2@example.com', SHA1('pass123'));
+	
+	
+	
