@@ -3,5 +3,7 @@
     <string name="lblCorreoLogin">Correo</string>
     <string name="lblPasswordLogin">Contraseña</string>
     <string name="btnLogin">Iniciar sesión</string>
+    <string name="btnRecordarPassword">¿Olvidaste la contraseña?</string>
+
 
 </resources>

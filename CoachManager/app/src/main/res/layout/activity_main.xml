@@ -65,6 +65,17 @@
         android:textColor="@android:color/background_dark" />
 
     <Button
+        android:id="@+id/btnRecordarPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_below="@+id/edPasswordLogin"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:background="#EEEEEE"
+        android:text="@string/btnRecordarPassword"
+        style="?android:attr/borderlessButtonStyle"/>
+
+    <Button
         android:id="@+id/btnLogin"
         android:layout_width="200dp"
         android:layout_height="30dp"
