@@ -5,4 +5,6 @@
     <string name="btnLogin">Iniciar sessió</string>
     <string name="btnRecordarPassword">Has oblidat la contrasenya?</string>
     <string name="hintCorreo">exemple@exemple.com</string>
+    <string name="btnRegistrase">No tens compte?</string>
+
 </resources>

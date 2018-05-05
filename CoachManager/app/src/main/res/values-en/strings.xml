@@ -5,4 +5,7 @@
     <string name="btnLogin">Log in</string>
     <string name="btnRecordarPassword">Did you forget the password?</string>
     <string name="hintCorreo">example@example.com</string>
+    <string name="btnRegistrase">You do not have an account?</string>
+
+
 </resources>

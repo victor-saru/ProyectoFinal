@@ -43,8 +43,8 @@
         android:id="@+id/edCorreoLogin"
         android:layout_width="200dp"
         android:layout_height="30dp"
+        android:layout_alignStart="@+id/btnLogin"
         android:layout_below="@+id/lblCorreoLogin"
-        android:layout_centerHorizontal="true"
         android:background="#EEEEEE"
         android:ems="10"
         android:hint="@string/hintCorreo"
@@ -79,12 +79,23 @@
         android:id="@+id/btnLogin"
         android:layout_width="200dp"
         android:layout_height="30dp"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/btnRecordarPassword"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="82dp"
+        android:layout_marginTop="52dp"
         android:background="@drawable/boton_redondeado"
         android:text="@string/btnLogin"
         android:textColor="@android:color/white"
         android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnRegistrase"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_alignStart="@+id/btnLogin"
+        android:layout_alignTop="@+id/btnLogin"
+        android:layout_marginTop="49dp"
+        android:text="@string/btnRegistrase"
+        android:background="#EEEEEE"
+        style="?android:attr/borderlessButtonStyle"/>
 
 </RelativeLayout>
