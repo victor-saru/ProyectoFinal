@@ -3,4 +3,6 @@
     <string name="lblCorreoLogin">Email</string>
     <string name="lblPasswordLogin">Password</string>
     <string name="btnLogin">Log in</string>
+    <string name="btnRecordarPassword">Did you forget the password?</string>
+    <string name="hintCorreo">example@example.com</string>
 </resources>

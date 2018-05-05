@@ -3,4 +3,6 @@
     <string name="lblCorreoLogin">Correu</string>
     <string name="lblPasswordLogin">Contrasenya</string>
     <string name="btnLogin">Iniciar sessió</string>
+    <string name="btnRecordarPassword">Has oblidat la contrasenya?</string>
+    <string name="hintCorreo">exemple@exemple.com</string>
 </resources>

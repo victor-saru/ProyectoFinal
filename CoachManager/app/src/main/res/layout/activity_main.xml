@@ -47,7 +47,7 @@
         android:layout_centerHorizontal="true"
         android:background="#EEEEEE"
         android:ems="10"
-        android:hint="ejemplo@ejemplo.com"
+        android:hint="@string/hintCorreo"
         android:inputType="textPersonName"
         android:singleLine="false"
         android:textSize="16dp" />
@@ -82,8 +82,9 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="82dp"
-        android:background="#4dea28"
+        android:background="@drawable/boton_redondeado"
         android:text="@string/btnLogin"
+        android:textColor="@android:color/white"
         android:textStyle="bold" />
 
 </RelativeLayout>
