@@ -13,30 +13,55 @@
         android:layout_height="100dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="90dp"
+        android:layout_marginTop="73dp"
         app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/lblCorreoLogin"
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:layout_alignStart="@+id/edCorreoLogin"
+        android:layout_below="@+id/logo"
+        android:layout_marginTop="15dp"
+        android:text="@string/lblCorreoLogin"
+        android:textColor="@android:color/background_dark"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/lblPasswordLogin"
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:layout_alignStart="@+id/edCorreoLogin"
+        android:layout_below="@+id/edCorreoLogin"
+        android:layout_marginTop="30dp"
+        android:text="@string/lblPasswordLogin"
+        android:textColor="@android:color/background_dark"
+        android:textSize="15dp"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/edCorreoLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="20dp"
-        android:layout_below="@+id/logo"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/lblCorreoLogin"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="58dp"
-        android:ems="10"
-        android:inputType="textPersonName"
         android:background="#EEEEEE"
-        android:hint="Contraseña"
+        android:ems="10"
+        android:hint="ejemplo@ejemplo.com"
+        android:inputType="textPersonName"
+        android:singleLine="false"
         android:textSize="16dp" />
 
     <EditText
         android:id="@+id/edPasswordLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:ems="10"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_alignStart="@+id/lblPasswordLogin"
+        android:layout_below="@+id/lblPasswordLogin"
         android:background="#EEEEEE"
-        android:inputType="textPassword" />
+        android:ems="10"
+        android:hint="*********"
+        android:inputType="textPassword"
+        android:textColor="@android:color/background_dark" />
 
 </RelativeLayout>
