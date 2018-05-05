@@ -2,4 +2,5 @@
 <resources>
     <string name="lblCorreoLogin">Correu</string>
     <string name="lblPasswordLogin">Contrasenya</string>
+    <string name="btnLogin">Iniciar sessió</string>
 </resources>

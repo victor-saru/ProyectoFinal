@@ -2,5 +2,6 @@
     <string name="app_name">CoachManager</string>
     <string name="lblCorreoLogin">Correo</string>
     <string name="lblPasswordLogin">Contraseña</string>
+    <string name="btnLogin">Iniciar sesión</string>
 
 </resources>

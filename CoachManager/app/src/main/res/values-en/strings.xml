@@ -2,4 +2,5 @@
 <resources>
     <string name="lblCorreoLogin">Email</string>
     <string name="lblPasswordLogin">Password</string>
+    <string name="btnLogin">Log in</string>
 </resources>
