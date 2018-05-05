@@ -45,11 +45,12 @@
         android:layout_height="30dp"
         android:layout_alignStart="@+id/btnLogin"
         android:layout_below="@+id/lblCorreoLogin"
-        android:background="#EEEEEE"
+        android:background="@drawable/editextborder"
         android:ems="10"
         android:hint="@string/hintCorreo"
         android:inputType="textPersonName"
         android:singleLine="false"
+
         android:textSize="16dp" />
 
     <EditText
@@ -58,7 +59,7 @@
         android:layout_height="30dp"
         android:layout_alignStart="@+id/lblPasswordLogin"
         android:layout_below="@+id/lblPasswordLogin"
-        android:background="#EEEEEE"
+        android:background="@drawable/editextborder"
         android:ems="10"
         android:hint="*********"
         android:inputType="textPassword"
@@ -89,13 +90,13 @@
 
     <Button
         android:id="@+id/btnRegistrase"
+        style="?android:attr/borderlessButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="20dp"
-        android:layout_alignStart="@+id/btnLogin"
         android:layout_alignTop="@+id/btnLogin"
-        android:layout_marginTop="49dp"
-        android:text="@string/btnRegistrase"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
         android:background="#EEEEEE"
-        style="?android:attr/borderlessButtonStyle"/>
+        android:text="@string/btnRegistrase" />
 
 </RelativeLayout>
