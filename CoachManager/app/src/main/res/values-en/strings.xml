@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!---Login-->
     <string name="lblCorreoLogin">Email</string>
     <string name="lblPasswordLogin">Password</string>
     <string name="btnLogin">Log in</string>
@@ -7,5 +8,16 @@
     <string name="hintCorreo">example@example.com</string>
     <string name="btnRegistrase">You do not have an account?</string>
 
+    <!---Registo-->
+    <string name="lblNombreRegistro">Name</string>
+    <string name="hintNombre">George</string>
+    <string name="lblPrimerApellidoRegistro">First surname</string>
+    <string name="hintPrimerApellidoRegistro">Smith</string>
+    <string name="lblSegundoApellidoRegistro">Second surname</string>
+    <string name="hintSegundoApellido">Smith</string>
+    <string name="lblDNIRegistro">ID</string>
+    <string name="hintDNIRegistro">12345678</string>
+    <string name="lblMovilRegisto">Mobile</string>
+    <string name="hintMovilRegistro">668877399</string>
 
 </resources>

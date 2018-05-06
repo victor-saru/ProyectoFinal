@@ -1,10 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!---Login-->
     <string name="lblCorreoLogin">Correu</string>
     <string name="lblPasswordLogin">Contrasenya</string>
     <string name="btnLogin">Iniciar sessió</string>
     <string name="btnRecordarPassword">Has oblidat la contrasenya?</string>
     <string name="hintCorreo">exemple@exemple.com</string>
     <string name="btnRegistrase">No tens compte?</string>
+
+    <!---Registro-->
+    <string name="lblNombreRegistro">Nom</string>
+    <string name="hintNombre">Jordi</string>
+    <string name="lblPrimerApellidoRegistro">Primer cognom</string>
+    <string name="hintPrimerApellido">Serrat</string>
+    <string name="lblSegundoApellidoRegistro">Segon cognom</string>
+    <string name="hintSegundoApellidoRegistro">Puyol</string>
+    <string name="lblDNIRegistro">DNI</string>
+    <string name="hintDNIRegistro">12345678Z</string>
+    <string name="lblMovilRegisto">Móbil</string>
+    <string name="hintMovilRegistro">668877399</string>
 
 </resources>
