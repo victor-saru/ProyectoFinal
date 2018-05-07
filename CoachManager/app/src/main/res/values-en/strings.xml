@@ -7,6 +7,7 @@
     <string name="btnRecordarPassword">Did you forget the password?</string>
     <string name="hintCorreo">example@example.com</string>
     <string name="btnRegistrase">You do not have an account?</string>
+    <string name="lblCopyrightLogin">Copyright 2012 SabaDevs | All rights reserved.</string>
 
     <!---Registo-->
     <string name="lblNombreRegistro">Name</string>
@@ -14,7 +15,7 @@
     <string name="lblPrimerApellidoRegistro">First surname</string>
     <string name="hintPrimerApellidoRegistro">Smith</string>
     <string name="lblSegundoApellidoRegistro">Second surname</string>
-    <string name="hintSegundoApellido">Smith</string>
+    <string name="hintSegundoApellidoRegistro">Johnson</string>
     <string name="lblDNIRegistro">ID</string>
     <string name="hintDNIRegistro">12345678</string>
     <string name="lblMovilRegisto">Mobile</string>

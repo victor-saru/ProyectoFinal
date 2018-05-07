@@ -20,9 +20,9 @@
         android:id="@+id/lblCorreoLogin"
         android:layout_width="200dp"
         android:layout_height="20dp"
-        android:layout_alignStart="@+id/edCorreoLogin"
+        android:layout_alignStart="@+id/btnLogin"
         android:layout_below="@+id/logo"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="37dp"
         android:text="@string/lblCorreoLogin"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
@@ -33,7 +33,7 @@
         android:layout_height="20dp"
         android:layout_alignStart="@+id/edCorreoLogin"
         android:layout_below="@+id/edCorreoLogin"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="34dp"
         android:text="@string/lblPasswordLogin"
         android:textColor="@android:color/background_dark"
         android:textSize="15dp"
@@ -43,14 +43,14 @@
         android:id="@+id/edCorreoLogin"
         android:layout_width="200dp"
         android:layout_height="30dp"
-        android:layout_alignStart="@+id/btnLogin"
+
+        android:layout_alignStart="@+id/lblCorreoLogin"
         android:layout_below="@+id/lblCorreoLogin"
         android:background="@drawable/editextborder"
         android:ems="10"
         android:hint="@string/hintCorreo"
         android:inputType="textPersonName"
         android:singleLine="false"
-
         android:textSize="16dp" />
 
     <EditText
@@ -67,14 +67,14 @@
 
     <Button
         android:id="@+id/btnRecordarPassword"
+        style="?android:attr/borderlessButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:layout_below="@+id/edPasswordLogin"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:background="#EEEEEE"
-        android:text="@string/btnRecordarPassword"
-        style="?android:attr/borderlessButtonStyle"/>
+        android:layout_marginTop="12dp"
+        android:background="@drawable/ripple_effect"
+        android:text="@string/btnRecordarPassword" />
 
     <Button
         android:id="@+id/btnLogin"
@@ -82,7 +82,7 @@
         android:layout_height="30dp"
         android:layout_below="@+id/btnRecordarPassword"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="56dp"
         android:background="@drawable/boton_redondeado"
         android:text="@string/btnLogin"
         android:textColor="@android:color/white"
@@ -96,7 +96,16 @@
         android:layout_alignTop="@+id/btnLogin"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:background="#EEEEEE"
+        android:background="@drawable/ripple_effect"
         android:text="@string/btnRegistrase" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="12dp"
+        android:text="@string/lblCopyrightLogin" />
 
 </RelativeLayout>

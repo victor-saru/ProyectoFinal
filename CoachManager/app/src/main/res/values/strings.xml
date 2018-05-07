@@ -7,6 +7,7 @@
     <string name="btnRecordarPassword">¿Olvidaste la contraseña?</string>
     <string name="hintCorreo">ejemplo@ejemplo.com</string>
     <string name="btnRegistrase">¿No tienes cuenta?</string>
+    <string name="lblCopyrightLogin">Copyright 2018 SabaDevs | Todos los derechos reservados.</string>
 
     <!---Registro-->
     <string name="lblNombreRegistro">Nombre</string>
