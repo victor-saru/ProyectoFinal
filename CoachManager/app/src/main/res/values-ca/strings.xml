@@ -20,5 +20,7 @@
     <string name="hintDNIRegistro">12345678Z</string>
     <string name="lblMovilRegisto">Móbil</string>
     <string name="hintMovilRegistro">668877399</string>
+    <string name="hintFechaRegistro">dd/mm/aaaa</string>
+    <string name="btnHacerRegistro">Registrar-se</string>
 
 </resources>

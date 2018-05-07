@@ -6,202 +6,242 @@
     android:layout_height="match_parent"
     tools:context="com.example.victo.coachmanager.RegistroActivity">
 
-    <EditText
-        android:id="@+id/edPrimerApellidoRegistro"
-        android:layout_width="200dp"
-        android:layout_height="30dp"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-        android:layout_alignStart="@+id/lblPrimerApellidoRegistro"
-        android:layout_below="@+id/lblPrimerApellidoRegistro"
-        android:background="@drawable/editextborder"
-        android:ems="10"
-        android:hint="@string/hintPrimerApellidoRegistro"
-        android:inputType="textPersonName"
-        android:singleLine="false"
-        android:textSize="16dp" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/lblNombreRegistro"
-        android:layout_width="200dp"
-        android:layout_height="20dp"
-        android:layout_alignStart="@+id/edPasswordRegistro"
-        android:layout_below="@+id/edPasswordRegistro"
-        android:layout_marginTop="14dp"
-        android:text="@string/lblNombreRegistro"
-        android:textColor="@android:color/background_dark"
-        android:textStyle="bold" />
+            <ImageView
+                android:id="@+id/logoRegistro"
+                android:layout_width="300dp"
+                android:layout_height="100dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="73dp"
+                app:srcCompat="@drawable/logo" />
 
-    <TextView
-        android:id="@+id/lblCorreoRegistro"
-        android:layout_width="200dp"
-        android:layout_height="20dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="22dp"
-        android:text="@string/lblCorreoLogin"
-        android:textColor="@android:color/background_dark"
-        android:textStyle="bold" />
+            <TextView
+                android:id="@+id/lblSegundoApellidoRegistro"
+                android:layout_width="200dp"
+                android:layout_height="20dp"
+                android:layout_alignStart="@+id/edPrimerApellidoRegistro"
+                android:layout_below="@+id/edPrimerApellidoRegistro"
+                android:layout_marginTop="12dp"
+                android:text="@string/lblSegundoApellidoRegistro"
+                android:textColor="@android:color/background_dark"
+                android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/edCorreoRegistro"
-        android:layout_width="200dp"
-        android:layout_height="30dp"
-        android:layout_alignStart="@+id/lblCorreoRegistro"
-        android:layout_below="@+id/lblCorreoRegistro"
-        android:background="@drawable/editextborder"
-        android:ems="10"
-        android:hint="@string/hintCorreo"
+            <TextView
+                android:id="@+id/lblCorreoRegistro"
+                android:layout_width="200dp"
+                android:layout_height="20dp"
+                android:layout_alignStart="@+id/logoRegistro"
+                android:layout_below="@+id/logoRegistro"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="39dp"
+                android:text="@string/lblCorreoLogin"
+                android:textColor="@android:color/background_dark"
+                android:textStyle="bold" />
 
-        android:inputType="textPersonName"
-        android:singleLine="false"
-        android:textSize="16dp" />
+            <TextView
+                android:id="@+id/lblFechaNacimientoRegistro"
+                android:layout_width="200dp"
+                android:layout_height="20dp"
+                android:layout_alignStart="@+id/edMovilRegistro"
+                android:layout_below="@+id/edMovilRegistro"
+                android:layout_marginTop="18dp"
+                android:text="@string/lblFechaRegistro"
+                android:textColor="@android:color/background_dark"
+                android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/lblSegundoApellidoRegistro"
-        android:layout_width="200dp"
-        android:layout_height="20dp"
-        android:layout_alignStart="@+id/edPrimerApellidoRegistro"
-        android:layout_below="@+id/edPrimerApellidoRegistro"
-        android:layout_marginTop="12dp"
-        android:text="@string/lblSegundoApellidoRegistro"
-        android:textColor="@android:color/background_dark"
-        android:textStyle="bold" />
+            <TextView
+                android:id="@+id/lblPasswordRegistro"
+                android:layout_width="200dp"
+                android:layout_height="20dp"
+                android:layout_alignStart="@+id/edCorreoRegistro"
+                android:layout_below="@+id/edCorreoRegistro"
+                android:layout_marginTop="11dp"
+                android:text="@string/lblPasswordLogin"
+                android:textColor="@android:color/background_dark"
+                android:textSize="15dp"
+                android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/edPasswordRegistro"
-        android:layout_width="200dp"
-        android:layout_height="30dp"
-        android:layout_alignStart="@+id/lblPasswordRegistro"
-        android:layout_below="@+id/lblPasswordRegistro"
-        android:background="@drawable/editextborder"
-        android:ems="10"
-        android:hint="*********"
-        android:inputType="textPassword"
-        android:textColor="@android:color/background_dark" />
+            <EditText
+                android:id="@+id/edCorreoRegistro"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_alignStart="@+id/lblCorreoRegistro"
+                android:layout_below="@+id/lblCorreoRegistro"
+                android:background="@drawable/editextborder"
+                android:ems="10"
+                android:hint="@string/hintCorreo"
 
-    <EditText
-        android:id="@+id/edSegundoApellidoRegistro"
-        android:layout_width="200dp"
-        android:layout_height="30dp"
+                android:inputType="textPersonName"
+                android:singleLine="false"
+                android:textSize="16dp" />
 
-        android:layout_alignStart="@+id/lblSegundoApellidoRegistro"
-        android:layout_below="@+id/lblSegundoApellidoRegistro"
-        android:background="@drawable/editextborder"
-        android:ems="10"
-        android:hint="@string/hintSegundoApellidoRegistro"
-        android:inputType="textPersonName"
-        android:singleLine="false"
-        android:textSize="16dp" />
+            <TextView
+                android:id="@+id/lblDNIRegistro"
+                android:layout_width="200dp"
+                android:layout_height="20dp"
+                android:layout_alignStart="@+id/edSegundoApellidoRegistro"
+                android:layout_below="@+id/edSegundoApellidoRegistro"
+                android:layout_marginTop="14dp"
+                android:text="@string/lblDNIRegistro"
+                android:textColor="@android:color/background_dark"
+                android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/edNombreRegistro"
-        android:layout_width="200dp"
-        android:layout_height="30dp"
+            <TextView
+                android:id="@+id/lblNombreRegistro"
+                android:layout_width="200dp"
+                android:layout_height="20dp"
+                android:layout_alignStart="@+id/edPasswordRegistro"
+                android:layout_below="@+id/edPasswordRegistro"
+                android:layout_marginTop="14dp"
+                android:text="@string/lblNombreRegistro"
+                android:textColor="@android:color/background_dark"
+                android:textStyle="bold" />
 
-        android:layout_alignStart="@+id/lblNombreRegistro"
-        android:layout_below="@+id/lblNombreRegistro"
-        android:background="@drawable/editextborder"
-        android:ems="10"
-        android:hint="@string/hintNombre"
-        android:inputType="textPersonName"
-        android:singleLine="false"
-        android:textSize="16dp" />
+            <EditText
+                android:id="@+id/edPasswordRegistro"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_alignStart="@+id/lblPasswordRegistro"
+                android:layout_below="@+id/lblPasswordRegistro"
+                android:background="@drawable/editextborder"
+                android:ems="10"
+                android:hint="*********"
+                android:inputType="textPassword"
+                android:textColor="@android:color/background_dark" />
 
-    <TextView
-        android:id="@+id/lblPasswordRegistro"
-        android:layout_width="200dp"
-        android:layout_height="20dp"
-        android:layout_alignStart="@+id/edCorreoRegistro"
-        android:layout_below="@+id/edCorreoRegistro"
-        android:layout_marginTop="11dp"
-        android:text="@string/lblPasswordLogin"
-        android:textColor="@android:color/background_dark"
-        android:textSize="15dp"
-        android:textStyle="bold" />
+            <EditText
+                android:id="@+id/edNombreRegistro"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
 
-    <TextView
-        android:id="@+id/lblPrimerApellidoRegistro"
-        android:layout_width="200dp"
-        android:layout_height="20dp"
-        android:layout_alignStart="@+id/edNombreRegistro"
-        android:layout_below="@+id/edNombreRegistro"
-        android:layout_marginTop="16dp"
-        android:text="@string/lblPrimerApellidoRegistro"
-        android:textColor="@android:color/background_dark"
-        android:textStyle="bold" />
+                android:layout_alignStart="@+id/lblNombreRegistro"
+                android:layout_below="@+id/lblNombreRegistro"
+                android:background="@drawable/editextborder"
+                android:ems="10"
+                android:hint="@string/hintNombre"
+                android:inputType="textPersonName"
+                android:singleLine="false"
+                android:textSize="16dp" />
 
-    <EditText
-        android:id="@+id/edDNIRegistro"
-        android:layout_width="200dp"
-        android:layout_height="30dp"
+            <EditText
+                android:id="@+id/edSegundoApellidoRegistro"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
 
-        android:layout_alignStart="@+id/lblDNIRegistro"
-        android:layout_below="@+id/lblDNIRegistro"
-        android:background="@drawable/editextborder"
-        android:ems="10"
-        android:hint="@string/hintDNIRegistro"
-        android:inputType="textPersonName"
-        android:singleLine="false"
-        android:textSize="16dp" />
+                android:layout_alignStart="@+id/lblSegundoApellidoRegistro"
+                android:layout_below="@+id/lblSegundoApellidoRegistro"
+                android:background="@drawable/editextborder"
+                android:ems="10"
+                android:hint="@string/hintSegundoApellidoRegistro"
+                android:inputType="textPersonName"
+                android:singleLine="false"
+                android:textSize="16dp" />
 
-    <TextView
-        android:id="@+id/lblDNIRegistro"
-        android:layout_width="200dp"
-        android:layout_height="20dp"
-        android:layout_alignStart="@+id/edSegundoApellidoRegistro"
-        android:layout_below="@+id/edSegundoApellidoRegistro"
-        android:layout_marginTop="14dp"
-        android:text="@string/lblDNIRegistro"
-        android:textColor="@android:color/background_dark"
-        android:textStyle="bold" />
+            <EditText
+                android:id="@+id/edPrimerApellidoRegistro"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
 
-    <EditText
-        android:id="@+id/edMovilRegistro"
-        android:layout_width="200dp"
-        android:layout_height="30dp"
+                android:layout_alignStart="@+id/lblPrimerApellidoRegistro"
+                android:layout_below="@+id/lblPrimerApellidoRegistro"
+                android:background="@drawable/editextborder"
+                android:ems="10"
+                android:hint="@string/hintPrimerApellidoRegistro"
+                android:inputType="textPersonName"
+                android:singleLine="false"
+                android:textSize="16dp" />
 
-        android:layout_alignStart="@+id/lblMovilRegistro"
-        android:layout_below="@+id/lblMovilRegistro"
-        android:background="@drawable/editextborder"
-        android:ems="10"
-        android:hint="@string/hintMovilRegistro"
-        android:inputType="textPersonName"
-        android:singleLine="false"
-        android:textSize="16dp" />
+            <EditText
+                android:id="@+id/edMovilRegistro"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
 
-    <TextView
-        android:id="@+id/lblMovilRegistro"
-        android:layout_width="200dp"
-        android:layout_height="20dp"
-        android:layout_alignStart="@+id/edDNIRegistro"
-        android:layout_below="@+id/edDNIRegistro"
-        android:layout_marginTop="22dp"
-        android:text="@string/lblMovilRegisto"
-        android:textColor="@android:color/background_dark"
-        android:textStyle="bold" />
+                android:layout_alignStart="@+id/lblMovilRegistro"
+                android:layout_below="@+id/lblMovilRegistro"
+                android:background="@drawable/editextborder"
+                android:ems="10"
+                android:hint="@string/hintMovilRegistro"
+                android:inputType="textPersonName"
+                android:singleLine="false"
+                android:textSize="16dp" />
 
-    <TextView
-        android:id="@+id/lblFechaNacimientoRegistro"
-        android:layout_width="200dp"
-        android:layout_height="20dp"
-        android:layout_alignStart="@+id/edMovilRegistro"
-        android:layout_below="@+id/edMovilRegistro"
-        android:layout_marginTop="13dp"
-        android:text="@string/lblMovilRegisto"
-        android:textColor="@android:color/background_dark"
-        android:textStyle="bold" />
+            <TextView
+                android:id="@+id/lblMovilRegistro"
+                android:layout_width="200dp"
+                android:layout_height="20dp"
+                android:layout_alignStart="@+id/edDNIRegistro"
+                android:layout_below="@+id/edDNIRegistro"
+                android:layout_marginTop="18dp"
+                android:text="@string/lblMovilRegisto"
+                android:textColor="@android:color/background_dark"
+                android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/edFechaRegistro"
-        android:layout_width="200dp"
-        android:layout_height="30dp"
+            <TextView
+                android:id="@+id/lblPrimerApellidoRegistro"
+                android:layout_width="200dp"
+                android:layout_height="20dp"
+                android:layout_alignStart="@+id/edNombreRegistro"
+                android:layout_below="@+id/edNombreRegistro"
+                android:layout_marginTop="16dp"
+                android:text="@string/lblPrimerApellidoRegistro"
+                android:textColor="@android:color/background_dark"
+                android:textStyle="bold" />
 
-        android:layout_alignStart="@+id/lblFechaNacimientoRegistro"
-        android:layout_below="@+id/lblFechaNacimientoRegistro"
-        android:background="@drawable/editextborder"
-        android:ems="10"
-        android:hint="@string/hintMovilRegistro"
-        android:inputType="textPersonName"
-        android:singleLine="false"
-        android:textSize="16dp" />
+            <EditText
+                android:id="@+id/edDNIRegistro"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+
+                android:layout_alignStart="@+id/lblDNIRegistro"
+                android:layout_below="@+id/lblDNIRegistro"
+                android:background="@drawable/editextborder"
+                android:ems="10"
+                android:hint="@string/hintDNIRegistro"
+                android:inputType="textPersonName"
+                android:singleLine="false"
+                android:textSize="16dp" />
+
+            <EditText
+                android:id="@+id/edFechaRegistro"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+
+                android:layout_alignStart="@+id/lblFechaNacimientoRegistro"
+                android:layout_alignTop="@+id/lblFechaNacimientoRegistro"
+                android:layout_marginTop="21dp"
+                android:layout_marginBottom="100dp"
+                android:background="@drawable/editextborder"
+                android:ems="10"
+                android:hint="@string/hintFechaRegistro"
+                android:inputType="date"
+                android:focusable="false"
+                android:clickable="true"
+                android:maxLines="1" />
+
+            <Button
+                android:id="@+id/btnRegistrase"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+
+                android:layout_below="@+id/lblFechaNacimientoRegistro"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="42dp"
+                android:layout_marginVertical="75dp"
+                android:background="@drawable/boton_redondeado"
+                android:text="@string/btnHacerRegistro"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </ScrollView>
 
 </RelativeLayout>

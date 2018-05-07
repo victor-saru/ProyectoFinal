@@ -1,6 +1,6 @@
 <resources>
     <!---Login-->
-    <string name="app_name">CoachManager</string>
+    <string name="app_name">Coach Manager</string>
     <string name="lblCorreoLogin">Correo</string>
     <string name="lblPasswordLogin">Contraseña</string>
     <string name="btnLogin">Iniciar sesión</string>
@@ -13,13 +13,17 @@
     <string name="lblNombreRegistro">Nombre</string>
     <string name="hintNombre">Jorge</string>
     <string name="lblPrimerApellidoRegistro">Primer apellido</string>
-    <string name="hintPrimerApellido">González</string>
+    <string name="hintPrimerApellidoRegistro">González</string>
     <string name="lblSegundoApellidoRegistro">Segundo apellido</string>
     <string name="hintSegundoApellidoRegistro">Sánchez</string>
     <string name="lblDNIRegistro">DNI</string>
     <string name="hintDNIRegistro">12345678Z</string>
     <string name="lblMovilRegisto">Móvil</string>
     <string name="hintMovilRegistro">668877399</string>
+    <string name="lblFechaRegistro">Fecha de nacimiento</string>
+    <string name="hintFechaRegistro">dd/mm/aaaa</string>
+    <string name="btnHacerRegistro">Registrarse</string>
+
 
 
 

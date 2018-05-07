@@ -3,7 +3,7 @@
     <!---Login-->
     <string name="lblCorreoLogin">Email</string>
     <string name="lblPasswordLogin">Password</string>
-    <string name="btnLogin">Log in</string>
+    <string name="btnLogin">Sign in</string>
     <string name="btnRecordarPassword">Did you forget the password?</string>
     <string name="hintCorreo">example@example.com</string>
     <string name="btnRegistrase">You do not have an account?</string>
@@ -20,5 +20,7 @@
     <string name="hintDNIRegistro">12345678</string>
     <string name="lblMovilRegisto">Mobile</string>
     <string name="hintMovilRegistro">668877399</string>
+    <string name="hintFechaRegistro">dd/mm/yyyy</string>
+    <string name="btnHacerRegistro">Sign up</string>
 
 </resources>
