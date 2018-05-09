@@ -20,6 +20,7 @@
     <string name="hintDNIRegistro">12345678</string>
     <string name="lblMovilRegisto">Mobile</string>
     <string name="hintMovilRegistro">668877399</string>
+    <string name="lblFechaRegistro">Birthdate</string>
     <string name="hintFechaRegistro">dd/mm/yyyy</string>
     <string name="btnHacerRegistro">Sign up</string>
 
