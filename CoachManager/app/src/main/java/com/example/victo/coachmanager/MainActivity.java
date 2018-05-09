@@ -10,6 +10,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Button btnRegistrase;
+    private Button btnLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +20,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnRegistrase = (Button) (findViewById(R.id.btnRegistrase));
         Log.e("kk", "1");
 
+        btnLogin = (Button) (findViewById(R.id.btnLogin));
+
         btnRegistrase.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                changeIntent();
+            }
+        });
+
+        btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 changeIntent();
