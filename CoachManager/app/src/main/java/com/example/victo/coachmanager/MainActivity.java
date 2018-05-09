@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnRegistrase;
     private Button btnLogin;
     private Connection conexion;
-    private String URL = "jdbc:mysql://localhost:3306/sakila";
+    private String URL = "jdbc:mysql://localhost:3306/moodle";
     private String IP = "127.0.0.1";
     private int PUERTO = 3306;
     private String BD = "coachmanager";
@@ -60,17 +60,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void conexionBD() {
 
         try {
-            Class.forName("mysql-connector-java-5.1.28-bin.jar").newInstance ();
+            //Class.forName("mysql-connector-java-5.1.28-bin.jar").newInstance ();
             conexion = DriverManager.getConnection(URL, USER, PASSWORD);
             System.out.println("Connexió a la BD realitzada!");
-        }catch(SQLException e){
+        }catch(SQLException e) {
             System.err.println("Error de connexió amb la BD: " + e.getMessage());
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
         }
     }
 
@@ -92,9 +86,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(i);
         }
 
-        if(id == btnLogin.getId()){
-            Intent i = new Intent(this, MenuActivity.class);
-            startActivity(i);
+        if(id == btnLogin.getId()) {
+
         }
 
     }
