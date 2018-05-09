@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
+        btnLogin = (Button) (findViewById(R.id.btnLogin));
+
         btnRegistrase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
