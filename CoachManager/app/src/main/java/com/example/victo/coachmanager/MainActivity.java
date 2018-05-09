@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     public void changeIntent(){
-        Intent i = new Intent(this, RegistroActivity.class);
+        Intent i = new Intent(this, MenuActivity.class);
         startActivity(i);
     }
 
@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(i);
         }
 
-        if(id == btnLogin.getId()){
+        else if(id == btnLogin.getId()){
             Intent i = new Intent(this, MenuActivity.class);
             startActivity(i);
         }
