@@ -1,6 +1,7 @@
 package com.example.victo.coachmanager;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,18 +13,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import static com.example.victo.coachmanager.ConexionBD.prueba;
+import static com.example.victo.coachmanager.MainActivity.conn;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Button btnRegistrase;
     private Button btnLogin;
-    private Connection conexion;
-    private String URL = "jdbc:mysql://localhost:3306/coachmanager";
-    private String IP = "127.0.0.1";
-    private int PUERTO = 3306;
-    private String BD = "coachmanager";
-    private String USER = "root";
-    private String PASSWORD = "";
-    private Statement statement;
+    public static Connection conn;
 
 
     @Override
@@ -31,17 +28,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnRegistrase = (Button) (findViewById(R.id.btnRegistrase));
-        conexion = null;
-        btnLogin = (Button) findViewById(R.id.btnLogin);
+        ConexionBD a = new ConexionBD();
+        a.execute();
 
+        Statement st = null;
         try {
-            conexion = DriverManager.getConnection(URL, USER, PASSWORD);
+            st = (Statement) prueba.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM personas");
+            while(rs.next()){
+                String resultado = rs.getString("nombre");
+                Log.e("kk", resultado);
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        conexionBD();
 
+
+
+        btnRegistrase = (Button) (findViewById(R.id.btnRegistrase));
+        btnLogin = (Button) findViewById(R.id.btnLogin);
         btnLogin = (Button) (findViewById(R.id.btnLogin));
 
         btnRegistrase.setOnClickListener(new View.OnClickListener() {
@@ -60,17 +65,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    private void conexionBD() {
 
-        try {
-            //Class.forName("libs/mysql-connector-java-5.1.28-bin.jar").newInstance ();
-            conexion = DriverManager.getConnection(URL, USER, PASSWORD);
-            System.out.println("Connexió a la BD realitzada!");
-        }catch(SQLException e) {
-            System.err.println("Error de connexió amb la BD: " + e.getMessage());
-
-        }
-    }
 
 
     public void changeIntent(){
@@ -96,4 +91,48 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
     }
+}
+
+
+class ConexionBD extends AsyncTask<Void, Integer, Boolean> {
+
+    public static Connection prueba;
+
+    @Override
+    protected Boolean doInBackground(Void... voids) {
+        conectarBD();
+        return null;
+    }
+
+
+    public Connection conectarBD() {
+
+
+        String url = "jdbc:mysql://192.168.1.45:3306/coachmanager";
+        String driver = "com.mysql.jdbc.Driver";
+        String userName = "pepe";
+        String password = "";
+
+        try {
+            Class.forName(driver).newInstance();
+            conn = DriverManager.getConnection(url, userName, password);
+            prueba = conn;
+            Log.e("kk", "Conexión Realizada");
+
+
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            System.err.println("Error de connexió amb la BD: " + e.getMessage());
+        }
+
+        return conn;
+
+    }
+
+
 }
