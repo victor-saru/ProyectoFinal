@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ConexionBD a = new ConexionBD();
         a.execute();
 
-        Statement st = null;
+       /*Statement st = null;
         try {
             st = (Statement) prueba.createStatement();
             ResultSet rs = st.executeQuery("SELECT * FROM personas");
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        }
+        }*/
 
 
 
