@@ -6,48 +6,49 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MenuActivity"
-    tools:showIn="@layout/app_bar_menu">
+    tools:showIn="@layout/app_bar_menu"
+    android:background="#EEEEEE">
 
     <ImageButton
         android:id="@+id/btnGrupos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="85dp"
-        android:layout_marginLeft="210dp"
-        android:layout_marginBottom="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/btnEntrenamiento"
+        android:layout_marginTop="86dp"
         android:background="@drawable/ripple_effect"
         android:padding="3dp"
-        android:src="@drawable/botonalumnos" />
+        android:src="@drawable/botongrupos" />
 
     <ImageButton
         android:id="@+id/btnEjercicios"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="240dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginBottom="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/btnEntrenamiento"
+        android:layout_marginStart="35dp"
         android:background="@drawable/ripple_effect"
         android:padding="3dp"
-        android:src="@drawable/botonalumnos" />
+        android:src="@drawable/botonejercicios" />
 
     <ImageButton
         android:id="@+id/btnEntrenamiento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="240dp"
-        android:layout_marginLeft="210dp"
-        android:layout_marginBottom="50dp"
+        android:layout_below="@+id/btnAlumnos"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="18dp"
+        android:layout_toEndOf="@+id/btnEjercicios"
         android:background="@drawable/ripple_effect"
         android:padding="3dp"
-        android:src="@drawable/botonalumnos" />
+        android:src="@drawable/botonentrenamientos" />
 
     <ImageButton
         android:id="@+id/btnAlumnos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="85dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginBottom="50dp"
+        android:layout_alignStart="@+id/btnEjercicios"
+        android:layout_alignTop="@+id/btnGrupos"
         android:background="@drawable/ripple_effect"
         android:padding="3dp"
         android:src="@drawable/botonalumnos" />

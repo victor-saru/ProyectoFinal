@@ -22,5 +22,7 @@
     <string name="hintMovilRegistro">668877399</string>
     <string name="hintFechaRegistro">dd/mm/aaaa</string>
     <string name="btnHacerRegistro">Registrar-se</string>
+    <string name="hintPrimerApellidoRegistro">Ferrer</string>
+    <string name="lblFechaRegistro">Data de naixement</string>
 
 </resources>
