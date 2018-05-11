@@ -9,13 +9,31 @@
     tools:showIn="@layout/app_bar_menu"
     android:background="#EEEEEE">
 
+    <Button
+        android:id="@+id/btnSobreNosotros"
+        android:layout_width="95dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/btnGrupos"
+        android:layout_alignTop="@+id/btnReportar"
+        android:background="@drawable/ripple_effect"
+        android:text="@string/sobreNosotros" />
+
+    <Button
+        android:id="@+id/btnAyuda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/btnReportar"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/ripple_effect"
+        android:text="@string/Ayuda" />
+
     <ImageButton
         android:id="@+id/btnGrupos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/btnEntrenamiento"
-        android:layout_marginTop="86dp"
+        android:layout_marginTop="106dp"
         android:background="@drawable/ripple_effect"
         android:padding="3dp"
         android:src="@drawable/botongrupos" />
@@ -24,9 +42,9 @@
         android:id="@+id/btnEjercicios"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/btnEntrenamiento"
-        android:layout_marginStart="35dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/btnAlumnos"
+        android:layout_marginBottom="300dp"
         android:background="@drawable/ripple_effect"
         android:padding="3dp"
         android:src="@drawable/botonejercicios" />
@@ -35,10 +53,9 @@
         android:id="@+id/btnEntrenamiento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btnAlumnos"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="18dp"
-        android:layout_toEndOf="@+id/btnEjercicios"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/btnEjercicios"
+        android:layout_marginEnd="50dp"
         android:background="@drawable/ripple_effect"
         android:padding="3dp"
         android:src="@drawable/botonentrenamientos" />
@@ -47,10 +64,21 @@
         android:id="@+id/btnAlumnos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/btnEjercicios"
+        android:layout_alignParentStart="true"
         android:layout_alignTop="@+id/btnGrupos"
+        android:layout_marginStart="50dp"
         android:background="@drawable/ripple_effect"
         android:padding="3dp"
         android:src="@drawable/botonalumnos" />
+
+    <Button
+        android:id="@+id/btnReportar"
+        android:layout_width="103dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/btnEjercicios"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/ripple_effect"
+        android:text="@string/reportarProblema" />
 
 </RelativeLayout>

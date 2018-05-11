@@ -32,4 +32,17 @@
     <string name="action_settings">Settings</string>
 
 
+    <!-- Desplegable usuario -->
+    <string name="ajustesUsuario">Ajustes</string>
+    <string name="cerrarSesion">Cerrar sesión</string>
+
+    <!-- Tres opciones del fondo en el menú principal -->
+    <string name="reportarProblema">Reportar un problema</string>
+    <string name="Ayuda">Ayuda</string>
+    <string name="sobreNosotros">Sobre nosotros</string>
+
+    <!-- Sobre nosotros -->
+    <string name="textoSobreNosotros">Coach Manager es una aplicación desarrollada por SabaDevs.\n\nEn SabaDevs, buscamos que nuestro software cumpla necesidades de la forma más sencilla posible.</string>
+    <string name="btnVolver">Volver</string>
+
 </resources>
