@@ -13,37 +13,40 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import static com.example.victo.coachmanager.ConexionBD.prueba;
-import static com.example.victo.coachmanager.MainActivity.conn;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Button btnRegistrase;
     private Button btnLogin;
-    public static Connection conn;
-
+    Connection conn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ConexionBD a = new ConexionBD();
-        a.execute();
+        conn = null;
+       // ConexionBD a = new ConexionBD();
+        //a.execute();
 
-       /*Statement st = null;
-        try {
-            st = (Statement) prueba.createStatement();
+        String pepe = "Hola";
+
+        ConexionPrueba a = new ConexionPrueba(pepe);
+        Thread tpepe = new Thread(a);
+        tpepe.start();
+
+        System.out.println(pepe);
+
+        /*try {
+            Statement st = (Statement) conn.createStatement();
             ResultSet rs = st.executeQuery("SELECT * FROM personas");
             while(rs.next()){
                 String resultado = rs.getString("nombre");
                 Log.e("kk", resultado);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
-        }*/
-
-
+            System.err.println("ERRRROOROROROROOR ");
+        }**/
 
         btnRegistrase = (Button) (findViewById(R.id.btnRegistrase));
         btnLogin = (Button) findViewById(R.id.btnLogin);
@@ -93,10 +96,64 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 }
 
+class ConexionPrueba implements Runnable{
+
+    Connection conn;
+    String pepe;
+
+    public ConexionPrueba(String pepe){
+        this.pepe = pepe;
+    }
+
+    @Override
+    public void run() {
+
+        pepe = "Deu";
+        conectar();
+    }
+
+    private void conectar() {
+        String url = "jdbc:mysql://10.1.6.74:3306/coachmanager";
+        String driver = "com.mysql.jdbc.Driver";
+        String userName = "pepe";
+        String password = "";
+
+        try {
+            Class.forName(driver).newInstance();
+            conn = DriverManager.getConnection(url, userName, password);
+            Log.e("kk", "Conexión Realizada");
+
+
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            System.err.println("Error de connexió amb la BD: " + e.getMessage());
+        }
+    }
+
+    public void ConsultaPrueba(){
+        try {
+            Statement st = (Statement) conn.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM personas");
+            while(rs.next()){
+                String resultado = rs.getString("nombre");
+                Log.e("kk", resultado);
+            }
+        } catch (SQLException e) {
+            System.err.println("ERRRROOROROROROOR ");
+        }
+
+    }
+}
+
 
 class ConexionBD extends AsyncTask<Void, Integer, Boolean> {
 
-    public static Connection prueba;
+    private static Connection conn;
 
     @Override
     protected Boolean doInBackground(Void... voids) {
@@ -105,10 +162,9 @@ class ConexionBD extends AsyncTask<Void, Integer, Boolean> {
     }
 
 
-    public Connection conectarBD() {
+    public static Connection conectarBD() {
 
-
-        String url = "jdbc:mysql://192.168.1.45:3306/coachmanager";
+        String url = "jdbc:mysql://10.1.6.74:3306/coachmanager";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "pepe";
         String password = "";
@@ -116,7 +172,6 @@ class ConexionBD extends AsyncTask<Void, Integer, Boolean> {
         try {
             Class.forName(driver).newInstance();
             conn = DriverManager.getConnection(url, userName, password);
-            prueba = conn;
             Log.e("kk", "Conexión Realizada");
 
 
@@ -131,6 +186,20 @@ class ConexionBD extends AsyncTask<Void, Integer, Boolean> {
         }
 
         return conn;
+
+    }
+
+    public void ConsultaPrueba(){
+        try {
+            Statement st = (Statement) conn.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM personas");
+            while(rs.next()){
+                String resultado = rs.getString("nombre");
+                Log.e("kk", resultado);
+            }
+        } catch (SQLException e) {
+            System.err.println("ERRRROOROROROROOR ");
+        }
 
     }
 
