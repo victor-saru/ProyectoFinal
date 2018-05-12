@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ConexionClandestina Conexion = new ConexionClandestina();
+       /* ConexionClandestina Conexion = new ConexionClandestina();
         Conexion.execute();
 
 
@@ -36,10 +36,10 @@ public class MainActivity extends AppCompatActivity {
 
         else{
             System.out.println("Cursor nulo");
-        }
+        }*/
 
 
-       /* Connexion connect = new Connexion();
+        Connexion connect = new Connexion();
 
         ConexionPrueba a = new ConexionPrueba(connect);
         Thread ThreadSaludo = new Thread(a);
@@ -53,30 +53,29 @@ public class MainActivity extends AppCompatActivity {
 
         System.out.println("Nuevo valor: " + connect.prueba);
 
-        /*try {
-            ThreadSaludo.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
 
         System.out.println("aaaaaaaaaaaaaaaaaaaaaaa " + connect.conn.toString());
-        try {
+
+
+
+      /* try {
             Statement st = (Statement) connect.conn.createStatement();
 
-            //ResultSet rs = st.executeQuery("SELECT * FROM personas");
+            ResultSet rs = st.executeQuery("SELECT * FROM personas");
             while(rs.next()){
                 String resultado = rs.getString("nombre");
                 Log.e("kk", resultado);
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-    }*/
+        }*/
+    }
 
     }
-}
 
-class ConexionClandestina extends AsyncTask<Void, Integer, Boolean>{
+
+/*class ConexionClandestina extends AsyncTask<Void, Integer, Boolean>{
 
     public static Connection conn;
     public static ResultSet rs;
@@ -123,14 +122,14 @@ class ConexionClandestina extends AsyncTask<Void, Integer, Boolean>{
     }
 
 
-}
+}*/
 
 class Connexion{
     Connection conn = null;
     String prueba = "aa";
 }
 
-/*class ConexionPrueba implements Runnable{
+class ConexionPrueba implements Runnable{
 
     Connexion connect;
 
@@ -147,7 +146,7 @@ class Connexion{
     }
 
     private void conectar() {
-        String url = "jdbc:mysql://10.1.6.74:3306/coachmanager";
+        String url = "jdbc:mysql://192.168.1.45:3306/coachmanager";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "pepe";
         String password = "";
@@ -158,9 +157,9 @@ class Connexion{
             System.out.println("bbbbbbbbbbbbbbbbbbbbbbbb " + connect.conn.toString());
             Log.e("kk", "Conexión Realizada");
 
-        while(true){
 
-        }
+
+
 
         } catch (InstantiationException e) {
             e.printStackTrace();
@@ -172,4 +171,6 @@ class Connexion{
             System.err.println("Error de connexió amb la BD: " + e.getMessage());
         }
     }
-}*/
+
+
+}
