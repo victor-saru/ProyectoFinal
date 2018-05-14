@@ -7,9 +7,7 @@
     tools:context=".Alumnos">
 
     <ListView
-        android:id="@+id/a"
+        android:id="@+id/lv_lista_alumnos"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-
-    </ListView>
+        android:layout_height="match_parent" />
 </android.support.design.widget.CoordinatorLayout>

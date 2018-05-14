@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.victo.coachmanager.VerAlumno">
+
+    <TextView
+        android:id="@+id/lblSegundoApellidoRegistro2"
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/edNombreAlumno"
+        android:layout_marginTop="40dp"
+        android:text="@string/lblSegundoApellidoRegistro"
+        android:textColor="@android:color/background_dark"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/edNombreAlumno"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/lblNombreAlumno"
+        android:background="@drawable/editextborder"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:singleLine="false"
+        android:textSize="16dp" />
+
+    <EditText
+        android:id="@+id/edSegundoApellidoRegistro2"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+
+        android:layout_alignStart="@+id/lblSegundoApellidoRegistro"
+        android:layout_below="@+id/lblSegundoApellidoRegistro"
+        android:background="@drawable/editextborder"
+        android:ems="10"
+        android:hint="@string/hintSegundoApellidoRegistro"
+        android:inputType="textPersonName"
+        android:singleLine="false"
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/lblDNIRegistro2"
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:layout_alignStart="@+id/edSegundoApellidoRegistro"
+        android:layout_below="@+id/edSegundoApellidoRegistro"
+        android:layout_marginTop="14dp"
+        android:text="@string/lblDNIRegistro"
+        android:textColor="@android:color/background_dark"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/lblFechaNacimientoRegistro2"
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:layout_alignStart="@+id/edMovilRegistro"
+        android:layout_below="@+id/edMovilRegistro"
+        android:layout_marginTop="18dp"
+        android:text="@string/lblFechaRegistro"
+        android:textColor="@android:color/background_dark"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/edPrimerApellidoRegistro2"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+
+        android:layout_alignStart="@+id/lblPrimerApellidoRegistro"
+        android:layout_below="@+id/lblPrimerApellidoRegistro"
+        android:background="@drawable/editextborder"
+        android:ems="10"
+        android:hint="@string/hintPrimerApellidoRegistro"
+        android:inputType="textPersonName"
+        android:singleLine="false"
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/lblNombreAlumno"
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/edFechaRegistro2"
+        android:text="@string/lblNombreRegistro"
+        android:textColor="@android:color/background_dark"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/edMovilRegistro2"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+
+        android:layout_alignStart="@+id/lblMovilRegistro"
+        android:layout_below="@+id/lblMovilRegistro"
+        android:background="@drawable/editextborder"
+        android:ems="10"
+        android:hint="@string/hintMovilRegistro"
+        android:inputType="textPersonName"
+        android:singleLine="false"
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/lblMovilRegistro2"
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:layout_alignStart="@+id/edDNIRegistro"
+        android:layout_below="@+id/edDNIRegistro"
+        android:layout_marginTop="18dp"
+        android:text="@string/lblMovilRegisto"
+        android:textColor="@android:color/background_dark"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/lblPrimerApellidoRegistro2"
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:layout_alignStart="@+id/edNombreRegistro"
+        android:layout_below="@+id/edNombreRegistro"
+        android:layout_marginTop="16dp"
+        android:text="@string/lblPrimerApellidoRegistro"
+        android:textColor="@android:color/background_dark"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/edDNIRegistro2"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+
+        android:layout_alignStart="@+id/lblDNIRegistro"
+        android:layout_below="@+id/lblDNIRegistro"
+        android:background="@drawable/editextborder"
+        android:ems="10"
+        android:hint="@string/hintDNIRegistro"
+        android:inputType="textPersonName"
+        android:singleLine="false"
+        android:textSize="16dp" />
+
+    <EditText
+        android:id="@+id/edFechaRegistro2"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+
+        android:layout_alignStart="@+id/lblFechaNacimientoRegistro"
+        android:layout_alignTop="@+id/lblFechaNacimientoRegistro"
+        android:layout_marginBottom="100dp"
+        android:layout_marginTop="21dp"
+        android:background="@drawable/editextborder"
+        android:clickable="true"
+        android:ems="10"
+        android:focusable="false"
+        android:hint="@string/hintFechaRegistro"
+        android:inputType="date"
+        android:maxLines="1" />
+
+    <ImageView
+        android:id="@+id/fotoAlumno"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="55dp"
+        app:srcCompat="@drawable/boton_redondeado" />
+</RelativeLayout>

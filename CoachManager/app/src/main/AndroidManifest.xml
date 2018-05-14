@@ -28,7 +28,8 @@
             android:label="@string/title_activity_menu"
             android:theme="@style/AppTheme" />
         <activity android:name=".SobreNosotros" />
-        <activity android:name=".Alumnos"></activity>
+        <activity android:name=".Alumnos" />
+        <activity android:name=".VerAlumno"></activity>
     </application>
 
 </manifest>
