@@ -62,7 +62,7 @@ public class ConsultarListaActivity extends AppCompatActivity implements Respons
             }
 
             //adaptador
-            
+
         }catch (JSONException e){
             e.printStackTrace();
         }
