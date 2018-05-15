@@ -38,11 +38,6 @@
     <string name="lblManoDomAlumno">Dominant hand</string>
     <string name="lblPieDomAlumno">Dominant foot</string>
     <string name="lblObservacionesAlumno">Notes</string>
-<<<<<<< HEAD
-    <string name="spinnerGeneroRegistro">Female</string>
-    <string name="toastDniRepetido">The ID exist</string>
-    <string name="toastRegistrado">Sing up done</string>
-=======
     <string name="btnGuardarEditAlum">Save changes</string>
     <string name="btnEditarAlumno">Edit student</string>
     <string name="lblGeneroAlumno">Gender</string>
@@ -50,6 +45,5 @@
     <string name="btnEditarrGrupo">Edit group</string>
     <string name="lblCategoriaGrupo">Category</string>
     <string name="lblAlumnosGrupo">Students</string>
->>>>>>> 798d4d6438adc02406bd2c9b1115bb4d6b754353
 
 </resources>
