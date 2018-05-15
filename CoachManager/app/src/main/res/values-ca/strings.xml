@@ -39,5 +39,9 @@
     <string name="lblManoDomAlumno">Mà dominant</string>
     <string name="lblPieDomAlumno">Peu dominant</string>
     <string name="lblObservacionesAlumno">Observacions</string>
+    <string name="btnGuardarEditAlum">Guardar canvis</string>
+    <string name="btnEditarAlumno">Editar alumne</string>
+    <string name="lblGeneroAlumno">Gènere</string>
+    <string name="btnAñadirAlumno">Afegir alumne</string>
 
 </resources>

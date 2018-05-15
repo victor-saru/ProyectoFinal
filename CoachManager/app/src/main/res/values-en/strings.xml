@@ -38,5 +38,9 @@
     <string name="lblManoDomAlumno">Dominant hand</string>
     <string name="lblPieDomAlumno">Dominant foot</string>
     <string name="lblObservacionesAlumno">Notes</string>
+    <string name="btnGuardarEditAlum">Save changes</string>
+    <string name="btnEditarAlumno">Edit student</string>
+    <string name="lblGeneroAlumno">Gender</string>
+    <string name="btnAñadirAlumno">Add student</string>
 
 </resources>

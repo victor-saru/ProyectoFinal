@@ -4,7 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Alumnos">
+    tools:context=".AlumnosActivity">
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/flbtnAñadirAlumno"
+        android:layout_width="58dp"
+        android:layout_height="53dp"
+        android:layout_gravity="end|bottom"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="20dp"
+        android:clickable="true"
+        app:fabSize="mini"
+        app:srcCompat="@drawable/iconocanyadir" />
 
     <ListView
         android:id="@+id/lv_lista_alumnos"

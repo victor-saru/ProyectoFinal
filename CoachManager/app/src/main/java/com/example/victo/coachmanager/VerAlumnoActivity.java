@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class VerAlumno extends AppCompatActivity {
+public class VerAlumnoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +18,17 @@ public class VerAlumno extends AppCompatActivity {
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(VerAlumno.this, Alumnos.class));
+                startActivity(new Intent(VerAlumnoActivity.this, AlumnosActivity.class));
+            }
+        });
+
+
+        Button btnEditarAlumno = (Button) findViewById(R.id.btnEditarAlumno);
+
+        btnEditarAlumno.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(VerAlumnoActivity.this, EditarAlumnoActivity.class));
             }
         });
     }

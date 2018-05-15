@@ -1,19 +1,16 @@
 package com.example.victo.coachmanager;
 
-import android.content.Context;
 import android.content.Intent;
-import android.os.Parcelable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Alumnos extends AppCompatActivity {
+public class AlumnosActivity extends AppCompatActivity {
 
     ArrayList<Alumno> al_alumnos;
     ListView lista_alumnos;
@@ -42,9 +39,18 @@ public class Alumnos extends AppCompatActivity {
                 Alumno a0;
                 a0 = (Alumno) lista_alumnos.getItemAtPosition(position);
 
-                Intent intent = new Intent(Alumnos.this,VerAlumno.class);
+                Intent intent = new Intent(AlumnosActivity.this,VerAlumnoActivity.class);
                 startActivity(intent);
 
+            }
+        });
+
+        FloatingActionButton fabAñadirAlum = (FloatingActionButton) findViewById(R.id.flbtnAñadirAlumno);
+
+        fabAñadirAlum.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AlumnosActivity.this, AnyadirAlumnoActivity.class));
             }
         });
 

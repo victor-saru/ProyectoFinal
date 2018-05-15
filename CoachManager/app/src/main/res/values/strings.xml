@@ -45,12 +45,16 @@
     <string name="textoSobreNosotros">Coach Manager es una aplicación desarrollada por SabaDevs.\n\nEn SabaDevs, buscamos que nuestro software cumpla necesidades de la forma más sencilla posible.</string>
     <string name="btnVolver">Volver</string>
 
-    <!-- Alumnos -->
+    <!-- AlumnosActivity -->
     <string name="lblGeneroAlumno">Género</string>
     <string name="lblPesoAlumno">Peso</string>
     <string name="lblAlturaAlumno">Altura</string>
     <string name="lblManoDomAlumno">Mano dominante</string>
     <string name="lblPieDomAlumno">Pie dominante</string>
     <string name="lblObservacionesAlumno">Observaciones</string>
+    <string name="btnEditarAlumno">Editar alumno</string>
+    <string name="btnGuardarEditAlum">Guardar cambios</string>
+    <string name="btnAñadirAlumno">Añadir alumno</string>
+
 
 </resources>
