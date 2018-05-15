@@ -24,7 +24,7 @@ if (isset($_GET["nombre"]) && isset($_GET["primer_apellido"]) && isset($_GET["dn
 
     $resultado_insert = mysqli_query($conexion, $insert);
 
-    
+    mysqli_close($conexion);
 }
 
 else{
@@ -39,3 +39,5 @@ else{
     $json['persona'][] = $resulta;
     echo json_encode($json);
 }
+
+?>
