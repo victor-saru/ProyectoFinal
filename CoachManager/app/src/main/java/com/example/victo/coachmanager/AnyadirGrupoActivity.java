@@ -6,19 +6,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class AnyadirAlumnoActivity extends AppCompatActivity {
+public class AnyadirGrupoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_anyadir_alumno);
+        setContentView(R.layout.activity_anyadir_grupo);
 
-        Button btnAñadirAlumno = (Button) findViewById(R.id.btnAñadirAlumno);
+        Button btnAñadirGrupo = (Button) findViewById(R.id.btnAñadirGrupo);
 
-        btnAñadirAlumno.setOnClickListener(new View.OnClickListener() {
+        btnAñadirGrupo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AnyadirAlumnoActivity.this, AlumnosActivity.class));
+                startActivity(new Intent(AnyadirGrupoActivity.this, GruposActivity.class));
             }
         });
 
@@ -27,7 +27,7 @@ public class AnyadirAlumnoActivity extends AppCompatActivity {
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AnyadirAlumnoActivity.this, AlumnosActivity.class));
+                startActivity(new Intent(AnyadirGrupoActivity.this, GruposActivity.class));
             }
         });
     }

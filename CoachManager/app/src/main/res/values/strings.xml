@@ -56,5 +56,11 @@
     <string name="btnGuardarEditAlum">Guardar cambios</string>
     <string name="btnAñadirAlumno">Añadir alumno</string>
 
+    <!-- GruopsActivity -->
+    <string name="btnEditarrGrupo">Editar grupo</string>
+    <string name="lblCategoriaGrupo">Categoría</string>
+    <string name="lblAlumnosGrupo">Alumnos</string>
+    <string name="btnAñadirGrupo">Añadir grupo</string>
+
 
 </resources>

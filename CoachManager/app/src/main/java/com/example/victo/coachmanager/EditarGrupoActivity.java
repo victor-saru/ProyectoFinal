@@ -4,21 +4,23 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.Button;
+import android.widget.ListView;
 
-public class AnyadirAlumnoActivity extends AppCompatActivity {
+public class EditarGrupoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_anyadir_alumno);
+        setContentView(R.layout.activity_editar_grupo);
 
-        Button btnAñadirAlumno = (Button) findViewById(R.id.btnAñadirAlumno);
+        Button btnGuardarCambios = (Button) findViewById(R.id.btnGuardarEditGrupo);
 
-        btnAñadirAlumno.setOnClickListener(new View.OnClickListener() {
+        btnGuardarCambios.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AnyadirAlumnoActivity.this, AlumnosActivity.class));
+                startActivity(new Intent(EditarGrupoActivity.this, VerGrupoActivity.class));
             }
         });
 
@@ -27,8 +29,9 @@ public class AnyadirAlumnoActivity extends AppCompatActivity {
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AnyadirAlumnoActivity.this, AlumnosActivity.class));
+                startActivity(new Intent(EditarGrupoActivity.this, VerGrupoActivity.class));
             }
         });
+
     }
 }

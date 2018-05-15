@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.example.victo.coachmanager.Adapters.AdapterAlumno;
+import com.example.victo.coachmanager.Entidades.Alumno;
+
 import java.util.ArrayList;
 
 public class AlumnosActivity extends AppCompatActivity {

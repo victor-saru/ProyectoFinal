@@ -49,6 +49,15 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
+        ImageButton btnGrupos = (ImageButton) findViewById(R.id.btnGrupos);
+
+        btnGrupos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MenuActivity.this, GruposActivity.class));
+            }
+        });
+
     }
 
     @Override

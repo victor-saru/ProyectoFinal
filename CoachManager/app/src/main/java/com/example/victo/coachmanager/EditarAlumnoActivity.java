@@ -22,5 +22,14 @@ public class EditarAlumnoActivity extends AppCompatActivity {
             }
         });
 
+        Button btnVolver = (Button) findViewById(R.id.btnVolver);
+
+        btnVolver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(EditarAlumnoActivity.this, VerAlumnoActivity.class));
+            }
+        });
+
     }
 }

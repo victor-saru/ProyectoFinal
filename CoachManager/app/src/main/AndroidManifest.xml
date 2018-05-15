@@ -31,7 +31,11 @@
         <activity android:name=".AlumnosActivity" />
         <activity android:name=".VerAlumnoActivity" />
         <activity android:name=".EditarAlumnoActivity" />
-        <activity android:name=".AnyadirAlumnoActivity"></activity>
+        <activity android:name=".AnyadirAlumnoActivity" />
+        <activity android:name=".GruposActivity" />
+        <activity android:name=".VerGrupoActivity" />
+        <activity android:name=".EditarGrupoActivity" />
+        <activity android:name=".AnyadirGrupoActivity"></activity>
     </application>
 
 </manifest>

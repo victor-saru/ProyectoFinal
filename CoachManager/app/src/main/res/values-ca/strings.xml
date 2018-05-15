@@ -43,5 +43,8 @@
     <string name="btnEditarAlumno">Editar alumne</string>
     <string name="lblGeneroAlumno">Gènere</string>
     <string name="btnAñadirAlumno">Afegir alumne</string>
+    <string name="btnEditarrGrupo">Editar grup</string>
+    <string name="lblCategoriaGrupo">Categoria</string>
+    <string name="lblAlumnosGrupo">Alumnes</string>
 
 </resources>
