@@ -215,32 +215,49 @@
                 android:id="@+id/edFechaRegistro"
                 android:layout_width="200dp"
                 android:layout_height="30dp"
-
                 android:layout_alignStart="@+id/lblFechaNacimientoRegistro"
-                android:layout_alignTop="@+id/lblFechaNacimientoRegistro"
-                android:layout_marginTop="21dp"
-                android:layout_marginBottom="100dp"
+                android:layout_below="@+id/lblFechaNacimientoRegistro"
                 android:background="@drawable/editextborder"
+                android:clickable="true"
                 android:ems="10"
+                android:focusable="false"
                 android:hint="@string/hintFechaRegistro"
                 android:inputType="date"
-                android:focusable="false"
-                android:clickable="true"
                 android:maxLines="1" />
 
+            <TextView
+                android:id="@+id/lblGeneroRegistro"
+                android:layout_width="200dp"
+                android:layout_height="20dp"
+                android:layout_alignStart="@+id/edFechaRegistro"
+                android:layout_alignTop="@+id/edFechaRegistro"
+                android:layout_marginTop="42dp"
+                android:text="@string/lblGenero"
+                android:textColor="@android:color/background_dark"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spinnerGeneroRegistro"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_alignStart="@+id/lblGeneroRegistro"
+                android:layout_below="@+id/lblGeneroRegistro"
+                android:background="@drawable/editextborder" />
+
             <Button
-                android:id="@+id/btnRegistrase"
+                android:id="@+id/btnRegistrar"
                 android:layout_width="200dp"
                 android:layout_height="30dp"
 
-                android:layout_below="@+id/lblFechaNacimientoRegistro"
+                android:layout_below="@+id/spinnerGeneroRegistro"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="42dp"
+                android:layout_marginTop="35dp"
                 android:layout_marginVertical="75dp"
                 android:background="@drawable/boton_redondeado"
                 android:text="@string/btnHacerRegistro"
                 android:textColor="@android:color/white"
                 android:textStyle="bold" />
+
         </RelativeLayout>
     </ScrollView>
 

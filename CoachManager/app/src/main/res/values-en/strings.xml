@@ -38,5 +38,8 @@
     <string name="lblManoDomAlumno">Dominant hand</string>
     <string name="lblPieDomAlumno">Dominant foot</string>
     <string name="lblObservacionesAlumno">Notes</string>
+    <string name="spinnerGeneroRegistro">Female</string>
+    <string name="toastDniRepetido">The ID exist</string>
+    <string name="toastRegistrado">Sing up done</string>
 
 </resources>

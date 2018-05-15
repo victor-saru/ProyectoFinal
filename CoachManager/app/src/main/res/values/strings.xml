@@ -52,5 +52,9 @@
     <string name="lblManoDomAlumno">Mano dominante</string>
     <string name="lblPieDomAlumno">Pie dominante</string>
     <string name="lblObservacionesAlumno">Observaciones</string>
+    <string name="lblGenero">Género</string>
+    <string name="spinnerGeneroRegistro">Femenino</string>
+    <string name="toastRegistrado">¡Registrado con éxito!</string>
+    <string name="toastDniRepetido">El DNI ya existe</string>
 
 </resources>

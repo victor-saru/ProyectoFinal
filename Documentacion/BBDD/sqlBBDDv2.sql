@@ -116,6 +116,11 @@ CREATE TABLE ASISTENCIAS(
 );
 
 
+http://10.1.6.74/CoachManagerPHP/CoachManager_InsertPersona.php?nombre=Juan&primer_apellido=Juan&segundo_apellido=Juan&dni=Juan&movil=Juan&fecha_nacimiento=2018/05/03&genero=Masculino
+
+
+
+
 /*INSERCCIÓN DE DATOS*/
 INSERT INTO PERSONAS 
     (NOMBRE, PRIMER_APELLIDO, SEGUNDO_APELLIDO, DNI, MOVIL, FECHA_NACIMIENTO, GENERO)

@@ -39,5 +39,8 @@
     <string name="lblManoDomAlumno">Mà dominant</string>
     <string name="lblPieDomAlumno">Peu dominant</string>
     <string name="lblObservacionesAlumno">Observacions</string>
+    <string name="spinnerGeneroRegistro">Femení</string>
+    <string name="toastDniRepetido">El DNI ja existeix</string>
+    <string name="toastRegistrado">Registrat amb exit</string>
 
 </resources>

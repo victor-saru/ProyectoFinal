@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
         progreso.setMessage("Prrrrrrrrrcés");
         progreso.show();*/
 
-        String url="http://192.168.1.45/ejemploBDremota/wsJSONMRegistro.php?nombre="+edNombre.getText().toString()+"&apellido="+edApellido.getText().toString();
+        String url="http://10.1.6.74/ejemploBDremota/wsJSONMRegistro.php?nombre="+edNombre.getText().toString()+"&apellido="+edApellido.getText().toString();
 
         // url = url.replace("", "%20") donde encuentre espacio que inserte un espacio real sin problemas
 
