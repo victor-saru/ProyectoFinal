@@ -1,4 +1,4 @@
-package com.example.victo.coachmanager;
+package com.example.victo.coachmanager.Entidades;
 
 /**
  * Created by Oscar on 14/05/2018.

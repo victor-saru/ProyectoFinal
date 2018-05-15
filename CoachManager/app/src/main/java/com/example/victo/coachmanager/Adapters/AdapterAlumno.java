@@ -1,4 +1,4 @@
-package com.example.victo.coachmanager;
+package com.example.victo.coachmanager.Adapters;
 
 import android.app.Activity;
 import android.content.Context;
@@ -6,10 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.victo.coachmanager.Alumno;
+import com.example.victo.coachmanager.Entidades.Alumno;
+import com.example.victo.coachmanager.R;
 
 import java.util.ArrayList;
 

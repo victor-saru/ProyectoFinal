@@ -7,6 +7,20 @@
     tools:context="com.example.victo.coachmanager.VerAlumnoActivity"
     android:background="#EEEEEE">
 
+    <Button
+        android:id="@+id/btnVolver"
+        android:layout_width="wrap_content"
+        android:layout_height="26dp"
+        android:layout_above="@+id/fotoAlumno"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="-55dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/boton_redondeado"
+        android:padding="4dip"
+        android:text="@string/btnVolver"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
+
     <ImageView
         android:id="@+id/fotoAlumno"
         android:layout_width="50dp"
@@ -27,7 +41,7 @@
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
-    <TextView
+    <EditText
         android:id="@+id/edNombreGrupo"
         android:layout_width="200dp"
         android:layout_height="30dp"
@@ -45,12 +59,12 @@
         android:layout_height="20dp"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/edNombreGrupo"
-        android:layout_marginTop="9dp"
+        android:layout_marginTop="8dp"
         android:text="@string/lblPrimerApellidoRegistro"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
-    <TextView
+    <EditText
         android:id="@+id/edPrimerApellidoAlumno"
         android:layout_width="200dp"
         android:layout_height="30dp"
@@ -73,7 +87,7 @@
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
-    <TextView
+    <EditText
         android:id="@+id/edSegundoApellidoAlumno"
         android:layout_width="200dp"
         android:layout_height="30dp"
@@ -96,7 +110,7 @@
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
-    <TextView
+    <EditText
         android:id="@+id/edGeneroAlumno"
         android:layout_width="200dp"
         android:layout_height="30dp"
@@ -119,7 +133,7 @@
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
-    <TextView
+    <EditText
         android:id="@+id/edFechaNacimientoAlumno"
         android:layout_width="200dp"
         android:layout_height="30dp"
@@ -143,7 +157,7 @@
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
-    <TextView
+    <EditText
         android:id="@+id/edDNIAlumno"
         android:layout_width="200dp"
         android:layout_height="30dp"
@@ -166,7 +180,7 @@
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
-    <TextView
+    <EditText
         android:id="@+id/edMovilAlumno"
         android:layout_width="200dp"
         android:layout_height="30dp"
@@ -189,8 +203,8 @@
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/lblPesoAlumnoValor"
+    <EditText
+        android:id="@+id/edPesoAlumno"
         android:layout_width="200dp"
         android:layout_height="30dp"
         android:layout_alignParentEnd="true"
@@ -212,8 +226,8 @@
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/lblAlturaAlumnoValor"
+    <EditText
+        android:id="@+id/edAlturaAlumno"
         android:layout_width="200dp"
         android:layout_height="30dp"
         android:layout_alignParentEnd="true"
@@ -234,8 +248,8 @@
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/lblManoDomAlumnoValor"
+    <EditText
+        android:id="@+id/edManoDomAlumno"
         android:layout_width="200dp"
         android:layout_height="30dp"
         android:layout_alignParentEnd="true"
@@ -256,8 +270,8 @@
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/lblPieDomAlumnoValor"
+    <EditText
+        android:id="@+id/edManoPieAlumno"
         android:layout_width="200dp"
         android:layout_height="30dp"
         android:layout_alignParentEnd="true"
@@ -279,8 +293,8 @@
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/lblObservacionesAlumnoValor"
+    <EditText
+        android:id="@+id/edObservacionesAlumno"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/edDNIAlumno"
@@ -291,29 +305,15 @@
         android:inputType="textMultiLine" />
 
     <Button
-        android:id="@+id/btnVolver"
+        android:id="@+id/btnAñadirAlumno"
         android:layout_width="wrap_content"
         android:layout_height="26dp"
-        android:layout_above="@+id/fotoAlumno"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="-55dp"
-        android:layout_marginStart="15dp"
-        android:background="@drawable/boton_redondeado"
-        android:text="@string/btnVolver"
-        android:textColor="@android:color/white"
-        android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/btnEditarAlumno"
-        android:layout_width="wrap_content"
-        android:layout_height="26dp"
-        android:layout_above="@+id/fotoAlumno"
         android:layout_alignParentEnd="true"
-        android:layout_marginBottom="-55dp"
+        android:layout_alignTop="@+id/btnVolver"
         android:layout_marginEnd="15dp"
         android:background="@drawable/boton_redondeado"
         android:padding="4dip"
-        android:text="@string/btnEditarAlumno"
+        android:text="@string/btnAñadirAlumno"
         android:textColor="@android:color/white"
         android:textStyle="bold" />
 

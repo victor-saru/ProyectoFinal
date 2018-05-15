@@ -27,9 +27,15 @@
             android:name=".MenuActivity"
             android:label="@string/title_activity_menu"
             android:theme="@style/AppTheme" />
-        <activity android:name=".SobreNosotros" />
-        <activity android:name=".Alumnos" />
-        <activity android:name=".VerAlumno"></activity>
+        <activity android:name=".SobreNosotrosActivity" />
+        <activity android:name=".AlumnosActivity" />
+        <activity android:name=".VerAlumnoActivity" />
+        <activity android:name=".EditarAlumnoActivity" />
+        <activity android:name=".AnyadirAlumnoActivity" />
+        <activity android:name=".GruposActivity" />
+        <activity android:name=".VerGrupoActivity" />
+        <activity android:name=".EditarGrupoActivity" />
+        <activity android:name=".AnyadirGrupoActivity"></activity>
     </application>
 
 </manifest>

@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class SobreNosotros extends AppCompatActivity {
+public class SobreNosotrosActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +18,7 @@ public class SobreNosotros extends AppCompatActivity {
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SobreNosotros.this, MenuActivity.class));
+                startActivity(new Intent(SobreNosotrosActivity.this, MenuActivity.class));
             }
         });
 
