@@ -239,11 +239,12 @@
 
             <Spinner
                 android:id="@+id/spinnerGeneroRegistro"
+                style="@style/Base.Widget.AppCompat.Spinner.Underlined"
                 android:layout_width="200dp"
-                android:layout_height="30dp"
+                android:layout_height="37dp"
                 android:layout_alignStart="@+id/lblGeneroRegistro"
                 android:layout_below="@+id/lblGeneroRegistro"
-                android:background="@drawable/editextborder" />
+                android:backgroundTint="#01C321" />
 
             <Button
                 android:id="@+id/btnRegistrar"

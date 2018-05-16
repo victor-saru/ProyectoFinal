@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 
 public class EditarAlumnoActivity extends AppCompatActivity {
 
@@ -30,6 +32,18 @@ public class EditarAlumnoActivity extends AppCompatActivity {
                 startActivity(new Intent(EditarAlumnoActivity.this, VerAlumnoActivity.class));
             }
         });
+
+        Spinner SpGeneroAlumno = (Spinner) findViewById(R.id.SpGeneroAlumno);
+        String[] GeneroAlumno = {" ", getString(R.string.GeneroMasculino), getString(R.string.GeneroFemenino)};
+        SpGeneroAlumno.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, GeneroAlumno));
+
+        Spinner SpManoDom = (Spinner) findViewById(R.id.SpManoDom);
+        String[] ManoDom = {" ", getString(R.string.ManoDomIzq), getString(R.string.ManoDomDer)};
+        SpManoDom.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ManoDom));
+
+        Spinner SpPieDom = (Spinner) findViewById(R.id.SpPieDom);
+        String[] PieDom = {" ", getString(R.string.PieDomIzq), getString(R.string.PieDomDer)};
+        SpPieDom.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, PieDom));
 
     }
 }

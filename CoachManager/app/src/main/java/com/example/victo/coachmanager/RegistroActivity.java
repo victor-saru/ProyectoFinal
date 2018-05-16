@@ -43,13 +43,11 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
     JsonObjectRequest jsonConsultaRequest;
     JSONObject jsonObject;
 
-    String[] Generos = {" ", "Femenino", "Masculino"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
-
 
         edCorreoRegistro = (EditText) findViewById(R.id.edCorreoRegistro);
         edPasswordRegistro = (EditText) findViewById(R.id.edPasswordRegistro);
@@ -64,9 +62,13 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
         spinnerGeneroRegistro = (Spinner) findViewById(R.id.spinnerGeneroRegistro);
         
         request = Volley.newRequestQueue(getApplicationContext());
+
+        String[] Generos = {" ", getString(R.string.GeneroMasculino), getString(R.string.GeneroFemenino)};
+
         spinnerGeneroRegistro.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, Generos));
 
         btnRegistrarse.setOnClickListener(this);
+
     }
 
     @Override

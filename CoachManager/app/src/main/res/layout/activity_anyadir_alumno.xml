@@ -7,20 +7,6 @@
     tools:context="com.example.victo.coachmanager.VerAlumnoActivity"
     android:background="#EEEEEE">
 
-    <Button
-        android:id="@+id/btnVolver"
-        android:layout_width="wrap_content"
-        android:layout_height="26dp"
-        android:layout_above="@+id/fotoAlumno"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="-55dp"
-        android:layout_marginStart="16dp"
-        android:background="@drawable/boton_redondeado"
-        android:padding="4dip"
-        android:text="@string/btnVolver"
-        android:textColor="@android:color/white"
-        android:textStyle="bold" />
-
     <ImageView
         android:id="@+id/fotoAlumno"
         android:layout_width="50dp"
@@ -110,13 +96,14 @@
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/edGeneroAlumno"
+    <Spinner
+        android:id="@+id/SpGeneroAlumno"
+        style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+        android:backgroundTint="#01C321"
         android:layout_width="200dp"
-        android:layout_height="30dp"
+        android:layout_height="37dp"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/lblGeneroAlumno"
-        android:background="@drawable/editextborder"
         android:ems="10"
         android:inputType="textPersonName"
         android:singleLine="false"
@@ -127,7 +114,7 @@
         android:layout_width="200dp"
         android:layout_height="20dp"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/edGeneroAlumno"
+        android:layout_below="@+id/SpGeneroAlumno"
         android:layout_marginTop="8dp"
         android:text="@string/lblFechaRegistro"
         android:textColor="@android:color/background_dark"
@@ -248,39 +235,37 @@
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/edManoDomAlumno"
+    <Spinner
+        android:id="@+id/SpManoDom"
+        style="@style/Base.Widget.AppCompat.Spinner.Underlined"
         android:layout_width="200dp"
-        android:layout_height="30dp"
+        android:layout_height="37dp"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/lblManoDomAlumno"
-        android:background="@drawable/editextborder"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:singleLine="false"
-        android:textSize="16dp" />
+        android:layout_below="@+id/lblSegundoApellidoAlumno"
+        android:backgroundTint="#01C321" />
 
     <TextView
         android:id="@+id/lblPieDomAlumno"
         android:layout_width="200dp"
         android:layout_height="20dp"
-        android:layout_above="@+id/edGeneroAlumno"
+        android:layout_above="@+id/SpGeneroAlumno"
         android:layout_alignParentEnd="true"
         android:text="@string/lblPieDomAlumno"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/edManoPieAlumno"
+    <Spinner
+        android:id="@+id/SpPieDom"
+        style="@style/Base.Widget.AppCompat.Spinner.Underlined"
         android:layout_width="200dp"
-        android:layout_height="30dp"
+        android:layout_height="37dp"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/lblPieDomAlumno"
-        android:background="@drawable/editextborder"
         android:ems="10"
         android:inputType="textPersonName"
         android:singleLine="false"
-        android:textSize="16dp" />
+        android:textSize="16dp"
+        android:backgroundTint="#01C321"/>
 
     <TextView
         android:id="@+id/lblObservacionesAlumno"
@@ -307,14 +292,23 @@
     <Button
         android:id="@+id/btnAñadirAlumno"
         android:layout_width="wrap_content"
-        android:layout_height="26dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/btnVolver"
-        android:layout_marginEnd="15dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="25dp"
         android:background="@drawable/boton_redondeado"
         android:padding="4dip"
         android:text="@string/btnAñadirAlumno"
         android:textColor="@android:color/white"
         android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/btnVolver"
+        android:layout_width="34dp"
+        android:layout_height="44dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/fotoAlumno"
+        android:layout_marginStart="15dp"
+        app:srcCompat="@drawable/flechaatras" />
 
 </RelativeLayout>

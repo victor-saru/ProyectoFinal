@@ -1,6 +1,6 @@
 <resources>
     <!---Login-->
-    <string name="app_name">Coach Manager</string>
+    <string name="app_name" translatable="false">Coach Manager</string>
     <string name="lblCorreoLogin">Correo</string>
     <string name="lblPasswordLogin">Contraseña</string>
     <string name="btnLogin">Iniciar sesión</string>
@@ -23,13 +23,19 @@
     <string name="lblFechaRegistro">Fecha de nacimiento</string>
     <string name="hintFechaRegistro">dd/mm/aaaa</string>
     <string name="btnHacerRegistro">Registrarse</string>
-    <string name="title_activity_menu">Coach Manager</string>
+    <string name="title_activity_menu" translatable="false">Coach Manager</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+    <string name="GeneroMasculino">Masculino</string>
+    <string name="GeneroFemenino">Femenino</string>
+    <string name="ManoDomIzq">Izquierda</string>
+    <string name="ManoDomDer">Derecha</string>
+    <string name="PieDomIzq">Izquierdo</string>
+    <string name="PieDomDer">Derecho</string>
 
 
     <!-- Desplegable usuario -->
@@ -56,11 +62,13 @@
     <string name="btnGuardarEditAlum">Guardar cambios</string>
     <string name="btnAñadirAlumno">Añadir alumno</string>
 
-    <!-- GruopsActivity -->
+    <!-- GruposActivity -->
     <string name="btnEditarrGrupo">Editar grupo</string>
     <string name="lblCategoriaGrupo">Categoría</string>
     <string name="lblAlumnosGrupo">Alumnos</string>
     <string name="btnAñadirGrupo">Añadir grupo</string>
+    <string name="lblGenero">Género</string>
+    <string name="hintPrimerApellido">García</string>
 
 
 </resources>
