@@ -112,8 +112,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         else{
             Toast.makeText(getApplicationContext(), "Inicio de sesión correcto", Toast.LENGTH_SHORT).show();
-            Intent i = new Intent(this, MenuActivity.class);
-            startActivity(i);
+
+            Intent intent = new Intent(this, MenuActivity.class);
+
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("id_persona",resultado);
+
+            intent.putExtras(bundle);
+            startActivityForResult(intent,1);
         }
 
     }

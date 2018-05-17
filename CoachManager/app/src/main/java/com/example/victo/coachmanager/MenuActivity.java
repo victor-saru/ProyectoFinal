@@ -13,7 +13,22 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-public class MenuActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+public class MenuActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener , Response.Listener<JSONObject>, Response.ErrorListener{
+
+    private String id_persona;
+    RequestQueue request;
+    JsonObjectRequest jsonObjectRequest;
+    String resultado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +36,15 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_menu_principal);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        Bundle objecteEnviat = getIntent().getExtras();
+
+
+        if(objecteEnviat != null){
+            id_persona = (String) objecteEnviat.getSerializable("id_jugador");
+        }
+
+        cargarWebService();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -57,6 +81,15 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(new Intent(MenuActivity.this, GruposActivity.class));
             }
         });
+
+    }
+
+    private void cargarWebService() {
+
+        String url="http://10.1.6.74/CoachManagerPHP/CoachManager_InfoPersona.php?id_persona="+id_persona;
+
+        jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
+        request.add(jsonObjectRequest);
 
     }
 
@@ -99,4 +132,37 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    @Override
+    public void onResponse(JSONObject response) {
+
+        JSONArray json = response.optJSONArray("persona");
+
+        try {
+            String nombre;
+            String apellidos;
+            String correo;
+
+            JSONObject jsonObject = null;
+            jsonObject = json.getJSONObject(0);
+            nombre = jsonObject.optString("nombre");
+            jsonObject = json.getJSONObject(1);
+            apellidos = jsonObject.optString("primer_apellido");
+            jsonObject = json.getJSONObject(2);
+            apellidos += jsonObject.optString("segundo_apellido");
+            jsonObject = json.getJSONObject(3);
+            apellidos += jsonObject.optString("correo");
+
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+
+    }
+
+    @Override
+    public void onErrorResponse(VolleyError error) {
+
+    }
+
+
 }
