@@ -69,10 +69,11 @@
         android:id="@+id/btnRecordarPassword"
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="wrap_content"
-        android:layout_height="20dp"
+        android:layout_height="25dp"
         android:layout_below="@+id/edPasswordLogin"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="12dp"
+        android:padding="3dip"
         android:background="@drawable/ripple_effect"
         android:text="@string/btnRecordarPassword" />
 
@@ -92,11 +93,12 @@
         android:id="@+id/btnRegistrase"
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="wrap_content"
-        android:layout_height="20dp"
+        android:layout_height="28dp"
         android:layout_below="@+id/btnLogin"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:background="@drawable/ripple_effect"
+        android:padding="3dip"
         android:text="@string/btnRegistrase" />
 
     <TextView
