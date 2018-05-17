@@ -244,6 +244,8 @@
                 android:layout_height="37dp"
                 android:layout_alignStart="@+id/lblGeneroRegistro"
                 android:layout_below="@+id/lblGeneroRegistro"
+                android:paddingTop="5dp"
+                android:paddingStart="0dp"
                 android:backgroundTint="#01C321" />
 
             <Button

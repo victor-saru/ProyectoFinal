@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 
 public class EditarAlumnoActivity extends AppCompatActivity {
@@ -20,16 +21,18 @@ public class EditarAlumnoActivity extends AppCompatActivity {
         btnGuardarCambios.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(EditarAlumnoActivity.this, VerAlumnoActivity.class));
+                Intent intent = new Intent(EditarAlumnoActivity.this, VerAlumnoActivity.class);
+                startActivityForResult(intent,1);
             }
         });
 
-        Button btnVolver = (Button) findViewById(R.id.btnVolver);
+        ImageView btnVolver = (ImageView) findViewById(R.id.btnVolver);
 
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(EditarAlumnoActivity.this, VerAlumnoActivity.class));
+                Intent intent = new Intent(EditarAlumnoActivity.this, VerAlumnoActivity.class);
+                startActivityForResult(intent,1);
             }
         });
 
@@ -44,6 +47,9 @@ public class EditarAlumnoActivity extends AppCompatActivity {
         Spinner SpPieDom = (Spinner) findViewById(R.id.SpPieDom);
         String[] PieDom = {" ", getString(R.string.PieDomIzq), getString(R.string.PieDomDer)};
         SpPieDom.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, PieDom));
+    }
 
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        finish();
     }
 }

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 public class EditarGrupoActivity extends AppCompatActivity {
@@ -20,18 +21,23 @@ public class EditarGrupoActivity extends AppCompatActivity {
         btnGuardarCambios.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(EditarGrupoActivity.this, VerGrupoActivity.class));
+                Intent intent = new Intent(EditarGrupoActivity.this, VerGrupoActivity.class);
+                startActivityForResult(intent,1);
             }
         });
 
-        Button btnVolver = (Button) findViewById(R.id.btnVolver);
+        ImageView btnVolver = (ImageView) findViewById(R.id.btnVolver);
 
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(EditarGrupoActivity.this, VerGrupoActivity.class));
+                Intent intent = new Intent(EditarGrupoActivity.this, VerGrupoActivity.class);
+                startActivityForResult(intent,1);
             }
         });
+    }
 
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        finish();
     }
 }

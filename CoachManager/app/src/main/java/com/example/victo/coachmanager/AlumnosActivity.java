@@ -38,9 +38,9 @@ public class AlumnosActivity extends AppCompatActivity {
         lista_alumnos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                finish();
                 Intent intent = new Intent(AlumnosActivity.this,VerAlumnoActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent,1);
+                //startActivity(intent);
 
             }
         });
@@ -50,10 +50,13 @@ public class AlumnosActivity extends AppCompatActivity {
         fabAñadirAlum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
-                startActivity(new Intent(AlumnosActivity.this, AnyadirAlumnoActivity.class));
+                Intent intent = new Intent(AlumnosActivity.this, AnyadirAlumnoActivity.class);
+                startActivityForResult(intent,1);
             }
         });
+    }
 
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        finish();
     }
 }

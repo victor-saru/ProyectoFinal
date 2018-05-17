@@ -22,8 +22,8 @@ public class AnyadirAlumnoActivity extends AppCompatActivity {
         btnAñadirAlumno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
-                startActivity(new Intent(AnyadirAlumnoActivity.this, AlumnosActivity.class));
+                Intent intent = new Intent(AnyadirAlumnoActivity.this, AlumnosActivity.class);
+                startActivityForResult(intent,1);
             }
         });
 
@@ -32,8 +32,8 @@ public class AnyadirAlumnoActivity extends AppCompatActivity {
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
-                startActivity(new Intent(AnyadirAlumnoActivity.this, AlumnosActivity.class));
+                Intent intent = new Intent(AnyadirAlumnoActivity.this, AlumnosActivity.class);
+                startActivityForResult(intent,1);
             }
         });
 
@@ -48,6 +48,9 @@ public class AnyadirAlumnoActivity extends AppCompatActivity {
         Spinner SpPieDom = (Spinner) findViewById(R.id.SpPieDom);
         String[] PieDom = {" ", getString(R.string.PieDomIzq), getString(R.string.PieDomDer)};
         SpPieDom.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, PieDom));
+    }
 
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        finish();
     }
 }

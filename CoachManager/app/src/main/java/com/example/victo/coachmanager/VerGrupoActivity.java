@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 public class VerGrupoActivity extends AppCompatActivity {
 
@@ -13,12 +14,13 @@ public class VerGrupoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ver_grupo);
 
-        Button btnVolver = (Button) findViewById(R.id.btnVolver);
+        ImageView btnVolver = (ImageView) findViewById(R.id.btnVolver);
 
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(VerGrupoActivity.this, GruposActivity.class));
+                Intent intent = new Intent(VerGrupoActivity.this, GruposActivity.class);
+                startActivityForResult(intent,1);
             }
         });
 
@@ -27,8 +29,13 @@ public class VerGrupoActivity extends AppCompatActivity {
         btnEditarGrupo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(VerGrupoActivity.this, EditarGrupoActivity.class));
+                Intent intent = new Intent(VerGrupoActivity.this, EditarGrupoActivity.class);
+                startActivityForResult(intent,1);
             }
         });
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        finish();
     }
 }
