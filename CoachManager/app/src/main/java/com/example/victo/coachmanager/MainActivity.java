@@ -6,13 +6,30 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 
-
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, Response.Listener<JSONObject>, Response.ErrorListener{
 
     private Button btnRegistrase;
     private Button btnLogin;
+    private EditText edCorreoLogin;
+    private EditText edPasswordLogin;
+    RequestQueue request;
+    JsonObjectRequest jsonObjectRequest;
+    String resultado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +39,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btnRegistrase = (Button) (findViewById(R.id.btnRegistrase));
         btnLogin = (Button) findViewById(R.id.btnLogin);
-        btnLogin = (Button) (findViewById(R.id.btnLogin));
+        edCorreoLogin = (EditText) findViewById(R.id.edCorreoLogin);
+        edPasswordLogin = (EditText) findViewById(R.id.edPasswordLogin);
+
+
+        request = Volley.newRequestQueue(getApplicationContext());
 
         btnRegistrase.setOnClickListener(this);
         btnLogin.setOnClickListener(this);
@@ -46,11 +67,64 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         else if(id == btnLogin.getId()){
+
+            cargarWebSerevice();
+
+        }
+
+    }
+
+    private void cargarWebSerevice() {
+
+        String url="http://10.1.6.74/CoachManagerPHP/CoachManager_Login.php?"
+                +"correo="+edCorreoLogin.getText().toString()
+                +"&contrasenya="+edPasswordLogin.getText().toString();
+
+        jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
+        request.add(jsonObjectRequest);
+
+    }
+
+    @Override
+    public void onResponse(JSONObject response) {
+
+        JSONArray json=response.optJSONArray("login");
+        JSONObject jsonObject=null;
+
+        try {
+            jsonObject = json.getJSONObject(0);
+            resultado = (jsonObject.optString("resultado"));
+        }catch(JSONException e){
+            e.printStackTrace();
+        }
+
+        if(resultado.equals("Null")){
+            Toast.makeText(getApplicationContext(), "Tienes que rellenar todos los campos obligatorios", Toast.LENGTH_SHORT).show();
+        }
+
+        else if(resultado.equals("Correo")){
+            Toast.makeText(getApplicationContext(), "El correo introducido no es correcto", Toast.LENGTH_SHORT).show();
+        }
+
+        else if(resultado.equals("Contrasenya")){
+            Toast.makeText(getApplicationContext(), "La contraseña introducida no es correcta", Toast.LENGTH_SHORT).show();
+        }
+
+        else{
+            Toast.makeText(getApplicationContext(), "Inicio de sesión correcto", Toast.LENGTH_SHORT).show();
             Intent i = new Intent(this, MenuActivity.class);
             startActivity(i);
         }
 
     }
+
+    @Override
+    public void onErrorResponse(VolleyError error) {
+        Toast.makeText(getApplicationContext(), "No se ha podido conectar con la base de datos", Toast.LENGTH_SHORT).show();
+        Log.i("ERROR", error.toString());
+    }
+
+
 }
 
 
