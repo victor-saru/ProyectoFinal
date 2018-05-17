@@ -7,37 +7,77 @@ $password_localhost = "";
 
 $json = array();
 
-if (isset($_GET["nombre"]) && isset($_GET["primer_apellido"]) && isset($_GET["dni"]) && isset($_GET["movil"]) && isset($_GET["fecha_nacimiento"])){
+//&& $_GET["contrasenya"] != ""
+if($_GET["dni"] != "" && $_GET["nombre"] != "" && $_GET["primer_apellido"] != "" && $_GET["movil"] != "" && $_GET["fecha_nacimiento"] != "" && $_GET["correo"] != "" ){
 
-    $nombre = $_GET["nombre"];
-    $primer_apellido = $_GET["nomprimer_apellidobre"];
-    $segundo_apellido = $_GET["segundo_apellido"];
-    $dni = $_GET["dni"];
-    $movil = $_GET["movil"];
-    $fecha_nacimiento = $_GET["fecha_nacimiento"];
-    $genero = $_GET["genero"];
+    $dniGET = $_GET["dni"];
+
+    echo $dniGET;
 
     $conexion = mysqli_connect($hostname_localhost, $username_localhost, $password_localhost, $database_localhost);
 
-    $insert = "INSERT INTO PERSONAS (NOMBRE, PRIMER_APELLIDO, SEGUNDO_APELLIDO, DNI, MOVIL, FECHA_NACIMIENTO, GENERO)" 
-        + " VALUES ('{$nombre}', '{$primer_apellido}', '{$segundo_apellido}', '{$dni}', '{$movil}', '{$fecha_nacimiento}', '{$genero}')";
+    $consulta = "SELECT dni FROM personas WHERE dni = '{$dniGET}'";
+    $resultado = mysqli_query($conexion, $consulta);
 
-    $resultado_insert = mysqli_query($conexion, $insert);
+    $dniResultado = mysqli_fetch_row($resultado);
 
-    mysqli_close($conexion);
+    echo "<br>DNI CONSULTA".$dniResultado[0];
+
+    
+//$dni[0]
+    if($dniResultado[0] == NULL){
+
+        //echo "correcto";
+
+        $nombre = $_GET["nombre"];
+        $primer_apellido = $_GET["primer_apellido"];
+        $segundo_apellido = $_GET["segundo_apellido"];
+        //$dni = $_GET["dni"];
+        $movil = $_GET["movil"];
+        $fecha_nacimiento = $_GET["fecha_nacimiento"];
+        $genero = $_GET["genero"];
+
+        $correo = $_GET["correo"];
+        $contrasenya = $_GET["contrasenya"];
+
+        $insertPersona = "INSERT INTO PERSONAS (NOMBRE, PRIMER_APELLIDO, SEGUNDO_APELLIDO, DNI, MOVIL, FECHA_NACIMIENTO, GENERO) VALUES ('{$nombre}', '{$primer_apellido}', '{$segundo_apellido}', '{$dniGET}', '{$movil}', '{$fecha_nacimiento}', '{$genero}')";
+
+        $resultado_insertPersona = mysqli_query($conexion, $insertPersona);
+
+        
+
+        $consultaPersona = "SELECT id_persona FROM personas WHERE UPPER(dni) = UPPER('{$dniGET}')";
+        $resultado_consultaPersona = mysqli_query($conexion, $consultaPersona);
+        $id_persona = mysqli_fetch_row($resultado_consultaPersona);
+
+        echo "<br>ID_PERSONA".$id_persona[0];
+
+        $insertEntrenador = "INSERT INTO ENTRENADORES (CORREO, CONTRASENA, ID_PERSONA) VALUES ('{$correo}', '{$contrasenya}', '{$id_persona[0]}')";
+                            
+        $resultado_insertEntrenador = mysqli_query($conexion, $insertEntrenador);
+        
+        $resulta["resultado"] = "Correcto";
+        $json['persona'][] = $resulta;
+
+        echo json_encode($json);  
+        mysqli_close($conexion);
+    }
+
+    else{
+        //echo "dni repetido";
+        $resulta["resultado"] = "Repetido";
+        $json['persona'][] = $resulta;
+        echo json_encode($json);
+        mysqli_close($conexion);
+    }
 }
 
 else{
-    $resulta["nombre"] = 'WS No registra';
-    $resulta["nomprimer_apellidobre"] = 'WS No registra';
-    $resulta["segundo_apellido"] = 'WS No registra';
-    $resulta["dni"] = 'WS No registra';
-    $resulta["movil"] = 'WS No registra';
-    $resulta["fecha_nacimiento"] = 'WS No registra';
-    $resulta["genero"] = 'WS No registra';
-
+    //echo "campo sin rellenar";
+    $resulta["resultado"] = "Null";
     $json['persona'][] = $resulta;
     echo json_encode($json);
+    mysqli_close($conexion);
 }
 
 ?>

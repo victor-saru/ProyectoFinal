@@ -41,7 +41,8 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
     JsonObjectRequest jsonObjectRequest;
     RequestQueue ConsultaRequest;
     JsonObjectRequest jsonConsultaRequest;
-    JSONObject jsonObject;
+    String resultado;
+
 
     String[] Generos = {" ", "Femenino", "Masculino"};
 
@@ -78,10 +79,51 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
             }
             
             case R.id.btnRegistrar:{
-                cargarWebService();
+                comprobarValores();
                 break;
             }
         }
+    }
+
+    private void comprobarValores() {
+
+        if(!comprovarIntegerYString(edMovilRegistro.getText().toString())){
+            Toast.makeText(getApplicationContext(), "Tienes que introducir un móvil correcto", Toast.LENGTH_SHORT).show();
+        }
+
+        else if(comprovarIntegerYString(edNombreRegistro.getText().toString())){
+            Toast.makeText(getApplicationContext(), "Tienes que introducir un nombre correcto", Toast.LENGTH_SHORT).show();
+        }
+
+        else if(comprovarIntegerYString(edPrimerApellidoRegistro.getText().toString())){
+            Toast.makeText(getApplicationContext(), "Tienes que introducir un apellido correcto", Toast.LENGTH_SHORT).show();
+        }
+
+        else if(comprovarIntegerYString(edSegundoApellidoRegistro.getText().toString())){
+            Toast.makeText(getApplicationContext(), "Tienes que introducir un apellido correcto", Toast.LENGTH_SHORT).show();
+        }
+
+        else{
+            cargarWebService();
+        }
+
+    }
+
+
+
+    private boolean comprovarIntegerYString(String s) {
+
+        boolean resultado;
+
+        try {
+            Integer.parseInt(s);
+            resultado = true;
+        }catch(NumberFormatException e){
+            resultado = false;
+        }
+
+        return resultado;
+
     }
 
     private void cargarWebService() {
@@ -92,8 +134,16 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
                 +"&dni="+edDNIRegistro.getText().toString()
                 +"&movil="+edMovilRegistro.getText().toString()
                 +"&fecha_nacimiento="+edFechaRegistro.getText().toString()
-                +"&genero="+spinnerGeneroRegistro.getSelectedItem().toString();
+                +"&genero="+spinnerGeneroRegistro.getSelectedItem().toString()
+                +"&correo="+edCorreoRegistro.getText().toString()
+                +"&contraseña="+edPasswordRegistro.getText().toString();
 
+                System.out.println("CONTRASEÑA: " + edPasswordRegistro.getText().toString());
+        //http://10.1.6.74/CoachManagerPHP/CoachManager_InsertPersona.php?nombre=pepe&primer_apellido=hola&segundo_apellido=hola&dni=134&movil=123&fecha_nacimiento=2018/05/03&genero=masculino&correo=victor$contraseña=asdf
+
+
+
+        System.out.println("FECHA NACIMIENTO: " + edFechaRegistro.getText().toString());
 
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
         request.add(jsonObjectRequest);
@@ -104,7 +154,7 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 // +1 because january is zero
-                final String selectedDate = day + " / " + (month+1) + " / " + year;
+                final String selectedDate = year + "/" + (month+1) + "/" + day;
                 edFechaRegistro.setText(selectedDate);
             }
         });
@@ -114,38 +164,33 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onResponse(JSONObject response) {
 
-
+        JSONArray json=response.optJSONArray("persona");
+        JSONObject jsonObject=null;
         try {
-            JSONArray json = response.optJSONArray("persona");
             jsonObject = json.getJSONObject(0);
+            resultado = (jsonObject.optString("resultado"));
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Log.e("kk", "HOLAAAAA");
-        System.out.println(jsonObject.optString("persona"));
 
-        Log.e("kk", jsonObject.optString("persona"));
-
-        if(jsonObject.optString("dni") == "Repetido"){
-            Toast.makeText(getApplicationContext(), "DNI Repetido", Toast.LENGTH_SHORT).show();
+        if(resultado.equals("Repetido")){
+            Toast.makeText(getApplicationContext(), "Has introducido un DNI ya existente", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(), "Has introducido un DNI ya existente", Toast.LENGTH_SHORT).show(); CATALAN
+            //Toast.makeText(getApplicationContext(), "Has introducido un DNI ya existente", Toast.LENGTH_SHORT).show(); INGLES
         }
 
-        if(jsonObject.optString("dni") == "Null"){
-            Toast.makeText(getApplicationContext(), "Tienes q rellenar los campos obligatorios", Toast.LENGTH_SHORT).show();
+        else if(resultado.equals("Null")){
+            Toast.makeText(getApplicationContext(), "Tienes que rellenar todos los campos obligatorios", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(), "Tienes que rellenar todos los campos obligatorios", Toast.LENGTH_SHORT).show(); CATALAN
+            //Toast.makeText(getApplicationContext(), "Tienes que rellenar todos los campos obligatorios", Toast.LENGTH_SHORT).show(); INGLES
         }
 
         else{
-            Toast.makeText(getApplicationContext(), "Registrado", Toast.LENGTH_SHORT).show();
-            edCorreoRegistro.setText("");
-            edPasswordRegistro.setText("");
-            edNombreRegistro.setText("");
-            edPrimerApellidoRegistro.setText("");
-            edSegundoApellidoRegistro.setText("");
-            edDNIRegistro.setText("");
-            edMovilRegistro.setText("");
-            edFechaRegistro.setText("");
-            spinnerGeneroRegistro.setSelection(0);
+            Toast.makeText(getApplicationContext(), "Registrado con éxito", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(), "Registrado con éxito", Toast.LENGTH_SHORT).show(); CATALAN
+            //Toast.makeText(getApplicationContext(), "Registrado con éxito", Toast.LENGTH_SHORT).show(); INGLES
+            finish();
         }
 
     }
@@ -154,7 +199,7 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
     public void onErrorResponse(VolleyError error) {
 
         Log.e("kk", error.getMessage());
-        Toast.makeText(getApplicationContext(), "No se ha registrado correctamnte", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "No se ha podido conectar con la base de datos", Toast.LENGTH_SHORT).show();
         Log.i("ERROR", error.toString());
     }
 
