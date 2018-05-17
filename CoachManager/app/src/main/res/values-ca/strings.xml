@@ -46,5 +46,12 @@
     <string name="btnEditarrGrupo">Editar grup</string>
     <string name="lblCategoriaGrupo">Categoria</string>
     <string name="lblAlumnosGrupo">Alumnes</string>
+    <string name="GeneroMasculino">Masculí</string>
+    <string name="GeneroFemenino">Femení</string>
+    <string name="btnAñadirGrupo">Afegir grup</string>
+    <string name="ManoDomIzq">Esquerra</string>
+    <string name="ManoDomDer">Dreta</string>
+    <string name="PieDomIzq">Esquerre</string>
+    <string name="PieDomDer">Dret</string>
 
 </resources>

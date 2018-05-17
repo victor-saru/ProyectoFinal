@@ -45,5 +45,13 @@
     <string name="btnEditarrGrupo">Edit group</string>
     <string name="lblCategoriaGrupo">Category</string>
     <string name="lblAlumnosGrupo">Students</string>
+    <string name="GeneroMasculino">Male</string>
+    <string name="GeneroFemenino">Female</string>
+    <string name="btnAñadirGrupo">Add group</string>
+    <string name="hintPrimerApellido">Smith</string>
+    <string name="ManoDomIzq">Left</string>
+    <string name="ManoDomDer">Right</string>
+    <string name="PieDomDer">Right</string>
+    <string name="PieDomIzq">Left</string>
 
 </resources>

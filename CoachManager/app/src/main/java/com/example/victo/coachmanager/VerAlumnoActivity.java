@@ -18,6 +18,7 @@ public class VerAlumnoActivity extends AppCompatActivity {
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                finish();
                 startActivity(new Intent(VerAlumnoActivity.this, AlumnosActivity.class));
             }
         });
@@ -28,6 +29,7 @@ public class VerAlumnoActivity extends AppCompatActivity {
         btnEditarAlumno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                finish();
                 startActivity(new Intent(VerAlumnoActivity.this, EditarAlumnoActivity.class));
             }
         });

@@ -97,7 +97,7 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/edGeneroAlumno"
+        android:id="@+id/SpGeneroAlumno"
         android:layout_width="200dp"
         android:layout_height="30dp"
         android:layout_alignParentStart="true"
@@ -113,7 +113,7 @@
         android:layout_width="200dp"
         android:layout_height="20dp"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/edGeneroAlumno"
+        android:layout_below="@+id/SpGeneroAlumno"
         android:layout_marginTop="8dp"
         android:text="@string/lblFechaRegistro"
         android:textColor="@android:color/background_dark"
@@ -250,7 +250,7 @@
         android:id="@+id/lblPieDomAlumno"
         android:layout_width="200dp"
         android:layout_height="20dp"
-        android:layout_above="@+id/edGeneroAlumno"
+        android:layout_above="@+id/SpGeneroAlumno"
         android:layout_alignParentEnd="true"
         android:text="@string/lblPieDomAlumno"
         android:textColor="@android:color/background_dark"
@@ -290,18 +290,14 @@
         android:ems="10"
         android:inputType="textMultiLine" />
 
-    <Button
+    <ImageView
         android:id="@+id/btnVolver"
-        android:layout_width="wrap_content"
-        android:layout_height="26dp"
-        android:layout_above="@+id/fotoAlumno"
+        android:layout_width="34dp"
+        android:layout_height="44dp"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="-55dp"
+        android:layout_alignTop="@+id/fotoAlumno"
         android:layout_marginStart="15dp"
-        android:background="@drawable/boton_redondeado"
-        android:text="@string/btnVolver"
-        android:textColor="@android:color/white"
-        android:textStyle="bold" />
+        app:srcCompat="@drawable/flechaatras" />
 
     <Button
         android:id="@+id/btnEditarAlumno"

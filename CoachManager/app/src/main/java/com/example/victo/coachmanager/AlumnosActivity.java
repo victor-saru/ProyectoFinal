@@ -38,10 +38,7 @@ public class AlumnosActivity extends AppCompatActivity {
         lista_alumnos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                Alumno a0;
-                a0 = (Alumno) lista_alumnos.getItemAtPosition(position);
-
+                finish();
                 Intent intent = new Intent(AlumnosActivity.this,VerAlumnoActivity.class);
                 startActivity(intent);
 
@@ -53,6 +50,7 @@ public class AlumnosActivity extends AppCompatActivity {
         fabAñadirAlum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                finish();
                 startActivity(new Intent(AlumnosActivity.this, AnyadirAlumnoActivity.class));
             }
         });
