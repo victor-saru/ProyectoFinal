@@ -107,6 +107,8 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:singleLine="false"
+        android:paddingTop="5dp"
+        android:paddingStart="0dp"
         android:textSize="16dp" />
 
     <TextView
@@ -242,6 +244,8 @@
         android:layout_height="37dp"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/lblSegundoApellidoAlumno"
+        android:paddingTop="5dp"
+        android:paddingStart="0dp"
         android:backgroundTint="#01C321" />
 
     <TextView
@@ -265,6 +269,8 @@
         android:inputType="textPersonName"
         android:singleLine="false"
         android:textSize="16dp"
+        android:paddingTop="5dp"
+        android:paddingStart="0dp"
         android:backgroundTint="#01C321"/>
 
     <TextView
