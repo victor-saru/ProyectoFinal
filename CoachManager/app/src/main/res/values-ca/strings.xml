@@ -53,5 +53,6 @@
     <string name="ManoDomDer">Dreta</string>
     <string name="PieDomIzq">Esquerre</string>
     <string name="PieDomDer">Dret</string>
+    <string name="lblDescripcionEjercicio">Descripció</string>
 
 </resources>
