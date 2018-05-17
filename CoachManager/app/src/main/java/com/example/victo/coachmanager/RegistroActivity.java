@@ -89,7 +89,11 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
 
     private void comprobarValores() {
 
-        if(!comprovarIntegerYString(edMovilRegistro.getText().toString())){
+        if(edMovilRegistro.getText().toString().isEmpty()){
+            Toast.makeText(getApplicationContext(), "Tienes que rellenar todos los campos obligatorios", Toast.LENGTH_SHORT).show();
+        }
+
+        else if(!comprovarIntegerYString(edMovilRegistro.getText().toString())){
             Toast.makeText(getApplicationContext(), "Tienes que introducir un móvil correcto", Toast.LENGTH_SHORT).show();
         }
 
@@ -138,10 +142,10 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
                 +"&fecha_nacimiento="+edFechaRegistro.getText().toString()
                 +"&genero="+spinnerGeneroRegistro.getSelectedItem().toString()
                 +"&correo="+edCorreoRegistro.getText().toString()
-                +"&contraseña="+edPasswordRegistro.getText().toString();
+                +"&contrasenya="+edPasswordRegistro.getText().toString();
 
                 System.out.println("CONTRASEÑA: " + edPasswordRegistro.getText().toString());
-        //http://10.1.6.74/CoachManagerPHP/CoachManager_InsertPersona.php?nombre=pepe&primer_apellido=hola&segundo_apellido=hola&dni=134&movil=123&fecha_nacimiento=2018/05/03&genero=masculino&correo=victor$contraseña=asdf
+        //http://10.1.6.74/CoachManagerPHP/CoachManager_InsertPersona.php?nombre=Victor&primer_apellido=Sanchez&segundo_apellido=Rubio&dni=134&movil=661837375&fecha_nacimiento=2018/05/03&genero=masculino&correo=victor&contrasenya=asdf
 
 
 

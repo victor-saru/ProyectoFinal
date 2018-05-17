@@ -12,7 +12,7 @@ if($_GET["dni"] != "" && $_GET["nombre"] != "" && $_GET["primer_apellido"] != ""
 
     $dniGET = $_GET["dni"];
 
-    echo $dniGET;
+    //echo $dniGET;
 
     $conexion = mysqli_connect($hostname_localhost, $username_localhost, $password_localhost, $database_localhost);
 
@@ -21,7 +21,7 @@ if($_GET["dni"] != "" && $_GET["nombre"] != "" && $_GET["primer_apellido"] != ""
 
     $dniResultado = mysqli_fetch_row($resultado);
 
-    echo "<br>DNI CONSULTA".$dniResultado[0];
+    //echo "<br>DNI CONSULTA".$dniResultado[0];
 
     
 //$dni[0]
@@ -50,9 +50,9 @@ if($_GET["dni"] != "" && $_GET["nombre"] != "" && $_GET["primer_apellido"] != ""
         $resultado_consultaPersona = mysqli_query($conexion, $consultaPersona);
         $id_persona = mysqli_fetch_row($resultado_consultaPersona);
 
-        echo "<br>ID_PERSONA".$id_persona[0];
+        //echo "<br>ID_PERSONA".$id_persona[0];
 
-        $insertEntrenador = "INSERT INTO ENTRENADORES (CORREO, CONTRASENA, ID_PERSONA) VALUES ('{$correo}', '{$contrasenya}', '{$id_persona[0]}')";
+        $insertEntrenador = "INSERT INTO ENTRENADORES (CORREO, CONTRASENYA, ID_PERSONA) VALUES ('{$correo}', SHA1('{$contrasenya}'), '{$id_persona[0]}')";
                             
         $resultado_insertEntrenador = mysqli_query($conexion, $insertEntrenador);
         

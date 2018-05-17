@@ -28,7 +28,7 @@
 
             <TextView
                 android:id="@+id/lblSegundoApellidoRegistro"
-                android:layout_width="200dp"
+                android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 android:layout_alignStart="@+id/edPrimerApellidoRegistro"
                 android:layout_below="@+id/edPrimerApellidoRegistro"
@@ -39,7 +39,7 @@
 
             <TextView
                 android:id="@+id/lblCorreoRegistro"
-                android:layout_width="200dp"
+                android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 android:layout_alignStart="@+id/logoRegistro"
                 android:layout_below="@+id/logoRegistro"
@@ -51,7 +51,7 @@
 
             <TextView
                 android:id="@+id/lblFechaNacimientoRegistro"
-                android:layout_width="200dp"
+                android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 android:layout_alignStart="@+id/edMovilRegistro"
                 android:layout_below="@+id/edMovilRegistro"
@@ -62,7 +62,7 @@
 
             <TextView
                 android:id="@+id/lblPasswordRegistro"
-                android:layout_width="200dp"
+                android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 android:layout_alignStart="@+id/edCorreoRegistro"
                 android:layout_below="@+id/edCorreoRegistro"
@@ -88,7 +88,7 @@
 
             <TextView
                 android:id="@+id/lblDNIRegistro"
-                android:layout_width="200dp"
+                android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 android:layout_alignStart="@+id/edSegundoApellidoRegistro"
                 android:layout_below="@+id/edSegundoApellidoRegistro"
@@ -99,7 +99,7 @@
 
             <TextView
                 android:id="@+id/lblNombreRegistro"
-                android:layout_width="200dp"
+                android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 android:layout_alignStart="@+id/edPasswordRegistro"
                 android:layout_below="@+id/edPasswordRegistro"
@@ -178,7 +178,7 @@
 
             <TextView
                 android:id="@+id/lblMovilRegistro"
-                android:layout_width="200dp"
+                android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 android:layout_alignStart="@+id/edDNIRegistro"
                 android:layout_below="@+id/edDNIRegistro"
@@ -189,7 +189,7 @@
 
             <TextView
                 android:id="@+id/lblPrimerApellidoRegistro"
-                android:layout_width="200dp"
+                android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 android:layout_alignStart="@+id/edNombreRegistro"
                 android:layout_below="@+id/edNombreRegistro"
@@ -228,7 +228,7 @@
 
             <TextView
                 android:id="@+id/lblGeneroRegistro"
-                android:layout_width="200dp"
+                android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 android:layout_alignStart="@+id/edFechaRegistro"
                 android:layout_alignTop="@+id/edFechaRegistro"
@@ -258,6 +258,97 @@
                 android:background="@drawable/boton_redondeado"
                 android:text="@string/btnHacerRegistro"
                 android:textColor="@android:color/white"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/lblAsterisco"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+
+                android:layout_above="@+id/edCorreoRegistro"
+                android:layout_marginStart="3dp"
+                android:layout_toEndOf="@+id/lblCorreoRegistro"
+                android:text="*"
+                android:textAlignment="viewEnd"
+                android:textColor="#01C321"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/lblAsterisco2"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+
+                android:layout_above="@+id/edPasswordRegistro"
+                android:layout_toEndOf="@+id/lblPasswordRegistro"
+                android:layout_marginStart="3dp"
+                android:text="*"
+                android:textAlignment="viewEnd"
+                android:textColor="#01C321"
+                android:textStyle="bold" />
+
+            <TextView
+            android:id="@+id/lblAsterisco3"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+
+            android:layout_above="@+id/edNombreRegistro"
+            android:layout_toEndOf="@+id/lblNombreRegistro"
+            android:layout_marginStart="3dp"
+            android:text="*"
+            android:textAlignment="viewEnd"
+            android:textColor="#01C321"
+            android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/lblAsterisco4"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+
+                android:layout_above="@+id/edPrimerApellidoRegistro"
+                android:layout_toEndOf="@+id/lblPrimerApellidoRegistro"
+                android:layout_marginStart="3dp"
+                android:text="*"
+                android:textAlignment="viewEnd"
+                android:textColor="#01C321"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/lblAsterisco5"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+
+                android:layout_above="@+id/edDNIRegistro"
+                android:layout_toEndOf="@+id/lblDNIRegistro"
+                android:layout_marginStart="3dp"
+                android:text="*"
+                android:textAlignment="viewEnd"
+                android:textColor="#01C321"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/lblAsterisco6"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+
+                android:layout_above="@+id/edMovilRegistro"
+                android:layout_toEndOf="@+id/lblMovilRegistro"
+                android:layout_marginStart="3dp"
+                android:text="*"
+                android:textAlignment="viewEnd"
+                android:textColor="#01C321"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/lblAsterisco6"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+
+                android:layout_above="@+id/edFechaRegistro"
+                android:layout_toEndOf="@+id/lblFechaNacimientoRegistro"
+                android:layout_marginStart="3dp"
+                android:text="*"
+                android:textAlignment="viewEnd"
+                android:textColor="#01C321"
                 android:textStyle="bold" />
 
         </RelativeLayout>
