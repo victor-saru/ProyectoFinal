@@ -25,5 +25,12 @@ if($_GET["id_persona"] != ""){
 
 }
 
+else{
+    $resulta["resultado"] = "Null";
+    $json['persona'][] = $resulta;
+    echo json_encode($json);
+    mysqli_close($conexion);
+}
+
 
 ?>

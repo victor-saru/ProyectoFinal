@@ -134,7 +134,7 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
 
     private void cargarWebService() {
 
-        String url="http://10.1.6.74/CoachManagerPHP/CoachManager_InsertPersona_Entrenador.php?nombre="+edNombreRegistro.getText().toString()
+        String url="http://192.168.1.45/CoachManagerPHP/CoachManager_InsertPersona_Entrenador.php?nombre="+edNombreRegistro.getText().toString()
                 +"&primer_apellido="+edPrimerApellidoRegistro.getText().toString()
                 +"&segundo_apellido="+edSegundoApellidoRegistro.getText().toString()
                 +"&dni="+edDNIRegistro.getText().toString()
@@ -207,8 +207,6 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
     
     @Override
     public void onErrorResponse(VolleyError error) {
-
-        Log.e("kk", error.getMessage());
         Toast.makeText(getApplicationContext(), "No se ha podido conectar con la base de datos", Toast.LENGTH_SHORT).show();
         Log.i("ERROR", error.toString());
     }

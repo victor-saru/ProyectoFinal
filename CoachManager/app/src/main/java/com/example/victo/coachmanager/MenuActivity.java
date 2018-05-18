@@ -2,6 +2,7 @@ package com.example.victo.coachmanager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,16 +13,21 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.victo.coachmanager.Entidades.VolleySingleton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import static java.security.AccessController.getContext;
 
 public class MenuActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener , Response.Listener<JSONObject>, Response.ErrorListener{
 
@@ -29,19 +35,24 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
     String resultado;
+    TextView lblNombreApellidosBar;
+    TextView lblCorreoBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_principal);
+        //setContentView(R.layout.nav_header_menu);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
 
         Bundle objecteEnviat = getIntent().getExtras();
 
 
         if(objecteEnviat != null){
-            id_persona = (String) objecteEnviat.getSerializable("id_jugador");
+            id_persona = (String) objecteEnviat.getSerializable("id_persona");
         }
 
         cargarWebService();
@@ -95,10 +106,12 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
 
     private void cargarWebService() {
 
-        String url="http://10.1.6.74/CoachManagerPHP/CoachManager_InfoPersona.php?id_persona="+id_persona;
+        System.out.println("ID : " + id_persona);
+
+        String url="http://192.168.1.45/CoachManagerPHP/CoachManager_InfoPersona.php?id_persona="+id_persona;
 
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
-        request.add(jsonObjectRequest);
+        VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
 
     }
 
@@ -148,19 +161,27 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
         JSONArray json = response.optJSONArray("persona");
 
         try {
-            String nombre;
-            String apellidos;
-            String correo;
+            String nombre = null;
+            String apellidos = null;
+            String correo = null;
 
-            JSONObject jsonObject = null;
-            jsonObject = json.getJSONObject(0);
-            nombre = jsonObject.optString("nombre");
-            jsonObject = json.getJSONObject(1);
-            apellidos = jsonObject.optString("primer_apellido");
-            jsonObject = json.getJSONObject(2);
-            apellidos += jsonObject.optString("segundo_apellido");
-            jsonObject = json.getJSONObject(3);
-            apellidos += jsonObject.optString("correo");
+            for(int i = 0; i < json.length(); i++){
+                JSONObject jsonObject = null;
+                jsonObject = json.getJSONObject(i);
+                nombre = jsonObject.optString("nombre");
+                apellidos = jsonObject.optString("primer_apellido");
+                apellidos += " " + jsonObject.optString("segundo_apellido");
+                correo = jsonObject.optString("CORREO");
+            }
+
+            NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+
+            View hView = navigationView.getHeaderView(0);
+
+            lblNombreApellidosBar = (TextView) hView.findViewById(R.id.lblNombreApellidosBar);
+            lblCorreoBar = (TextView) hView.findViewById(R.id.lblCorreoBar);
+            lblNombreApellidosBar.setText(nombre + " " + apellidos);
+            lblCorreoBar.setText(correo);
 
         }catch (JSONException e){
             e.printStackTrace();
@@ -170,7 +191,8 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public void onErrorResponse(VolleyError error) {
-
+        Toast.makeText(getApplicationContext(), "No se ha podido conectar con la base de datos", Toast.LENGTH_SHORT).show();
+        Log.i("ERROR", error.toString());
     }
 
 
