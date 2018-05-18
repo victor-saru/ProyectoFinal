@@ -82,8 +82,6 @@ public class AlumnosActivity extends AppCompatActivity implements Response.Liste
     @Override
     public void onResponse(JSONObject response) {
 
-        System.out.println("HOLAAAAAAAA");
-
         JSONArray json = response.optJSONArray("alumnos");
 
         try {

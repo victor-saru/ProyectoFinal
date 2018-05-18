@@ -9,6 +9,10 @@ public class Grupo {
         this.categoria = categoria;
     }
 
+    public Grupo(){
+
+    }
+
     public String getNombre() {
         return nombre;
     }
