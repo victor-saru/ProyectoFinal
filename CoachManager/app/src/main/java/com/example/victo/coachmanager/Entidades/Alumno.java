@@ -28,6 +28,10 @@ public class Alumno {
         this.altura = altura;
     }
 
+    public Alumno(){
+
+    }
+
     public String getNombre() {
         return nombre;
     }
