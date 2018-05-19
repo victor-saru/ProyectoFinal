@@ -34,13 +34,20 @@ public class GruposActivity extends AppCompatActivity implements Response.Listen
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
     AdapterGrupo adapter;
+    private int id_entrenador;
+    private int id_persona;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grupos);
 
-        int id;
+        Bundle objecteEnviat = getIntent().getExtras();
+
+
+        if(objecteEnviat != null){
+            Integer id_persona = (Integer) objecteEnviat.getSerializable("i");
+        }
 
         al_grupos = new ArrayList<Grupo>();
         lista_grupos = (ListView) findViewById(R.id.lv_lista_grupos);
