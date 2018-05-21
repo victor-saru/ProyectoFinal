@@ -87,11 +87,11 @@ public class AnyadirGrupoActivity extends AppCompatActivity implements View.OnCl
     private void comprobarValores() {
 
         if(edNombreGrupo.getText().toString().isEmpty()){
-            Toast.makeText(getApplicationContext(), "Tienes que rellenar todos los campos obligatorios", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.errorRellCampsObl), Toast.LENGTH_SHORT).show();
         }
 
         else if(comprovarIntegerYString(edNombreGrupo.getText().toString())){
-            Toast.makeText(getApplicationContext(), "Tienes que introducir un nombre correcto", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.errorNombre), Toast.LENGTH_SHORT).show();
         }
         
         else{

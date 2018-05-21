@@ -73,7 +73,7 @@ public class AlumnosActivity extends AppCompatActivity implements Response.Liste
 
     private void cargarWebService(){
 
-        String url="http://192.168.1.45/CoachManagerPHP/CoachManager_Alumnos.php";
+        String url="http://10.1.6.23/CoachManagerPHP/CoachManager_Alumnos.php";
 
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
         VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
@@ -120,7 +120,7 @@ public class AlumnosActivity extends AppCompatActivity implements Response.Liste
 
     @Override
     public void onErrorResponse(VolleyError error) {
-        Toast.makeText(getApplicationContext(), "No se ha podido conectar con la base de datos", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), getString(R.string.errorConexionBD), Toast.LENGTH_SHORT).show();
         Log.i("ERROR", error.toString());
 
     }
