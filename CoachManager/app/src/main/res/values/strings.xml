@@ -36,7 +36,17 @@
     <string name="ManoDomDer">Derecha</string>
     <string name="PieDomIzq">Izquierdo</string>
     <string name="PieDomDer">Derecho</string>
+    <string name="errorCorreo">Introduce un correo correcto</string>
+    <string name="errorContrasenya">Introduce una contraseña correcta</string>
+    <string name="InicioSesionCorrecto">Inicio de sesión correcto</string>
 
+    <!-- MenuActivity -->
+    <string name="errorConexionBD">No se ha podido conectar con la base de datos</string>
+
+    <!-- Olvidar contrasenya -->
+    <string name="lblCorreoRecu">Introduce tu email y te enviaremos un enlace para que restablezcas tu contraseña.</string>
+    <string name="btnEnviarEnlace">Enviar enlace</string>
+    <string name="errorEmailVacio">Introduce un email</string>
 
     <!-- Desplegable usuario -->
     <string name="ajustesUsuario">Ajustes</string>
@@ -62,6 +72,17 @@
     <string name="btnGuardarEditAlum">Guardar cambios</string>
     <string name="btnAñadirAlumno">Añadir alumno</string>
 
+    <!-- AnyadirAlumnoActivity -->
+    <string name="errorRellCampsObl">Rellena todos los campos obligatorios</string>
+    <string name="errorMovil">Introduce un móvil correcto</string>
+    <string name="errorPeso">Introduce un peso correcto</string>
+    <string name="errorAltura">Introduce una altura correcta</string>
+    <string name="errorNombre">Introduce un nombre correcto</string>
+    <string name="errorApellido">Introduce un apellido correcto</string>
+    <string name="errorCorreoExistente">Has introducido un correo ya existente</string>
+    <string name="errorDNIExistente">Has introducido un DNI ya existente</string>
+    <string name="RegistradoExito">Registrado con éxito</string>
+
     <!-- GruposActivity -->
     <string name="btnEditarrGrupo">Editar grupo</string>
     <string name="lblCategoriaGrupo">Categoría</string>
@@ -72,5 +93,6 @@
 
     <!-- AnyadirEjercicioActivity -->
     <string name="lblDescripcionEjercicio">Descripción</string>
+    <string name="btnAñadirEjercicio">Añadir ejercicio</string>
 
 </resources>

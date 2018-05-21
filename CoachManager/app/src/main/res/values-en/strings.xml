@@ -54,5 +54,19 @@
     <string name="PieDomDer">Right</string>
     <string name="PieDomIzq">Left</string>
     <string name="lblDescripcionEjercicio">Description</string>
+    <string name="btnAñadirEjercicio">Add exercise</string>
+    <string name="btnEnviarEnlace">Send link</string>
+    <string name="lblCorreoRecu">Enter your email and we will send you a link to reset your password.</string>
+    <string name="errorConexionBD">Couldn\'t connect with database</string>
+    <string name="errorRellCampsObl">Fill in all required fields</string>
+    <string name="errorMovil">Enter a correct mobile number</string>
+    <string name="errorPeso">Enter a correct weight</string>
+    <string name="errorAltura">Enter a correct height</string>
+    <string name="errorNombre">Enter a correct name</string>
+    <string name="errorApellido">Enter a correct surname</string>
+    <string name="errorCorreoExistente">You have entered an existing email</string>
+    <string name="errorDNIExistente">You have entered an existing ID</string>
+    <string name="RegistradoExito">Successfully registered</string>
+    <string name="errorEmailVacio">Enter an email</string>
 
 </resources>

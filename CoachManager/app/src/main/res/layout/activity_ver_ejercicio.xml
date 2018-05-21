@@ -51,19 +51,6 @@
         android:ems="10"
         android:inputType="textMultiLine" />
 
-    <Button
-        android:id="@+id/btnAñadirEjercicio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="263dp"
-        android:background="@drawable/boton_redondeado"
-        android:padding="4dip"
-        android:text="@string/btnAñadirEjercicio"
-        android:textColor="@android:color/white"
-        android:textStyle="bold" />
-
     <ImageView
         android:id="@+id/btnVolver"
         android:layout_width="34dp"

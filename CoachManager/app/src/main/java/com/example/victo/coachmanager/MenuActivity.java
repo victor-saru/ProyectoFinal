@@ -196,7 +196,11 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public void onErrorResponse(VolleyError error) {
+<<<<<<< HEAD
         Toast.makeText(getApplicationContext(), "No se ha podido conectar con la base de datos crack", Toast.LENGTH_SHORT).show();
+=======
+        Toast.makeText(getApplicationContext(), getString(R.string.errorConexionBD), Toast.LENGTH_SHORT).show();
+>>>>>>> 9d117ca25801b2d532fe3075853dc33c50e56ee1
         Log.i("ERROR", error.toString());
     }
 

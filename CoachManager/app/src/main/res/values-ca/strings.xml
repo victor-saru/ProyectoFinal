@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!---Login-->
     <string name="lblCorreoLogin">Correu</string>
@@ -54,5 +53,19 @@
     <string name="PieDomIzq">Esquerre</string>
     <string name="PieDomDer">Dret</string>
     <string name="lblDescripcionEjercicio">Descripció</string>
+    <string name="btnAñadirEjercicio">Afegir exercici</string>
+    <string name="btnEnviarEnlace">Enviar enllaç</string>
+    <string name="lblCorreoRecu">Introdueix el teu email i t\'enviarem un enllaç per a restablir la contrasenya.</string>
+    <string name="errorConexionBD">No s\'ha pogut connectar amb la base de dades</string>
+    <string name="errorRellCampsObl">Omple tots els camps obligatoris</string>
+    <string name="errorMovil">Introdueix un mòbil correcte</string>
+    <string name="errorPeso">Introdueix un pes correcte</string>
+    <string name="errorAltura">Introdueix una alçada correcta</string>
+    <string name="errorNombre">Introdueix un nom correcte</string>
+    <string name="errorApellido">Introdueix un cognom correcte</string>
+    <string name="errorCorreoExistente">Has introduït un correu ja existent</string>
+    <string name="errorDNIExistente">Has introduït un DNI ja existent</string>
+    <string name="RegistradoExito">Registrat amb èxit</string>
+    <string name="errorEmailVacio">Introdueix un email</string>
 
 </resources>

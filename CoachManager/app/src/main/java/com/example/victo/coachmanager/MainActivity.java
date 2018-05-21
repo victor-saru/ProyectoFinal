@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private Button btnRegistrase;
     private Button btnLogin;
+    private Button btnRecordarPassword;
     private EditText edCorreoLogin;
     private EditText edPasswordLogin;
     RequestQueue request;
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btnRegistrase = (Button) (findViewById(R.id.btnRegistrase));
         btnLogin = (Button) findViewById(R.id.btnLogin);
+        btnRecordarPassword = (Button) findViewById(R.id.btnRecordarPassword);
         edCorreoLogin = (EditText) findViewById(R.id.edCorreoLogin);
         edPasswordLogin = (EditText) findViewById(R.id.edPasswordLogin);
 
@@ -47,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btnRegistrase.setOnClickListener(this);
         btnLogin.setOnClickListener(this);
+        btnRecordarPassword.setOnClickListener(this);
 
     }
 
@@ -70,6 +73,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             cargarWebSerevice();
 
+        }
+
+        else if(id == btnRecordarPassword.getId()){
+            Intent i = new Intent(this, OlvidarContrasenyaActivity.class);
+            startActivity(i);
         }
 
     }
@@ -99,19 +107,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         if(resultado.equals("Null")){
-            Toast.makeText(getApplicationContext(), "Tienes que rellenar todos los campos obligatorios", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.errorRellCampsObl), Toast.LENGTH_SHORT).show();
         }
 
         else if(resultado.equals("Correo")){
-            Toast.makeText(getApplicationContext(), "El correo introducido no es correcto", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.errorCorreo), Toast.LENGTH_SHORT).show();
         }
 
         else if(resultado.equals("Contrasenya")){
-            Toast.makeText(getApplicationContext(), "La contraseña introducida no es correcta", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.errorContrasenya), Toast.LENGTH_SHORT).show();
         }
 
         else{
-            Toast.makeText(getApplicationContext(), "Inicio de sesión correcto", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.InicioSesionCorrecto), Toast.LENGTH_SHORT).show();
 
             Intent intent = new Intent(this, MenuActivity.class);
             Intent intent2 = new Intent(this, AnyadirAlumnoActivity.class);
@@ -132,7 +140,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onErrorResponse(VolleyError error) {
-        Toast.makeText(getApplicationContext(), "No se ha podido conectar con la base de datos", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), getString(R.string.errorConexionBD), Toast.LENGTH_SHORT).show();
         Log.i("ERROR", error.toString());
     }
 

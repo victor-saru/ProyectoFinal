@@ -38,7 +38,10 @@
         <activity android:name=".AnyadirGrupoActivity" />
         <activity android:name=".EjerciciosActivity" />
         <activity android:name=".VerEjerciciosDeporteActivity" />
-        <activity android:name=".AnyadirEjercicioActivity"></activity>
+        <activity android:name=".AnyadirEjercicioActivity" />
+        <activity android:name=".VerEjercicioActivity" />
+        <activity android:name=".EditarEjercicioActivity" />
+        <activity android:name=".OlvidarContrasenyaActivity"></activity>
     </application>
 
 </manifest>

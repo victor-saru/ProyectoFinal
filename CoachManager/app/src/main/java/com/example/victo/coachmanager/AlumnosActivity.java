@@ -120,7 +120,7 @@ public class AlumnosActivity extends AppCompatActivity implements Response.Liste
 
     @Override
     public void onErrorResponse(VolleyError error) {
-        Toast.makeText(getApplicationContext(), "No se ha podido conectar con la base de datos", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), getString(R.string.errorConexionBD), Toast.LENGTH_SHORT).show();
         Log.i("ERROR", error.toString());
 
     }

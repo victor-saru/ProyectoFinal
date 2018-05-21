@@ -126,11 +126,11 @@ public class AnyadirAlumnoActivity extends AppCompatActivity implements View.OnC
     private void comprobarValores() {
 
         if(edMovilAlumno.getText().toString().isEmpty()){
-            Toast.makeText(getApplicationContext(), "Tienes que rellenar todos los campos obligatorios", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.errorRellCampsObl), Toast.LENGTH_SHORT).show();
         }
 
         else if(!comprovarIntegerYString(edMovilAlumno.getText().toString())){
-            Toast.makeText(getApplicationContext(), "Tienes que introducir un móvil correcto", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.errorMovil), Toast.LENGTH_SHORT).show();
         }
 
         else if(edObservacionesAlumno.getText().toString().length() > 43){
@@ -138,24 +138,23 @@ public class AnyadirAlumnoActivity extends AppCompatActivity implements View.OnC
         }
 
         else if(!comprovarIntegerYString(edPesoAlumno.getText().toString())){
-            Toast.makeText(getApplicationContext(), "Tienes que introducir un peso correcto", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.errorPeso), Toast.LENGTH_SHORT).show();
         }
 
         else if(!comprovarIntegerYString(edAlturaAlumno.getText().toString())){
-            Toast.makeText(getApplicationContext(), "Tienes que introducir una altura correcta", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.errorAltura), Toast.LENGTH_SHORT).show();
         }
 
         else if(comprovarIntegerYString(edNombreAlumno.getText().toString())){
-            Toast.makeText(getApplicationContext(), "Tienes que introducir un nombre correcto", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.errorNombre), Toast.LENGTH_SHORT).show();
         }
 
         else if(comprovarIntegerYString(edPrimerApellidoAlumno.getText().toString())){
-            Toast.makeText(getApplicationContext(), "Tienes que introducir un apellido correcto", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.errorApellido), Toast.LENGTH_SHORT).show();
         }
 
-
         else if(comprovarIntegerYString(edSegundoApellidoAlumno.getText().toString())){
-            Toast.makeText(getApplicationContext(), "Tienes que introducir un apellido correcto", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.errorApellido), Toast.LENGTH_SHORT).show();
         }
 
         else{
@@ -233,33 +232,27 @@ public class AnyadirAlumnoActivity extends AppCompatActivity implements View.OnC
         }
 
         if(resultado.equals("CorreoRepetido")){
-            Toast.makeText(getApplicationContext(), "Has introducido un correo ya existente", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.errorCorreoExistente), Toast.LENGTH_SHORT).show();
         }
 
         else if(resultado.equals("DniRepetido")){
-            Toast.makeText(getApplicationContext(), "Has introducido un DNI ya existente", Toast.LENGTH_SHORT).show();
-            //Toast.makeText(getApplicationContext(), "Has introducido un DNI ya existente", Toast.LENGTH_SHORT).show(); CATALAN
-            //Toast.makeText(getApplicationContext(), "Has introducido un DNI ya existente", Toast.LENGTH_SHORT).show(); INGLES
+            Toast.makeText(getApplicationContext(), getString(R.string.errorDNIExistente), Toast.LENGTH_SHORT).show();
         }
 
 
         else if(resultado.equals("Null")){
-            Toast.makeText(getApplicationContext(), "Tienes que rellenar todos los campos obligatorios", Toast.LENGTH_SHORT).show();
-            //Toast.makeText(getApplicationContext(), "Tienes que rellenar todos los campos obligatorios", Toast.LENGTH_SHORT).show(); CATALAN
-            //Toast.makeText(getApplicationContext(), "Tienes que rellenar todos los campos obligatorios", Toast.LENGTH_SHORT).show(); INGLES
+            Toast.makeText(getApplicationContext(), getString(R.string.errorRellCampsObl), Toast.LENGTH_SHORT).show();
         }
 
         else{
-            Toast.makeText(getApplicationContext(), "Registrado con éxito", Toast.LENGTH_SHORT).show();
-            //Toast.makeText(getApplicationContext(), "Registrado con éxito", Toast.LENGTH_SHORT).show(); CATALAN
-            //Toast.makeText(getApplicationContext(), "Registrado con éxito", Toast.LENGTH_SHORT).show(); INGLES
+            Toast.makeText(getApplicationContext(), getString(R.string.RegistradoExito), Toast.LENGTH_SHORT).show();
             finish();
         }
     }
 
     @Override
     public void onErrorResponse(VolleyError error) {
-        Toast.makeText(getApplicationContext(), "No se ha podido conectar con la base de datos", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), getString(R.string.errorConexionBD), Toast.LENGTH_SHORT).show();
         Log.i("ERROR", error.toString());
 
     }
