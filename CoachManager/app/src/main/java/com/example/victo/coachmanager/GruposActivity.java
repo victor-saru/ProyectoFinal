@@ -80,7 +80,7 @@ public class GruposActivity extends AppCompatActivity implements Response.Listen
 
     private void cargarWebService() {
 
-        String url="http://192.168.1.45/CoachManagerPHP/CoachManager_Grupos.php";
+        String url="http://10.1.6.74/CoachManagerPHP/CoachManager_Grupos.php";
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
         VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
 

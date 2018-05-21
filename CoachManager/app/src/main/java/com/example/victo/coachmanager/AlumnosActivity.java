@@ -73,7 +73,7 @@ public class AlumnosActivity extends AppCompatActivity implements Response.Liste
 
     private void cargarWebService(){
 
-        String url="http://192.168.1.45/CoachManagerPHP/CoachManager_Alumnos.php";
+        String url="http://10.1.6.74/CoachManagerPHP/CoachManager_Alumnos.php";
 
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
         VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(jsonObjectRequest);

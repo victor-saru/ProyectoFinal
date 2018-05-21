@@ -55,6 +55,10 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
             id_persona = (String) objecteEnviat.getSerializable("id_persona");
         }
 
+        id_persona = String.valueOf(id_persona);
+
+        System.out.println("PEPE: " + id_persona);
+
         cargarWebService();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -106,9 +110,10 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
 
     private void cargarWebService() {
 
-        System.out.println("ID : " + id_persona);
+        System.out.println("IDDDDDDD : " + id_persona);
 
-        String url="http://192.168.1.45/CoachManagerPHP/CoachManager_InfoPersona.php?id_persona="+id_persona;
+        String url="http://10.1.6.74/CoachManagerPHP/CoachManager_InfoPersona.php?id_persona="+id_persona.toString();
+
 
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
         VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
@@ -191,7 +196,7 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public void onErrorResponse(VolleyError error) {
-        Toast.makeText(getApplicationContext(), "No se ha podido conectar con la base de datos", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "No se ha podido conectar con la base de datos crack", Toast.LENGTH_SHORT).show();
         Log.i("ERROR", error.toString());
     }
 

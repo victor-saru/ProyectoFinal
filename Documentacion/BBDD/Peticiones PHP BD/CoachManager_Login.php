@@ -12,16 +12,16 @@ if($_GET["correo"] != "" && $_GET["contrasenya"] != ""){
 
 
     $correo = $_GET["correo"];
-    $consultaCorreo = "SELECT id_entrenador FROM entrenadores WHERE UPPER(correo) = UPPER('{$correo}')";
+    $consultaCorreo = "SELECT id_persona FROM entrenadores WHERE UPPER(correo) = UPPER('{$correo}')";
     $resultconsultaCorreo = mysqli_query($conexion, $consultaCorreo);
-    $id_entrenador = mysqli_fetch_row($resultconsultaCorreo);
+    $id_persona = mysqli_fetch_row($resultconsultaCorreo);
 
   
 
-    if($id_entrenador[0] != NULL){
+    if($id_persona[0] != NULL){
     
         $contrasenya = $_GET["contrasenya"];
-        $consultaContrasenya = "SELECT id_entrenador FROM entrenadores WHERE id_entrenador = '{$id_entrenador[0]}' && contrasenya = SHA1('{$contrasenya}')";
+        $consultaContrasenya = "SELECT id_persona FROM entrenadores WHERE id_persona = '{$id_persona[0]}' && contrasenya = SHA1('{$contrasenya}')";
         $resultconsultaContrasenya = mysqli_query($conexion, $consultaContrasenya);
         $contrasenyaResultado = mysqli_fetch_row($resultconsultaContrasenya);
 
@@ -29,7 +29,7 @@ if($_GET["correo"] != "" && $_GET["contrasenya"] != ""){
 
         if($contrasenyaResultado[0] != NULL){
             
-            $resulta["resultado"] = $id_entrenador[0];
+            $resulta["resultado"] = $id_persona[0];
             $json['login'][] = $resulta;
             echo json_encode($json);
             mysqli_close($conexion);

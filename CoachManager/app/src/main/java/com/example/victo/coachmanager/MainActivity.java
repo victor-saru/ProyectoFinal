@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void cargarWebSerevice() {
 
-        String url="http://192.168.1.45/CoachManagerPHP/CoachManager_Login.php?"
+        String url="http://10.1.6.74/CoachManagerPHP/CoachManager_Login.php?"
                 +"correo="+edCorreoLogin.getText().toString()
                 +"&contrasenya="+edPasswordLogin.getText().toString();
 
@@ -114,13 +114,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(getApplicationContext(), "Inicio de sesión correcto", Toast.LENGTH_SHORT).show();
 
             Intent intent = new Intent(this, MenuActivity.class);
+            Intent intent2 = new Intent(this, AnyadirAlumnoActivity.class);
 
             System.out.println("RESULTADO: " + resultado);
 
             Bundle bundle = new Bundle();
+            Bundle bundle2 = new Bundle();
             bundle.putSerializable("id_persona",resultado);
+            bundle2.putSerializable("id_persona",resultado);
 
             intent.putExtras(bundle);
+            intent2.putExtras(bundle2);
             startActivityForResult(intent,1);
         }
 

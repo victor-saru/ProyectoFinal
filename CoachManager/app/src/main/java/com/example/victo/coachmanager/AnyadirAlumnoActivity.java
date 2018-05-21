@@ -42,6 +42,7 @@ public class AnyadirAlumnoActivity extends AppCompatActivity implements View.OnC
     Spinner spPieDomAlumno;
     EditText edObservacionesAlumno;
     Button btnAñadirAlumno;
+    String id_persona;
 
     String resultado;
     RequestQueue request;
@@ -70,6 +71,17 @@ public class AnyadirAlumnoActivity extends AppCompatActivity implements View.OnC
 
         edFechaNacimientoAlumno.setOnClickListener(this);
         btnAñadirAlumno.setOnClickListener(this);
+
+        Bundle objecteEnviat = getIntent().getExtras();
+
+        if(objecteEnviat != null){
+            id_persona = (String) objecteEnviat.getSerializable("id_persona");
+        }
+
+        id_persona = "29";
+
+
+        System.out.println("ID PERSONA LOGEADA: " + id_persona);
 
         ImageView btnVolver = (ImageView) findViewById(R.id.btnVolver);
 
@@ -121,6 +133,10 @@ public class AnyadirAlumnoActivity extends AppCompatActivity implements View.OnC
             Toast.makeText(getApplicationContext(), "Tienes que introducir un móvil correcto", Toast.LENGTH_SHORT).show();
         }
 
+        else if(edObservacionesAlumno.getText().toString().length() > 43){
+            Toast.makeText(getApplicationContext(), "Límite de caracteres alcanzado en observaciones", Toast.LENGTH_SHORT).show();
+        }
+
         else if(!comprovarIntegerYString(edPesoAlumno.getText().toString())){
             Toast.makeText(getApplicationContext(), "Tienes que introducir un peso correcto", Toast.LENGTH_SHORT).show();
         }
@@ -149,7 +165,7 @@ public class AnyadirAlumnoActivity extends AppCompatActivity implements View.OnC
 
     private void cargarWebService() {
 
-        String url = "http://192.168.1.45/CoachManagerPHP/CoachManager_InsertAlumno.php?nombre="+edNombreAlumno.getText().toString()
+        String url = "http://10.1.6.74/CoachManagerPHP/CoachManager_InsertAlumno.php?nombre="+edNombreAlumno.getText().toString()
                 +"&primer_apellido="+ edPrimerApellidoAlumno.getText().toString()
                 +"&segundo_apellido="+ edSegundoApellidoAlumno.getText().toString()
                 +"&dni=" +edDNIAlumno.getText().toString()
@@ -160,7 +176,10 @@ public class AnyadirAlumnoActivity extends AppCompatActivity implements View.OnC
                 +"&altura="+ edAlturaAlumno.getText().toString()
                 +"&mano_dom="+ spManoDomAlumno.getSelectedItem().toString()
                 +"&pie_dom=" +spPieDomAlumno.getSelectedItem().toString()
-                +"&observaciones="+ edObservacionesAlumno.getText().toString();
+                +"&observaciones="+ edObservacionesAlumno.getText().toString()
+                +"&id_entrenador_entrenador=" + id_persona;
+
+
 
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
         request.add(jsonObjectRequest);
@@ -222,6 +241,7 @@ public class AnyadirAlumnoActivity extends AppCompatActivity implements View.OnC
             //Toast.makeText(getApplicationContext(), "Has introducido un DNI ya existente", Toast.LENGTH_SHORT).show(); CATALAN
             //Toast.makeText(getApplicationContext(), "Has introducido un DNI ya existente", Toast.LENGTH_SHORT).show(); INGLES
         }
+
 
         else if(resultado.equals("Null")){
             Toast.makeText(getApplicationContext(), "Tienes que rellenar todos los campos obligatorios", Toast.LENGTH_SHORT).show();
