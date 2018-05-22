@@ -1,6 +1,7 @@
 package com.example.victo.coachmanager;
 
 import android.content.Intent;
+import android.os.Parcelable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -23,9 +24,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class AlumnosActivity extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener {
+public class AlumnosActivity extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener, Serializable {
 
     ArrayList<Alumno> al_alumnos;
     ListView lista_alumnos;
@@ -49,7 +51,26 @@ public class AlumnosActivity extends AppCompatActivity implements Response.Liste
         lista_alumnos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                 Intent intent = new Intent(AlumnosActivity.this,VerAlumnoActivity.class);
+                Alumno a = new Alumno();
+                a = al_alumnos.get(position);
+
+                System.out.println("Nombre: "+a.getNombre());
+                System.out.println("Primer: "+a.getPrimer_apellido());
+                System.out.println("Segundo: "+a.getSegundo_apellido());
+                System.out.println("DNI: "+a.getDni());
+                System.out.println("Fecha: "+a.getFecha_nacimiento());
+                System.out.println("mano: "+a.getMano_dom());
+                System.out.println("genero: "+a.getGenero());
+                System.out.println("pie: "+a.getPie_dom());
+                System.out.println("observ: "+a.getObservaciones());
+                System.out.println("movil: "+a.getMovil());
+                System.out.println("peso: "+a.getPeso());
+                System.out.println("altura: "+a.getAltura());
+
+
+                intent.putExtra("alumno", a);
                 startActivityForResult(intent,1);
                 //startActivity(intent);
 
@@ -67,8 +88,10 @@ public class AlumnosActivity extends AppCompatActivity implements Response.Liste
         });
     }
 
+
+
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        finish();
+        cargarWebService();
     }
 
     private void cargarWebService(){
@@ -81,6 +104,8 @@ public class AlumnosActivity extends AppCompatActivity implements Response.Liste
 
     @Override
     public void onResponse(JSONObject response) {
+
+        al_alumnos.removeAll(al_alumnos);
 
         JSONArray json = response.optJSONArray("alumnos");
 

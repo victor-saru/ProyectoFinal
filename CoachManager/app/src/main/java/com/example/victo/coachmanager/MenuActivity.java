@@ -47,15 +47,7 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
         setSupportActionBar(toolbar);
 
 
-
-        Bundle objecteEnviat = getIntent().getExtras();
-
-
-        if(objecteEnviat != null){
-            id_persona = (String) objecteEnviat.getSerializable("id_persona");
-        }
-
-        id_persona = String.valueOf(id_persona);
+        id_persona = ((IdPersonaLogeada) this.getApplication()).getId_persona();
 
         System.out.println("PEPE: " + id_persona);
 
@@ -196,11 +188,7 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public void onErrorResponse(VolleyError error) {
-<<<<<<< HEAD
-        Toast.makeText(getApplicationContext(), "No se ha podido conectar con la base de datos crack", Toast.LENGTH_SHORT).show();
-=======
         Toast.makeText(getApplicationContext(), getString(R.string.errorConexionBD), Toast.LENGTH_SHORT).show();
->>>>>>> 9d117ca25801b2d532fe3075853dc33c50e56ee1
         Log.i("ERROR", error.toString());
     }
 

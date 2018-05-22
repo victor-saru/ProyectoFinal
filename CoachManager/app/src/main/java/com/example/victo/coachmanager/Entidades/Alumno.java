@@ -1,10 +1,13 @@
 package com.example.victo.coachmanager.Entidades;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by Oscar on 14/05/2018.
  */
 
-public class Alumno {
+public class Alumno implements Parcelable{
 
     String nombre, primer_apellido, segundo_apellido, dni, fecha_nacimiento, genero, mano_dom, pie_dom, observaciones;
     int movil, peso, altura;
@@ -31,6 +34,33 @@ public class Alumno {
     public Alumno(){
 
     }
+
+    protected Alumno(Parcel in) {
+        nombre = in.readString();
+        primer_apellido = in.readString();
+        segundo_apellido = in.readString();
+        dni = in.readString();
+        fecha_nacimiento = in.readString();
+        genero = in.readString();
+        mano_dom = in.readString();
+        pie_dom = in.readString();
+        observaciones = in.readString();
+        movil = in.readInt();
+        peso = in.readInt();
+        altura = in.readInt();
+    }
+
+    public static final Creator<Alumno> CREATOR = new Creator<Alumno>() {
+        @Override
+        public Alumno createFromParcel(Parcel in) {
+            return new Alumno(in);
+        }
+
+        @Override
+        public Alumno[] newArray(int size) {
+            return new Alumno[size];
+        }
+    };
 
     public String getNombre() {
         return nombre;
@@ -126,5 +156,27 @@ public class Alumno {
 
     public void setAltura(int altura) {
         this.altura = altura;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(nombre);
+        parcel.writeString(primer_apellido);
+        parcel.writeString(segundo_apellido);
+        parcel.writeString(dni);
+        parcel.writeString(fecha_nacimiento);
+        parcel.writeString(genero);
+        parcel.writeString(mano_dom);
+        parcel.writeString(pie_dom);
+        parcel.writeString(observaciones);
+        parcel.writeInt(movil);
+        parcel.writeInt(peso);
+        parcel.writeInt(altura);
+
     }
 }

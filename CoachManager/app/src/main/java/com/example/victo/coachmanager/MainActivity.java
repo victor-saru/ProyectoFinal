@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText edPasswordLogin;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
-    String resultado;
+    public String resultado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +52,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnRecordarPassword.setOnClickListener(this);
 
     }
-
 
 
 
@@ -102,6 +101,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         try {
             jsonObject = json.getJSONObject(0);
             resultado = (jsonObject.optString("resultado"));
+            ((IdPersonaLogeada) this.getApplication()).setId_persona(resultado);
         }catch(JSONException e){
             e.printStackTrace();
         }
@@ -126,14 +126,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             System.out.println("RESULTADO: " + resultado);
 
-            Bundle bundle = new Bundle();
-            Bundle bundle2 = new Bundle();
-            bundle.putSerializable("id_persona",resultado);
-            bundle2.putSerializable("id_persona",resultado);
 
-            intent.putExtras(bundle);
-            intent2.putExtras(bundle2);
             startActivityForResult(intent,1);
+
         }
 
     }

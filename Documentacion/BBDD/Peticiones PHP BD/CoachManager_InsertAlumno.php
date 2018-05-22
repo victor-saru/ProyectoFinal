@@ -13,7 +13,7 @@ if($_GET["dni"] != "" && $_GET["nombre"] != "" && $_GET["primer_apellido"] != ""
 
 
     $dniGET = $_GET["dni"];
-    $consulta = "SELECT dni FROM personas WHERE dni = '{$dniGET}'";
+    $consulta = "SELECT dni FROM personas WHERE UPPER(dni) = UPPER('{$dniGET}')";
     $resultado = mysqli_query($conexion, $consulta);
     $dniResultado = mysqli_fetch_row($resultado);
 
@@ -68,14 +68,14 @@ if($_GET["dni"] != "" && $_GET["nombre"] != "" && $_GET["primer_apellido"] != ""
         $resulta["resultado"] = "Correcto";
         $json['persona'][] = $resulta;
 
-        json_encode($json);  
+        echo json_encode($json);  
         mysqli_close($conexion);
     }
 
     else{
         $resulta["resultado"] = "DniRepetido";
         $json['persona'][] = $resulta;
-        json_encode($json);
+        echo json_encode($json);
         mysqli_close($conexion);
     }
  
@@ -85,7 +85,7 @@ else{
     
     $resulta["resultado"] = "Null";
     $json['persona'][] = $resulta;
-    json_encode($json);
+    echo json_encode($json);
     mysqli_close($conexion);
 }
 

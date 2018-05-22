@@ -76,8 +76,7 @@ public class EditarAlumnoActivity extends AppCompatActivity implements View.OnCl
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(EditarAlumnoActivity.this, VerAlumnoActivity.class);
-                startActivityForResult(intent,1);
+                finish();
             }
         });
 

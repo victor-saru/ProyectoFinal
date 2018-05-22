@@ -72,14 +72,10 @@ public class AnyadirAlumnoActivity extends AppCompatActivity implements View.OnC
         edFechaNacimientoAlumno.setOnClickListener(this);
         btnAñadirAlumno.setOnClickListener(this);
 
-        Bundle objecteEnviat = getIntent().getExtras();
+        //id_persona = "29";
 
-        if(objecteEnviat != null){
-            id_persona = (String) objecteEnviat.getSerializable("id_persona");
-        }
 
-        id_persona = "29";
-
+        id_persona = ((IdPersonaLogeada) this.getApplication()).getId_persona();
 
         System.out.println("ID PERSONA LOGEADA: " + id_persona);
 
@@ -116,8 +112,7 @@ public class AnyadirAlumnoActivity extends AppCompatActivity implements View.OnC
 
             case R.id.btnAñadirAlumno:{
                 comprobarValores();
-                //Intent intent = new Intent(AnyadirAlumnoActivity.this, AlumnosActivity.class);
-                //StartActivityForResult(intent,1);
+
                 break;
             }
         }
@@ -176,7 +171,7 @@ public class AnyadirAlumnoActivity extends AppCompatActivity implements View.OnC
                 +"&mano_dom="+ spManoDomAlumno.getSelectedItem().toString()
                 +"&pie_dom=" +spPieDomAlumno.getSelectedItem().toString()
                 +"&observaciones="+ edObservacionesAlumno.getText().toString()
-                +"&id_entrenador_entrenador=" + id_persona;
+                +"&id_persona_entrenador=" + id_persona;
 
 
 
@@ -246,6 +241,8 @@ public class AnyadirAlumnoActivity extends AppCompatActivity implements View.OnC
 
         else{
             Toast.makeText(getApplicationContext(), getString(R.string.RegistradoExito), Toast.LENGTH_SHORT).show();
+            //Intent intent = new Intent(AnyadirAlumnoActivity.this, AlumnosActivity.class);
+            //StartActivityForResult(intent,1);
             finish();
         }
     }
