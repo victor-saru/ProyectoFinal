@@ -53,25 +53,25 @@ public class EditarAlumnoActivity extends AppCompatActivity implements View.OnCl
         setContentView(R.layout.activity_editar_alumno);
 
         btnGuardarCambios = (Button) findViewById(R.id.btnGuardarEditAlum);
-        edNombreAlumno = (EditText) findViewById(R.id.edNombreAlumno);
-        edPrimerApellidoAlumno = (EditText) findViewById(R.id.edPrimerApellidoAlumno);
-        edSegundoApellidoAlumno = (EditText) findViewById(R.id.edSegundoApellidoAlumno);
-        spGeneroAlumno = (Spinner) findViewById(R.id.SpGeneroAlumno);
-        edFechaNacimientoAlumno = (EditText) findViewById(R.id.edFechaNacimientoAlumno);
-        edDNIAlumno = (EditText) findViewById(R.id.edDNIAlumno);
-        edMovilAlumno = (EditText) findViewById(R.id.edMovilAlumno);
-        edPesoAlumno = (EditText) findViewById(R.id.edPesoAlumno);
-        edAlturaAlumno = (EditText) findViewById(R.id.edAlturaAlumno);
-        spManoDomAlumno = (Spinner) findViewById(R.id.SpManoDom);
-        spPieDomAlumno = (Spinner) findViewById(R.id.SpPieDom);
-        edObservacionesAlumno = (EditText) findViewById(R.id.edObservacionesAlumno);
+        edNombreAlumno = (EditText) findViewById(R.id.edNombreAlumnoEditar);
+        edPrimerApellidoAlumno = (EditText) findViewById(R.id.edPrimApeAlumnoEditar);
+        edSegundoApellidoAlumno = (EditText) findViewById(R.id.edSegApeAlumnoEditar);
+        spGeneroAlumno = (Spinner) findViewById(R.id.SpGeneroAlumnoEditar);
+        edFechaNacimientoAlumno = (EditText) findViewById(R.id.edFechaAlumnoEditar);
+        edDNIAlumno = (EditText) findViewById(R.id.edDNIAlumnoEditar);
+        edMovilAlumno = (EditText) findViewById(R.id.edMovilAlumnoEditar);
+        edPesoAlumno = (EditText) findViewById(R.id.edPesoAlumnoEditar);
+        edAlturaAlumno = (EditText) findViewById(R.id.edAlturaAlumnoEditar);
+        spManoDomAlumno = (Spinner) findViewById(R.id.SpManoDomAlumnoEditar);
+        spPieDomAlumno = (Spinner) findViewById(R.id.SpPieDomAlumnoEditar);
+        edObservacionesAlumno = (EditText) findViewById(R.id.edObservAlumnoEditar);
 
         request = Volley.newRequestQueue(getApplicationContext());
 
         edFechaNacimientoAlumno.setOnClickListener(this);
         btnGuardarCambios.setOnClickListener(this);
 
-        ImageView btnVolver = (ImageView) findViewById(R.id.btnVolver);
+        ImageView btnVolver = (ImageView) findViewById(R.id.btnVolverEditarAlumno);
 
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,15 +80,15 @@ public class EditarAlumnoActivity extends AppCompatActivity implements View.OnCl
             }
         });
 
-        Spinner SpGeneroAlumno = (Spinner) findViewById(R.id.SpGeneroAlumno);
+        Spinner SpGeneroAlumno = (Spinner) findViewById(R.id.SpGeneroAlumnoEditar);
         String[] GeneroAlumno = {" ", getString(R.string.GeneroMasculino), getString(R.string.GeneroFemenino)};
         SpGeneroAlumno.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, GeneroAlumno));
 
-        Spinner SpManoDom = (Spinner) findViewById(R.id.SpManoDom);
+        Spinner SpManoDom = (Spinner) findViewById(R.id.SpManoDomAlumnoEditar);
         String[] ManoDom = {" ", getString(R.string.ManoDomIzq), getString(R.string.ManoDomDer)};
         SpManoDom.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ManoDom));
 
-        Spinner SpPieDom = (Spinner) findViewById(R.id.SpPieDom);
+        Spinner SpPieDom = (Spinner) findViewById(R.id.SpPieDomAlumnoEditar);
         String[] PieDom = {" ", getString(R.string.PieDomIzq), getString(R.string.PieDomDer)};
         SpPieDom.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, PieDom));
     }
@@ -96,7 +96,7 @@ public class EditarAlumnoActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.edFechaNacimientoAlumno:{
+            case R.id.edFechaAlumnoEditar:{
                 showDatePickerDialog();
                 break;
             }

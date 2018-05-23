@@ -36,20 +36,20 @@ public class VerAlumnoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ver_alumno);
 
-        ImageView btnVolver = (ImageView) findViewById(R.id.btnVolver);
+        ImageView btnVolver = (ImageView) findViewById(R.id.btnVolverVerAlumno);
 
-        edNombreAlumno = (TextView) findViewById(R.id.edNombreGrupo);
-        edPrimerApellidoAlumno = (TextView) findViewById(R.id.edPrimerApellidoAlumno);
-        edSegundoApellidoAlumno = (TextView) findViewById(R.id.edSegundoApellidoAlumno);
-        spGeneroAlumno = (TextView) findViewById(R.id.SpGeneroAlumno);
-        edFechaNacimientoAlumno = (TextView) findViewById(R.id.edFechaNacimientoAlumno);
-        edDNIAlumno = (TextView) findViewById(R.id.edDNIAlumno);
-        edMovilAlumno = (TextView) findViewById(R.id.edMovilAlumno);
-        lblPesoAlumnoValor = (TextView) findViewById(R.id.lblPesoAlumnoValor);
-        lblAlturaAlumnoValor = (TextView) findViewById(R.id.lblAlturaAlumnoValor);
-        lblManoDomAlumnoValor = (TextView) findViewById(R.id.lblManoDomAlumnoValor);
-        lblPieDomAlumnoValor = (TextView) findViewById(R.id.lblPieDomAlumnoValor);
-        lblObservacionesAlumnoValor = (TextView) findViewById(R.id.lblObservacionesAlumnoValor);
+        edNombreAlumno = (TextView) findViewById(R.id.lblNombreAlumnoVerValor);
+        edPrimerApellidoAlumno = (TextView) findViewById(R.id.lblPrimApeAlumnoVerValor);
+        edSegundoApellidoAlumno = (TextView) findViewById(R.id.lblSegApeAlumnoVerValor);
+        spGeneroAlumno = (TextView) findViewById(R.id.lblGeneroAlumnoVerValor);
+        edFechaNacimientoAlumno = (TextView) findViewById(R.id.lblFechaAlumnoVerValor);
+        edDNIAlumno = (TextView) findViewById(R.id.lblDNIAlumnoVerValor);
+        edMovilAlumno = (TextView) findViewById(R.id.lblMovilAlumnoVerValor);
+        lblPesoAlumnoValor = (TextView) findViewById(R.id.lblPesoAlumnoVerValor);
+        lblAlturaAlumnoValor = (TextView) findViewById(R.id.lblAlturaAlumnoVerValor);
+        lblManoDomAlumnoValor = (TextView) findViewById(R.id.lblManoDomAlumnoVerValor);
+        lblPieDomAlumnoValor = (TextView) findViewById(R.id.lblPieDomAlumnoVerValor);
+        lblObservacionesAlumnoValor = (TextView) findViewById(R.id.lblObservAlumnoVerValor);
 
         alumno = (Alumno) getIntent().getParcelableExtra("alumno");
 
@@ -78,17 +78,6 @@ public class VerAlumnoActivity extends AppCompatActivity {
         edMovilAlumno.setText(String.valueOf(alumno.getMovil()));
         lblPesoAlumnoValor.setText(String.valueOf(alumno.getPeso()));
         lblAlturaAlumnoValor.setText(String.valueOf(alumno.getAltura()));
-
-
-
-
-
-
-
-
-
-
-
 
 
         btnVolver.setOnClickListener(new View.OnClickListener() {

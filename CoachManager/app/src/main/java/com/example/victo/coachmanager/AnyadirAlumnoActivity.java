@@ -54,18 +54,18 @@ public class AnyadirAlumnoActivity extends AppCompatActivity implements View.OnC
         setContentView(R.layout.activity_anyadir_alumno);
 
         btnAñadirAlumno = (Button) findViewById(R.id.btnAñadirAlumno);
-        edNombreAlumno = (EditText) findViewById(R.id.edNombreAlumno);
-        edPrimerApellidoAlumno = (EditText) findViewById(R.id.edPrimerApellidoAlumno);
-        edSegundoApellidoAlumno = (EditText) findViewById(R.id.edSegundoApellidoAlumno);
-        spGeneroAlumno = (Spinner) findViewById(R.id.SpGeneroAlumno);
-        edFechaNacimientoAlumno = (EditText) findViewById(R.id.edFechaNacimientoAlumno);
-        edDNIAlumno = (EditText) findViewById(R.id.edDNIAlumno);
-        edMovilAlumno = (EditText) findViewById(R.id.edMovilAlumno);
-        edPesoAlumno = (EditText) findViewById(R.id.edPesoAlumno);
-        edAlturaAlumno = (EditText) findViewById(R.id.edAlturaAlumno);
-        spManoDomAlumno = (Spinner) findViewById(R.id.SpManoDom);
-        spPieDomAlumno = (Spinner) findViewById(R.id.SpPieDom);
-        edObservacionesAlumno = (EditText) findViewById(R.id.edObservacionesAlumno);
+        edNombreAlumno = (EditText) findViewById(R.id.edNombreAlumnoAñadir);
+        edPrimerApellidoAlumno = (EditText) findViewById(R.id.edPrimApeAlumnoAñadir);
+        edSegundoApellidoAlumno = (EditText) findViewById(R.id.edSegApeAlumnoAñadir);
+        spGeneroAlumno = (Spinner) findViewById(R.id.SpGeneroAlumnoAñadir);
+        edFechaNacimientoAlumno = (EditText) findViewById(R.id.edFechaAlumnoAñadir);
+        edDNIAlumno = (EditText) findViewById(R.id.edDNIAlumnoAñadir);
+        edMovilAlumno = (EditText) findViewById(R.id.edMovilAlumnoAñadir);
+        edPesoAlumno = (EditText) findViewById(R.id.edPesoAlumnoAñadir);
+        edAlturaAlumno = (EditText) findViewById(R.id.edAlturaAlumnoAñadir);
+        spManoDomAlumno = (Spinner) findViewById(R.id.SpManoDomAlumnoAñadir);
+        spPieDomAlumno = (Spinner) findViewById(R.id.SpPieDomAlumnoAñadir);
+        edObservacionesAlumno = (EditText) findViewById(R.id.edObservAlumnoAñadir);
 
         request = Volley.newRequestQueue(getApplicationContext());
 
@@ -79,7 +79,7 @@ public class AnyadirAlumnoActivity extends AppCompatActivity implements View.OnC
 
         System.out.println("ID PERSONA LOGEADA: " + id_persona);
 
-        ImageView btnVolver = (ImageView) findViewById(R.id.btnVolver);
+        ImageView btnVolver = (ImageView) findViewById(R.id.btnVolverAñadirAlumno);
 
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,15 +89,15 @@ public class AnyadirAlumnoActivity extends AppCompatActivity implements View.OnC
             }
         });
 
-        Spinner SpGeneroAlumno = (Spinner) findViewById(R.id.SpGeneroAlumno);
+        Spinner SpGeneroAlumno = (Spinner) findViewById(R.id.SpGeneroAlumnoAñadir);
         String[] GeneroAlumno = {" ", getString(R.string.GeneroMasculino), getString(R.string.GeneroFemenino)};
         SpGeneroAlumno.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, GeneroAlumno));
 
-        Spinner SpManoDom = (Spinner) findViewById(R.id.SpManoDom);
+        Spinner SpManoDom = (Spinner) findViewById(R.id.SpManoDomAlumnoAñadir);
         String[] ManoDom = {" ", getString(R.string.ManoDomIzq), getString(R.string.ManoDomDer)};
         SpManoDom.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ManoDom));
 
-        Spinner SpPieDom = (Spinner) findViewById(R.id.SpPieDom);
+        Spinner SpPieDom = (Spinner) findViewById(R.id.SpPieDomAlumnoAñadir);
         String[] PieDom = {" ", getString(R.string.PieDomIzq), getString(R.string.PieDomDer)};
         SpPieDom.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, PieDom));
     }
@@ -105,7 +105,7 @@ public class AnyadirAlumnoActivity extends AppCompatActivity implements View.OnC
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.edFechaNacimientoAlumno:{
+            case R.id.edFechaAlumnoAñadir:{
                 showDatePickerDialog();
                 break;
             }

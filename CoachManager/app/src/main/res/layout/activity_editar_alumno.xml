@@ -8,7 +8,7 @@
     android:background="#EEEEEE">
 
     <ImageView
-        android:id="@+id/fotoAlumno"
+        android:id="@+id/fotoAlumnoEditar"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
@@ -17,22 +17,22 @@
         app:srcCompat="@drawable/boton_redondeado" />
 
     <TextView
-        android:id="@+id/lblNombreAlumno"
+        android:id="@+id/lblNombreAlumnoEditar"
         android:layout_width="200dp"
         android:layout_height="20dp"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/fotoAlumno"
+        android:layout_below="@+id/fotoAlumnoEditar"
         android:layout_marginTop="55dp"
         android:text="@string/lblNombreRegistro"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/edNombreAlumno"
+        android:id="@+id/edNombreAlumnoEditar"
         android:layout_width="200dp"
         android:layout_height="30dp"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/lblNombreAlumno"
+        android:layout_below="@+id/lblNombreAlumnoEditar"
         android:background="@drawable/editextborder"
         android:ems="10"
         android:inputType="textPersonName"
@@ -40,22 +40,22 @@
         android:textSize="16dp" />
 
     <TextView
-        android:id="@+id/lblPrimerApellidoAlumno"
+        android:id="@+id/lblPrimApeAlumnoEditar"
         android:layout_width="200dp"
         android:layout_height="20dp"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/edNombreAlumno"
+        android:layout_below="@+id/edNombreAlumnoEditar"
         android:layout_marginTop="8dp"
         android:text="@string/lblPrimerApellidoRegistro"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/edPrimerApellidoAlumno"
+        android:id="@+id/edPrimApeAlumnoEditar"
         android:layout_width="200dp"
         android:layout_height="30dp"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/lblPrimerApellidoAlumno"
+        android:layout_below="@+id/lblPrimApeAlumnoEditar"
         android:background="@drawable/editextborder"
         android:ems="10"
         android:inputType="textPersonName"
@@ -63,22 +63,22 @@
         android:textSize="16dp" />
 
     <TextView
-        android:id="@+id/lblSegundoApellidoAlumno"
+        android:id="@+id/lblSegApeAlumnoEditar"
         android:layout_width="200dp"
         android:layout_height="20dp"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/edPrimerApellidoAlumno"
+        android:layout_below="@+id/edPrimApeAlumnoEditar"
         android:layout_marginTop="8dp"
         android:text="@string/lblSegundoApellidoRegistro"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/edSegundoApellidoAlumno"
+        android:id="@+id/edSegApeAlumnoEditar"
         android:layout_width="200dp"
         android:layout_height="30dp"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/lblSegundoApellidoAlumno"
+        android:layout_below="@+id/lblSegApeAlumnoEditar"
         android:background="@drawable/editextborder"
         android:ems="10"
         android:inputType="textPersonName"
@@ -86,48 +86,48 @@
         android:textSize="16dp" />
 
     <TextView
-        android:id="@+id/lblGeneroAlumno"
+        android:id="@+id/lblGeneroAlumnoEditar"
         android:layout_width="200dp"
         android:layout_height="20dp"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/edSegundoApellidoAlumno"
+        android:layout_below="@+id/edSegApeAlumnoEditar"
         android:layout_marginTop="8dp"
         android:text="@string/lblGeneroAlumno"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
     <Spinner
-        android:id="@+id/SpGeneroAlumno"
+        android:id="@+id/SpGeneroAlumnoEditar"
         style="@style/Base.Widget.AppCompat.Spinner.Underlined"
-        android:backgroundTint="#01C321"
         android:layout_width="200dp"
         android:layout_height="37dp"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/lblGeneroAlumno"
+        android:layout_below="@+id/lblGeneroAlumnoEditar"
+        android:backgroundTint="#01C321"
         android:ems="10"
         android:inputType="textPersonName"
-        android:singleLine="false"
-        android:paddingTop="5dp"
         android:paddingStart="0dp"
+        android:paddingTop="5dp"
+        android:singleLine="false"
         android:textSize="16dp" />
 
     <TextView
-        android:id="@+id/lblFechaNacimientoAlumno"
+        android:id="@+id/lblFechaAlumnoEditar"
         android:layout_width="200dp"
         android:layout_height="20dp"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/SpGeneroAlumno"
+        android:layout_below="@+id/SpGeneroAlumnoEditar"
         android:layout_marginTop="8dp"
         android:text="@string/lblFechaRegistro"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/edFechaNacimientoAlumno"
+        android:id="@+id/edFechaAlumnoEditar"
         android:layout_width="200dp"
         android:layout_height="30dp"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/lblFechaNacimientoAlumno"
+        android:layout_below="@+id/lblFechaAlumnoEditar"
         android:background="@drawable/editextborder"
         android:clickable="true"
         android:ems="10"
@@ -136,22 +136,22 @@
         android:maxLines="1" />
 
     <TextView
-        android:id="@+id/lblDNIAlumno"
+        android:id="@+id/lblDNIAlumnoEditar"
         android:layout_width="200dp"
         android:layout_height="20dp"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/edFechaNacimientoAlumno"
+        android:layout_below="@+id/edFechaAlumnoEditar"
         android:layout_marginTop="8dp"
         android:text="@string/lblDNIRegistro"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/edDNIAlumno"
+        android:id="@+id/edDNIAlumnoEditar"
         android:layout_width="200dp"
         android:layout_height="30dp"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/lblDNIAlumno"
+        android:layout_below="@+id/lblDNIAlumnoEditar"
         android:background="@drawable/editextborder"
         android:ems="10"
         android:inputType="textPersonName"
@@ -159,22 +159,22 @@
         android:textSize="16dp" />
 
     <TextView
-        android:id="@+id/lblMovilAlumno"
+        android:id="@+id/lblMovilAlumnoEditar"
         android:layout_width="200dp"
         android:layout_height="20dp"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/edDNIAlumno"
+        android:layout_below="@+id/edDNIAlumnoEditar"
         android:layout_marginTop="8dp"
         android:text="@string/lblMovilRegisto"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/edMovilAlumno"
+        android:id="@+id/edMovilAlumnoEditar"
         android:layout_width="200dp"
         android:layout_height="30dp"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/lblMovilAlumno"
+        android:layout_below="@+id/lblMovilAlumnoEditar"
         android:background="@drawable/editextborder"
         android:ems="10"
         android:inputType="textPersonName"
@@ -182,22 +182,22 @@
         android:textSize="16dp" />
 
     <TextView
-        android:id="@+id/lblPesoAlumno"
+        android:id="@+id/lblPesoAlumnoEditar"
         android:layout_width="200dp"
         android:layout_height="20dp"
-        android:layout_alignBaseline="@+id/lblNombreAlumno"
-        android:layout_alignBottom="@+id/lblNombreAlumno"
+        android:layout_alignBaseline="@+id/lblNombreAlumnoEditar"
+        android:layout_alignBottom="@+id/lblNombreAlumnoEditar"
         android:layout_alignParentEnd="true"
         android:text="@string/lblPesoAlumno"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/edPesoAlumno"
+        android:id="@+id/edPesoAlumnoEditar"
         android:layout_width="200dp"
         android:layout_height="30dp"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/lblPesoAlumno"
+        android:layout_below="@+id/lblPesoAlumnoEditar"
         android:background="@drawable/editextborder"
         android:ems="10"
         android:inputType="textPersonName"
@@ -205,22 +205,22 @@
         android:textSize="16dp" />
 
     <TextView
-        android:id="@+id/lblAlturaAlumno"
+        android:id="@+id/lblAlturaAlumnoEditar"
         android:layout_width="200dp"
         android:layout_height="20dp"
-        android:layout_alignBaseline="@+id/lblPrimerApellidoAlumno"
-        android:layout_alignBottom="@+id/lblPrimerApellidoAlumno"
+        android:layout_alignBaseline="@+id/lblPrimApeAlumnoEditar"
+        android:layout_alignBottom="@+id/lblPrimApeAlumnoEditar"
         android:layout_alignParentEnd="true"
         android:text="@string/lblAlturaAlumno"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/edAlturaAlumno"
+        android:id="@+id/edAlturaAlumnoEditar"
         android:layout_width="200dp"
         android:layout_height="30dp"
         android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/edPrimerApellidoAlumno"
+        android:layout_alignTop="@+id/edPrimApeAlumnoEditar"
         android:background="@drawable/editextborder"
         android:ems="10"
         android:inputType="textPersonName"
@@ -228,69 +228,69 @@
         android:textSize="16dp" />
 
     <TextView
-        android:id="@+id/lblManoDomAlumno"
+        android:id="@+id/lblManoDomAlumnoEditar"
         android:layout_width="200dp"
         android:layout_height="20dp"
-        android:layout_above="@+id/edSegundoApellidoAlumno"
+        android:layout_above="@+id/edSegApeAlumnoEditar"
         android:layout_alignParentEnd="true"
         android:text="@string/lblManoDomAlumno"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
     <Spinner
-        android:id="@+id/SpManoDom"
+        android:id="@+id/SpManoDomAlumnoEditar"
         style="@style/Base.Widget.AppCompat.Spinner.Underlined"
         android:layout_width="200dp"
         android:layout_height="37dp"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/lblSegundoApellidoAlumno"
-        android:paddingTop="5dp"
+        android:layout_below="@+id/lblSegApeAlumnoEditar"
+        android:backgroundTint="#01C321"
         android:paddingStart="0dp"
-        android:backgroundTint="#01C321" />
+        android:paddingTop="5dp" />
 
     <TextView
-        android:id="@+id/lblPieDomAlumno"
+        android:id="@+id/lblPieDomAlumnoEditar"
         android:layout_width="200dp"
         android:layout_height="20dp"
-        android:layout_above="@+id/SpGeneroAlumno"
+        android:layout_above="@+id/SpGeneroAlumnoEditar"
         android:layout_alignParentEnd="true"
         android:text="@string/lblPieDomAlumno"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
     <Spinner
-        android:id="@+id/SpPieDom"
+        android:id="@+id/SpPieDomAlumnoEditar"
         style="@style/Base.Widget.AppCompat.Spinner.Underlined"
         android:layout_width="200dp"
         android:layout_height="37dp"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/lblPieDomAlumno"
+        android:layout_below="@+id/lblPieDomAlumnoEditar"
+        android:backgroundTint="#01C321"
         android:ems="10"
         android:inputType="textPersonName"
-        android:singleLine="false"
-        android:textSize="16dp"
-        android:paddingTop="5dp"
         android:paddingStart="0dp"
-        android:backgroundTint="#01C321"/>
+        android:paddingTop="5dp"
+        android:singleLine="false"
+        android:textSize="16dp" />
 
     <TextView
-        android:id="@+id/lblObservacionesAlumno"
+        android:id="@+id/lblObservAlumnoEditar"
         android:layout_width="200dp"
         android:layout_height="20dp"
-        android:layout_alignBaseline="@+id/lblFechaNacimientoAlumno"
-        android:layout_alignBottom="@+id/lblFechaNacimientoAlumno"
+        android:layout_alignBaseline="@+id/lblFechaAlumnoEditar"
+        android:layout_alignBottom="@+id/lblFechaAlumnoEditar"
         android:layout_alignParentEnd="true"
         android:text="@string/lblObservacionesAlumno"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/edObservacionesAlumno"
+        android:id="@+id/edObservAlumnoEditar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/edDNIAlumno"
-        android:layout_alignStart="@+id/lblObservacionesAlumno"
-        android:layout_below="@+id/lblObservacionesAlumno"
+        android:layout_alignBottom="@+id/edDNIAlumnoEditar"
+        android:layout_alignStart="@+id/lblObservAlumnoEditar"
+        android:layout_below="@+id/lblObservAlumnoEditar"
         android:background="@drawable/editextborder"
         android:ems="10"
         android:inputType="textMultiLine" />
@@ -309,11 +309,11 @@
         android:textStyle="bold" />
 
     <ImageView
-        android:id="@+id/btnVolver"
+        android:id="@+id/btnVolverEditarAlumno"
         android:layout_width="34dp"
         android:layout_height="44dp"
         android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/fotoAlumno"
+        android:layout_alignTop="@+id/fotoAlumnoEditar"
         android:layout_marginStart="15dp"
         app:srcCompat="@drawable/flechaatras" />
 
