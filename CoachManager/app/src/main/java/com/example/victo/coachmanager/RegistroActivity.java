@@ -42,6 +42,7 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
     RequestQueue ConsultaRequest;
     JsonObjectRequest jsonConsultaRequest;
     String resultado;
+    String genero;
 
 
 
@@ -110,6 +111,14 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
         }
 
         else{
+
+            if(spinnerGeneroRegistro.getSelectedItem().toString().equals("Masculino") || spinnerGeneroRegistro.getSelectedItem().toString().equals("Masculí") || spinnerGeneroRegistro.getSelectedItem().toString().equals("Male"))
+                genero = "Masculino";
+            else if (spinnerGeneroRegistro.getSelectedItem().toString().equals(" "))
+                genero = " ";
+            else
+                genero = "Femenino";
+
             cargarWebService();
         }
 
@@ -140,7 +149,7 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
                 +"&dni="+edDNIRegistro.getText().toString()
                 +"&movil="+edMovilRegistro.getText().toString()
                 +"&fecha_nacimiento="+edFechaRegistro.getText().toString()
-                +"&genero="+spinnerGeneroRegistro.getSelectedItem().toString()
+                +"&genero="+genero
                 +"&correo="+edCorreoRegistro.getText().toString()
                 +"&contrasenya="+edPasswordRegistro.getText().toString();
 

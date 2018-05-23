@@ -31,11 +31,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
     public String resultado;
+    public String id_entenador;
+    private String IP;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
 
         btnRegistrase = (Button) (findViewById(R.id.btnRegistrase));
@@ -83,6 +87,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void cargarWebSerevice() {
 
+
+
+
+
         String url="http://10.1.6.74/CoachManagerPHP/CoachManager_Login.php?"
                 +"correo="+edCorreoLogin.getText().toString()
                 +"&contrasenya="+edPasswordLogin.getText().toString();
@@ -101,7 +109,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         try {
             jsonObject = json.getJSONObject(0);
             resultado = (jsonObject.optString("resultado"));
-            ((IdPersonaLogeada) this.getApplication()).setId_persona(resultado);
+            id_entenador = (jsonObject.optString("id_entrenador"));
+            ((ObtenerIDs) this.getApplication()).setId_persona(resultado);
+            ((ObtenerIDs) this.getApplication()).setId_entrenador(id_entenador);
+
         }catch(JSONException e){
             e.printStackTrace();
         }
@@ -122,7 +133,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(getApplicationContext(), getString(R.string.InicioSesionCorrecto), Toast.LENGTH_SHORT).show();
 
             Intent intent = new Intent(this, MenuActivity.class);
-            Intent intent2 = new Intent(this, AnyadirAlumnoActivity.class);
+
 
             System.out.println("RESULTADO: " + resultado);
 

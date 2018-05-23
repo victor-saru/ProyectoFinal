@@ -95,8 +95,10 @@ public class AlumnosActivity extends AppCompatActivity implements Response.Liste
     }
 
     private void cargarWebService(){
+        String id_entrenador = ((ObtenerIDs) this.getApplication()).getId_entrenador();
 
-        String url="http://10.1.6.74/CoachManagerPHP/CoachManager_Alumnos.php";
+        String url="http://10.1.6.74/CoachManagerPHP/CoachManager_Alumnos.php?id_entrenador="+id_entrenador;
+
 
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
         VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
@@ -109,36 +111,53 @@ public class AlumnosActivity extends AppCompatActivity implements Response.Liste
 
         JSONArray json = response.optJSONArray("alumnos");
 
+
+
+        JSONObject jsonObject2=null;
+
         try {
-
-            for(int i = 0; i < json.length(); i++){
-                Alumno a = new Alumno();
-                JSONObject jsonObject = null;
-                jsonObject=json.getJSONObject(i);
-
-                a.setNombre(jsonObject.optString("nombre"));
-                a.setPrimer_apellido(jsonObject.optString("primer_apellido"));
-                a.setSegundo_apellido(jsonObject.optString("segundo_apellido"));
-                a.setDni(jsonObject.optString("dni"));
-                a.setFecha_nacimiento(jsonObject.optString("fecha_nacimiento"));
-                a.setGenero(jsonObject.optString("genero"));
-                a.setMano_dom(jsonObject.optString("mano_dom"));
-                a.setPie_dom(jsonObject.optString("pie_dom"));
-                a.setObservaciones(jsonObject.optString("observaciones"));
-                a.setMovil(jsonObject.optInt("movil"));
-                a.setPeso(jsonObject.optInt("peso"));
-                a.setAltura(jsonObject.optInt("altura"));
-
-                al_alumnos.add(a);
+            jsonObject2 = json.getJSONObject(0);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        String resultado = (jsonObject2.optString("resultado"));
 
 
+
+        if(!resultado.equals("Null")){
+
+            try {
+
+                for(int i = 0; i < json.length(); i++){
+                    Alumno a = new Alumno();
+                    JSONObject jsonObject = null;
+                    jsonObject=json.getJSONObject(i);
+
+                    a.setNombre(jsonObject.optString("nombre"));
+                    a.setPrimer_apellido(jsonObject.optString("primer_apellido"));
+                    a.setSegundo_apellido(jsonObject.optString("segundo_apellido"));
+                    a.setDni(jsonObject.optString("dni"));
+                    a.setFecha_nacimiento(jsonObject.optString("fecha_nacimiento"));
+                    a.setGenero(jsonObject.optString("genero"));
+                    a.setMano_dom(jsonObject.optString("mano_dom"));
+                    a.setPie_dom(jsonObject.optString("pie_dom"));
+                    a.setObservaciones(jsonObject.optString("observaciones"));
+                    a.setMovil(jsonObject.optInt("movil"));
+                    a.setPeso(jsonObject.optInt("peso"));
+                    a.setAltura(jsonObject.optInt("altura"));
+
+                    al_alumnos.add(a);
+
+
+                }
+
+                adapter = new AdapterAlumno(this, al_alumnos);
+                lista_alumnos.setAdapter(adapter);
+
+            }catch(JSONException e){
+                e.printStackTrace();
             }
 
-            adapter = new AdapterAlumno(this, al_alumnos);
-            lista_alumnos.setAdapter(adapter);
-
-        }catch(JSONException e){
-            e.printStackTrace();
         }
 
     }
