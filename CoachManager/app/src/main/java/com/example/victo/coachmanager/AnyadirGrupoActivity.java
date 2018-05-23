@@ -44,19 +44,16 @@ public class AnyadirGrupoActivity extends AppCompatActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_anyadir_grupo);
 
-        edNombreGrupo = (EditText) findViewById(R.id.edNombreGrupo);
-        edCategoriaGrupo = (EditText) findViewById(R.id.edCategoriaGrupo);
+        edNombreGrupo = (EditText) findViewById(R.id.edNombreGrupoAñadir);
+        edCategoriaGrupo = (EditText) findViewById(R.id.edCategoriaGrupoAñadir);
         btnAñadirGrupo = (Button) findViewById(R.id.btnAñadirGrupo);
-        lv_alumnos_grupo = (ListView)findViewById(R.id.lv_lista_alumnos);
-        btnVolver = (ImageView) findViewById(R.id.btnVolver);
+        lv_alumnos_grupo = (ListView)findViewById(R.id.lv_alumnos_grupoAñadir);
+        btnVolver = (ImageView) findViewById(R.id.btnVolverAñadirGrupo);
 
         btnAñadirGrupo.setOnClickListener(this);
         btnVolver.setOnClickListener(this);
 
         request = Volley.newRequestQueue(getApplicationContext());
-
-
-
 
     }
 
@@ -69,14 +66,14 @@ public class AnyadirGrupoActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void onClick(View view) {
         switch(view.getId()){
-            case R.id.btnAñadirAlumno:{
+            case R.id.btnAñadirGrupo:{
                 comprobarValores();
                 Intent intent = new Intent(AnyadirGrupoActivity.this, GruposActivity.class);
                 startActivityForResult(intent,1);
                 break;
             }
 
-            case R.id.btnVolver:{
+            case R.id.btnVolverAñadirGrupo:{
                 Intent intent = new Intent(AnyadirGrupoActivity.this, GruposActivity.class);
                 startActivityForResult(intent,1);
                 break;

@@ -19,7 +19,7 @@ public class EditarGrupoActivity extends AppCompatActivity {
     EditText edCategoriaGrupo;
     Button btnGuardarCambios;
     ListView lv_alumnos_grupo;
-
+    ImageView btnVolver;
     String resultado;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
@@ -29,10 +29,11 @@ public class EditarGrupoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar_grupo);
 
-        edNombreGrupo = (EditText) findViewById(R.id.edNombreGrupo);
-        edCategoriaGrupo = (EditText) findViewById(R.id.edCategoriaGrupo);
+        edNombreGrupo = (EditText) findViewById(R.id.edNombreGrupoEditar);
+        edCategoriaGrupo = (EditText) findViewById(R.id.edCategoriaGrupoEditar);
         btnGuardarCambios = (Button) findViewById(R.id.btnGuardarEditGrupo);
-        lv_alumnos_grupo = (ListView)findViewById(R.id.lv_lista_alumnos);
+        lv_alumnos_grupo = (ListView)findViewById(R.id.lv_alumnos_grupoEditar);
+        btnVolver = (ImageView) findViewById(R.id.btnVolverEditarGrupo);
 
         btnGuardarCambios.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,8 +42,6 @@ public class EditarGrupoActivity extends AppCompatActivity {
                 startActivityForResult(intent,1);
             }
         });
-
-        ImageView btnVolver = (ImageView) findViewById(R.id.btnVolver);
 
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override

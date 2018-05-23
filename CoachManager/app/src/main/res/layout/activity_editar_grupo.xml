@@ -8,7 +8,7 @@
     android:background="#EEEEEE">
 
     <ImageView
-        android:id="@+id/fotoAlumno"
+        android:id="@+id/fotoGrupoEditar"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
@@ -17,7 +17,7 @@
         app:srcCompat="@drawable/boton_redondeado" />
 
     <TextView
-        android:id="@+id/lblNombreGrupo"
+        android:id="@+id/lblNombreGrupoEditar"
         android:layout_width="200dp"
         android:layout_height="20dp"
         android:layout_alignParentStart="true"
@@ -28,11 +28,11 @@
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/edNombreGrupo"
+        android:id="@+id/edNombreGrupoEditar"
         android:layout_width="200dp"
         android:layout_height="30dp"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/lblNombreGrupo"
+        android:layout_below="@+id/lblNombreGrupoEditar"
         android:background="@drawable/editextborder"
         android:ems="10"
         android:inputType="textPersonName"
@@ -40,22 +40,22 @@
         android:textSize="16dp" />
 
     <TextView
-        android:id="@+id/lblCategoriaGrupo"
+        android:id="@+id/lblCategoriaGrupoEditar"
         android:layout_width="200dp"
         android:layout_height="20dp"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/edNombreGrupo"
+        android:layout_below="@+id/edNombreGrupoEditar"
         android:layout_marginTop="8dp"
         android:text="@string/lblCategoriaGrupo"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/edCategoriaGrupo"
+        android:id="@+id/edCategoriaGrupoEditar"
         android:layout_width="200dp"
         android:layout_height="30dp"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/lblCategoriaGrupo"
+        android:layout_below="@+id/lblCategoriaGrupoEditar"
         android:background="@drawable/editextborder"
         android:ems="10"
         android:inputType="textPersonName"
@@ -63,13 +63,13 @@
         android:textSize="16dp" />
 
     <TextView
-        android:id="@+id/lblAlumnosGrupo"
+        android:id="@+id/lblAlumnosGrupoEditar"
         android:layout_width="200dp"
         android:layout_height="20dp"
-        android:layout_below="@+id/edCategoriaGrupo"
         android:layout_alignParentStart="true"
-        android:text="@string/lblAlumnosGrupo"
+        android:layout_below="@+id/edCategoriaGrupoEditar"
         android:layout_marginTop="8dp"
+        android:text="@string/lblAlumnosGrupo"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
@@ -77,7 +77,7 @@
         android:id="@+id/btnGuardarEditGrupo"
         android:layout_width="wrap_content"
         android:layout_height="26dp"
-        android:layout_above="@+id/fotoAlumno"
+        android:layout_above="@+id/fotoGrupoEditar"
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="-55dp"
         android:layout_marginEnd="15dp"
@@ -88,20 +88,20 @@
         android:textStyle="bold" />
 
     <ImageView
-        android:id="@+id/btnVolver"
+        android:id="@+id/btnVolverEditarGrupo"
         android:layout_width="34dp"
         android:layout_height="44dp"
         android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/fotoAlumno"
+        android:layout_alignTop="@+id/fotoGrupoEditar"
         android:layout_marginStart="15dp"
         app:srcCompat="@drawable/flechaatras" />
 
     <ListView
-        android:id="@+id/lv_alumnos_grupo"
+        android:id="@+id/lv_alumnos_grupoEditar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/lblAlumnosGrupo"
+        android:layout_below="@+id/lblAlumnosGrupoEditar"
         android:choiceMode="multipleChoice" />
 
 </RelativeLayout>
