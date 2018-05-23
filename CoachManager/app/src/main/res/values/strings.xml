@@ -97,6 +97,6 @@
 
     <!-- VerEjercicioActivity -->
     <string name="btnEditarEjercicio">Editar ejercicio</string>
-    <string name="btnAñadirEjercicio">Añadir ejercicio</string>
+
 
 </resources>

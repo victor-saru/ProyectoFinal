@@ -69,7 +69,6 @@
     <string name="errorEmailVacio">Enter an email</string>
     <string name="btnEditarEjercicio">Edit exercise</string>
     <string name="textoSobreNosotros">Coach Manager is an application developed by SabaDevs. At SabaDevs, we look for our software to meet needs in the simplest way possible.</string>
-    <string name="textoSobreNosotros">"Coach Manager is an application developed by SabaDevs. At SabaDevs, we look for our software to meet needs in the simplest way possible. "</string>
     <string name="errorCorreo">Enter a correct email</string>
     <string name="errorContrasenya">Enter a correct password</string>
     <string name="InicioSesionCorrecto">Logged in successfully</string>
