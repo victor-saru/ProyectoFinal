@@ -27,13 +27,13 @@ public class AnyadirEjercicioActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_anyadir_ejercicio);
 
-        edNombreEjercicio = (EditText)findViewById(R.id.edNombreEjercicio);
-        edDescripcionEjercicio = (EditText)findViewById(R.id.edDescripcionEjercicio);
+        edNombreEjercicio = (EditText)findViewById(R.id.edNombreEjercicioAñadir);
+        edDescripcionEjercicio = (EditText)findViewById(R.id.edDescripcionEjercicioAñadir);
         btnAñadirEjercicio = (Button)findViewById(R.id.btnAñadirEjercicio);
 
         request = Volley.newRequestQueue(getApplicationContext());
 
-        ImageView btnVolver = (ImageView) findViewById(R.id.btnVolver);
+        ImageView btnVolver = (ImageView) findViewById(R.id.btnVolverAñadirEjercicio);
 
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override

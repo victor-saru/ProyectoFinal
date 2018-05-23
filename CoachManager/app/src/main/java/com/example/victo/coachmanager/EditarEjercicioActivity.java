@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
@@ -14,6 +15,7 @@ public class EditarEjercicioActivity extends AppCompatActivity {
 
     EditText edNombreEjercicio;
     EditText edDescripcionEjercicio;
+    Button btnGuardarEditEjercicio;
 
     String resultado;
     RequestQueue request;
@@ -24,10 +26,10 @@ public class EditarEjercicioActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar_ejercicio);
 
-        edNombreEjercicio = (EditText)findViewById(R.id.edNombreEjercicio);
-        edDescripcionEjercicio = (EditText)findViewById(R.id.edDescripcionEjercicio);
-
-        ImageView btnVolver = (ImageView) findViewById(R.id.btnVolver);
+        edNombreEjercicio = (EditText)findViewById(R.id.edNombreEjercicioEditar);
+        edDescripcionEjercicio = (EditText)findViewById(R.id.edDescripcionEjercicioEditar);
+        btnGuardarEditEjercicio = (Button)findViewById(R.id.btnGuardarEditEjercicio);
+        ImageView btnVolver = (ImageView) findViewById(R.id.btnVolverEditarEjercicio);
 
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override

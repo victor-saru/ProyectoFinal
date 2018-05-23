@@ -67,5 +67,9 @@
     <string name="errorDNIExistente">Has introduït un DNI ja existent</string>
     <string name="RegistradoExito">Registrat amb èxit</string>
     <string name="errorEmailVacio">Introdueix un email</string>
+    <string name="btnEditarEjercicio">Editar exercici</string>
+    <string name="errorCorreo">Introdueix un correu correcte</string>
+    <string name="errorContrasenya">Introdueix una contrasenya correcta</string>
+    <string name="InicioSesionCorrecto">Inici de sessió correcte</string>
 
 </resources>

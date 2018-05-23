@@ -7,23 +7,36 @@
     tools:context="com.example.victo.coachmanager.VerAlumnoActivity"
     android:background="#EEEEEE">
 
+    <Button
+        android:id="@+id/btnEditarEjercicio"
+        android:layout_width="wrap_content"
+        android:layout_height="26dp"
+        android:layout_above="@+id/btnVolverVerEjercicio"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="-55dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/boton_redondeado"
+        android:padding="4dip"
+        android:text="@string/btnEditarEjercicio"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
+
     <TextView
-        android:id="@+id/lblNombreEjercicio"
+        android:id="@+id/lblNombreEjercicioVer"
         android:layout_width="200dp"
         android:layout_height="20dp"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/fotoAlumno"
         android:layout_marginTop="120dp"
         android:text="@string/lblNombreRegistro"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/edNombreEjercicio"
+    <TextView
+        android:id="@+id/lblNombreEjercicioVerValor"
         android:layout_width="200dp"
         android:layout_height="30dp"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/lblNombreEjercicio"
+        android:layout_below="@+id/lblNombreEjercicioVer"
         android:background="@drawable/editextborder"
         android:ems="10"
         android:inputType="textPersonName"
@@ -31,28 +44,28 @@
         android:textSize="16dp" />
 
     <TextView
-        android:id="@+id/lblDescripcionEjercicio"
+        android:id="@+id/lblDescripcionEjercicioVer"
         android:layout_width="200dp"
         android:layout_height="20dp"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/edNombreEjercicio"
-        android:text="@string/lblDescripcionEjercicio"
+        android:layout_below="@+id/lblNombreEjercicioVerValor"
         android:layout_marginTop="8dp"
+        android:text="@string/lblDescripcionEjercicio"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/edDescripcionEjercicio"
+    <TextView
+        android:id="@+id/lblDescripcionEjercicioVerValor"
         android:layout_width="237dp"
         android:layout_height="100dp"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/lblDescripcionEjercicio"
+        android:layout_below="@+id/lblDescripcionEjercicioVer"
         android:background="@drawable/editextborder"
         android:ems="10"
         android:inputType="textMultiLine" />
 
     <ImageView
-        android:id="@+id/btnVolver"
+        android:id="@+id/btnVolverVerEjercicio"
         android:layout_width="34dp"
         android:layout_height="44dp"
         android:layout_alignParentStart="true"
