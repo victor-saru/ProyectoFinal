@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ip = "192.168.1.168";
+        ip = "10.1.6.74";
         ((ObtenerIDs) this.getApplication()).setIp(ip);
 
         btnRegistrase = (Button) (findViewById(R.id.btnRegistrase));
@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             resultado = (jsonObject.optString("resultado"));
             id_entenador = (jsonObject.optString("id_entrenador"));
 
-            ((ObtenerIDs) this.getApplication()).setId_persona(resultado);
+            ((ObtenerIDs) this.getApplication()).setId_persona_Logeada(resultado);
             ((ObtenerIDs) this.getApplication()).setId_entrenador(id_entenador);
 
 

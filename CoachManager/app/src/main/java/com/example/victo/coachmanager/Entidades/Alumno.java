@@ -10,13 +10,14 @@ import android.os.Parcelable;
 public class Alumno implements Parcelable{
 
     String nombre, primer_apellido, segundo_apellido, dni, fecha_nacimiento, genero, mano_dom, pie_dom, observaciones;
-    int movil, peso, altura;
+    int movil, peso, altura, id_alumno, id_persona;
 
     /*public Alumno() {
         super();
     }*/
 
-    public Alumno(String nombre, String primer_apellido, String segundo_apellido, String dni, String fecha_nacimiento, String genero, String mano_dom, String pie_dom, String observaciones, int movil, int peso, int altura) {
+    public Alumno(int id_alumno, String nombre, String primer_apellido, String segundo_apellido, String dni, String fecha_nacimiento, String genero, String mano_dom, String pie_dom, String observaciones, int movil, int peso, int altura, int id_persona) {
+        this.id_alumno = id_alumno;
         this.nombre = nombre;
         this.primer_apellido = primer_apellido;
         this.segundo_apellido = segundo_apellido;
@@ -29,6 +30,7 @@ public class Alumno implements Parcelable{
         this.movil = movil;
         this.peso = peso;
         this.altura = altura;
+        this.id_persona = id_persona;
     }
 
     public Alumno(){
@@ -36,6 +38,7 @@ public class Alumno implements Parcelable{
     }
 
     protected Alumno(Parcel in) {
+        id_alumno = in.readInt();
         nombre = in.readString();
         primer_apellido = in.readString();
         segundo_apellido = in.readString();
@@ -48,6 +51,7 @@ public class Alumno implements Parcelable{
         movil = in.readInt();
         peso = in.readInt();
         altura = in.readInt();
+        id_persona = in.readInt();
     }
 
     public static final Creator<Alumno> CREATOR = new Creator<Alumno>() {
@@ -158,6 +162,22 @@ public class Alumno implements Parcelable{
         this.altura = altura;
     }
 
+    public int getId_alumno() {
+        return id_alumno;
+    }
+
+    public void setId_alumno(int id_alumno) {
+        this.id_alumno = id_alumno;
+    }
+
+    public int getId_persona() {
+        return id_persona;
+    }
+
+    public void setId_persona(int id_persona) {
+        this.id_persona = id_persona;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -165,6 +185,7 @@ public class Alumno implements Parcelable{
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(id_alumno);
         parcel.writeString(nombre);
         parcel.writeString(primer_apellido);
         parcel.writeString(segundo_apellido);
@@ -177,6 +198,8 @@ public class Alumno implements Parcelable{
         parcel.writeInt(movil);
         parcel.writeInt(peso);
         parcel.writeInt(altura);
+        parcel.writeInt(id_persona);
+
 
     }
 }

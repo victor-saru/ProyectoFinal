@@ -132,7 +132,7 @@ public class AlumnosActivity extends AppCompatActivity implements Response.Liste
                     Alumno a = new Alumno();
                     JSONObject jsonObject = null;
                     jsonObject=json.getJSONObject(i);
-
+                    a.setId_alumno(jsonObject.optInt("id_alumno"));
                     a.setNombre(jsonObject.optString("nombre"));
                     a.setPrimer_apellido(jsonObject.optString("primer_apellido"));
                     a.setSegundo_apellido(jsonObject.optString("segundo_apellido"));
@@ -145,6 +145,7 @@ public class AlumnosActivity extends AppCompatActivity implements Response.Liste
                     a.setMovil(jsonObject.optInt("movil"));
                     a.setPeso(jsonObject.optInt("peso"));
                     a.setAltura(jsonObject.optInt("altura"));
+                    a.setId_persona(jsonObject.optInt("id_persona"));
 
                     al_alumnos.add(a);
 

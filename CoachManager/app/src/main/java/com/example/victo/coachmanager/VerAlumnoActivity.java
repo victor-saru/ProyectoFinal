@@ -54,31 +54,42 @@ public class VerAlumnoActivity extends AppCompatActivity {
 
         alumno = (Alumno) getIntent().getParcelableExtra("alumno");
 
-        System.out.println("Nombre: "+alumno.getNombre());
-        System.out.println("Primer: "+alumno.getPrimer_apellido());
-        System.out.println("Segundo: "+alumno.getSegundo_apellido());
-        System.out.println("DNI: "+alumno.getDni());
-        System.out.println("Fecha: "+alumno.getFecha_nacimiento());
-        System.out.println("mano: "+alumno.getMano_dom());
-        System.out.println("genero: "+alumno.getGenero());
-        System.out.println("pie: "+alumno.getPie_dom());
-        System.out.println("observ: "+alumno.getObservaciones());
-        System.out.println("movil: "+alumno.getMovil());
-        System.out.println("peso: "+alumno.getPeso());
-        System.out.println("altura: "+alumno.getAltura());
 
         edNombreAlumno.setText(alumno.getNombre());
         edPrimerApellidoAlumno.setText(alumno.getPrimer_apellido());
         edSegundoApellidoAlumno.setText(alumno.getSegundo_apellido());
         edDNIAlumno.setText(alumno.getDni());
         edFechaNacimientoAlumno.setText(alumno.getFecha_nacimiento());
-        lblManoDomAlumnoValor.setText(alumno.getMano_dom());
-        spGeneroAlumno.setText(alumno.getGenero());
-        lblPieDomAlumnoValor.setText(alumno.getPie_dom());
+
+        if(alumno.getMano_dom().equals("Derecha") || alumno.getMano_dom().equals("Dreta") || alumno.getMano_dom().equals("Right"))
+            lblManoDomAlumnoValor.setText(getString(R.string.ManoDomDer));
+        else if (alumno.getGenero().equals(" "))
+            lblManoDomAlumnoValor.setText(" ");
+        else
+            lblManoDomAlumnoValor.setText(getString(R.string.ManoDomIzq));
+
+
+        if(alumno.getGenero().equals("Masculino") || alumno.getGenero().equals("Masculí") || alumno.getGenero().equals("Male"))
+            spGeneroAlumno.setText(getString(R.string.GeneroMasculino));
+        else if (alumno.getGenero().equals(" "))
+            spGeneroAlumno.setText(" ");
+        else
+            spGeneroAlumno.setText(getString(R.string.GeneroFemenino));
+
+        if(alumno.getPie_dom().equals("Derecho") || alumno.getPie_dom().equals("Dret") || alumno.getPie_dom().equals("Right"))
+            lblPieDomAlumnoValor.setText(getString(R.string.PieDomDer));
+        else if (alumno.getGenero().equals(" "))
+            lblPieDomAlumnoValor.setText(" ");
+        else
+            lblPieDomAlumnoValor.setText(getString(R.string.PieDomIzq));
+
+
         lblObservacionesAlumnoValor.setText(alumno.getObservaciones());
         edMovilAlumno.setText(String.valueOf(alumno.getMovil()));
         lblPesoAlumnoValor.setText(String.valueOf(alumno.getPeso()));
         lblAlturaAlumnoValor.setText(String.valueOf(alumno.getAltura()));
+
+
 
 
         btnVolver.setOnClickListener(new View.OnClickListener() {

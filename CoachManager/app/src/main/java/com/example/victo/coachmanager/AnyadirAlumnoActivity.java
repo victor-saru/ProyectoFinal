@@ -40,8 +40,9 @@ public class AnyadirAlumnoActivity extends AppCompatActivity implements View.OnC
     Spinner spPieDomAlumno;
     EditText edObservacionesAlumno;
     Button btnAñadirAlumno;
-    String id_persona;
+    String id_personaLogeada;
     String mano, pie, genero;
+    String id_alumno, id_persona;
 
     String resultado;
     RequestQueue request;
@@ -72,9 +73,9 @@ public class AnyadirAlumnoActivity extends AppCompatActivity implements View.OnC
         btnAñadirAlumno.setOnClickListener(this);
 
 
-        id_persona = ((ObtenerIDs) this.getApplication()).getId_persona();
+        id_personaLogeada = ((ObtenerIDs) this.getApplication()).getId_persona_Logeada();
 
-        System.out.println("ID PERSONA LOGEADA: " + id_persona);
+        System.out.println("ID PERSONA LOGEADA: " + id_personaLogeada);
 
         ImageView btnVolver = (ImageView) findViewById(R.id.btnVolverAñadirAlumno);
 
@@ -199,7 +200,7 @@ public class AnyadirAlumnoActivity extends AppCompatActivity implements View.OnC
                 +"&mano_dom="+mano
                 +"&pie_dom=" +pie
                 +"&observaciones="+ edObservacionesAlumno.getText().toString()
-                +"&id_persona_entrenador=" + id_persona;
+                +"&id_persona_entrenador=" + id_personaLogeada;
 
 
 
@@ -268,6 +269,12 @@ public class AnyadirAlumnoActivity extends AppCompatActivity implements View.OnC
         }
 
         else{
+
+
+            id_alumno = resultado;
+
+            System.out.println(id_alumno + " " + id_persona);
+
             Toast.makeText(getApplicationContext(), getString(R.string.RegistradoExito), Toast.LENGTH_SHORT).show();
             //Intent intent = new Intent(AnyadirAlumnoActivity.this, AlumnosActivity.class);
             //StartActivityForResult(intent,1);

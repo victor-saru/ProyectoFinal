@@ -64,8 +64,14 @@ if($_GET["dni"] != "" && $_GET["nombre"] != "" && $_GET["primer_apellido"] != ""
                             
         $resultado_insertAlumno = mysqli_query($conexion, $insertAlumno);
 
+
+
+        $consultaIDAlumno = "SELECT id_alumno FROM alumnos WHERE id_persona = {$id_persona[0]}";
+        $resultado_consultaIDAlumno = mysqli_query($conexion, $consultaIDAlumno);
+        $id_alumno = mysqli_fetch_row($resultado_consultaIDAlumno);
+
         
-        $resulta["resultado"] = "Correcto";
+        $resulta["resultado"] = $id_alumno[0];
         $json['persona'][] = $resulta;
 
         echo json_encode($json);  

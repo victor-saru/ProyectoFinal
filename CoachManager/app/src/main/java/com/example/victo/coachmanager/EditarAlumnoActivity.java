@@ -48,11 +48,13 @@ public class EditarAlumnoActivity extends AppCompatActivity implements View.OnCl
     String[] GeneroAlumno;
     String[] ManoDom;
     String[] PieDom;
+    String id_personaLogeada;
 
     String resultado;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
     Alumno alumno;
+    int genero, mano, pie;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,8 +62,7 @@ public class EditarAlumnoActivity extends AppCompatActivity implements View.OnCl
         setContentView(R.layout.activity_editar_alumno);
 
         alumno = (Alumno) getIntent().getParcelableExtra("alumno");
-
-        comprobarIdioma("hola");
+        id_personaLogeada = ((ObtenerIDs) this.getApplication()).getId_persona_Logeada();
 
         btnGuardarCambios = (Button) findViewById(R.id.btnGuardarEditAlum);
         edNombreAlumno = (EditText) findViewById(R.id.edNombreAlumnoEditar);
@@ -92,15 +93,60 @@ public class EditarAlumnoActivity extends AppCompatActivity implements View.OnCl
         edNombreAlumno.setText(alumno.getNombre());
         edPrimerApellidoAlumno.setText(alumno.getPrimer_apellido());
         edSegundoApellidoAlumno.setText(alumno.getSegundo_apellido());
-        spGeneroAlumno.setSelection((((ArrayAdapter)spGeneroAlumno.getAdapter()).getPosition(alumno.getGenero())));
-        edFechaNacimientoAlumno.setText(alumno.getNombre());
-        edDNIAlumno.setText(alumno.getNombre());
-        edMovilAlumno.setText(alumno.getNombre());
-        edPesoAlumno.setText(alumno.getNombre());
-        edAlturaAlumno.setText(alumno.getNombre());
-        spManoDomAlumno.setSelection((((ArrayAdapter)spManoDomAlumno.getAdapter()).getPosition(alumno.getMano_dom())));
-        spPieDomAlumno.setSelection((((ArrayAdapter)spPieDomAlumno.getAdapter()).getPosition(alumno.getPie_dom())));
-        edObservacionesAlumno.setText(alumno.getNombre());
+
+        if(alumno.getGenero().equals("Masculino") || alumno.getGenero().equals("Masculí") || alumno.getGenero().equals("Male"))
+            genero = 2;
+        else if (alumno.getGenero().equals(" "))
+            genero = 0;
+        else
+            genero = 1;
+
+
+        spGeneroAlumno.post(new Runnable() {
+            @Override
+            public void run() {
+                spGeneroAlumno.setSelection(genero);
+            }
+        });
+
+
+        edFechaNacimientoAlumno.setText(alumno.getFecha_nacimiento());
+        edDNIAlumno.setText(alumno.getDni());
+        edMovilAlumno.setText(String.valueOf(alumno.getMovil()));
+        edPesoAlumno.setText(String.valueOf(alumno.getPeso()));
+        edAlturaAlumno.setText(String.valueOf(alumno.getAltura()));
+
+        if(alumno.getMano_dom().equals("Derecha") || alumno.getMano_dom().equals("Dreta") || alumno.getMano_dom().equals("Right"))
+            mano = 2;
+        else if (alumno.getMano_dom().equals(" "))
+            mano = 0;
+        else
+            mano = 1;
+
+
+        spManoDomAlumno.post(new Runnable() {
+            @Override
+            public void run() {
+                spManoDomAlumno.setSelection(mano);
+            }
+        });
+
+
+        if(alumno.getPie_dom().equals("Derecha") || alumno.getPie_dom().equals("Dreta") || alumno.getPie_dom().equals("Right"))
+            pie = 1;
+        else if (alumno.getPie_dom().equals(" "))
+            pie = 0;
+        else
+            pie = 2;
+
+        spPieDomAlumno.post(new Runnable() {
+            @Override
+            public void run() {
+                spPieDomAlumno.setSelection(pie);
+            }
+        });
+
+        edObservacionesAlumno.setText(alumno.getObservaciones());
 
 
         request = Volley.newRequestQueue(getApplicationContext());
@@ -130,15 +176,7 @@ public class EditarAlumnoActivity extends AppCompatActivity implements View.OnCl
         SpPieDom.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, PieDom));
     }
 
-    public String comprobarIdioma(String string){
 
-        System.out.println(Locale.getDefault().getDisplayLanguage());
-
-
-
-        return "hola";
-
-    }
 
     @Override
     public void onClick(View view) {
@@ -194,7 +232,8 @@ public class EditarAlumnoActivity extends AppCompatActivity implements View.OnCl
 
     private void cargarWebService() {
 
-        String url = "http://"+((ObtenerIDs) this.getApplication()).getIp()+"/CoachManagerPHP/CoachManager_InsertAlumno.php?nombre="+edNombreAlumno.getText().toString()
+        String url = "http://"+((ObtenerIDs) this.getApplication()).getIp()+"/CoachManagerPHP/CoachManager_UpdateAlumno.php?id_alumno="+String.valueOf(alumno.getId_alumno())
+                +"&nombre="+edNombreAlumno.getText().toString()
                 +"&primer_apellido="+ edPrimerApellidoAlumno.getText().toString()
                 +"&segundo_apellido="+ edSegundoApellidoAlumno.getText().toString()
                 +"&dni=" +edDNIAlumno.getText().toString()
@@ -205,7 +244,9 @@ public class EditarAlumnoActivity extends AppCompatActivity implements View.OnCl
                 +"&altura="+ edAlturaAlumno.getText().toString()
                 +"&mano_dom="+ spManoDomAlumno.getSelectedItem().toString()
                 +"&pie_dom=" +spPieDomAlumno.getSelectedItem().toString()
-                +"&observaciones="+ edObservacionesAlumno.getText().toString();
+                +"&observaciones="+ edObservacionesAlumno.getText().toString()
+                +"&id_persona="+ String.valueOf(alumno.getId_persona())
+                +"&id_persona_entrenador=" + id_personaLogeada;
 
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
         request.add(jsonObjectRequest);

@@ -45,7 +45,7 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
         setSupportActionBar(toolbar);
 
 
-        id_persona = ((ObtenerIDs) this.getApplication()).getId_persona();
+        id_persona = ((ObtenerIDs) this.getApplication()).getId_persona_Logeada();
 
         System.out.println("PEPE: " + id_persona);
 

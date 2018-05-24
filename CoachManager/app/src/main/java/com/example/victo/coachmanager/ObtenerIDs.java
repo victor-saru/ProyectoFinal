@@ -8,16 +8,17 @@ import android.app.Application;
 
 public class ObtenerIDs extends Application{
 
-    private String id_persona;
+    private String id_persona_Logeada;
     private String id_entrenador;
+    private String id_alumno;
     private String ip;
 
-    public String getId_persona() {
-        return id_persona;
+    public String getId_persona_Logeada() {
+        return id_persona_Logeada;
     }
 
-    public void setId_persona(String id_persona) {
-        this.id_persona = id_persona;
+    public void setId_persona_Logeada(String id_persona_Logeada) {
+        this.id_persona_Logeada = id_persona_Logeada;
     }
 
     public String getId_entrenador() {
@@ -34,5 +35,13 @@ public class ObtenerIDs extends Application{
 
     public void setIp(String ip) {
         this.ip = ip;
+    }
+
+    public String getId_alumno() {
+        return id_alumno;
+    }
+
+    public void setId_alumno(String id_alumno) {
+        this.id_alumno = id_alumno;
     }
 }
