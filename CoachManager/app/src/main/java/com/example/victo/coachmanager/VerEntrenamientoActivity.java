@@ -9,19 +9,19 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.example.victo.coachmanager.Entidades.Alumno;
 import com.example.victo.coachmanager.Entidades.Ejercicio;
 
 import java.util.ArrayList;
 
-public class AnyadirEntrenamientoActivity extends AppCompatActivity {
+public class VerEntrenamientoActivity extends AppCompatActivity {
 
-    EditText edNombreEntre;
-    Spinner SpDeporteEntre;
-    Button btnAñadirEntre;
+    TextView edNombreEntre;
+    TextView SpDeporteEntre;
+    Button btnEditarEntre;
     ListView lv_ejercicios_deporte;
     ImageView btnVolver;
     ArrayList<Ejercicio> al_ejercicios;
@@ -33,18 +33,18 @@ public class AnyadirEntrenamientoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_anyadir_entrenamiento);
+        setContentView(R.layout.activity_ver_entrenamiento);
 
-        edNombreEntre = (EditText) findViewById(R.id.edNombreEntreAñadir);
-        SpDeporteEntre = (Spinner) findViewById(R.id.SpDeporteEntreAñadir);
-        btnAñadirEntre = (Button) findViewById(R.id.btnAñadirEntre);
-        lv_ejercicios_deporte = (ListView) findViewById(R.id.lv_ejercicios_deporteAñadir);
-        btnVolver = (ImageView) findViewById(R.id.btnVolverAñadirEntre);
+        edNombreEntre = (TextView) findViewById(R.id.lblNombreEntreVerValor);
+        SpDeporteEntre = (TextView) findViewById(R.id.lblDeporteEntreVerValor);
+        btnEditarEntre = (Button) findViewById(R.id.btnEditarEntre);
+        lv_ejercicios_deporte = (ListView) findViewById(R.id.lv_ejercicios_deporteVer);
+        btnVolver = (ImageView) findViewById(R.id.btnVolverVerEntre);
 
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AnyadirEntrenamientoActivity.this, EntrenamientosActivity.class);
+                Intent intent = new Intent(VerEntrenamientoActivity.this, EntrenamientosActivity.class);
                 startActivityForResult(intent,1);
             }
         });

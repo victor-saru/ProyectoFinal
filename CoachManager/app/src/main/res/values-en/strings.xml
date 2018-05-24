@@ -72,5 +72,10 @@
     <string name="errorCorreo">Enter a correct email</string>
     <string name="errorContrasenya">Enter a correct password</string>
     <string name="InicioSesionCorrecto">Logged in successfully</string>
+    <string name="btnAnyadirEntre">Add training</string>
+    <string name="lblDeporteEntre">Sport</string>
+    <string name="lblEjercicioEntreAñadir">Exercises</string>
+    <string name="btnAñadirEntre">Add training</string>
+    <string name="btnEditarEntre">Edit training</string>
 
 </resources>

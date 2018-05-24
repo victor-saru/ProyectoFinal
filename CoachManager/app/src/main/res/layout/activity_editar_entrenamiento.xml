@@ -8,7 +8,7 @@
     android:background="#EEEEEE">
 
     <ImageView
-        android:id="@+id/btnVolverAñadirEntre"
+        android:id="@+id/btnVolverEditarEntre"
         android:layout_width="34dp"
         android:layout_height="44dp"
         android:layout_alignParentStart="true"
@@ -17,35 +17,35 @@
         app:srcCompat="@drawable/flechaatras" />
 
     <Button
-        android:id="@+id/btnAñadirEntre"
+        android:id="@+id/btnGuardarEditEntre"
         android:layout_width="wrap_content"
         android:layout_height="26dp"
         android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/btnVolverAñadirEntre"
+        android:layout_alignTop="@+id/btnVolverEditarEntre"
         android:layout_marginEnd="30dp"
         android:background="@drawable/boton_redondeado"
         android:padding="4dip"
-        android:text="@string/btnAñadirEntre"
+        android:text="@string/btnGuardarEditAlum"
         android:textColor="@android:color/white"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/lblNombreEntreAñadir"
+        android:id="@+id/lblNombreEntreEditar"
         android:layout_width="200dp"
         android:layout_height="20dp"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/btnVolverAñadirEntre"
+        android:layout_alignStart="@+id/btnVolverEditarEntre"
         android:layout_marginTop="129dp"
         android:text="@string/lblNombreRegistro"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/edNombreEntreAñadir"
+        android:id="@+id/edNombreEntreEditar"
         android:layout_width="200dp"
         android:layout_height="30dp"
-        android:layout_alignStart="@+id/lblNombreEntreAñadir"
-        android:layout_below="@+id/lblNombreEntreAñadir"
+        android:layout_alignStart="@+id/lblNombreEntreEditar"
+        android:layout_below="@+id/lblNombreEntreEditar"
         android:background="@drawable/editextborder"
         android:ems="10"
         android:inputType="textPersonName"
@@ -53,23 +53,23 @@
         android:textSize="16dp" />
 
     <TextView
-        android:id="@+id/lblDeporteEntreAñadir"
+        android:id="@+id/lblDeporteEntreEditar"
         android:layout_width="200dp"
         android:layout_height="20dp"
-        android:layout_alignStart="@+id/lblNombreEntreAñadir"
-        android:layout_below="@+id/edNombreEntreAñadir"
+        android:layout_alignStart="@+id/lblNombreEntreEditar"
+        android:layout_below="@+id/edNombreEntreEditar"
         android:layout_marginTop="8dp"
         android:text="@string/lblDeporteEntre"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
     <Spinner
-        android:id="@+id/SpDeporteEntreAñadir"
+        android:id="@+id/SpDeporteEntreEditar"
         style="@style/Base.Widget.AppCompat.Spinner.Underlined"
         android:layout_width="200dp"
         android:layout_height="37dp"
-        android:layout_alignStart="@+id/lblNombreEntreAñadir"
-        android:layout_below="@+id/lblDeporteEntreAñadir"
+        android:layout_alignStart="@+id/lblNombreEntreEditar"
+        android:layout_below="@+id/lblDeporteEntreEditar"
         android:backgroundTint="#01C321"
         android:ems="10"
         android:inputType="textPersonName"
@@ -79,22 +79,22 @@
         android:textSize="16dp" />
 
     <TextView
-        android:id="@+id/lblEjercicioEntreAñadir"
+        android:id="@+id/lblEjercicioEntreEditar"
         android:layout_width="200dp"
         android:layout_height="20dp"
-        android:layout_alignStart="@+id/lblNombreEntreAñadir"
-        android:layout_below="@+id/SpDeporteEntreAñadir"
+        android:layout_alignStart="@+id/lblNombreEntreEditar"
+        android:layout_below="@+id/SpDeporteEntreEditar"
         android:layout_marginTop="1dp"
         android:text="@string/lblEjercicioEntreAñadir"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
     <ListView
-        android:id="@+id/lv_ejercicios_deporteAñadir"
+        android:id="@+id/lv_ejercicios_deporteEditar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/lblEjercicioEntreAñadir"
+        android:layout_below="@+id/lblEjercicioEntreEditar"
         android:layout_marginStart="15dp"
         android:choiceMode="multipleChoice" />
 

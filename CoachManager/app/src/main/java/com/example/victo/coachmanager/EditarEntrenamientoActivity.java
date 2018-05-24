@@ -12,16 +12,15 @@ import android.widget.Spinner;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.example.victo.coachmanager.Entidades.Alumno;
 import com.example.victo.coachmanager.Entidades.Ejercicio;
 
 import java.util.ArrayList;
 
-public class AnyadirEntrenamientoActivity extends AppCompatActivity {
+public class EditarEntrenamientoActivity extends AppCompatActivity {
 
     EditText edNombreEntre;
     Spinner SpDeporteEntre;
-    Button btnAñadirEntre;
+    Button btnGuardarEditEntre;
     ListView lv_ejercicios_deporte;
     ImageView btnVolver;
     ArrayList<Ejercicio> al_ejercicios;
@@ -33,18 +32,18 @@ public class AnyadirEntrenamientoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_anyadir_entrenamiento);
+        setContentView(R.layout.activity_editar_entrenamiento);
 
-        edNombreEntre = (EditText) findViewById(R.id.edNombreEntreAñadir);
-        SpDeporteEntre = (Spinner) findViewById(R.id.SpDeporteEntreAñadir);
-        btnAñadirEntre = (Button) findViewById(R.id.btnAñadirEntre);
-        lv_ejercicios_deporte = (ListView) findViewById(R.id.lv_ejercicios_deporteAñadir);
-        btnVolver = (ImageView) findViewById(R.id.btnVolverAñadirEntre);
+        edNombreEntre = (EditText) findViewById(R.id.edNombreEntreEditar);
+        SpDeporteEntre = (Spinner) findViewById(R.id.SpDeporteEntreEditar);
+        btnGuardarEditEntre = (Button) findViewById(R.id.btnGuardarEditEntre);
+        lv_ejercicios_deporte = (ListView) findViewById(R.id.lv_ejercicios_deporteEditar);
+        btnVolver = (ImageView) findViewById(R.id.btnVolverEditarEntre);
 
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AnyadirEntrenamientoActivity.this, EntrenamientosActivity.class);
+                Intent intent = new Intent(EditarEntrenamientoActivity.this, VerEntrenamientoActivity.class);
                 startActivityForResult(intent,1);
             }
         });

@@ -44,7 +44,9 @@
         <activity android:name=".EditarEjercicioActivity" />
         <activity android:name=".OlvidarContrasenyaActivity" />
         <activity android:name=".EntrenamientosActivity" />
-        <activity android:name=".AnyadirEntrenamientoActivity"></activity>
+        <activity android:name=".AnyadirEntrenamientoActivity" />
+        <activity android:name=".VerEntrenamientoActivity" />
+        <activity android:name=".EditarEntrenamientoActivity"></activity>
     </application>
 
 </manifest>

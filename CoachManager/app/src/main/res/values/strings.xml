@@ -98,5 +98,10 @@
     <!-- VerEjercicioActivity -->
     <string name="btnEditarEjercicio">Editar ejercicio</string>
 
+    <!-- AnyadirEntrenamientoActivity -->
+    <string name="btnAñadirEntre">Añadir entrenamiento</string>
+    <string name="lblDeporteEntre">Deporte</string>
+    <string name="lblEjercicioEntreAñadir">Ejercicios</string>
+    <string name="btnEditarEntre">Editar entrenamiento</string>
 
 </resources>
