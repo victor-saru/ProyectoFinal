@@ -2,7 +2,6 @@ package com.example.victo.coachmanager;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
-import android.graphics.PorterDuff;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,7 +12,6 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -43,6 +41,7 @@ public class AnyadirAlumnoActivity extends AppCompatActivity implements View.OnC
     EditText edObservacionesAlumno;
     Button btnAñadirAlumno;
     String id_persona;
+    String mano, pie, genero;
 
     String resultado;
     RequestQueue request;
@@ -72,10 +71,8 @@ public class AnyadirAlumnoActivity extends AppCompatActivity implements View.OnC
         edFechaNacimientoAlumno.setOnClickListener(this);
         btnAñadirAlumno.setOnClickListener(this);
 
-        //id_persona = "29";
 
-
-        id_persona = ((IdPersonaLogeada) this.getApplication()).getId_persona();
+        id_persona = ((ObtenerIDs) this.getApplication()).getId_persona();
 
         System.out.println("ID PERSONA LOGEADA: " + id_persona);
 
@@ -153,23 +150,54 @@ public class AnyadirAlumnoActivity extends AppCompatActivity implements View.OnC
         }
 
         else{
+
+            if(spGeneroAlumno.getSelectedItem().toString().equals("Masculino") || spGeneroAlumno.getSelectedItem().toString().equals("Masculí") || spGeneroAlumno.getSelectedItem().toString().equals("Male") )
+                genero = "Masculino";
+            else if(spGeneroAlumno.getSelectedItem().toString().equals(" "))
+                genero = "";
+
+            else
+                genero = "Femenino";
+
+            if(spManoDomAlumno.getSelectedItem().toString().equals("Derecha") || spManoDomAlumno.getSelectedItem().toString().equals("Dreta") || spManoDomAlumno.getSelectedItem().toString().equals("Right"))
+                mano = "Derecha";
+
+            else if(spManoDomAlumno.getSelectedItem().toString().equals(" "))
+                mano = " ";
+
+            else{
+                mano = "Izquierda";
+            }
+
+            if(spPieDomAlumno.getSelectedItem().toString().equals("Derecha") || spManoDomAlumno.getSelectedItem().toString().equals("Dreta") || spManoDomAlumno.getSelectedItem().toString().equals("Right"))
+                pie = "Derecho";
+
+            else if(spPieDomAlumno.getSelectedItem().toString().equals(" "))
+                pie = " ";
+
+            else{
+                pie = "Izquierda";
+            }
+
             cargarWebService();
         }
     }
 
     private void cargarWebService() {
 
-        String url = "http://192.168.1.168/CoachManagerPHP/CoachManager_InsertAlumno.php?nombre="+edNombreAlumno.getText().toString()
+
+
+        String url = "http://10.1.6.74/CoachManagerPHP/CoachManager_InsertAlumno.php?nombre="+edNombreAlumno.getText().toString()
                 +"&primer_apellido="+ edPrimerApellidoAlumno.getText().toString()
                 +"&segundo_apellido="+ edSegundoApellidoAlumno.getText().toString()
                 +"&dni=" +edDNIAlumno.getText().toString()
                 +"&movil="+ edMovilAlumno.getText().toString()
                 +"&fecha_nacimiento="+ edFechaNacimientoAlumno.getText().toString()
-                +"&genero=" +spGeneroAlumno.getSelectedItem().toString()
+                +"&genero=" +genero
                 +"&peso=" +edPesoAlumno.getText().toString()
                 +"&altura="+ edAlturaAlumno.getText().toString()
-                +"&mano_dom="+ spManoDomAlumno.getSelectedItem().toString()
-                +"&pie_dom=" +spPieDomAlumno.getSelectedItem().toString()
+                +"&mano_dom="+mano
+                +"&pie_dom=" +pie
                 +"&observaciones="+ edObservacionesAlumno.getText().toString()
                 +"&id_persona_entrenador=" + id_persona;
 

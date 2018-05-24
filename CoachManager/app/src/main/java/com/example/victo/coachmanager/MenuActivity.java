@@ -27,8 +27,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import static java.security.AccessController.getContext;
-
 public class MenuActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener , Response.Listener<JSONObject>, Response.ErrorListener{
 
     private String id_persona;
@@ -47,7 +45,7 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
         setSupportActionBar(toolbar);
 
 
-        id_persona = ((IdPersonaLogeada) this.getApplication()).getId_persona();
+        id_persona = ((ObtenerIDs) this.getApplication()).getId_persona();
 
         System.out.println("PEPE: " + id_persona);
 

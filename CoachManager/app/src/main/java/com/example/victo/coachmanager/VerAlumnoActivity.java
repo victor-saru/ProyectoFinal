@@ -50,6 +50,7 @@ public class VerAlumnoActivity extends AppCompatActivity {
         lblManoDomAlumnoValor = (TextView) findViewById(R.id.lblManoDomAlumnoVerValor);
         lblPieDomAlumnoValor = (TextView) findViewById(R.id.lblPieDomAlumnoVerValor);
         lblObservacionesAlumnoValor = (TextView) findViewById(R.id.lblObservAlumnoVerValor);
+        lblObservacionesAlumnoValor.setEnabled(false);
 
         alumno = (Alumno) getIntent().getParcelableExtra("alumno");
 
@@ -94,6 +95,7 @@ public class VerAlumnoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(VerAlumnoActivity.this, EditarAlumnoActivity.class);
+                intent.putExtra("alumno", alumno);
                 startActivityForResult(intent,1);
             }
         });

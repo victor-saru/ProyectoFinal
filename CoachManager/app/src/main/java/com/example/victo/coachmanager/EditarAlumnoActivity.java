@@ -22,10 +22,13 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.victo.coachmanager.Entidades.Alumno;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.Locale;
 
 public class EditarAlumnoActivity extends AppCompatActivity implements View.OnClickListener, Response.Listener<JSONObject>, Response.ErrorListener {
 
@@ -42,29 +45,63 @@ public class EditarAlumnoActivity extends AppCompatActivity implements View.OnCl
     Spinner spPieDomAlumno;
     EditText edObservacionesAlumno;
     Button btnGuardarCambios;
+    String[] GeneroAlumno;
+    String[] ManoDom;
+    String[] PieDom;
 
     String resultado;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
+    Alumno alumno;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar_alumno);
 
+        alumno = (Alumno) getIntent().getParcelableExtra("alumno");
+
+        comprobarIdioma("hola");
+
         btnGuardarCambios = (Button) findViewById(R.id.btnGuardarEditAlum);
         edNombreAlumno = (EditText) findViewById(R.id.edNombreAlumnoEditar);
         edPrimerApellidoAlumno = (EditText) findViewById(R.id.edPrimApeAlumnoEditar);
         edSegundoApellidoAlumno = (EditText) findViewById(R.id.edSegApeAlumnoEditar);
+
         spGeneroAlumno = (Spinner) findViewById(R.id.SpGeneroAlumnoEditar);
+        String[] GeneroAlumno = {" ", getString(R.string.GeneroMasculino), getString(R.string.GeneroFemenino)};
+        spGeneroAlumno.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, GeneroAlumno));
+
         edFechaNacimientoAlumno = (EditText) findViewById(R.id.edFechaAlumnoEditar);
         edDNIAlumno = (EditText) findViewById(R.id.edDNIAlumnoEditar);
         edMovilAlumno = (EditText) findViewById(R.id.edMovilAlumnoEditar);
         edPesoAlumno = (EditText) findViewById(R.id.edPesoAlumnoEditar);
         edAlturaAlumno = (EditText) findViewById(R.id.edAlturaAlumnoEditar);
+
         spManoDomAlumno = (Spinner) findViewById(R.id.SpManoDomAlumnoEditar);
+        String[] ManoDom = {" ", getString(R.string.ManoDomIzq), getString(R.string.ManoDomDer)};
+        spManoDomAlumno.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ManoDom));
+
         spPieDomAlumno = (Spinner) findViewById(R.id.SpPieDomAlumnoEditar);
+        String[] PieDom = {" ", getString(R.string.PieDomIzq), getString(R.string.PieDomDer)};
+        spPieDomAlumno.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, PieDom));
+
         edObservacionesAlumno = (EditText) findViewById(R.id.edObservAlumnoEditar);
+
+
+        edNombreAlumno.setText(alumno.getNombre());
+        edPrimerApellidoAlumno.setText(alumno.getPrimer_apellido());
+        edSegundoApellidoAlumno.setText(alumno.getSegundo_apellido());
+        spGeneroAlumno.setSelection((((ArrayAdapter)spGeneroAlumno.getAdapter()).getPosition(alumno.getGenero())));
+        edFechaNacimientoAlumno.setText(alumno.getNombre());
+        edDNIAlumno.setText(alumno.getNombre());
+        edMovilAlumno.setText(alumno.getNombre());
+        edPesoAlumno.setText(alumno.getNombre());
+        edAlturaAlumno.setText(alumno.getNombre());
+        spManoDomAlumno.setSelection((((ArrayAdapter)spManoDomAlumno.getAdapter()).getPosition(alumno.getMano_dom())));
+        spPieDomAlumno.setSelection((((ArrayAdapter)spPieDomAlumno.getAdapter()).getPosition(alumno.getPie_dom())));
+        edObservacionesAlumno.setText(alumno.getNombre());
+
 
         request = Volley.newRequestQueue(getApplicationContext());
 
@@ -81,16 +118,26 @@ public class EditarAlumnoActivity extends AppCompatActivity implements View.OnCl
         });
 
         Spinner SpGeneroAlumno = (Spinner) findViewById(R.id.SpGeneroAlumnoEditar);
-        String[] GeneroAlumno = {" ", getString(R.string.GeneroMasculino), getString(R.string.GeneroFemenino)};
+        GeneroAlumno = new String[]{" ", getString(R.string.GeneroMasculino), getString(R.string.GeneroFemenino)};
         SpGeneroAlumno.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, GeneroAlumno));
 
         Spinner SpManoDom = (Spinner) findViewById(R.id.SpManoDomAlumnoEditar);
-        String[] ManoDom = {" ", getString(R.string.ManoDomIzq), getString(R.string.ManoDomDer)};
+        ManoDom = new String[]{" ", getString(R.string.ManoDomIzq), getString(R.string.ManoDomDer)};
         SpManoDom.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ManoDom));
 
         Spinner SpPieDom = (Spinner) findViewById(R.id.SpPieDomAlumnoEditar);
-        String[] PieDom = {" ", getString(R.string.PieDomIzq), getString(R.string.PieDomDer)};
+        PieDom = new String[]{" ", getString(R.string.PieDomIzq), getString(R.string.PieDomDer)};
         SpPieDom.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, PieDom));
+    }
+
+    public String comprobarIdioma(String string){
+
+        System.out.println(Locale.getDefault().getDisplayLanguage());
+
+
+
+        return "hola";
+
     }
 
     @Override
