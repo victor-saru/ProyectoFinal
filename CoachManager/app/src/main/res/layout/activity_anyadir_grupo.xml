@@ -24,6 +24,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="129dp"
         android:text="@string/lblNombreRegistro"
+        android:layout_marginLeft="15dp"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
@@ -35,6 +36,7 @@
         android:layout_below="@+id/lblNombreGrupoAñadir"
         android:background="@drawable/editextborder"
         android:ems="10"
+        android:layout_marginLeft="15dp"
         android:inputType="textPersonName"
         android:singleLine="false"
         android:textSize="16dp" />
@@ -47,6 +49,7 @@
         android:layout_below="@+id/edNombreGrupoAñadir"
         android:layout_marginTop="8dp"
         android:text="@string/lblCategoriaGrupo"
+        android:layout_marginLeft="15dp"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
@@ -58,6 +61,7 @@
         android:layout_below="@+id/lblCategoriaGrupoAñadir"
         android:background="@drawable/editextborder"
         android:ems="10"
+        android:layout_marginLeft="15dp"
         android:inputType="textPersonName"
         android:singleLine="false"
         android:textSize="16dp" />
@@ -70,6 +74,7 @@
         android:layout_below="@+id/edCategoriaGrupoAñadir"
         android:layout_marginTop="8dp"
         android:text="@string/lblAlumnosGrupo"
+        android:layout_marginLeft="15dp"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
@@ -99,6 +104,7 @@
     <ListView
         android:id="@+id/lv_alumnos_grupoAñadir"
         android:layout_width="match_parent"
+        android:layout_marginLeft="15dp"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/lblAlumnosGrupoAñadir"

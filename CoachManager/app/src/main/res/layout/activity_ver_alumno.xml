@@ -25,6 +25,7 @@
         android:layout_marginTop="55dp"
         android:text="@string/lblNombreRegistro"
         android:textColor="@android:color/background_dark"
+        android:layout_marginLeft="5dp"
         android:textStyle="bold" />
 
     <TextView
@@ -37,6 +38,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:singleLine="false"
+        android:layout_marginLeft="5dp"
         android:textSize="16dp" />
 
     <TextView
@@ -48,6 +50,7 @@
         android:layout_marginTop="8dp"
         android:text="@string/lblPrimerApellidoRegistro"
         android:textColor="@android:color/background_dark"
+        android:layout_marginLeft="5dp"
         android:textStyle="bold" />
 
     <TextView
@@ -60,6 +63,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:singleLine="false"
+        android:layout_marginLeft="5dp"
         android:textSize="16dp" />
 
     <TextView
@@ -70,6 +74,7 @@
         android:layout_below="@+id/lblPrimApeAlumnoVerValor"
         android:layout_marginTop="8dp"
         android:text="@string/lblSegundoApellidoRegistro"
+        android:layout_marginLeft="5dp"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
@@ -77,6 +82,7 @@
         android:id="@+id/lblSegApeAlumnoVerValor"
         android:layout_width="200dp"
         android:layout_height="30dp"
+        android:layout_marginLeft="5dp"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/lblSegApeAlumnoVer"
         android:background="@drawable/editextborder"
@@ -89,6 +95,7 @@
         android:id="@+id/lblGeneroAlumnoVer"
         android:layout_width="200dp"
         android:layout_height="20dp"
+        android:layout_marginLeft="5dp"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/lblSegApeAlumnoVerValor"
         android:layout_marginTop="8dp"
@@ -100,6 +107,7 @@
         android:id="@+id/lblGeneroAlumnoVerValor"
         android:layout_width="200dp"
         android:layout_height="30dp"
+        android:layout_marginLeft="5dp"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/lblGeneroAlumnoVer"
         android:background="@drawable/editextborder"
@@ -112,6 +120,7 @@
         android:id="@+id/lblFechaAlumnoVer"
         android:layout_width="200dp"
         android:layout_height="20dp"
+        android:layout_marginLeft="5dp"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/lblGeneroAlumnoVerValor"
         android:layout_marginTop="8dp"
@@ -123,6 +132,7 @@
         android:id="@+id/lblFechaAlumnoVerValor"
         android:layout_width="200dp"
         android:layout_height="30dp"
+        android:layout_marginLeft="5dp"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/lblFechaAlumnoVer"
         android:background="@drawable/editextborder"
@@ -137,6 +147,7 @@
         android:id="@+id/lblDNIAlumnoVer"
         android:layout_width="200dp"
         android:layout_height="20dp"
+        android:layout_marginLeft="5dp"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/lblFechaAlumnoVerValor"
         android:layout_marginTop="8dp"
@@ -148,6 +159,7 @@
         android:id="@+id/lblDNIAlumnoVerValor"
         android:layout_width="200dp"
         android:layout_height="30dp"
+        android:layout_marginLeft="5dp"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/lblDNIAlumnoVer"
         android:background="@drawable/editextborder"
@@ -160,6 +172,7 @@
         android:id="@+id/lblMovilAlumnoVer"
         android:layout_width="200dp"
         android:layout_height="20dp"
+        android:layout_marginLeft="5dp"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/lblDNIAlumnoVerValor"
         android:layout_marginTop="8dp"
@@ -171,6 +184,7 @@
         android:id="@+id/lblMovilAlumnoVerValor"
         android:layout_width="200dp"
         android:layout_height="30dp"
+        android:layout_marginLeft="5dp"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/lblMovilAlumnoVer"
         android:background="@drawable/editextborder"
