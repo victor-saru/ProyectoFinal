@@ -147,7 +147,7 @@ public class EditarAlumnoActivity extends AppCompatActivity implements View.OnCl
 
     private void cargarWebService() {
 
-        String url = "http://192.168.1.45/CoachManagerPHP/CoachManager_InsertAlumno.php?nombre="+edNombreAlumno.getText().toString()
+        String url = "http://192.168.1.168/CoachManagerPHP/CoachManager_InsertAlumno.php?nombre="+edNombreAlumno.getText().toString()
                 +"&primer_apellido="+ edPrimerApellidoAlumno.getText().toString()
                 +"&segundo_apellido="+ edSegundoApellidoAlumno.getText().toString()
                 +"&dni=" +edDNIAlumno.getText().toString()

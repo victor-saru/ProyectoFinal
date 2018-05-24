@@ -16,7 +16,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -43,8 +42,8 @@
         <activity android:name=".AnyadirEjercicioActivity" />
         <activity android:name=".VerEjercicioActivity" />
         <activity android:name=".EditarEjercicioActivity" />
-        <activity android:name=".OlvidarContrasenyaActivity"></activity>
-
+        <activity android:name=".OlvidarContrasenyaActivity" />
+        <activity android:name=".EntrenamientosActivity"></activity>
     </application>
 
 </manifest>
