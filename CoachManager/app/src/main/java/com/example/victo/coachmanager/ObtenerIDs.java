@@ -10,6 +10,7 @@ public class ObtenerIDs extends Application{
 
     private String id_persona;
     private String id_entrenador;
+    private String ip;
 
     public String getId_persona() {
         return id_persona;
@@ -25,5 +26,13 @@ public class ObtenerIDs extends Application{
 
     public void setId_entrenador(String id_entrenador) {
         this.id_entrenador = id_entrenador;
+    }
+
+    public String getIp() {
+        return ip;
+    }
+
+    public void setIp(String ip) {
+        this.ip = ip;
     }
 }

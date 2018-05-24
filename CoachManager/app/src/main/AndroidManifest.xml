@@ -43,7 +43,8 @@
         <activity android:name=".VerEjercicioActivity" />
         <activity android:name=".EditarEjercicioActivity" />
         <activity android:name=".OlvidarContrasenyaActivity" />
-        <activity android:name=".EntrenamientosActivity"></activity>
+        <activity android:name=".EntrenamientosActivity" />
+        <activity android:name=".AnyadirEntrenamientoActivity"></activity>
     </application>
 
 </manifest>

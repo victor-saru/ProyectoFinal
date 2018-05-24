@@ -102,7 +102,7 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
 
         System.out.println("IDDDDDDD : " + id_persona);
 
-        String url="http://192.168.1.168/CoachManagerPHP/CoachManager_InfoPersona.php?id_persona="+id_persona.toString();
+        String url="http://"+((ObtenerIDs) this.getApplication()).getIp()+"/CoachManagerPHP/CoachManager_InfoPersona.php?id_persona="+id_persona.toString();
 
 
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);

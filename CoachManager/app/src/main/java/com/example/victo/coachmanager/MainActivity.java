@@ -32,15 +32,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     JsonObjectRequest jsonObjectRequest;
     public String resultado;
     public String id_entenador;
-    private String IP;
+    private String ip;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
+        ip = "192.168.1.168";
+        ((ObtenerIDs) this.getApplication()).setIp(ip);
 
         btnRegistrase = (Button) (findViewById(R.id.btnRegistrase));
         btnLogin = (Button) findViewById(R.id.btnLogin);
@@ -74,8 +74,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         else if(id == btnLogin.getId()){
 
+            System.out.println(((ObtenerIDs) this.getApplication()).getIp());
+            System.out.println(String.valueOf(((ObtenerIDs) this.getApplication()).getIp()));
+            System.out.println(((ObtenerIDs) this.getApplication()).getId_entrenador());
             cargarWebSerevice();
-
         }
 
         else if(id == btnRecordarPassword.getId()){
@@ -91,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
-        String url="http://10.1.6.74/CoachManagerPHP/CoachManager_Login.php?"
+        String url="http://"+((ObtenerIDs) this.getApplication()).getIp()+"/CoachManagerPHP/CoachManager_Login.php?"
                 +"correo="+edCorreoLogin.getText().toString()
                 +"&contrasenya="+edPasswordLogin.getText().toString();
 
@@ -110,8 +112,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             jsonObject = json.getJSONObject(0);
             resultado = (jsonObject.optString("resultado"));
             id_entenador = (jsonObject.optString("id_entrenador"));
+
             ((ObtenerIDs) this.getApplication()).setId_persona(resultado);
             ((ObtenerIDs) this.getApplication()).setId_entrenador(id_entenador);
+
 
         }catch(JSONException e){
             e.printStackTrace();

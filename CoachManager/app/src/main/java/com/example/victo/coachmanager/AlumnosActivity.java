@@ -97,7 +97,7 @@ public class AlumnosActivity extends AppCompatActivity implements Response.Liste
     private void cargarWebService(){
         String id_entrenador = ((ObtenerIDs) this.getApplication()).getId_entrenador();
 
-        String url="http://10.1.6.74/CoachManagerPHP/CoachManager_Alumnos.php?id_entrenador="+id_entrenador;
+        String url="http://"+((ObtenerIDs) this.getApplication()).getIp()+"/CoachManagerPHP/CoachManager_Alumnos.php?id_entrenador="+id_entrenador;
 
 
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
