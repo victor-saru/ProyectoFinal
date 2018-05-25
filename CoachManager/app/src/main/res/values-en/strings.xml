@@ -77,5 +77,6 @@
     <string name="lblEjercicioEntreAñadir">Exercises</string>
     <string name="btnAñadirEntre">Add training</string>
     <string name="btnEditarEntre">Edit training</string>
+    <string name="GuardarCambios">Changes saved</string>
 
 </resources>

@@ -76,5 +76,6 @@
     <string name="lblEjercicioEntreAñadir">Exercisis</string>
     <string name="btnAñadirEntre">Afegir entrenament</string>
     <string name="btnEditarEntre">Editar entrenament</string>
+    <string name="GuardarCambios">Canvis guardats</string>
 
 </resources>
