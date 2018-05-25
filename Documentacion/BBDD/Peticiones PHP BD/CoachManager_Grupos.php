@@ -9,13 +9,24 @@ $json = array();
 $conexion = mysqli_connect($hostname_localhost, $username_localhost, $password_localhost, $database_localhost);
 
 
-$consulta = "SELECT nombre, categoria FROM grupos" ;   
+$id_entrenador = $_GET["id_entrenador"];
+
+$consulta = "SELECT nombre, categoria FROM grupos";   
 $resultado = mysqli_query($conexion, $consulta);
+$info = mysqli_fetch_row($resultado);
 
-
-while($grupos = mysqli_fetch_array($resultado)){
-    $json['grupos'][] = $grupos;
+if($info[0] == NULL){
+    $resulta["resultado"] = "Null";
+    $json['grupos'][] = $resulta;
 }
+
+else{
+    $resultado = mysqli_query($conexion, $consulta);
+    while($grupos = mysqli_fetch_array($resultado)){
+        $json['grupos'][] = $grupos;
+    }
+}
+
 
 echo json_encode($json);
 mysqli_close($conexion);

@@ -1,7 +1,9 @@
 package com.example.victo.coachmanager;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -76,11 +78,65 @@ public class GruposActivity extends AppCompatActivity implements Response.Listen
             }
         });
 
+        lista_grupos.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, final int pos, long l) {
+
+                AlertDialog.Builder confirmacio = new AlertDialog.Builder(GruposActivity.this);
+                confirmacio.setTitle("Eliminar Grupo"); //Óscar modifica esto
+
+                String nombre = al_grupos.get(pos).getNombre();
+                confirmacio.setMessage("Quieres eliminar el grupo " + nombre + "?"); //Óscar modifica esto
+                confirmacio.setCancelable(false);
+
+                confirmacio.setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        System.out.println(lista_grupos.getItemAtPosition(pos));
+                        aceptar(al_grupos.get(pos));
+                    }
+                });
+
+                confirmacio.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+
+                confirmacio.show();
+
+                return false;
+            }
+
+            private void aceptar(Grupo g) {
+
+                eliminarGrupo(g);
+                //al_alumnos.remove(a);
+                cargarWebService();
+            }
+        });
+
+    }
+
+    public void eliminarGrupo(Grupo g){
+
+        //g.getId_alumno();
+        //g.getId_persona();
+
+        //String url = "http://"+((ObtenerIDs) this.getApplication()).getIp()+"/CoachManagerPHP/CoachManager_DeleteAlumno.php?id_alumno="+String.valueOf(a.getId_alumno())
+        //        +"&id_persona="+String.valueOf(a.getId_persona());
+
+
+        //jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
+       // VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
     }
 
     private void cargarWebService() {
 
-        String url="http://10.1.6.74/CoachManagerPHP/CoachManager_Grupos.php";
+        String id_entrenador = ((ObtenerIDs) this.getApplication()).getId_entrenador();
+
+        String url="http://10.1.6.74/CoachManagerPHP/CoachManager_Grupos.php?id_entrenador="+id_entrenador;
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
         VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
 
@@ -92,28 +148,43 @@ public class GruposActivity extends AppCompatActivity implements Response.Listen
 
         JSONArray json = response.optJSONArray("grupos");
 
+        JSONObject jsonObject2 = null;
+
         try {
+            jsonObject2 = json.getJSONObject(0);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
-            for (int i = 0; i < json.length(); i++) {
-                Grupo g = new Grupo();
-                JSONObject jsonObject = null;
-                jsonObject = json.getJSONObject(i);
+        String resultado = (jsonObject2.optString("resultado"));
 
-                g.setNombre(jsonObject.optString("nombre"));
-                g.setCategoria(jsonObject.optString("categoria"));
+        if (!resultado.equals("Null")) {
+            al_grupos.removeAll(al_grupos);
+
+            try {
+
+                for (int i = 0; i < json.length(); i++) {
+
+                    Grupo g = new Grupo();
+                    JSONObject jsonObject = null;
+                    jsonObject = json.getJSONObject(i);
+
+                    g.setNombre(jsonObject.optString("nombre"));
+                    g.setCategoria(jsonObject.optString("categoria"));
 
 
-                al_grupos.add(g);
+                    al_grupos.add(g);
 
+                }
 
+                adapter = new AdapterGrupo(this, al_grupos);
+                lista_grupos.setAdapter(adapter);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
 
 
-            adapter = new AdapterGrupo(this, al_grupos);
-            lista_grupos.setAdapter(adapter);
-
-        } catch (JSONException e) {
-            e.printStackTrace();
         }
     }
 
