@@ -72,6 +72,7 @@
     <string name="btnGuardarEditAlum">Guardar cambios</string>
     <string name="btnAñadirAlumno">Añadir alumno</string>
 
+
     <!-- AnyadirAlumnoActivity -->
     <string name="errorRellCampsObl">Rellena todos los campos obligatorios</string>
     <string name="errorMovil">Introduce un móvil correcto</string>
@@ -103,5 +104,9 @@
     <string name="lblDeporteEntre">Deporte</string>
     <string name="lblEjercicioEntreAñadir">Ejercicios</string>
     <string name="btnEditarEntre">Editar entrenamiento</string>
+
+    <!-- EditarAlumnoActivity -->
+    <string name="GuardarCambios">Cambios guardados correctamente</string>
+
 
 </resources>

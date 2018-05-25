@@ -133,11 +133,11 @@ public class EditarAlumnoActivity extends AppCompatActivity implements View.OnCl
 
 
         if(alumno.getPie_dom().equals("Derecha") || alumno.getPie_dom().equals("Dreta") || alumno.getPie_dom().equals("Right"))
-            pie = 1;
+            pie = 2;
         else if (alumno.getPie_dom().equals(" "))
             pie = 0;
         else
-            pie = 2;
+            pie = 1;
 
         spPieDomAlumno.post(new Runnable() {
             @Override
@@ -309,7 +309,7 @@ public class EditarAlumnoActivity extends AppCompatActivity implements View.OnCl
         }
 
         else{
-            Toast.makeText(getApplicationContext(), getString(R.string.RegistradoExito), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.GuardarCambios), Toast.LENGTH_SHORT).show();
             finish();
         }
     }

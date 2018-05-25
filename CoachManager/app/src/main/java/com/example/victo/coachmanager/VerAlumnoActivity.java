@@ -78,7 +78,7 @@ public class VerAlumnoActivity extends AppCompatActivity {
 
         if(alumno.getPie_dom().equals("Derecho") || alumno.getPie_dom().equals("Dret") || alumno.getPie_dom().equals("Right"))
             lblPieDomAlumnoValor.setText(getString(R.string.PieDomDer));
-        else if (alumno.getGenero().equals(" "))
+        else if (alumno.getPie_dom().equals(" "))
             lblPieDomAlumnoValor.setText(" ");
         else
             lblPieDomAlumnoValor.setText(getString(R.string.PieDomIzq));
@@ -112,7 +112,10 @@ public class VerAlumnoActivity extends AppCompatActivity {
         });
     }
 
+
+
+
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        //finish();
+        finish();
     }
 }

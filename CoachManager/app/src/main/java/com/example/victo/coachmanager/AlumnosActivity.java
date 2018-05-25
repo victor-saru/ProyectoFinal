@@ -1,8 +1,10 @@
 package com.example.victo.coachmanager;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Parcelable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,15 +26,19 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class AlumnosActivity extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener, Serializable {
+public class AlumnosActivity extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener {
 
     ArrayList<Alumno> al_alumnos;
     ListView lista_alumnos;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
+    RequestQueue request2;
+    JsonObjectRequest jsonObjectRequest2;
     AdapterAlumno adapter;
 
     @Override
@@ -86,6 +92,63 @@ public class AlumnosActivity extends AppCompatActivity implements Response.Liste
                 startActivityForResult(intent,1);
             }
         });
+
+        lista_alumnos.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, final int pos, long l) {
+
+                //System.out.println("Posicion: " + i);
+
+                AlertDialog.Builder confirmacio = new AlertDialog.Builder(AlumnosActivity.this);
+                confirmacio.setTitle("Eliminar Alumno"); //Óscar modifica esto
+
+                String nombre = al_alumnos.get(pos).getNombre()+ " " + al_alumnos.get(pos).getPrimer_apellido() + " " + al_alumnos.get(pos).getSegundo_apellido();
+                confirmacio.setMessage("Quieres eliminar el alumno " + nombre + "?"); //Óscar modifica esto
+                confirmacio.setCancelable(false);
+
+                confirmacio.setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        System.out.println(lista_alumnos.getItemAtPosition(pos));
+                        aceptar(al_alumnos.get(pos));
+                    }
+                });
+
+                confirmacio.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+
+                confirmacio.show();
+
+                return false;
+            }
+
+            private void aceptar(Alumno a) {
+
+                eliminarAlumno(a);
+                //al_alumnos.remove(a);
+                cargarWebService();
+
+
+            }
+
+        });
+    }
+
+    public void eliminarAlumno(Alumno a){
+
+        a.getId_alumno();
+        a.getId_persona();
+
+        String url = "http://"+((ObtenerIDs) this.getApplication()).getIp()+"/CoachManagerPHP/CoachManager_DeleteAlumno.php?id_alumno="+String.valueOf(a.getId_alumno())
+                +"&id_persona="+String.valueOf(a.getId_persona());
+
+
+        jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
+        VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
     }
 
 
@@ -107,7 +170,7 @@ public class AlumnosActivity extends AppCompatActivity implements Response.Liste
     @Override
     public void onResponse(JSONObject response) {
 
-        al_alumnos.removeAll(al_alumnos);
+
 
         JSONArray json = response.optJSONArray("alumnos");
 
@@ -122,9 +185,14 @@ public class AlumnosActivity extends AppCompatActivity implements Response.Liste
         }
         String resultado = (jsonObject2.optString("resultado"));
 
+        if(resultado.equals("Eliminado")){
+            Toast.makeText(getApplicationContext(), "Alumno eliminado", Toast.LENGTH_SHORT).show();
+            adapter = new AdapterAlumno(this, al_alumnos);
+            lista_alumnos.setAdapter(adapter);
+        }
 
-
-        if(!resultado.equals("Null")){
+        else if(!resultado.equals("Null")){
+            al_alumnos.removeAll(al_alumnos);
 
             try {
 
