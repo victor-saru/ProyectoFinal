@@ -7,7 +7,7 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MenuActivity"
     tools:showIn="@layout/app_bar_menu"
-    android:background="#EEEEEE">
+    android:background="#FFFFFF">
 
     <Button
         android:id="@+id/btnSobreNosotros"

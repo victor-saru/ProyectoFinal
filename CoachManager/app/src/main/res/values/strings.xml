@@ -71,7 +71,6 @@
     <string name="btnEditarAlumno">Editar alumno</string>
     <string name="btnGuardarEditAlum">Guardar cambios</string>
     <string name="btnAñadirAlumno">Añadir alumno</string>
-    <string name="Aña">Añadir alumno</string>
 
 
     <!-- AnyadirAlumnoActivity -->

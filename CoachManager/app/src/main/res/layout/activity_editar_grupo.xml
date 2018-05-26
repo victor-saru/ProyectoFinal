@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.victo.coachmanager.VerAlumnoActivity"
-    android:background="#EEEEEE">
+    android:background="#FFFFFF">
 
     <ImageView
         android:id="@+id/fotoGrupoEditar"
