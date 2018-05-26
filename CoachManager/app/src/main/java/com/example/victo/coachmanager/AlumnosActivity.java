@@ -129,8 +129,7 @@ public class AlumnosActivity extends AppCompatActivity implements Response.Liste
             private void aceptar(Alumno a) {
 
                 eliminarAlumno(a);
-                //al_alumnos.remove(a);
-                cargarWebService();
+                al_alumnos.remove(a);
 
 
             }

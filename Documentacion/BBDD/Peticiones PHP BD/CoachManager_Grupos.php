@@ -11,7 +11,7 @@ $conexion = mysqli_connect($hostname_localhost, $username_localhost, $password_l
 
 $id_entrenador = $_GET["id_entrenador"];
 
-$consulta = "SELECT nombre, categoria FROM grupos";   
+$consulta = "SELECT id_grupo, nombre, categoria FROM grupos WHERE id_entrenador = {$id_entrenador}";   
 $resultado = mysqli_query($conexion, $consulta);
 $info = mysqli_fetch_row($resultado);
 
@@ -26,7 +26,6 @@ else{
         $json['grupos'][] = $grupos;
     }
 }
-
 
 echo json_encode($json);
 mysqli_close($conexion);

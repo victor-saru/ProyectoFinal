@@ -112,8 +112,8 @@ public class GruposActivity extends AppCompatActivity implements Response.Listen
             private void aceptar(Grupo g) {
 
                 eliminarGrupo(g);
-                //al_alumnos.remove(a);
-                cargarWebService();
+                al_grupos.remove(g);
+
             }
         });
 
@@ -121,22 +121,21 @@ public class GruposActivity extends AppCompatActivity implements Response.Listen
 
     public void eliminarGrupo(Grupo g){
 
-        //g.getId_alumno();
-        //g.getId_persona();
-
-        //String url = "http://"+((ObtenerIDs) this.getApplication()).getIp()+"/CoachManagerPHP/CoachManager_DeleteAlumno.php?id_alumno="+String.valueOf(a.getId_alumno())
-        //        +"&id_persona="+String.valueOf(a.getId_persona());
+        g.getId_grupo();
 
 
-        //jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
-       // VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
+        String url = "http://"+((ObtenerIDs) this.getApplication()).getIp()+"/CoachManagerPHP/CoachManager_DeleteGrupo.php?id_grupo="+String.valueOf(g.getId_grupo());
+
+
+        jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
+        VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
     }
 
     private void cargarWebService() {
 
         String id_entrenador = ((ObtenerIDs) this.getApplication()).getId_entrenador();
 
-        String url="http://10.1.6.74/CoachManagerPHP/CoachManager_Grupos.php?id_entrenador="+id_entrenador;
+        String url="http://"+((ObtenerIDs) this.getApplication()).getIp()+"/CoachManagerPHP/CoachManager_Grupos.php?id_entrenador="+id_entrenador;
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
         VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
 
@@ -158,7 +157,13 @@ public class GruposActivity extends AppCompatActivity implements Response.Listen
 
         String resultado = (jsonObject2.optString("resultado"));
 
-        if (!resultado.equals("Null")) {
+        if(resultado.equals("Eliminado")){
+            Toast.makeText(getApplicationContext(), "Grupo eliminado", Toast.LENGTH_SHORT).show();
+            adapter = new AdapterGrupo(this, al_grupos);
+            lista_grupos.setAdapter(adapter);
+        }
+
+        else if (!resultado.equals("Null")) {
             al_grupos.removeAll(al_grupos);
 
             try {
@@ -169,6 +174,7 @@ public class GruposActivity extends AppCompatActivity implements Response.Listen
                     JSONObject jsonObject = null;
                     jsonObject = json.getJSONObject(i);
 
+                    g.setId_grupo(jsonObject.optInt("id_grupo"));
                     g.setNombre(jsonObject.optString("nombre"));
                     g.setCategoria(jsonObject.optString("categoria"));
 

@@ -21,6 +21,7 @@ if($info[0] == NULL){
 }
 
 else{
+
     $resultado = mysqli_query($conexion, $consulta);
 
     while($alumnos = mysqli_fetch_array($resultado)){ 
