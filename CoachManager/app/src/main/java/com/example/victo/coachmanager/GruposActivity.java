@@ -106,7 +106,7 @@ public class GruposActivity extends AppCompatActivity implements Response.Listen
 
                 confirmacio.show();
 
-                return false;
+                return true;
             }
 
             private void aceptar(Grupo g) {

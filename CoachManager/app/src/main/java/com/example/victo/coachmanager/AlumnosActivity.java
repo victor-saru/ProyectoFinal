@@ -54,6 +54,8 @@ public class AlumnosActivity extends AppCompatActivity implements Response.Liste
 
         cargarWebService();
 
+
+
         lista_alumnos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -79,6 +81,8 @@ public class AlumnosActivity extends AppCompatActivity implements Response.Liste
                 intent.putExtra("alumno", a);
                 startActivityForResult(intent,1);
                 //startActivity(intent);
+
+
 
             }
         });
@@ -123,7 +127,7 @@ public class AlumnosActivity extends AppCompatActivity implements Response.Liste
 
                 confirmacio.show();
 
-                return false;
+                return true;
             }
 
             private void aceptar(Alumno a) {
