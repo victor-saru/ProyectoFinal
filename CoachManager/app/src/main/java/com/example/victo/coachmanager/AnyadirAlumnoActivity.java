@@ -273,11 +273,7 @@ public class AnyadirAlumnoActivity extends AppCompatActivity implements View.OnC
 
             id_alumno = resultado;
 
-            System.out.println(id_alumno + " " + id_persona);
-
             Toast.makeText(getApplicationContext(), getString(R.string.RegistradoExito), Toast.LENGTH_SHORT).show();
-            //Intent intent = new Intent(AnyadirAlumnoActivity.this, AlumnosActivity.class);
-            //StartActivityForResult(intent,1);
             finish();
         }
     }

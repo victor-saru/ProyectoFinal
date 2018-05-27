@@ -3,6 +3,7 @@ package com.example.victo.coachmanager;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -18,6 +19,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.victo.coachmanager.Entidades.Alumno;
+import com.example.victo.coachmanager.Entidades.Grupo;
 import com.example.victo.coachmanager.Entidades.VolleySingleton;
 
 import org.json.JSONArray;
@@ -33,7 +35,7 @@ public class AnyadirGrupoActivity extends AppCompatActivity implements View.OnCl
     Button btnAñadirGrupo;
     ListView lv_alumnos_grupo;
     ImageView btnVolver;
-    ArrayList<Alumno> al_alumnos;
+
 
     String resultado;
     RequestQueue request;
@@ -68,8 +70,8 @@ public class AnyadirGrupoActivity extends AppCompatActivity implements View.OnCl
         switch(view.getId()){
             case R.id.btnAñadirGrupo:{
                 comprobarValores();
-                Intent intent = new Intent(AnyadirGrupoActivity.this, GruposActivity.class);
-                startActivityForResult(intent,1);
+                //Intent intent = new Intent(AnyadirGrupoActivity.this, GruposActivity.class);
+                //startActivityForResult(intent,1);
                 break;
             }
 
@@ -98,7 +100,12 @@ public class AnyadirGrupoActivity extends AppCompatActivity implements View.OnCl
     }
 
     private void cargarWebService() {
-        String url="http://"+((ObtenerIDs) this.getApplication()).getIp()+"/CoachManagerPHP/CoachManager_Alumnos.php";
+        String url="http://"+((ObtenerIDs) this.getApplication()).getIp()+"/CoachManagerPHP/CoachManager_InsertGrupo.php?nombre="+edNombreGrupo.getText().toString()
+                +"&categoria="+edCategoriaGrupo.getText().toString()
+                +"&id_entrenador="+String.valueOf(((ObtenerIDs) this.getApplication()).getId_entrenador());
+
+        //http://192.168.1.45/CoachManagerPHP/CoachManager_InsertGrupo.php?nombre=Prueba&categoria=Programadores&id_entrenador=2
+
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
         VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
     }
@@ -120,43 +127,39 @@ public class AnyadirGrupoActivity extends AppCompatActivity implements View.OnCl
     }
 
 
+
+
     @Override
     public void onResponse(JSONObject response) {
 
-        JSONArray json = response.optJSONArray("alumnos");
+        JSONArray json = response.optJSONArray("grupo");
+        JSONObject jsonObject=null;
 
         try {
+            jsonObject = json.getJSONObject(0);
+            resultado = (jsonObject.optString("resultado"));
 
-            for(int i = 0; i < json.length(); i++){
-                Alumno a = new Alumno();
-                JSONObject jsonObject = null;
-                jsonObject=json.getJSONObject(i);
-
-                a.setNombre(jsonObject.optString("nombre"));
-                a.setPrimer_apellido(jsonObject.optString("primer_apellido"));
-                a.setSegundo_apellido(jsonObject.optString("segundo_apellido"));
-                a.setDni(jsonObject.optString("dni"));
-                a.setFecha_nacimiento(jsonObject.optString("fecha_nacimiento"));
-                a.setGenero(jsonObject.optString("genero"));
-                a.setMano_dom(jsonObject.optString("mano_dom"));
-                a.setPie_dom(jsonObject.optString("pie_dom"));
-                a.setObservaciones(jsonObject.optString("observaciones"));
-                a.setMovil(jsonObject.optInt("movil"));
-                a.setPeso(jsonObject.optInt("peso"));
-                a.setAltura(jsonObject.optInt("altura"));
-
-                al_alumnos.add(a);
-
-
-            }
-
-    } catch (JSONException e) {
+        } catch (JSONException e) {
             e.printStackTrace();
         }
+
+        if(resultado.equals("NombreRepetido")){
+            Toast.makeText(getApplicationContext(), "Has introducido un nombre de grupo ya existente", Toast.LENGTH_SHORT).show();
         }
+
+        else if(resultado.equals("Null")){
+            Toast.makeText(getApplicationContext(), getString(R.string.errorRellCampsObl), Toast.LENGTH_SHORT).show();
+        }
+
+        else{
+            Toast.makeText(getApplicationContext(), getString(R.string.RegistradoExito), Toast.LENGTH_SHORT).show();
+            finish();
+        }
+    }
     @Override
     public void onErrorResponse(VolleyError error) {
-
+        Toast.makeText(getApplicationContext(), getString(R.string.errorConexionBD), Toast.LENGTH_SHORT).show();
+        Log.i("ERROR", error.toString());
     }
 
 

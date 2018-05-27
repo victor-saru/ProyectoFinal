@@ -36,8 +36,7 @@ public class GruposActivity extends AppCompatActivity implements Response.Listen
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
     AdapterGrupo adapter;
-    private int id_entrenador;
-    private int id_persona;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +52,6 @@ public class GruposActivity extends AppCompatActivity implements Response.Listen
 
         al_grupos = new ArrayList<Grupo>();
         lista_grupos = (ListView) findViewById(R.id.lv_lista_grupos);
-        adapter = new AdapterGrupo(this, al_grupos);
 
         cargarWebService();
 
@@ -64,7 +62,10 @@ public class GruposActivity extends AppCompatActivity implements Response.Listen
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 Intent intent = new Intent(GruposActivity.this,VerGrupoActivity.class);
-                startActivity(intent);
+                Grupo g = new Grupo();
+                g = al_grupos.get(position);
+                intent.putExtra("grupo", g);
+                startActivityForResult(intent, 1);
 
             }
         });
@@ -74,7 +75,8 @@ public class GruposActivity extends AppCompatActivity implements Response.Listen
         flbtnAñadirGrupo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(GruposActivity.this, AnyadirGrupoActivity.class));
+                Intent intent = new Intent(GruposActivity.this, AnyadirGrupoActivity.class);
+                startActivityForResult(intent,1);
             }
         });
 
@@ -129,6 +131,10 @@ public class GruposActivity extends AppCompatActivity implements Response.Listen
 
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
         VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        cargarWebService();
     }
 
     private void cargarWebService() {

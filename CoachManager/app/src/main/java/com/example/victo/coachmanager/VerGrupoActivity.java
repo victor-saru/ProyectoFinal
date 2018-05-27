@@ -14,6 +14,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.victo.coachmanager.Entidades.Alumno;
+import com.example.victo.coachmanager.Entidades.Grupo;
 
 import java.util.ArrayList;
 
@@ -28,6 +29,7 @@ public class VerGrupoActivity extends AppCompatActivity {
     String resultado;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
+    Grupo grupo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,13 +42,19 @@ public class VerGrupoActivity extends AppCompatActivity {
         lv_alumnos_grupo = (ListView)findViewById(R.id.lv_alumnos_grupoVer);
         btnVolver = (ImageView) findViewById(R.id.btnVolverVerGrupo);
 
+        grupo = (Grupo) getIntent().getParcelableExtra("grupo");
+
+
+        edNombreGrupo.setText(grupo.getNombre());
+        edCategoriaGrupo.setText(grupo.getCategoria());
+
+
         request = Volley.newRequestQueue(getApplicationContext());
 
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(VerGrupoActivity.this, GruposActivity.class);
-                startActivityForResult(intent,1);
+                finish();
             }
         });
 
@@ -54,6 +62,7 @@ public class VerGrupoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(VerGrupoActivity.this, EditarGrupoActivity.class);
+                intent.putExtra("grupo", grupo);
                 startActivityForResult(intent,1);
             }
         });

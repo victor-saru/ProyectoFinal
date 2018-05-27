@@ -37,8 +37,6 @@ public class AlumnosActivity extends AppCompatActivity implements Response.Liste
     ListView lista_alumnos;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
-    RequestQueue request2;
-    JsonObjectRequest jsonObjectRequest2;
     AdapterAlumno adapter;
 
     @Override
@@ -63,20 +61,6 @@ public class AlumnosActivity extends AppCompatActivity implements Response.Liste
                 Intent intent = new Intent(AlumnosActivity.this,VerAlumnoActivity.class);
                 Alumno a = new Alumno();
                 a = al_alumnos.get(position);
-
-                System.out.println("Nombre: "+a.getNombre());
-                System.out.println("Primer: "+a.getPrimer_apellido());
-                System.out.println("Segundo: "+a.getSegundo_apellido());
-                System.out.println("DNI: "+a.getDni());
-                System.out.println("Fecha: "+a.getFecha_nacimiento());
-                System.out.println("mano: "+a.getMano_dom());
-                System.out.println("genero: "+a.getGenero());
-                System.out.println("pie: "+a.getPie_dom());
-                System.out.println("observ: "+a.getObservaciones());
-                System.out.println("movil: "+a.getMovil());
-                System.out.println("peso: "+a.getPeso());
-                System.out.println("altura: "+a.getAltura());
-
 
                 intent.putExtra("alumno", a);
                 startActivityForResult(intent,1);
@@ -173,11 +157,7 @@ public class AlumnosActivity extends AppCompatActivity implements Response.Liste
     @Override
     public void onResponse(JSONObject response) {
 
-
-
         JSONArray json = response.optJSONArray("alumnos");
-
-
 
         JSONObject jsonObject2=null;
 
