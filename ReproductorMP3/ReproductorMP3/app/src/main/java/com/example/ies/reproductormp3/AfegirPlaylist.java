@@ -36,7 +36,7 @@ public class AfegirPlaylist extends AppCompatActivity {
     private SongAdapter songAdt;
     private ArrayList<String> NomCansons;
     private ArrayAdapter<String> adapter;
-    private ArrayList<Song> selectedItems;
+
     private ConexionSQLiteHelper conn;
     private EditText edtNom;
 

@@ -28,6 +28,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class AnyadirGrupoActivity extends AppCompatActivity implements View.OnClickListener , Response.Listener<JSONObject>, Response.ErrorListener{
 
@@ -38,6 +40,7 @@ public class AnyadirGrupoActivity extends AppCompatActivity implements View.OnCl
     ImageView btnVolver;
     ArrayList<Alumno> al_alumnos;
     AdapterAlumno adapter;
+    private ArrayList<Alumno> alumnosSeleccionados;
 
 
     String resultado;
@@ -63,6 +66,19 @@ public class AnyadirGrupoActivity extends AppCompatActivity implements View.OnCl
         request = Volley.newRequestQueue(getApplicationContext());
         
         cargarWebServiceAlumnos();
+
+        //Ordenar Alfabeticamente
+        Collections.sort(al_alumnos, new Comparator<Alumno>(){
+            @Override
+            public int compare(Alumno alumno, Alumno a) {
+                return alumno.getNombre().compareTo(a.getNombre());
+            }
+        });
+
+        lv_alumnos_grupo.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+        lv_alumnos_grupo.setItemChecked(2, true);
+
+
 
     }
 
