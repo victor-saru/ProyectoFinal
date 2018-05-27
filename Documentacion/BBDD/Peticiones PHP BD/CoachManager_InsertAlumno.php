@@ -22,8 +22,6 @@ if($_GET["dni"] != "" && $_GET["nombre"] != "" && $_GET["primer_apellido"] != ""
 
     if($dniResultado[0] == NULL){
 
-        
-
         $nombre = $_GET["nombre"];
         $primer_apellido = $_GET["primer_apellido"];
         $segundo_apellido = $_GET["segundo_apellido"];
