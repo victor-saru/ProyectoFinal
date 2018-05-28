@@ -38,8 +38,8 @@
         app:srcCompat="@drawable/logosabadevs" />
 
     <Button
-        android:id="@+id/btnVolver"
-        android:layout_width="wrap_content"
+        android:id="@+id/btnVolverSobreNosotros"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"

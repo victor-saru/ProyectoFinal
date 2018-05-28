@@ -251,12 +251,12 @@
             <Button
                 android:id="@+id/btnRegistrar"
                 android:layout_width="200dp"
-                android:layout_height="30dp"
+                android:layout_height="50dp"
 
                 android:layout_below="@+id/spinnerGeneroRegistro"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="35dp"
-                android:layout_marginVertical="75dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginVertical="60dp"
                 android:background="@drawable/boton_redondeado"
                 android:text="@string/btnHacerRegistro"
                 android:textColor="@android:color/white"

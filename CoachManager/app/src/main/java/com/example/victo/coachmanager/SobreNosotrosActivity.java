@@ -13,7 +13,7 @@ public class SobreNosotrosActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sobre_nosotros);
 
-        Button btnVolver = (Button) findViewById(R.id.btnVolver);
+        Button btnVolver = (Button) findViewById(R.id.btnVolverSobreNosotros);
 
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
