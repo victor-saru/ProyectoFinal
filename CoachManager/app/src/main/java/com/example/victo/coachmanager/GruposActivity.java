@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -36,6 +37,7 @@ public class GruposActivity extends AppCompatActivity implements Response.Listen
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
     AdapterGrupo adapter;
+    private ArrayAdapter<Grupo> adapterGrupos;
 
 
     @Override
@@ -44,14 +46,18 @@ public class GruposActivity extends AppCompatActivity implements Response.Listen
         setContentView(R.layout.activity_grupos);
 
         Bundle objecteEnviat = getIntent().getExtras();
+        lista_grupos = (ListView) findViewById(R.id.lv_lista_grupos);
+        al_grupos = new ArrayList<Grupo>();
+
+
 
 
         if(objecteEnviat != null){
             Integer id_persona = (Integer) objecteEnviat.getSerializable("i");
         }
 
-        al_grupos = new ArrayList<Grupo>();
-        lista_grupos = (ListView) findViewById(R.id.lv_lista_grupos);
+
+
 
         cargarWebService();
 
@@ -188,6 +194,8 @@ public class GruposActivity extends AppCompatActivity implements Response.Listen
                     al_grupos.add(g);
 
                 }
+
+
 
                 adapter = new AdapterGrupo(this, al_grupos);
                 lista_grupos.setAdapter(adapter);

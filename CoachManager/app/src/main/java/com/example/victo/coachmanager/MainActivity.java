@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ip = "192.168.1.45";
+        ip = "10.1.6.74";
         ((ObtenerIDs) this.getApplication()).setIp(ip);
 
         btnRegistrase = (Button) (findViewById(R.id.btnRegistrase));

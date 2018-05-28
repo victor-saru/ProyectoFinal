@@ -4,8 +4,11 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.SparseArray;
+import android.util.SparseBooleanArray;
 import android.view.Menu;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -39,8 +42,12 @@ public class AnyadirGrupoActivity extends AppCompatActivity implements View.OnCl
     ListView lv_alumnos_grupo;
     ImageView btnVolver;
     ArrayList<Alumno> al_alumnos;
-    AdapterAlumno adapter;
     private ArrayList<Alumno> alumnosSeleccionados;
+    private ArrayAdapter<String> adapterAlumnos;
+    private ArrayList<String> nombreAlumnos;
+
+
+
 
 
     String resultado;
@@ -64,6 +71,9 @@ public class AnyadirGrupoActivity extends AppCompatActivity implements View.OnCl
         btnVolver.setOnClickListener(this);
 
         request = Volley.newRequestQueue(getApplicationContext());
+
+        nombreAlumnos = new ArrayList<String>();
+        alumnosSeleccionados = new ArrayList<Alumno>();
         
         cargarWebServiceAlumnos();
 
@@ -75,8 +85,7 @@ public class AnyadirGrupoActivity extends AppCompatActivity implements View.OnCl
             }
         });
 
-        lv_alumnos_grupo.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-        lv_alumnos_grupo.setItemChecked(2, true);
+
 
 
 
@@ -127,10 +136,53 @@ public class AnyadirGrupoActivity extends AppCompatActivity implements View.OnCl
         }
         
         else{
+
+            SparseBooleanArray checked = lv_alumnos_grupo.getCheckedItemPositions();
+
+            for(int i = 0; i < checked.size(); i++){
+                int position = checked.keyAt(i);
+
+                if(checked.valueAt(i)){
+                    alumnosSeleccionados.add(al_alumnos.get(position));
+                }
+            }
+
+
             cargarWebService();
+
+
+
+
+
+
+
+
         }
         
     }
+
+    private void insertGrupoAlumnoWebService(){
+
+        ArrayList urls = new ArrayList();
+
+       for(int i = 0; i < alumnosSeleccionados.size(); i++){
+           String url="http://"+((ObtenerIDs) this.getApplication()).getIp()+"/CoachManagerPHP/CoachManager_InsertGrupoAlumno.php?nombre="+edNombreGrupo.getText().toString()
+                   +"&id_alumno="+String.valueOf(alumnosSeleccionados.get(i).getId_alumno());
+           urls.add(url);
+
+       }
+
+
+        for(int i = 0; i < urls.size(); i++){
+            jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, (String) urls.get(i), null, this, this);
+            VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
+        }
+
+    }
+
+
+
+
 
     private void cargarWebService() {
         String url="http://"+((ObtenerIDs) this.getApplication()).getIp()+"/CoachManagerPHP/CoachManager_InsertGrupo.php?nombre="+edNombreGrupo.getText().toString()
@@ -165,14 +217,29 @@ public class AnyadirGrupoActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void onResponse(JSONObject response) {
 
+
+
         JSONArray json = response.optJSONArray("grupo");
         JSONArray json2 = response.optJSONArray("alumnos");
+        JSONArray json3 = response.optJSONArray("gruposalumnos");
         JSONObject jsonObject=null;
         JSONObject jsonObject2=null;
+        JSONObject jsonObject4=null;
 
         try {
 
+            if(json3 != null){
+                System.out.println("OnResponse Insert Alumno");
+                jsonObject4 = json3.getJSONObject(0);
+                resultado = (jsonObject4.optString("resultado"));
+
+                if(resultado.equals("Correcto"))
+                    System.out.println("CORRECTOOOOOO");
+
+            }
+
             if(json != null){
+                System.out.println("OnResponse Insert Grupo");
                 jsonObject = json.getJSONObject(0);
                 resultado = (jsonObject.optString("resultado"));
 
@@ -187,6 +254,7 @@ public class AnyadirGrupoActivity extends AppCompatActivity implements View.OnCl
 
                 else{
                     Toast.makeText(getApplicationContext(), getString(R.string.RegistradoExito), Toast.LENGTH_SHORT).show();
+                    insertGrupoAlumnoWebService();
                     finish();
                 }
             }
@@ -224,8 +292,11 @@ public class AnyadirGrupoActivity extends AppCompatActivity implements View.OnCl
 
                         }
 
-                        adapter = new AdapterAlumno(this, al_alumnos);
-                        lv_alumnos_grupo.setAdapter(adapter);
+                        for(int i = 0; i < al_alumnos.size(); i++){
+                            nombreAlumnos.add(al_alumnos.get(i).getNombre() + " " + al_alumnos.get(i).getPrimer_apellido() + " " + al_alumnos.get(i).getSegundo_apellido());
+                        }
+                        adapterAlumnos = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_checked, nombreAlumnos);
+                        lv_alumnos_grupo.setAdapter(adapterAlumnos);
 
                     }catch(JSONException e){
                         e.printStackTrace();
