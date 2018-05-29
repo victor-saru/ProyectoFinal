@@ -29,6 +29,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class EditarGrupoActivity extends AppCompatActivity implements View.OnClickListener, Response.Listener<JSONObject>, Response.ErrorListener {
 
@@ -72,7 +74,12 @@ public class EditarGrupoActivity extends AppCompatActivity implements View.OnCli
         cargarWebServiceAlumnos();
 
 
-
+        Collections.sort(al_alumnos, new Comparator<Alumno>(){
+            @Override
+            public int compare(Alumno alumno, Alumno a) {
+                return alumno.getNombre().compareTo(a.getNombre());
+            }
+        });
 
 
         btnGuardarCambios.setOnClickListener(new View.OnClickListener() {
@@ -240,7 +247,7 @@ public class EditarGrupoActivity extends AppCompatActivity implements View.OnCli
 
 
             else{
-                Toast.makeText(getApplicationContext(), getString(R.string.RegistradoExito), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), getString(R.string.GuardarCambios), Toast.LENGTH_SHORT).show();
                 deleteGrupoAlumnoWebService();
             }
         }
@@ -254,7 +261,6 @@ public class EditarGrupoActivity extends AppCompatActivity implements View.OnCli
             resultado = (jsonObject1.optString("resultado"));
 
             if (!resultado.equals("Null")) {
-                //alumnosGrupo.removeAll(alumnosGrupo);
 
                 try {
 

@@ -30,6 +30,8 @@ import org.json.JSONObject;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class AlumnosActivity extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener {
 
@@ -51,6 +53,13 @@ public class AlumnosActivity extends AppCompatActivity implements Response.Liste
 
 
         cargarWebService();
+
+        Collections.sort(al_alumnos, new Comparator<Alumno>(){
+            @Override
+            public int compare(Alumno alumno, Alumno a) {
+                return alumno.getNombre().compareTo(a.getNombre());
+            }
+        });
 
 
 

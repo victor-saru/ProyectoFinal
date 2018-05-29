@@ -50,13 +50,9 @@ public class GruposActivity extends AppCompatActivity implements Response.Listen
         al_grupos = new ArrayList<Grupo>();
 
 
-
-
         if(objecteEnviat != null){
             Integer id_persona = (Integer) objecteEnviat.getSerializable("i");
         }
-
-
 
 
         cargarWebService();

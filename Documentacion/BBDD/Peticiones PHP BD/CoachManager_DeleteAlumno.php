@@ -14,6 +14,9 @@ $conexion = mysqli_connect($hostname_localhost, $username_localhost, $password_l
 $id_persona = $_GET["id_persona"];
 $id_alumno = $_GET["id_alumno"];
 
+$deleteGrupoAlumno = "DELETE FROM grupos_alumnos WHERE id_alumno = {$id_alumno}";
+$resultado_deleteGrupoAlumno = mysqli_query($conexion, $deleteGrupoAlumno);
+
 $deleteAlumno = "DELETE FROM alumnos WHERE id_alumno = {$id_alumno}";                  
 $resultado_deleteAlumno = mysqli_query($conexion, $deleteAlumno);
 
