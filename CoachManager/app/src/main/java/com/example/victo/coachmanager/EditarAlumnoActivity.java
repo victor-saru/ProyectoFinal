@@ -45,9 +45,6 @@ public class EditarAlumnoActivity extends AppCompatActivity implements View.OnCl
     Spinner spPieDomAlumno;
     EditText edObservacionesAlumno;
     Button btnGuardarCambios;
-    String[] GeneroAlumno;
-    String[] ManoDom;
-    String[] PieDom;
     String id_personaLogeada;
 
     String resultado;

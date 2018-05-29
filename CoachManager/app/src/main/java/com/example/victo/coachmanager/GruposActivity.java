@@ -126,6 +126,8 @@ public class GruposActivity extends AppCompatActivity implements Response.Listen
 
     }
 
+
+
     public void eliminarGrupo(Grupo g){
 
         g.getId_grupo();

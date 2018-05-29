@@ -112,7 +112,7 @@ public class VerGrupoActivity extends AppCompatActivity implements Response.List
     public void onResponse(JSONObject response) {
 
 
-        JSONArray json = response.optJSONArray("alumnos");
+        JSONArray json = response.optJSONArray("alumnosgrupo");
         JSONObject jsonObject1 = null;
 
 
