@@ -85,24 +85,21 @@ public class AlumnosActivity extends AppCompatActivity implements Response.Liste
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, final int pos, long l) {
 
-                //System.out.println("Posicion: " + i);
-
                 AlertDialog.Builder confirmacio = new AlertDialog.Builder(AlumnosActivity.this);
-                confirmacio.setTitle("Eliminar Alumno"); //Óscar modifica esto
+                confirmacio.setTitle(getString(R.string.EliminarAlumno));
 
                 String nombre = al_alumnos.get(pos).getNombre()+ " " + al_alumnos.get(pos).getPrimer_apellido() + " " + al_alumnos.get(pos).getSegundo_apellido();
-                confirmacio.setMessage("Quieres eliminar el alumno " + nombre + "?"); //Óscar modifica esto
+                confirmacio.setMessage(getString(R.string.EliminarAlumnoPregunta) + nombre + "?");
                 confirmacio.setCancelable(false);
 
-                confirmacio.setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+                confirmacio.setPositiveButton(getString(R.string.Si), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        System.out.println(lista_alumnos.getItemAtPosition(pos));
                         aceptar(al_alumnos.get(pos));
                     }
                 });
 
-                confirmacio.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                confirmacio.setNegativeButton(getString(R.string.Cancelar), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 

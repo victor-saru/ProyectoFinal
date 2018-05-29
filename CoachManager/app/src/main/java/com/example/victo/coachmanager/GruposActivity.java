@@ -91,21 +91,20 @@ public class GruposActivity extends AppCompatActivity implements Response.Listen
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, final int pos, long l) {
 
                 AlertDialog.Builder confirmacio = new AlertDialog.Builder(GruposActivity.this);
-                confirmacio.setTitle("Eliminar Grupo"); //Óscar modifica esto
+                confirmacio.setTitle(getString(R.string.EliminarGrupo));
 
                 String nombre = al_grupos.get(pos).getNombre();
-                confirmacio.setMessage("Quieres eliminar el grupo " + nombre + "?"); //Óscar modifica esto
+                confirmacio.setMessage(getString(R.string.EliminarGrupoPregunta) + nombre + "?");
                 confirmacio.setCancelable(false);
 
-                confirmacio.setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+                confirmacio.setPositiveButton(getString(R.string.Si), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        System.out.println(lista_grupos.getItemAtPosition(pos));
                         aceptar(al_grupos.get(pos));
                     }
                 });
 
-                confirmacio.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                confirmacio.setNegativeButton(getString(R.string.Cancelar), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
