@@ -17,7 +17,7 @@ $info = mysqli_fetch_row($resultado);
 
 if($info[0] == NULL){
     $resulta["resultado"] = "Null";
-    $json['alumnos'][] = $resulta;
+    $json['alumnosgrupo'][] = $resulta;
 }
 
 else{
@@ -25,7 +25,7 @@ else{
     $resultado = mysqli_query($conexion, $consulta);
 
     while($alumnos = mysqli_fetch_array($resultado)){ 
-        $json['alumnos'][] = $alumnos;
+        $json['alumnosgrupo'][] = $alumnos;
     }
 }
 

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.SparseBooleanArray;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
@@ -44,6 +45,7 @@ public class EditarGrupoActivity extends AppCompatActivity implements View.OnCli
     ArrayList<String> nombreAlumnos;
     ArrayAdapter<String> adapterAlumnos;
     ArrayList<Alumno> alumnosGrupo;
+    private ArrayList<Alumno> alumnosSeleccionados;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +61,7 @@ public class EditarGrupoActivity extends AppCompatActivity implements View.OnCli
         al_alumnos = new ArrayList<>();
         nombreAlumnos = new ArrayList<>();
         alumnosGrupo = new ArrayList<>();
+        alumnosSeleccionados = new ArrayList<>();
 
 
         grupo = (Grupo) getIntent().getParcelableExtra("grupo");
@@ -75,8 +78,7 @@ public class EditarGrupoActivity extends AppCompatActivity implements View.OnCli
         btnGuardarCambios.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(EditarGrupoActivity.this, VerGrupoActivity.class);
-                startActivityForResult(intent, 1);
+               comprobarValores();
             }
         });
 
@@ -87,6 +89,62 @@ public class EditarGrupoActivity extends AppCompatActivity implements View.OnCli
             }
         });
     }
+
+    private void comprobarValores() {
+
+        if(edNombreGrupo.getText().toString().isEmpty()){
+            Toast.makeText(getApplicationContext(), getString(R.string.errorRellCampsObl), Toast.LENGTH_SHORT).show();
+        }
+
+        else if(comprovarIntegerYString(edNombreGrupo.getText().toString())){
+            Toast.makeText(getApplicationContext(), getString(R.string.errorNombre), Toast.LENGTH_SHORT).show();
+        }
+
+        else{
+
+            SparseBooleanArray checked = lv_alumnos_grupo.getCheckedItemPositions();
+
+            for(int i = 0; i < checked.size(); i++){
+                int position = checked.keyAt(i);
+
+                if(checked.valueAt(i)){
+                    alumnosSeleccionados.add(al_alumnos.get(position));
+                }
+            }
+
+
+            updateGrupoWebService();
+        }
+    }
+
+    private void updateGrupoWebService() {
+
+        String url="http://"+((ObtenerIDs) this.getApplication()).getIp()+"/CoachManagerPHP/CoachManager_UpdateGrupo.php?nombre="+edNombreGrupo.getText().toString()
+                +"&categoria="+edCategoriaGrupo.getText().toString()
+                +"&id_entrenador="+String.valueOf(((ObtenerIDs) this.getApplication()).getId_entrenador())
+                +"&id_grupo="+String.valueOf(grupo.getId_grupo());
+
+        System.out.println(url);
+
+        jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
+        VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
+    }
+
+    private boolean comprovarIntegerYString(String s) {
+
+        boolean resultado;
+
+        try {
+            Integer.parseInt(s);
+            Float.parseFloat(s);
+            resultado = true;
+        }catch(NumberFormatException e){
+            resultado = false;
+        }
+
+        return resultado;
+    }
+
 
     private void cargarWebServiceAlumnosGrupo() {
         String url="http://"+((ObtenerIDs) this.getApplication()).getIp()+"/CoachManagerPHP/CoachManager_AlumnosGrupos.php?id_grupo="+String.valueOf(grupo.getId_grupo());
@@ -141,9 +199,51 @@ public class EditarGrupoActivity extends AppCompatActivity implements View.OnCli
     public void onResponse(JSONObject response) {
         JSONArray json = response.optJSONArray("alumnosgrupo");
         JSONArray json2 = response.optJSONArray("alumnos");
+        JSONArray json4 = response.optJSONArray("grupo");
+        JSONArray json5 = response.optJSONArray("eliminar");
 
         JSONObject jsonObject1 = null;
         JSONObject jsonObject2 = null;
+        JSONObject jsonObject4 = null;
+        JSONObject jsonObject5 = null;
+
+        if(json5 != null){
+            try {
+                jsonObject5 = json5.getJSONObject(0);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            resultado = (jsonObject5.optString("resultado"));
+
+            insertGrupoAlumnoWebService();
+            finish();
+
+        }
+
+        if(json4 != null){
+            System.out.println("OnResponse Insert Grupo");
+            try {
+                jsonObject4 = json4.getJSONObject(0);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            resultado = (jsonObject4.optString("resultado"));
+
+            if(resultado.equals("NombreRepetido")){
+                Toast.makeText(getApplicationContext(), "Has introducido un nombre de grupo ya existente", Toast.LENGTH_SHORT).show();
+            }
+
+            else if(resultado.equals("Null")){
+                Toast.makeText(getApplicationContext(), getString(R.string.errorRellCampsObl), Toast.LENGTH_SHORT).show();
+            }
+
+
+            else{
+                Toast.makeText(getApplicationContext(), getString(R.string.RegistradoExito), Toast.LENGTH_SHORT).show();
+                deleteGrupoAlumnoWebService();
+            }
+        }
 
         if (json != null) {
             try {
@@ -182,7 +282,7 @@ public class EditarGrupoActivity extends AppCompatActivity implements View.OnCli
                     }
 
 
-                    
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -247,6 +347,37 @@ public class EditarGrupoActivity extends AppCompatActivity implements View.OnCli
         }
 
         comprobarSeleccionados();
+    }
+
+    private void deleteGrupoAlumnoWebService() {
+
+        String url="http://"+((ObtenerIDs) this.getApplication()).getIp()+"/CoachManagerPHP/CoachManager_DeleteAlumnosGrupo.php?id_grupo="+grupo.getId_grupo();
+
+        System.out.println(url);
+
+        jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
+        VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
+    }
+
+    private void insertGrupoAlumnoWebService() {
+
+        ArrayList urls = new ArrayList();
+
+        for(int i = 0; i < alumnosSeleccionados.size(); i++){
+            String url="http://"+((ObtenerIDs) this.getApplication()).getIp()+"/CoachManagerPHP/CoachManager_InsertGrupoAlumno.php?nombre="+edNombreGrupo.getText().toString()
+                    +"&id_alumno="+String.valueOf(alumnosSeleccionados.get(i).getId_alumno());
+            urls.add(url);
+            System.out.println(url);
+
+        }
+
+
+        for(int i = 0; i < urls.size(); i++){
+            jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, (String) urls.get(i), null, this, this);
+            VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
+        }
+
+
     }
 
 
