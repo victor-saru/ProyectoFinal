@@ -166,7 +166,7 @@ public class AlumnosActivity extends AppCompatActivity implements Response.Liste
         String resultado = (jsonObject2.optString("resultado"));
 
         if(resultado.equals("Eliminado")){
-            Toast.makeText(getApplicationContext(), "Alumno eliminado", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.AlumnoEliminado), Toast.LENGTH_SHORT).show();
             adapter = new AdapterAlumno(this, al_alumnos);
             lista_alumnos.setAdapter(adapter);
         }

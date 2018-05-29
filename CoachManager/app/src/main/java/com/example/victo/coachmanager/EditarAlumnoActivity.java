@@ -206,6 +206,10 @@ public class EditarAlumnoActivity extends AppCompatActivity implements View.OnCl
             Toast.makeText(getApplicationContext(), getString(R.string.errorPeso), Toast.LENGTH_SHORT).show();
         }
 
+        else if(edObservacionesAlumno.getText().toString().length() > 43){
+            Toast.makeText(getApplicationContext(), getString(R.string.LimiteCaracteres), Toast.LENGTH_SHORT).show();
+        }
+
         else if(!comprovarIntegerYString(edAlturaAlumno.getText().toString())){
             Toast.makeText(getApplicationContext(), getString(R.string.errorAltura), Toast.LENGTH_SHORT).show();
         }

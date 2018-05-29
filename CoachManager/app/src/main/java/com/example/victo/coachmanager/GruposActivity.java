@@ -171,7 +171,7 @@ public class GruposActivity extends AppCompatActivity implements Response.Listen
         String resultado = (jsonObject2.optString("resultado"));
 
         if(resultado.equals("Eliminado")){
-            Toast.makeText(getApplicationContext(), "Grupo eliminado", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.GrupoEliminado), Toast.LENGTH_SHORT).show();
             adapter = new AdapterGrupo(this, al_grupos);
             lista_grupos.setAdapter(adapter);
         }

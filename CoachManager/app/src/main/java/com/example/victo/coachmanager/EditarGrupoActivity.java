@@ -124,8 +124,6 @@ public class EditarGrupoActivity extends AppCompatActivity implements View.OnCli
                 +"&id_entrenador="+String.valueOf(((ObtenerIDs) this.getApplication()).getId_entrenador())
                 +"&id_grupo="+String.valueOf(grupo.getId_grupo());
 
-        System.out.println(url);
-
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
         VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
     }
@@ -222,7 +220,6 @@ public class EditarGrupoActivity extends AppCompatActivity implements View.OnCli
         }
 
         if(json4 != null){
-            System.out.println("OnResponse Insert Grupo");
             try {
                 jsonObject4 = json4.getJSONObject(0);
             } catch (JSONException e) {
@@ -231,7 +228,7 @@ public class EditarGrupoActivity extends AppCompatActivity implements View.OnCli
             resultado = (jsonObject4.optString("resultado"));
 
             if(resultado.equals("NombreRepetido")){
-                Toast.makeText(getApplicationContext(), "Has introducido un nombre de grupo ya existente", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), getString(R.string.GrupoExistente), Toast.LENGTH_SHORT).show();
             }
 
             else if(resultado.equals("Null")){
@@ -353,8 +350,6 @@ public class EditarGrupoActivity extends AppCompatActivity implements View.OnCli
 
         String url="http://"+((ObtenerIDs) this.getApplication()).getIp()+"/CoachManagerPHP/CoachManager_DeleteAlumnosGrupo.php?id_grupo="+grupo.getId_grupo();
 
-        System.out.println(url);
-
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
         VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
     }
@@ -367,8 +362,6 @@ public class EditarGrupoActivity extends AppCompatActivity implements View.OnCli
             String url="http://"+((ObtenerIDs) this.getApplication()).getIp()+"/CoachManagerPHP/CoachManager_InsertGrupoAlumno.php?nombre="+edNombreGrupo.getText().toString()
                     +"&id_alumno="+String.valueOf(alumnosSeleccionados.get(i).getId_alumno());
             urls.add(url);
-            System.out.println(url);
-
         }
 
 

@@ -239,7 +239,7 @@ public class AnyadirGrupoActivity extends AppCompatActivity implements View.OnCl
                 resultado = (jsonObject.optString("resultado"));
 
                 if(resultado.equals("NombreRepetido")){
-                    Toast.makeText(getApplicationContext(), "Has introducido un nombre de grupo ya existente", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.GrupoExistente), Toast.LENGTH_SHORT).show();
                 }
 
                 else if(resultado.equals("Null")){

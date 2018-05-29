@@ -125,7 +125,7 @@ public class AnyadirAlumnoActivity extends AppCompatActivity implements View.OnC
         }
 
         else if(edObservacionesAlumno.getText().toString().length() > 43){
-            Toast.makeText(getApplicationContext(), "Límite de caracteres alcanzado en observaciones", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.LimiteCaracteres), Toast.LENGTH_SHORT).show();
         }
 
         else if(!comprovarIntegerYString(edPesoAlumno.getText().toString())){

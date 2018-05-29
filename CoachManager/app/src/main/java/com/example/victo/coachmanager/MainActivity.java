@@ -74,9 +74,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         else if(id == btnLogin.getId()){
 
-            System.out.println(((ObtenerIDs) this.getApplication()).getIp());
-            System.out.println(String.valueOf(((ObtenerIDs) this.getApplication()).getIp()));
-            System.out.println(((ObtenerIDs) this.getApplication()).getId_entrenador());
             cargarWebSerevice();
         }
 
@@ -137,10 +134,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(getApplicationContext(), getString(R.string.InicioSesionCorrecto), Toast.LENGTH_SHORT).show();
 
             Intent intent = new Intent(this, MenuActivity.class);
-
-
-            System.out.println("RESULTADO: " + resultado);
-
 
             startActivityForResult(intent,1);
 

@@ -47,8 +47,6 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
 
         id_persona = ((ObtenerIDs) this.getApplication()).getId_persona_Logeada();
 
-        System.out.println("PEPE: " + id_persona);
-
         cargarWebService();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -99,8 +97,6 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void cargarWebService() {
-
-        System.out.println("IDDDDDDD : " + id_persona);
 
         String url="http://"+((ObtenerIDs) this.getApplication()).getIp()+"/CoachManagerPHP/CoachManager_InfoPersona.php?id_persona="+id_persona.toString();
 

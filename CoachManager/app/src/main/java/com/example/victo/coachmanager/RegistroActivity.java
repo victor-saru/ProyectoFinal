@@ -153,12 +153,8 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
                 +"&correo="+edCorreoRegistro.getText().toString()
                 +"&contrasenya="+edPasswordRegistro.getText().toString();
 
-                System.out.println("CONTRASEÑA: " + edPasswordRegistro.getText().toString());
-        //http://10.1.6.74/CoachManagerPHP/CoachManager_InsertPersona.php?nombre=Victor&primer_apellido=Sanchez&segundo_apellido=Rubio&dni=134&movil=661837375&fecha_nacimiento=2018/05/03&genero=masculino&correo=victor&contrasenya=asdf
 
 
-
-        System.out.println("FECHA NACIMIENTO: " + edFechaRegistro.getText().toString());
 
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
         request.add(jsonObjectRequest);
