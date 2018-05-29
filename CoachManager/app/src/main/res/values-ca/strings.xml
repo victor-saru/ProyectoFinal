@@ -83,5 +83,9 @@
     <string name="EliminarGrupoPregunta">"Vols eliminar el grup "</string>
     <string name="Si">Sí</string>
     <string name="Cancelar">Cancel·lar</string>
+    <string name="AlumnoEliminado">Alumne eliminat</string>
+    <string name="GrupoEliminado">Grup eliminat</string>
+    <string name="LimiteCaracteres">Límit de caràcters assolit en observacions</string>
+    <string name="GrupoExistente">Ja existeix un grup amb aquest nom</string>
 
 </resources>

@@ -75,6 +75,7 @@
     <string name="EliminarAlumnoPregunta">¿Quieres eliminar al alumno </string>
     <string name="Si">Sí</string>
     <string name="Cancelar">Cancelar</string>
+    <string name="AlumnoEliminado">Alumno eliminado</string>
 
 
     <!-- AnyadirAlumnoActivity -->
@@ -87,6 +88,7 @@
     <string name="errorCorreoExistente">Has introducido un correo ya existente</string>
     <string name="errorDNIExistente">Has introducido un DNI ya existente</string>
     <string name="RegistradoExito">Registrado con éxito</string>
+    <string name="LimiteCaracteres">Límite de caracteres alcanzado en observaciones</string>
 
     <!-- GruposActivity -->
     <string name="btnEditarrGrupo">Editar grupo</string>
@@ -96,7 +98,12 @@
     <string name="lblGenero">Género</string>
     <string name="hintPrimerApellido">García</string>
     <string name="EliminarGrupo">Eliminar grupo</string>
-    <string name="EliminarGrupoPregunta">¿Quieres eliminar el grupo </string>
+    <string name="EliminarGrupoPregunta">"¿Quieres eliminar el grupo "</string>
+    <string name="GrupoEliminado">Grupo eliminado</string>
+
+    <!-- AnyadirEjercicioActivity -->
+    <string name="GrupoExistente">Ya existe un grupo con ese nombre</string>
+
 
     <!-- AnyadirEjercicioActivity -->
     <string name="lblDescripcionEjercicio">Descripción</string>
