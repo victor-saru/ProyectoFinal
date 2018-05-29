@@ -13,11 +13,13 @@ $conexion = mysqli_connect($hostname_localhost, $username_localhost, $password_l
 
 $id_grupo = $_GET["id_grupo"];
 
+$deleteGrupoAlumno = "DELETE FROM grupos_alumnos WHERE id_grupo = {$id_grupo}";
+$resultado_deleteGrupoAlumno = mysqli_query($conexion, $deleteGrupoAlumno);
+
 $deleteGrupo = "DELETE FROM grupos WHERE id_grupo = {$id_grupo}";                  
 $resultado_deleteGrupo = mysqli_query($conexion, $deleteGrupo);
 
-$deleteGrupoAlumno = "DELETE FROM grupos_alumnos WHERE id_grupo = {$id_grupo}";
-$resultado_deleteGrupoAlumno = mysqli_query($conexion, $deleteGrupoAlumno);
+
 
 
 

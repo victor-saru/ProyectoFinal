@@ -80,8 +80,7 @@ public class AnyadirAlumnoActivity extends AppCompatActivity implements View.OnC
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AnyadirAlumnoActivity.this, AlumnosActivity.class);
-                startActivityForResult(intent,1);
+                finish();
             }
         });
 

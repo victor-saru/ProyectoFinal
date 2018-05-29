@@ -118,8 +118,7 @@ public class AnyadirGrupoActivity extends AppCompatActivity implements View.OnCl
             }
 
             case R.id.btnVolverAñadirGrupo:{
-                Intent intent = new Intent(AnyadirGrupoActivity.this, GruposActivity.class);
-                startActivityForResult(intent,1);
+                finish();
                 break;
             }
         }

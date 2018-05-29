@@ -72,12 +72,12 @@ public class VerGrupoActivity extends AppCompatActivity implements Response.List
 
         cargarWebServiceAlumnos();
 
-        /*Collections.sort(al_alumnos, new Comparator<Alumno>(){
+        Collections.sort(al_alumnos, new Comparator<Alumno>(){
             @Override
             public int compare(Alumno alumno, Alumno a) {
                 return alumno.getNombre().compareTo(a.getNombre());
             }
-        });*/
+        });
 
         request = Volley.newRequestQueue(getApplicationContext());
 
