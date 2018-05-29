@@ -179,7 +179,7 @@ public class EditarGrupoActivity extends AppCompatActivity implements View.OnCli
 
                 if(al_alumnos.get(i).getId_alumno() == alumnosGrupo.get(j).getId_alumno())
 
-                lv_alumnos_grupo.setItemChecked(j, true);
+                lv_alumnos_grupo.setItemChecked(i, true);
 
             }
         }
