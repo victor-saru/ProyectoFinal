@@ -75,8 +75,6 @@ public class AnyadirAlumnoActivity extends AppCompatActivity implements View.OnC
 
         id_personaLogeada = ((ObtenerIDs) this.getApplication()).getId_persona_Logeada();
 
-        System.out.println("ID PERSONA LOGEADA: " + id_personaLogeada);
-
         ImageView btnVolver = (ImageView) findViewById(R.id.btnVolverAñadirAlumno);
 
         btnVolver.setOnClickListener(new View.OnClickListener() {

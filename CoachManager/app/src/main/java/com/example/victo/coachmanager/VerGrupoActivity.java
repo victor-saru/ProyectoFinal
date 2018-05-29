@@ -100,7 +100,6 @@ public class VerGrupoActivity extends AppCompatActivity implements Response.List
 
     private void cargarWebServiceAlumnos() {
         String url="http://"+((ObtenerIDs) this.getApplication()).getIp()+"/CoachManagerPHP/CoachManager_AlumnosGrupos.php?id_grupo="+String.valueOf(grupo.getId_grupo());
-        System.out.println(url);
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
         VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
     }
@@ -148,8 +147,6 @@ public class VerGrupoActivity extends AppCompatActivity implements Response.List
                         a.setPeso(jsonObject.optInt("peso"));
                         a.setAltura(jsonObject.optInt("altura"));
                         a.setId_persona(jsonObject.optInt("id_persona"));
-
-                        System.out.println("Alumno: " + a.getNombre());
 
                         al_alumnos.add(a);
 

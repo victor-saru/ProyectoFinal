@@ -78,5 +78,11 @@
     <string name="btnAñadirEntre">Add training</string>
     <string name="btnEditarEntre">Edit training</string>
     <string name="GuardarCambios">Changes saved</string>
+    <string name="EliminarAlumno">Delete student</string>
+    <string name="EliminarAlumnoPregunta">"Do you want to delete the student "</string>
+    <string name="EliminarGrupo">Delete group</string>
+    <string name="EliminarGrupoPregunta">"Do you want to delete the group "</string>
+    <string name="Si">Yes</string>
+    <string name="Cancelar">Cancel</string>
 
 </resources>

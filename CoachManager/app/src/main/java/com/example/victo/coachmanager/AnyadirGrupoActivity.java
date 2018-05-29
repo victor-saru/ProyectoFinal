@@ -229,17 +229,12 @@ public class AnyadirGrupoActivity extends AppCompatActivity implements View.OnCl
         try {
 
             if(json3 != null){
-                System.out.println("OnResponse Insert Alumno");
                 jsonObject4 = json3.getJSONObject(0);
                 resultado = (jsonObject4.optString("resultado"));
-
-                if(resultado.equals("Correcto"))
-                    System.out.println("CORRECTOOOOOO");
 
             }
 
             if(json != null){
-                System.out.println("OnResponse Insert Grupo");
                 jsonObject = json.getJSONObject(0);
                 resultado = (jsonObject.optString("resultado"));
 

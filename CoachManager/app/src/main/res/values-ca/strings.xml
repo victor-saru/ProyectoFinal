@@ -77,5 +77,11 @@
     <string name="btnAñadirEntre">Afegir entrenament</string>
     <string name="btnEditarEntre">Editar entrenament</string>
     <string name="GuardarCambios">Canvis guardats</string>
+    <string name="EliminarAlumno">Eliminar alumne</string>
+    <string name="EliminarAlumnoPregunta">"Vols eliminar a l'alumne "</string>
+    <string name="EliminarGrupo">Eliminar grup</string>
+    <string name="EliminarGrupoPregunta">"Vols eliminar el grup "</string>
+    <string name="Si">Sí</string>
+    <string name="Cancelar">Cancel·lar</string>
 
 </resources>
