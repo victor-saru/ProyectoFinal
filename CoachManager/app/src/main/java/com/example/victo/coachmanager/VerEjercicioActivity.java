@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.victo.coachmanager.Entidades.Alumno;
+import com.example.victo.coachmanager.Entidades.Ejercicio;
 
 import org.w3c.dom.Text;
 
@@ -19,10 +21,9 @@ public class VerEjercicioActivity extends AppCompatActivity {
     TextView edNombreEjercicio;
     TextView edDescripcionEjercicio;
     Button editarEjercicio;
+    Ejercicio ejercicio;
 
-    String resultado;
-    RequestQueue request;
-    JsonObjectRequest jsonObjectRequest;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +34,19 @@ public class VerEjercicioActivity extends AppCompatActivity {
         edDescripcionEjercicio = (TextView)findViewById(R.id.lblDescripcionEjercicioVerValor);
         editarEjercicio = (Button)findViewById(R.id.btnEditarEjercicio);
 
+        ejercicio = new Ejercicio();
+        ejercicio = (Ejercicio) getIntent().getParcelableExtra("ejercicio");
+
+        edNombreEjercicio.setText(ejercicio.getNombre());
+        edDescripcionEjercicio.setText(ejercicio.getDescripcion());
+
+
         ImageView btnVolver = (ImageView) findViewById(R.id.btnVolverVerEjercicio);
 
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(VerEjercicioActivity.this, VerEjerciciosDeporteActivity.class);
-                startActivityForResult(intent,1);
+               finish();
             }
         });
     }

@@ -1,6 +1,9 @@
 package com.example.victo.coachmanager.Entidades;
 
-public class Ejercicio {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Ejercicio implements Parcelable{
 
     String nombre, descripcion;
     int id_entrenador, id_deporte, id_ejercicio;
@@ -17,9 +20,25 @@ public class Ejercicio {
 
     }
 
-    public void Ejercicio(){
-
+    protected Ejercicio(Parcel in) {
+        id_ejercicio = in.readInt();
+        nombre = in.readString();
+        descripcion = in.readString();
+        id_deporte = in.readInt();
+        id_entrenador = in.readInt();
     }
+
+    public static final Creator<Ejercicio> CREATOR = new Creator<Ejercicio>() {
+        @Override
+        public Ejercicio createFromParcel(Parcel in) {
+            return new Ejercicio(in);
+        }
+
+        @Override
+        public Ejercicio[] newArray(int size) {
+            return new Ejercicio[size];
+        }
+    };
 
     public int getId_entrenador() {
         return id_entrenador;
@@ -59,5 +78,22 @@ public class Ejercicio {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+
+        parcel.writeInt(id_ejercicio);
+        parcel.writeString(nombre);
+        parcel.writeString(descripcion);
+        parcel.writeInt(id_deporte);
+        parcel.writeInt(id_entrenador);
+
+
     }
 }

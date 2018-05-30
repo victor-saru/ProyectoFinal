@@ -59,7 +59,12 @@ public class VerEjerciciosDeporteActivity extends AppCompatActivity implements R
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Intent intent = new Intent(VerEjerciciosDeporteActivity.this,VerGrupoActivity.class);
+                Intent intent = new Intent(VerEjerciciosDeporteActivity.this,VerEjercicioActivity.class);
+                Ejercicio e = new Ejercicio();
+                e = al_ejercicios.get(position);
+
+                System.out.println(e.getDescripcion());
+                intent.putExtra("ejercicio", e);
                 startActivity(intent);
 
             }
@@ -164,6 +169,7 @@ public class VerEjerciciosDeporteActivity extends AppCompatActivity implements R
                     jsonObject = json.getJSONObject(i);
                     e.setId_ejercicio(jsonObject.optInt("id_ejercicio"));
                     e.setNombre(jsonObject.optString("nombre"));
+                    e.setDescripcion(jsonObject.optString("descripcion"));
                     e.setId_deporte(jsonObject.optInt("id_deporte"));
                     e.setId_entrenador(jsonObject.optInt("id_entrenador"));
 
