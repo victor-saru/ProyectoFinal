@@ -9,8 +9,9 @@ $json = array();
 $conexion = mysqli_connect($hostname_localhost, $username_localhost, $password_localhost, $database_localhost);
 
 $id_entrenador = $_GET["id_entrenador"];
+$id_deporte = $_GET["id_deporte"];
 
-$consulta = "SELECT id_ejercicio, nombre, descripcion, id_deporte, id_entrenador FROM ejercicios WHERE id_entrenador={$id_entrenador}" ;   
+$consulta = "SELECT id_ejercicio, nombre, descripcion, id_deporte, id_entrenador FROM ejercicios WHERE id_entrenador={$id_entrenador} and id_deporte = {$id_deporte}" ;   
 $resultado = mysqli_query($conexion, $consulta);
 $info = mysqli_fetch_row($resultado);
 

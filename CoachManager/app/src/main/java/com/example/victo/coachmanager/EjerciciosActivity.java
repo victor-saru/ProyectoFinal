@@ -50,22 +50,26 @@ public class EjerciciosActivity extends AppCompatActivity implements Response.Li
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(EjerciciosActivity.this,VerEjerciciosDeporteActivity.class);
+                Deporte d = new Deporte();
+                d = al_deportes.get(position);
+                intent.putExtra("deporte", d);
                 startActivityForResult(intent,1);
             }
         });
+
+
     }
+
 
     private void cargarWebService() {
         String url="http://"+((ObtenerIDs) this.getApplication()).getIp()+"/CoachManagerPHP/CoachManager_Deportes.php";
-
-        System.out.println(url);
 
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
         VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        finish();
+
     }
 
 
