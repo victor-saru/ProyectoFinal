@@ -8,7 +8,7 @@ $password_localhost = "";
 $json = array();
 $conexion = mysqli_connect($hostname_localhost, $username_localhost, $password_localhost, $database_localhost);
 
-$consulta = "SELECT id_deporte, nombre FROM deportes";   
+$consulta = "SELECT id_deporte, nombre FROM deportes ORDER BY nombre";   
 $resultado = mysqli_query($conexion, $consulta);
 $info = mysqli_fetch_row($resultado);
 
@@ -22,8 +22,10 @@ else{
 
     $resultado = mysqli_query($conexion, $consulta);
 
-    while($deportes = mysqli_fetch_array($resultado)){ 
-        $json['desportes'][] = $deportes;
+
+    while($deportes = mysqli_fetch_array($resultado)){
+        $json['deportes'][] = $deportes;
+        
     }
 }
 
