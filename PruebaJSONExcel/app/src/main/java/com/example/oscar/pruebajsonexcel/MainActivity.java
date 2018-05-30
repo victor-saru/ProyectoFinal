@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -17,8 +18,17 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.hssf.util.HSSFColor;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -26,14 +36,20 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener {
 
     private Button btnConvertir;
+
+    ArrayList<Alumno> al_alumnos;
+    RequestQueue request;
+    JsonObjectRequest jsonObjectRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        al_alumnos = new ArrayList<Alumno>();
 
         btnConvertir = (Button) findViewById(R.id.btnConvertir);
 
@@ -45,15 +61,17 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private static boolean Convertir(Context context, String fileName) {
+    private boolean Convertir(Context context, String fileName) {
 
-        System.out.println("Holaaaaaa");
+        cargarWebService();
 
         // check if available and not read only
-        if (!isExternalStorageAvailable() || isExternalStorageReadOnly()) {
+        /*if (!isExternalStorageAvailable() || isExternalStorageReadOnly()) {
             Log.i("ErrorSD", "Storage not available or read only");
             return false;
-        }
+        }*/
+
+         // Llamos al WebService/BD
 
         boolean success = false;
 
@@ -134,8 +152,18 @@ public class MainActivity extends AppCompatActivity {
         sheet1.setColumnWidth(1, (15 * 500));
         sheet1.setColumnWidth(2, (15 * 500));
 
+        /*int row2 = 1;
+        for (final Alumno a: al_alumnos) {
+            final Row row1 = sheet1.createRow(row2);
+            int cell = 0;
+            Cell celula = row1.createCell(0);
+            celula.setCellValue(a.getNombre());
+            // ...
+            row2 += 1;
+        }*/
+
         // Create a path where we will place our List of objects on external storage
-        File file = new File(context.getExternalFilesDir(null), fileName);
+        File file = new File("/sdcard", fileName);
         FileOutputStream os = null;
 
         try {
@@ -158,6 +186,19 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void cargarWebService() {
+
+        String id_entrenador = "2";
+
+        String url="http://10.1.6.23/CoachManagerPHP/CoachManager_Alumnos.php?id_entrenador="+id_entrenador;
+
+        // Esto ejecuta la URL superior y devuelve el resultado de la función PHP
+        jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
+
+        // Esto te lleva al OnError o OnResponse
+        VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
+    }
+
     public static boolean isExternalStorageReadOnly() {
         String extStorageState = Environment.getExternalStorageState();
         if (Environment.MEDIA_MOUNTED_READ_ONLY.equals(extStorageState)) {
@@ -172,5 +213,57 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public void onErrorResponse(VolleyError error) { // Si la llamada al archivo PHP devuelve un JSON erróneo
+
+    }
+
+    @Override
+    public void onResponse(JSONObject response) { // Si la llamada al archivo PHP devuelve un JSON correcto
+
+        JSONArray json = response.optJSONArray("alumnos"); // Creamos un JSONArray y lo llenamos con lo recibido en el OnResponse
+
+        JSONObject jsonObject2=null;
+
+        try {
+            jsonObject2 = json.getJSONObject(0);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        String resultado = (jsonObject2.optString("resultado"));
+
+        if(!resultado.equals("Null")) {
+
+            al_alumnos.removeAll(al_alumnos);
+
+            for (int i = 0; i < json.length(); i++) {
+                Alumno a = new Alumno();
+                JSONObject jsonObject = null;
+                try {
+                    jsonObject = json.getJSONObject(i);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                a.setId_alumno(jsonObject.optInt("id_alumno"));
+                a.setNombre(jsonObject.optString("nombre"));
+                a.setPrimer_apellido(jsonObject.optString("primer_apellido"));
+                a.setSegundo_apellido(jsonObject.optString("segundo_apellido"));
+                a.setDni(jsonObject.optString("dni"));
+                a.setFecha_nacimiento(jsonObject.optString("fecha_nacimiento"));
+                a.setGenero(jsonObject.optString("genero"));
+                a.setMano_dom(jsonObject.optString("mano_dom"));
+                a.setPie_dom(jsonObject.optString("pie_dom"));
+                a.setObservaciones(jsonObject.optString("observaciones"));
+                a.setMovil(jsonObject.optInt("movil"));
+                a.setPeso(jsonObject.optInt("peso"));
+                a.setAltura(jsonObject.optInt("altura"));
+                a.setId_persona(jsonObject.optInt("id_persona"));
+
+                al_alumnos.add(a);
+            }
+        }
     }
 }
