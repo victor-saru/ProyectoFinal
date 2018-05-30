@@ -159,89 +159,41 @@ VALUES
 INSERT INTO DEPORTES
     (NOMBRE)
 VALUE
-    ('ALPINISMO'),
-    ('AQUAGYM'),
-    ('ATLETISMO'),
-    ('BADMINTON'),
-    ('BALONCESTO'),
-    ('BéISBOL'),
-    ('BOXEO'),
-    ('CICLISMO'),
-    ('DANZA'),
-    ('EQUITACIÓN'),
-    ('ESCALADA'),
-    ('ESQUÍ'),
-    ('FITNESS'),
-    ('FÚTBOL'),
-    ('FÚTBOL AMERICANO'),
-    ('GOLF'),
-    ('HOCKEY'),
-    ('JIU-JITSU'),
-    ('JUDO'),
-    ('KARATE'),
-    ('KAYAK'),
-    ('KITESURF Y LANDKITE'),
-    ('MARCHA NÓRDICA'),
-    ('MONTAÑA'),
-    ('MUSCULACIÓN'),
-    ('NATACIÓN'),
-    ('PÁDEL'),
-    ('PATINAJE HIELO'),
-    ('PATINES'),
-    ('PESCA'),
-    ('PESCA SUBMARINA'),
-    ('PETANCA'),
-    ('PILATES'),
-    ('PING-PONG'),
-    ('RAID - TRAIL'),
-    ('RAQUETAS DE NIEVE'),
-    ('RUGBY'),
-    ('RUNNING'),
-    ('SENDERISMO'),
-    ('SKATE Y PATINETES'),
-    ('SKIMBOARD'),
-    ('SNORKEL'),
-    ('SNOWBOARD'),
-    ('SQUASH'),
-    ('STAND UP PADDLE'),
-    ('SURF'),
-    ('TAE KWON DO'),
-    ('TENIS'),
-    ('TENIS DE MESA'),
-    ('TIRO AL PLATO'),
-    ('TIRO CON ARCO'),
-    ('TRAIL-RUNNING'),
-    ('TREKKING'),
-    ('TRIATLÓN'),
-    ('VELA, BARCO'),
-    ('VOLEIBOL'),
-    ('VOLEY PLAYA'),
-    ('ESQUÍ NAUTICO'),
-    ('WINDSURF'),
-    ('YOGA');
+    ('Fútbol'),
+    ('Baloncesto'),
+	('Golf'),
+	('Tenis'),
+	('Pádel'),
+	('Judo');
 
 
 INSERT INTO EJERCICIOS
     (NOMBRE, DESCRIPCION, ID_DEPORTE, ID_ENTRENADOR)
 VALUES
-    ('VOLEA DE DERECHA', 'ALUMNO EN LA RED VOLEANDO DE DERECHA', 52, 1),
-    ('VOLEA DE REVES', 'ALUMNO EN LA RED VOLEANDO DE REVES', 52, 1),
-    ('DEFENSA FONDO PISTA', 'ALUMNO EN EL FONDO DE PISTA DEFENDIENDO (GOLPE PLANO, CORTADO Y GLOBO)', 52, 1),
-    ('BANDEJA', 'BANDEJA AL CRUZADO Y AL PARALELO', 52, 1);
+    ('Cambios de orientación', 'Cambios de orientación continuos.', 1, 1),
+    ('Maniobra y pase', 'Los centrocampistas combinan con el jugador del lado contrario el balón.', 1, 1),
+    ('Posesión', 'Se pone a prueba cuánto pueden poseer el balón.', 1, 1),
+	('Manejo de balón', 'Ceros, botando con la mano derecha, alrededor de la pierna derecha.', 2, 1),
+	('Bote con dos balones', 'Bote con dos balones a la vez.', 2, 1),
+	('Defensa', '1C1 con recuperación defensiva y cambio de lado del balón.', 2, 1),
+	('Ejercicio de la silla', 'Ayuda a eliminar los movimientos excesivos de la parte baja del cuerpo.', 3, 1),
+	('Ejercicio de la pared', 'Ayuda a corregir el swing.', 3, 1),
+	('Ejercicio de estado físico', 'Ayuda a conseguir poder en el swing y crear una rotación del cuerpo adecuada.', 3, 1),
 
-
-INSERT INTO ENTRENAMIENTOS
+/*INSERT INTO ENTRENAMIENTOS
     (NOMBRE, ID_DEPORTE, ID_ENTRENADOR)
 VALUES
     ('ENTRENO VOLEAS, DEFENSA Y BANDEJA', 52, 1);
+	('ENTRENO VOLEAS, DEFENSA Y BANDEJA', 52, 1);
+	('ENTRENO VOLEAS, DEFENSA Y BANDEJA', 52, 1);*/
 
-INSERT INTO EJERCICIOS_ENTRENAMIENTOS
+/*INSERT INTO EJERCICIOS_ENTRENAMIENTOS
     (ID_ENTRENAMIENTO, ID_EJERCICIO, ORDEN)
 VALUES
     (1, 1, 1),
     (1, 2, 2),
     (1, 3, 4),
-    (1, 4, 3);
+    (1, 4, 3);*/
 
 INSERT INTO SESIONES
     (ID_GRUPO, ID_ENTRENAMIENTO, FECHA_HORA_INICIO, FECHA_HORA_FIN, REALIZADA, MOTIVO_CANCELACION, VALORACION)
