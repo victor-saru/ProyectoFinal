@@ -178,7 +178,7 @@ VALUES
 	('Defensa', '1C1 con recuperación defensiva y cambio de lado del balón.', 2, 1),
 	('Ejercicio de la silla', 'Ayuda a eliminar los movimientos excesivos de la parte baja del cuerpo.', 3, 1),
 	('Ejercicio de la pared', 'Ayuda a corregir el swing.', 3, 1),
-	('Ejercicio de estado físico', 'Ayuda a conseguir poder en el swing y crear una rotación del cuerpo adecuada.', 3, 1),
+	('Ejercicio de estado físico', 'Ayuda a conseguir poder en el swing y crear una rotación del cuerpo adecuada.', 3, 1);
 
 /*INSERT INTO ENTRENAMIENTOS
     (NOMBRE, ID_DEPORTE, ID_ENTRENADOR)
