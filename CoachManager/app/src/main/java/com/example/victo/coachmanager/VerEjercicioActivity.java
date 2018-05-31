@@ -43,6 +43,15 @@ public class VerEjercicioActivity extends AppCompatActivity {
 
         ImageView btnVolver = (ImageView) findViewById(R.id.btnVolverVerEjercicio);
 
+        editarEjercicio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(VerEjercicioActivity.this,EditarEjercicioActivity.class);
+                intent.putExtra("ejercicio", ejercicio);
+                startActivityForResult(intent,1);
+            }
+        });
+
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,4 +59,9 @@ public class VerEjercicioActivity extends AppCompatActivity {
             }
         });
     }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        finish();
+    }
+
 }

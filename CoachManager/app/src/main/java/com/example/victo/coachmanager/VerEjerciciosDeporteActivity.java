@@ -2,12 +2,14 @@ package com.example.victo.coachmanager;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -41,6 +43,7 @@ public class VerEjerciciosDeporteActivity extends AppCompatActivity implements R
     AdapterEjercicio adapter;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,11 +51,21 @@ public class VerEjerciciosDeporteActivity extends AppCompatActivity implements R
 
         al_ejercicios = new ArrayList<Ejercicio>();
         lista_ejercicios = (ListView) findViewById(R.id.lv_lista_ejercicios);
+        FloatingActionButton btnAñadirEjercicio = (FloatingActionButton) findViewById(R.id.flbtnAñadirEjercicio);
 
         deporte = (Deporte) getIntent().getParcelableExtra("deporte");
 
 
         cargarWebService();
+
+        btnAñadirEjercicio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(VerEjerciciosDeporteActivity.this,AnyadirEjercicioActivity.class);
+                intent.putExtra("deporte", deporte);
+                startActivityForResult(intent,1);
+            }
+        });
 
 
         lista_ejercicios.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -65,7 +78,7 @@ public class VerEjerciciosDeporteActivity extends AppCompatActivity implements R
 
                 System.out.println(e.getDescripcion());
                 intent.putExtra("ejercicio", e);
-                startActivity(intent);
+                startActivityForResult(intent,1);
 
             }
         });
@@ -121,6 +134,10 @@ public class VerEjerciciosDeporteActivity extends AppCompatActivity implements R
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
         VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
 
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        cargarWebService();
     }
 
     private void cargarWebService() {
