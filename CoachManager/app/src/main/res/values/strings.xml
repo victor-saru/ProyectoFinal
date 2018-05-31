@@ -44,8 +44,8 @@
     <string name="errorConexionBD">No se ha podido conectar con la base de datos</string>
 
     <!-- Olvidar contrasenya -->
-    <string name="lblCorreoRecu">Introduce tu email y te enviaremos un enlace para que restablezcas tu contraseña.</string>
-    <string name="btnEnviarEnlace">Enviar enlace</string>
+    <string name="lblCorreoRecu">Introduce tu email y te enviaremos un código para que restablezcas tu contraseña.</string>
+    <string name="btnEnviarCodigo">Enviar código</string>
     <string name="errorEmailVacio">Introduce un email</string>
 
     <!-- Desplegable usuario -->

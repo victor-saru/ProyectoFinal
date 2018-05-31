@@ -54,8 +54,7 @@
     <string name="PieDomDer">Dret</string>
     <string name="lblDescripcionEjercicio">Descripció</string>
     <string name="btnAñadirEjercicio">Afegir exercici</string>
-    <string name="btnEnviarEnlace">Enviar enllaç</string>
-    <string name="lblCorreoRecu">Introdueix el teu email i t\'enviarem un enllaç per a restablir la contrasenya.</string>
+    <string name="lblCorreoRecu">Introdueix el teu email i t\'enviarem un codi per a restablir la contrasenya.</string>
     <string name="errorConexionBD">No s\'ha pogut connectar amb la base de dades</string>
     <string name="errorRellCampsObl">Omple tots els camps obligatoris</string>
     <string name="errorMovil">Introdueix un mòbil correcte</string>
@@ -87,5 +86,6 @@
     <string name="GrupoEliminado">Grup eliminat</string>
     <string name="LimiteCaracteres">Límit de caràcters assolit en observacions</string>
     <string name="GrupoExistente">Ja existeix un grup amb aquest nom</string>
+    <string name="btnEnviarCodigo">Enviar codi</string>
 
 </resources>

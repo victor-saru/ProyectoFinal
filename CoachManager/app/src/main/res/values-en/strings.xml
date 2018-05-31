@@ -54,8 +54,7 @@
     <string name="PieDomIzq">Left</string>
     <string name="lblDescripcionEjercicio">Description</string>
     <string name="btnAñadirEjercicio">Add exercise</string>
-    <string name="btnEnviarEnlace">Send link</string>
-    <string name="lblCorreoRecu">Enter your email and we will send you a link to reset your password.</string>
+    <string name="lblCorreoRecu">Enter your email and we will send you a code to reset your password.</string>
     <string name="errorConexionBD">Couldn\'t connect with database</string>
     <string name="errorRellCampsObl">Fill in all required fields</string>
     <string name="errorMovil">Enter a correct mobile number</string>
@@ -88,5 +87,6 @@
     <string name="GrupoEliminado">Group deleted</string>
     <string name="LimiteCaracteres">Character limit reached in observations</string>
     <string name="GrupoExistente">There is already a group with that name</string>
+    <string name="btnEnviarCodigo">Send code</string>
 
 </resources>

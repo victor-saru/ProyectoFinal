@@ -59,7 +59,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="177dp"
         android:background="@drawable/boton_redondeado"
-        android:text="@string/btnEnviarEnlace"
+        android:text="@string/btnEnviarCodigo"
         android:textColor="@android:color/white"
         android:textStyle="bold" />
 
