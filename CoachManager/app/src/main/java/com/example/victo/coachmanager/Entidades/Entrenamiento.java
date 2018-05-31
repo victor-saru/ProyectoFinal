@@ -17,6 +17,10 @@ public class Entrenamiento implements Parcelable{
         this.id_entrenador = id_entrenador;
     }
 
+    public Entrenamiento() {
+
+    }
+
     public void Entrenador(){
 
     }

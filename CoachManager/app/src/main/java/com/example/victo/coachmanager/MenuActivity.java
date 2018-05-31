@@ -94,6 +94,15 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
+        ImageButton btnEntrenamientos = (ImageButton) findViewById(R.id.btnEntrenamiento);
+
+        btnEntrenamientos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MenuActivity.this, EntrenamientosActivity.class));
+            }
+        });
+
     }
 
     private void cargarWebService() {
