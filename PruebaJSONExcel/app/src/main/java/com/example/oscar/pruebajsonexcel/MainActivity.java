@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
 
     private Button btnConvertir;
 
-    ArrayList<Alumno> al_alumnos;
+    static ArrayList<Alumno> al_alumnos;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
 
@@ -63,15 +63,14 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
 
     private boolean Convertir(Context context, String fileName) {
 
-        cargarWebService();
-
         // check if available and not read only
-        /*if (!isExternalStorageAvailable() || isExternalStorageReadOnly()) {
+        if (!isExternalStorageAvailable() || isExternalStorageReadOnly()) {
             Log.i("ErrorSD", "Storage not available or read only");
             return false;
-        }*/
+        }
 
-         // Llamos al WebService/BD
+         // Llamamos al WebService/BD
+        cargarWebService();
 
         boolean success = false;
 
@@ -152,18 +151,76 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
         sheet1.setColumnWidth(1, (15 * 500));
         sheet1.setColumnWidth(2, (15 * 500));
 
-        /*int row2 = 1;
-        for (final Alumno a: al_alumnos) {
-            final Row row1 = sheet1.createRow(row2);
-            int cell = 0;
-            Cell celula = row1.createCell(0);
+        int columnasdatos = 1;
+        int celdasdatos = 0;
+
+        System.out.println(al_alumnos);
+
+        for (Alumno a: al_alumnos) {
+            org.apache.poi.ss.usermodel.Row row1 = sheet1.createRow(columnasdatos);
+            Cell celula = row1.createCell(celdasdatos);
+            celula.setCellValue(a.getId_alumno());
+            celdasdatos += 1;
+
+            celula = row1.createCell(celdasdatos);
             celula.setCellValue(a.getNombre());
-            // ...
-            row2 += 1;
-        }*/
+            celdasdatos += 1;
+
+            celula = row1.createCell(celdasdatos);
+            celula.setCellValue(a.getPrimer_apellido());
+            celdasdatos += 1;
+
+            celula = row1.createCell(celdasdatos);
+            celula.setCellValue(a.getSegundo_apellido());
+            celdasdatos += 1;
+
+            celula = row1.createCell(celdasdatos);
+            celula.setCellValue(a.getDni());
+            celdasdatos += 1;
+
+            celula = row1.createCell(celdasdatos);
+            celula.setCellValue(a.getFecha_nacimiento());
+            celdasdatos += 1;
+
+            celula = row1.createCell(celdasdatos);
+            celula.setCellValue(a.getGenero());
+            celdasdatos += 1;
+
+            celula = row1.createCell(celdasdatos);
+            celula.setCellValue(a.getMano_dom());
+            celdasdatos += 1;
+
+            celula = row1.createCell(celdasdatos);
+            celula.setCellValue(a.getPie_dom());
+            celdasdatos += 1;
+
+            celula = row1.createCell(celdasdatos);
+            celula.setCellValue(a.getObservaciones());
+            celdasdatos += 1;
+
+            celula = row1.createCell(celdasdatos);
+            celula.setCellValue(a.getMovil());
+            celdasdatos += 1;
+
+            celula = row1.createCell(celdasdatos);
+            celula.setCellValue(a.getPeso());
+            celdasdatos += 1;
+
+            celula = row1.createCell(celdasdatos);
+            celula.setCellValue(a.getAltura());
+            celdasdatos += 1;
+
+            celula = row1.createCell(celdasdatos);
+            celula.setCellValue(a.getId_persona());
+            celdasdatos += 1;
+
+            columnasdatos += 1;
+            celdasdatos = 0;
+        }
 
         // Create a path where we will place our List of objects on external storage
-        File file = new File("/sdcard", fileName);
+        //File file = new File("/sdcard", fileName); Clase
+        File file = new File(context.getExternalFilesDir(null), fileName); // Casa
         FileOutputStream os = null;
 
         try {
@@ -190,7 +247,7 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
 
         String id_entrenador = "2";
 
-        String url="http://10.1.6.23/CoachManagerPHP/CoachManager_Alumnos.php?id_entrenador="+id_entrenador;
+        String url="http://192.168.1.168/CoachManagerPHP/CoachManager_Alumnos.php?id_entrenador="+id_entrenador;
 
         // Esto ejecuta la URL superior y devuelve el resultado de la función PHP
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
