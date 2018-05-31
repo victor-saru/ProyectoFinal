@@ -1,9 +1,14 @@
 package com.example.victo.coachmanager;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -49,6 +54,83 @@ public class EntrenamientosActivity extends AppCompatActivity implements Respons
 
         cargarWebService();
 
+        lista_entrenamientos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Intent intent = new Intent(EntrenamientosActivity.this,VerEntrenamientoActivity.class);
+                Entrenamiento e = new Entrenamiento();
+                e = al_entrenamientos.get(position);
+                intent.putExtra("entrenamiento", e);
+                startActivityForResult(intent, 1);
+
+            }
+        });
+
+        FloatingActionButton flbtnAñadirEntrenamiento = (FloatingActionButton) findViewById(R.id.flbtnAñadirEntrenamiento);
+
+        flbtnAñadirEntrenamiento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(EntrenamientosActivity.this, AnyadirEntrenamientoActivity.class);
+                startActivityForResult(intent,1);
+            }
+        });
+
+
+        lista_entrenamientos.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, final int pos, long l) {
+
+                AlertDialog.Builder confirmacio = new AlertDialog.Builder(EntrenamientosActivity.this);
+                confirmacio.setTitle(getString(R.string.EliminarGrupo));
+
+                String nombre = al_entrenamientos.get(pos).getNombre();
+                confirmacio.setMessage(getString(R.string.EliminarGrupoPregunta) + nombre + "?");
+                confirmacio.setCancelable(false);
+
+                confirmacio.setPositiveButton(getString(R.string.Si), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        aceptar(al_entrenamientos.get(pos));
+                    }
+                });
+
+                confirmacio.setNegativeButton(getString(R.string.Cancelar), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+
+                confirmacio.show();
+
+                return true;
+            }
+
+            private void aceptar(Entrenamiento e) {
+
+                eliminarGrupo(e);
+                al_entrenamientos.remove(e);
+
+            }
+        });
+
+    }
+
+    public void eliminarGrupo(Entrenamiento e){
+
+        e.getId_entrenamiento();
+
+
+        String url = "http://"+((ObtenerIDs) this.getApplication()).getIp()+"/CoachManagerPHP/CoachManager_DeleteEntrenamiento.php?id_entrenamiento="+String.valueOf(e.getId_entrenamiento());
+
+
+        jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
+        VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
+    }
+
+    private void aceptar(Entrenamiento entrenamiento) {
     }
 
     private void cargarWebService() {
