@@ -130,8 +130,8 @@ public class AnyadirEntrenamientoActivity extends AppCompatActivity implements R
 
     private void cargarWebService() {
 
-        String url="http://"+((ObtenerIDs) this.getApplication()).getIp()+"/CoachManagerPHP/CoachManager_InsertGrupo.php?nombre="+edNombreEntre.getText().toString()
-                +"&id_deporte="+deportes.get(SpDeporteEntre.getSelectedItemPosition())
+        String url="http://"+((ObtenerIDs) this.getApplication()).getIp()+"/CoachManagerPHP/CoachManager_InsertEntrenamiento.php?nombre="+edNombreEntre.getText().toString()
+                +"&id_deporte="+deportes.get(SpDeporteEntre.getSelectedItemPosition()).getId_deporte()
                 +"&id_entrenador="+String.valueOf(((ObtenerIDs) this.getApplication()).getId_entrenador());
 
         System.out.println(url);
@@ -164,6 +164,26 @@ public class AnyadirEntrenamientoActivity extends AppCompatActivity implements R
         VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
     }
 
+    private void insertEjerciciosEntrenamientosWebService() {
+
+        ArrayList urls = new ArrayList();
+
+        for(int i = 0; i < ejerciciosSeleccionados.size(); i++){
+            String url="http://"+((ObtenerIDs) this.getApplication()).getIp()+"/CoachManagerPHP/CoachManager_InsertEjerciciosEntrenamientos.php?nombre="+edNombreEntre.getText().toString()
+                    +"&id_ejercicio="+String.valueOf(ejerciciosSeleccionados.get(i).getId_ejercicio())
+                    +"&orden="+String.valueOf(i);
+            urls.add(url);
+            System.out.println(url);
+
+        }
+
+        for(int i = 0; i < urls.size(); i++){
+            jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, (String) urls.get(i), null, this, this);
+            VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
+        }
+
+    }
+
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         finish();
     }
@@ -175,7 +195,48 @@ public class AnyadirEntrenamientoActivity extends AppCompatActivity implements R
        JSONObject jsonObjectDeportes = null;
        JSONArray jsonEjercicios = response.optJSONArray("ejercicios");
        JSONObject jsonObjectEjercicios = null;
+       JSONArray jsonEntrenamiento = response.optJSONArray("entrenamiento");
+       JSONObject jsonObjectEntrenamiento = null;
+       JSONArray jsonEjerEntre = response.optJSONArray("ejerciciosentrenamientos");
+       JSONObject jsonObjectEjerEntre = null;
 
+
+
+        if(jsonEjerEntre != null){
+            try {
+                jsonObjectEjerEntre = jsonEjerEntre.getJSONObject(0);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            resultado = (jsonObjectEjerEntre.optString("resultado"));
+
+        }
+
+
+        if(jsonEntrenamiento != null){
+            try {
+                jsonObjectEntrenamiento = jsonEntrenamiento.getJSONObject(0);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            resultado = (jsonObjectEntrenamiento.optString("resultado"));
+
+            if(resultado.equals("NombreRepetido")){
+                Toast.makeText(getApplicationContext(), getString(R.string.GrupoExistente), Toast.LENGTH_SHORT).show();
+            }
+
+            else if(resultado.equals("Null")){
+                Toast.makeText(getApplicationContext(), getString(R.string.errorRellCampsObl), Toast.LENGTH_SHORT).show();
+            }
+
+            else{
+                Toast.makeText(getApplicationContext(), getString(R.string.RegistradoExito), Toast.LENGTH_SHORT).show();
+                insertEjerciciosEntrenamientosWebService();
+                finish();
+            }
+
+
+        }
 
         if(jsonEjercicios != null){
 
@@ -276,6 +337,8 @@ public class AnyadirEntrenamientoActivity extends AppCompatActivity implements R
 
 
     }
+
+
 
     @Override
     public void onErrorResponse (VolleyError error){

@@ -11,13 +11,23 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.victo.coachmanager.Entidades.Deporte;
 import com.example.victo.coachmanager.Entidades.Ejercicio;
+import com.example.victo.coachmanager.Entidades.Entrenamiento;
+import com.example.victo.coachmanager.Entidades.VolleySingleton;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class VerEntrenamientoActivity extends AppCompatActivity {
+public class VerEntrenamientoActivity extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener{
 
     TextView edNombreEntre;
     TextView SpDeporteEntre;
@@ -25,6 +35,8 @@ public class VerEntrenamientoActivity extends AppCompatActivity {
     ListView lv_ejercicios_deporte;
     ImageView btnVolver;
     ArrayList<Ejercicio> al_ejercicios;
+    Entrenamiento entrenamiento;
+    Deporte d;
 
     String resultado;
     RequestQueue request;
@@ -41,6 +53,16 @@ public class VerEntrenamientoActivity extends AppCompatActivity {
         lv_ejercicios_deporte = (ListView) findViewById(R.id.lv_ejercicios_deporteVer);
         btnVolver = (ImageView) findViewById(R.id.btnVolverVerEntre);
 
+        entrenamiento = (Entrenamiento) getIntent().getParcelableExtra("entrenamiento");
+
+        edNombreEntre.setText(entrenamiento.getNombre());
+
+        cargarWebServiceDeporte();
+        cargarWebService();
+
+
+
+
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,4 +71,51 @@ public class VerEntrenamientoActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void cargarWebService() {
+
+        String id_entrenador = ((ObtenerIDs) this.getApplication()).getId_entrenador();
+
+        String url="http://"+((ObtenerIDs) this.getApplication()).getIp()+"/CoachManagerPHP/CoachManager_EjerEntre.php?id_entrenamiento="+entrenamiento.getId_entrenamiento();
+        jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
+        VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
+    }
+
+    private void cargarWebServiceDeporte() {
+        String url="http://"+((ObtenerIDs) this.getApplication()).getIp()+"/CoachManagerPHP/CoachManager_Deporte.php?id_deporte="+String.valueOf(entrenamiento.getId_deporte());
+        System.out.println(url);
+        jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
+        VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
+    }
+
+    @Override
+    public void onResponse(JSONObject response) {
+
+        JSONArray jsonDeporte = response.optJSONArray("deporte");
+        JSONObject jsonObjectDeporte = null;
+
+        if(jsonDeporte != null){
+            try {
+                jsonObjectDeporte = jsonDeporte.getJSONObject(0);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            d = new Deporte();
+
+            d.setId_deporte(jsonObjectDeporte.optInt("id_deporte"));
+            d.setNombre(jsonObjectDeporte.optString("nombre"));
+
+            SpDeporteEntre.setText(d.getNombre());
+            System.out.println(d.getNombre());
+        }
+
+    }
+
+    @Override
+    public void onErrorResponse(VolleyError error) {
+
+    }
+
+
 }
