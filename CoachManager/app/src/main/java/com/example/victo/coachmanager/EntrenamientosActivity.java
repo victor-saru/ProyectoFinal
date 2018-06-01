@@ -118,6 +118,10 @@ public class EntrenamientosActivity extends AppCompatActivity implements Respons
 
     }
 
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        cargarWebService();
+    }
+
     public void eliminarGrupo(Entrenamiento e){
 
         e.getId_entrenamiento();
