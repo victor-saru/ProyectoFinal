@@ -7,6 +7,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -45,6 +46,10 @@ public class AlumnosActivity extends AppCompatActivity implements Response.Liste
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alumnos);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarAlumnos);
+        toolbar.setTitle(getString(R.string.Alumnos));
+        setSupportActionBar(toolbar);
 
         int id;
 

@@ -87,5 +87,9 @@
     <string name="LimiteCaracteres">Límit de caràcters assolit en observacions</string>
     <string name="GrupoExistente">Ja existeix un grup amb aquest nom</string>
     <string name="btnEnviarCodigo">Enviar codi</string>
+    <string name="Alumnos">Alumnes</string>
+    <string name="Grupos">Grups</string>
+    <string name="Ejercicios">Exercicis</string>
+    <string name="Entrenamientos">Entrenaments</string>
 
 </resources>

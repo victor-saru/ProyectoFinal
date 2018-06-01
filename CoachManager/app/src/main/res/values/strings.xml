@@ -122,5 +122,9 @@
     <string name="GuardarCambios">Cambios guardados correctamente</string>
     <string name="btnAnyadirEntre">Añadir entrenamiento</string>
 
+    <string name="Alumnos">Alumnos</string>
+    <string name="Grupos">Grupos</string>
+    <string name="Ejercicios">Ejercicios</string>
+    <string name="Entrenamientos">Entrenamientos</string>
 
 </resources>

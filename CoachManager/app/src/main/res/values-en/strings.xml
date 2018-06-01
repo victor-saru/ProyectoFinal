@@ -88,5 +88,9 @@
     <string name="LimiteCaracteres">Character limit reached in observations</string>
     <string name="GrupoExistente">There is already a group with that name</string>
     <string name="btnEnviarCodigo">Send code</string>
+    <string name="Alumnos">Students</string>
+    <string name="Grupos">Groups</string>
+    <string name="Ejercicios">Exercises</string>
+    <string name="Entrenamientos">Training</string>
 
 </resources>

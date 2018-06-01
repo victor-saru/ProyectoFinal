@@ -6,6 +6,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -44,6 +45,10 @@ public class GruposActivity extends AppCompatActivity implements Response.Listen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grupos);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarGrupos);
+        toolbar.setTitle(getString(R.string.Grupos));
+        setSupportActionBar(toolbar);
 
         Bundle objecteEnviat = getIntent().getExtras();
         lista_grupos = (ListView) findViewById(R.id.lv_lista_grupos);

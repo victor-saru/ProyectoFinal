@@ -6,6 +6,7 @@
         <item name="colorPrimary">#01C321</item>
         <item name="colorPrimaryDark">#01C321</item>
         <item name="colorAccent">#01C321</item>
+
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

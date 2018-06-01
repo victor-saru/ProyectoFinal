@@ -3,6 +3,7 @@ package com.example.victo.coachmanager;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -39,6 +40,10 @@ public class EjerciciosActivity extends AppCompatActivity implements Response.Li
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ejercicios);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarEjercicios);
+        toolbar.setTitle(getString(R.string.Ejercicios));
+        setSupportActionBar(toolbar);
 
         al_deportes = new ArrayList<Deporte>();
         lista_deportes = (ListView) findViewById(R.id.lv_lista_deportes);

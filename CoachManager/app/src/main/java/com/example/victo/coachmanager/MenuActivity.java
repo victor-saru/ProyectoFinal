@@ -41,6 +41,7 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_principal);
         //setContentView(R.layout.nav_header_menu);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

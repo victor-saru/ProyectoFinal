@@ -6,6 +6,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -41,11 +42,14 @@ public class EntrenamientosActivity extends AppCompatActivity implements Respons
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_entrenamientos);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarEntrenamientos);
+        toolbar.setTitle(getString(R.string.Entrenamientos));
+        setSupportActionBar(toolbar);
 
         al_entrenamientos = new ArrayList<Entrenamiento>();
         lista_entrenamientos = (ListView) findViewById(R.id.lv_lista_entrenamientos);
