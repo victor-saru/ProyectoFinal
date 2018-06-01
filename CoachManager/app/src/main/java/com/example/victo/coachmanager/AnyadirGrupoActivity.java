@@ -77,16 +77,6 @@ public class AnyadirGrupoActivity extends AppCompatActivity implements View.OnCl
         
         cargarWebServiceAlumnos();
 
-        //Ordenar Alfabeticamente
-        Collections.sort(al_alumnos, new Comparator<Alumno>(){
-            @Override
-            public int compare(Alumno alumno, Alumno a) {
-                return alumno.getNombre().compareTo(a.getNombre());
-            }
-        });
-
-
-
 
 
     }
