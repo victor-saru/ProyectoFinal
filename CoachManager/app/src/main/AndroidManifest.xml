@@ -47,7 +47,9 @@
         <activity android:name=".AnyadirEntrenamientoActivity" />
         <activity android:name=".VerEntrenamientoActivity" />
         <activity android:name=".EditarEntrenamientoActivity" />
-        <activity android:name=".AyudaActivity"></activity>
+        <activity android:name=".AyudaActivity" />
+        <activity android:name=".VerPerfilActivity" />
+        <activity android:name=".EditarPerfilActivity"></activity>
     </application>
 
 </manifest>

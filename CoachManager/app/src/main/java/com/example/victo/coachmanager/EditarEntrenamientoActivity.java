@@ -95,12 +95,10 @@ public class EditarEntrenamientoActivity extends AppCompatActivity implements Re
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(EditarEntrenamientoActivity.this, VerEntrenamientoActivity.class);
-                startActivityForResult(intent,1);
+                finish();
             }
         });
     }
-
     private void comprobarValores() {
 
         if(edNombreEntre.getText().toString().isEmpty()){

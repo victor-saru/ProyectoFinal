@@ -23,7 +23,7 @@
     <string name="btnHacerRegistro">Registrar-se</string>
     <string name="hintPrimerApellidoRegistro">Ferrer</string>
     <string name="lblFechaRegistro">Data de naixement</string>
-    <string name="ajustesUsuario">Ajustos</string>
+    <string name="ajustesUsuario">El meu perfil</string>
     <string name="cerrarSesion">Tancar sessió</string>
     <string name="reportarProblema">Reportar un problema</string>
     <string name="Ayuda">Ajuda</string>
@@ -92,5 +92,6 @@
     <string name="Ejercicios">Exercicis</string>
     <string name="Entrenamientos">Entrenaments</string>
     <string name="lblAyuda">De quin mòdul l\'agradaria rebre ajuda?</string>
+    <string name="Perfil">Perfil</string>
 
 </resources>

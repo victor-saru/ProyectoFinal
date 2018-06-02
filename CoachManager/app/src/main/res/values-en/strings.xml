@@ -23,7 +23,7 @@
     <string name="lblFechaRegistro">Birthdate</string>
     <string name="hintFechaRegistro">dd/mm/yyyy</string>
     <string name="btnHacerRegistro">Sign up</string>
-    <string name="ajustesUsuario">Settings</string>
+    <string name="ajustesUsuario">My profile</string>
     <string name="cerrarSesion">Log out</string>
     <string name="Ayuda">Help</string>
     <string name="reportarProblema">Report a problem</string>
@@ -93,5 +93,6 @@
     <string name="Ejercicios">Exercises</string>
     <string name="Entrenamientos">Training</string>
     <string name="lblAyuda">Which module would you like to receive help from?</string>
+    <string name="Perfil">Profile</string>
 
 </resources>

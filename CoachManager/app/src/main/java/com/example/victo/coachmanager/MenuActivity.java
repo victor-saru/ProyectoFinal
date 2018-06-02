@@ -170,10 +170,15 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.ajustesUsuario) {
+        if (id == R.id.perfilUsuario) {
+            Intent intent = new Intent(MenuActivity.this, VerPerfilActivity.class);
+            intent.putExtra("id_persona", id_persona);
+            startActivityForResult(intent, 1);
 
-        } else if (id == R.id.cerrarSesion) {
+        }
 
+        else if (id == R.id.cerrarSesion) {
+            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

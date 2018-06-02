@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(id == btnRegistrase.getId()){
             Log.e("kk", "3");
             Intent i = new Intent(this, RegistroActivity.class);
-            startActivity(i);
+            startActivityForResult(i, 1);
         }
 
         else if(id == btnLogin.getId()){
@@ -79,16 +79,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         else if(id == btnRecordarPassword.getId()){
             Intent i = new Intent(this, OlvidarContrasenyaActivity.class);
-            startActivity(i);
+            startActivityForResult(i, 1);
         }
 
     }
 
     private void cargarWebSerevice() {
-
-
-
-
 
         String url="http://"+((ObtenerIDs) this.getApplication()).getIp()+"/CoachManagerPHP/CoachManager_Login.php?"
                 +"correo="+edCorreoLogin.getText().toString()
@@ -145,6 +141,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onErrorResponse(VolleyError error) {
         Toast.makeText(getApplicationContext(), getString(R.string.errorConexionBD), Toast.LENGTH_SHORT).show();
         Log.i("ERROR", error.toString());
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        edCorreoLogin.setText("");
+        edPasswordLogin.setText("");
     }
 
 
