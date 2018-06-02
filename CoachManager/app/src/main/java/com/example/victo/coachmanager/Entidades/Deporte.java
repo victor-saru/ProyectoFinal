@@ -17,6 +17,10 @@ public class Deporte implements Parcelable{
         nombre = in.readString();
     }
 
+    public Deporte(int id_deporte) {
+        this.id_deporte = id_deporte;
+    }
+
     public void Deporte(int id_deporte, String nombre){
         this.id_deporte = id_deporte;
         this.nombre = nombre;

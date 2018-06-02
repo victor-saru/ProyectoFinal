@@ -3,7 +3,7 @@ package com.example.victo.coachmanager.Entidades;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Entrenamiento implements Parcelable{
+public class Entrenamiento implements Parcelable {
 
     int id_entrenamiento;
     String nombre;

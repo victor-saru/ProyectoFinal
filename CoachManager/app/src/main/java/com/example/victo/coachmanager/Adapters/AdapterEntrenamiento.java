@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.example.victo.coachmanager.Entidades.Deporte;
 import com.example.victo.coachmanager.Entidades.Ejercicio;
 import com.example.victo.coachmanager.Entidades.Entrenamiento;
 import com.example.victo.coachmanager.R;
@@ -56,13 +57,17 @@ public class AdapterEntrenamiento extends BaseAdapter {
 
         if (convertView == null) {
             LayoutInflater inf = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            v = inf.inflate(R.layout.lista_deportes, null);
+            v = inf.inflate(R.layout.lista_entrenamientos, null);
         }
 
         Entrenamiento dir = items.get(position);
+        Deporte d = new Deporte(dir.getId_deporte());
 
-        TextView title = (TextView) v.findViewById(R.id.category);
+        TextView title = (TextView) v.findViewById(R.id.lv_nombre_entre);
         title.setText(dir.getNombre());
+
+        TextView description = (TextView) v.findViewById(R.id.lv_deporte_entre);
+        description.setText(d.getNombre());
 
         /*ImageView imagen = (ImageView) v.findViewById(R.id.imageView);
         imagen.setImageDrawable(dir.getImage());*/
