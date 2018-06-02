@@ -92,5 +92,6 @@
     <string name="Grupos">Groups</string>
     <string name="Ejercicios">Exercises</string>
     <string name="Entrenamientos">Training</string>
+    <string name="lblAyuda">Which module would you like to receive help from?</string>
 
 </resources>

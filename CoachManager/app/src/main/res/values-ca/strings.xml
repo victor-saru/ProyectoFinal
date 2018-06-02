@@ -91,5 +91,6 @@
     <string name="Grupos">Grups</string>
     <string name="Ejercicios">Exercicis</string>
     <string name="Entrenamientos">Entrenaments</string>
+    <string name="lblAyuda">De quin mòdul l\'agradaria rebre ajuda?</string>
 
 </resources>
