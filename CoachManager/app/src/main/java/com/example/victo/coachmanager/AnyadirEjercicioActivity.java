@@ -95,8 +95,8 @@ public class AnyadirEjercicioActivity extends AppCompatActivity implements Respo
             Toast.makeText(getApplicationContext(), getString(R.string.errorRellCampsObl), Toast.LENGTH_SHORT).show();
         }
 
-        else if(resultado.equals("NombreReperido")){
-            Toast.makeText(getApplicationContext(), "Ya existe un ejercicio con ese nombre", Toast.LENGTH_SHORT).show();//Óscar
+        else if(resultado.equals("NombreRepetido")){
+            Toast.makeText(getApplicationContext(),  getString(R.string.EjercicioExistente), Toast.LENGTH_SHORT).show();
         }
 
         else{

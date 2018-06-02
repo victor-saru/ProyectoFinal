@@ -93,5 +93,10 @@
     <string name="Entrenamientos">Entrenaments</string>
     <string name="lblAyuda">De quin mòdul l\'agradaria rebre ajuda?</string>
     <string name="Perfil">Perfil</string>
+    <string name="EjercicioExistente">Ja existeix un exercici amb aquest nom</string>
+    <string name="EjercicioEliminado">Exercici eliminat</string>
+    <string name="EliminarEjercicioPregunta">"Vols eliminar l'exercici "</string>
+    <string name="EliminarEjercicio">Eliminar exercici</string>
+    <string name="Deportes">Esports</string>
 
 </resources>

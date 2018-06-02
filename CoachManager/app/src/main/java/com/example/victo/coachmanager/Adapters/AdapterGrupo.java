@@ -60,10 +60,10 @@ public class AdapterGrupo extends BaseAdapter {
 
         Grupo dir = items.get(position);
 
-        TextView title = (TextView) v.findViewById(R.id.category);
+        TextView title = (TextView) v.findViewById(R.id.lv_nombre_alum);
         title.setText(dir.getNombre());
 
-        TextView description = (TextView) v.findViewById(R.id.texto);
+        TextView description = (TextView) v.findViewById(R.id.lv_obs_alumno);
         description.setText(dir.getCategoria());
 
         /*ImageView imagen = (ImageView) v.findViewById(R.id.imageView);

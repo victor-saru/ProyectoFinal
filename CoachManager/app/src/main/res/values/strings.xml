@@ -103,7 +103,7 @@
 
     <!-- AnyadirEjercicioActivity -->
     <string name="GrupoExistente">Ya existe un grupo con ese nombre</string>
-
+    <string name="EjercicioExistente">Ya existe un ejercicio con ese nombre</string>
 
     <!-- AnyadirEjercicioActivity -->
     <string name="lblDescripcionEjercicio">Descripción</string>
@@ -129,5 +129,13 @@
     <string name="Entrenamientos">Entrenamientos</string>
     <string name="lblAyuda">¿De qué módulo le gustaría recibir ayuda?</string>
     <string name="Perfil">Perfil</string>
+
+    <!-- EjerciciosActivity -->
+    <string name="Deportes">Deportes</string>
+
+    <!-- VerEjerciciosDeporteActivity -->
+    <string name="EliminarEjercicio">Eliminar ejercicio</string>
+    <string name="EjercicioEliminado">Ejercicio eliminado</string>
+    <string name="EliminarEjercicioPregunta">"¿Quieres eliminar el ejercicio "</string>
 
 </resources>

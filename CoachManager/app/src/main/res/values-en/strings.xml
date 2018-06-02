@@ -94,5 +94,10 @@
     <string name="Entrenamientos">Training</string>
     <string name="lblAyuda">Which module would you like to receive help from?</string>
     <string name="Perfil">Profile</string>
+    <string name="EjercicioExistente">There is already an exercise with that name</string>
+    <string name="EjercicioEliminado">Exercise deleted</string>
+    <string name="EliminarEjercicioPregunta">"Do you want to delete the exercise "</string>
+    <string name="EliminarEjercicio">Delete exercise</string>
+    <string name="Deportes">Sports</string>
 
 </resources>

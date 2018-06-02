@@ -41,8 +41,8 @@ public class EjerciciosActivity extends AppCompatActivity implements Response.Li
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ejercicios);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarEjercicios);
-        toolbar.setTitle(getString(R.string.Ejercicios));
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarDeportes);
+        toolbar.setTitle(getString(R.string.Deportes));
         setSupportActionBar(toolbar);
 
         al_deportes = new ArrayList<Deporte>();

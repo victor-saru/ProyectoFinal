@@ -6,6 +6,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -53,6 +54,10 @@ public class VerEjerciciosDeporteActivity extends AppCompatActivity implements R
         lista_ejercicios = (ListView) findViewById(R.id.lv_lista_ejercicios);
         FloatingActionButton btnAñadirEjercicio = (FloatingActionButton) findViewById(R.id.flbtnAñadirEjercicio);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarEjercicios);
+        toolbar.setTitle(getString(R.string.Ejercicios));
+        setSupportActionBar(toolbar);
+
         deporte = (Deporte) getIntent().getParcelableExtra("deporte");
 
 
@@ -88,10 +93,10 @@ public class VerEjerciciosDeporteActivity extends AppCompatActivity implements R
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, final int pos, long l) {
 
                 AlertDialog.Builder confirmacio = new AlertDialog.Builder(VerEjerciciosDeporteActivity.this);
-                confirmacio.setTitle(getString(R.string.EliminarAlumno)); //Óscar
+                confirmacio.setTitle(getString(R.string.EliminarEjercicio));
 
                 String nombre = al_ejercicios.get(pos).getNombre();
-                confirmacio.setMessage(getString(R.string.EliminarAlumnoPregunta) + nombre + "?"); //Óscar
+                confirmacio.setMessage(getString(R.string.EliminarEjercicioPregunta) + nombre + "?");
                 confirmacio.setCancelable(false);
 
                 confirmacio.setPositiveButton(getString(R.string.Si), new DialogInterface.OnClickListener() {
@@ -101,7 +106,7 @@ public class VerEjerciciosDeporteActivity extends AppCompatActivity implements R
                     }
                 });
 
-                confirmacio.setNegativeButton(getString(R.string.Cancelar), new DialogInterface.OnClickListener() {//Óscar
+                confirmacio.setNegativeButton(getString(R.string.Cancelar), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
@@ -170,7 +175,7 @@ public class VerEjerciciosDeporteActivity extends AppCompatActivity implements R
         String resultado = (jsonObjectEjercicios.optString("resultado"));
 
         if(resultado.equals("Eliminado")){
-            Toast.makeText(getApplicationContext(), getString(R.string.AlumnoEliminado), Toast.LENGTH_SHORT).show();//Óscar
+            Toast.makeText(getApplicationContext(), getString(R.string.EjercicioEliminado), Toast.LENGTH_SHORT).show();
             adapter = new AdapterEjercicio(this, al_ejercicios);
             lista_ejercicios.setAdapter(adapter);
         }
