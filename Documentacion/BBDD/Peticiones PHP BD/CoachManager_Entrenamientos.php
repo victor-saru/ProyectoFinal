@@ -11,7 +11,7 @@ $conexion = mysqli_connect($hostname_localhost, $username_localhost, $password_l
 
 $id_entrenador = $_GET["id_entrenador"];
 
-$consulta = "SELECT id_entrenamiento, nombre, id_deporte FROM entrenamientos WHERE id_entrenador = {$id_entrenador}";   
+$consulta = "SELECT id_entrenamiento, nombre, id_deporte FROM entrenamientos WHERE id_entrenador = {$id_entrenador} ORDER BY id_deporte";   
 $resultado = mysqli_query($conexion, $consulta);
 $info = mysqli_fetch_row($resultado);
 

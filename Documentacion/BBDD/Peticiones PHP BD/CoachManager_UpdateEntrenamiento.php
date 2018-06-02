@@ -16,7 +16,7 @@ if($_GET["nombre"] != ""){
     $id_entrenador = $_GET["id_entrenador"];
     $id_deporte = $_GET["id_deporte"];
     
-    $updateEntrenamiento = "UPDATE entrenamientos SET NOMBRE = '{$nombre}',id_deporte = '{$id_deporte}', ID_ENTRENADOR = '{$id_entrenador}' WHERE id_entrenamiento = {$id_entrenamiento}";
+    $updateEntrenamiento = "UPDATE entrenamientos SET NOMBRE = '{$nombre}', id_deporte = '{$id_deporte}', ID_ENTRENADOR = '{$id_entrenador}' WHERE id_entrenamiento = {$id_entrenamiento}";
 
     $resultado_updateEntrenamiento = mysqli_query($conexion, $updateEntrenamiento);
 
