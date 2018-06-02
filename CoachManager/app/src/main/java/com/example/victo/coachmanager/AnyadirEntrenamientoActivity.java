@@ -3,6 +3,7 @@ package com.example.victo.coachmanager;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.View;
 import android.widget.AdapterView;
@@ -342,6 +343,7 @@ public class AnyadirEntrenamientoActivity extends AppCompatActivity implements R
 
     @Override
     public void onErrorResponse (VolleyError error){
-
+        Toast.makeText(getApplicationContext(), getString(R.string.errorConexionBD), Toast.LENGTH_SHORT).show();
+        Log.i("ERROR", error.toString());
     }
 }

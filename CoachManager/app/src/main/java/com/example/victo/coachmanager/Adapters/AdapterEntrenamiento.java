@@ -2,15 +2,26 @@ package com.example.victo.coachmanager.Adapters;
 
 import android.app.Activity;
 import android.content.Context;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.victo.coachmanager.Entidades.Deporte;
 import com.example.victo.coachmanager.Entidades.Ejercicio;
 import com.example.victo.coachmanager.Entidades.Entrenamiento;
+import com.example.victo.coachmanager.Entidades.VolleySingleton;
+import com.example.victo.coachmanager.ObtenerDeporte;
+import com.example.victo.coachmanager.ObtenerIDs;
 import com.example.victo.coachmanager.R;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -60,13 +71,27 @@ public class AdapterEntrenamiento extends BaseAdapter {
         }
 
         Entrenamiento dir = items.get(position);
+        Deporte d = new Deporte(String.valueOf(dir.getId_deporte()));
 
         TextView title = (TextView) v.findViewById(R.id.category);
         title.setText(dir.getNombre());
+
+        //System.out.println(d.getNombre());
+
+        ObtenerDeporte a = new ObtenerDeporte();
+        a.cargarWebService();
+        ArrayList<Deporte> deportes = a.getDeportes();
+
+       // System.out.println(deportes.get(0).getNombre());
+
+        TextView sport = (TextView) v.findViewById(R.id.sport);
+        sport.setText(String.valueOf(dir.getId_deporte()));
 
         /*ImageView imagen = (ImageView) v.findViewById(R.id.imageView);
         imagen.setImageDrawable(dir.getImage());*/
 
         return v;
     }
+
+
 }

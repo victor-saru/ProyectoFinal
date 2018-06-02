@@ -82,6 +82,10 @@ public class VerEntrenamientoActivity extends AppCompatActivity implements Respo
         });
     }
 
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        finish();
+    }
+
     private void cargarWebService() {
 
         String id_entrenador = ((ObtenerIDs) this.getApplication()).getId_entrenador();

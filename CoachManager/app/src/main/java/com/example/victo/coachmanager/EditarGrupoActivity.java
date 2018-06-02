@@ -74,12 +74,6 @@ public class EditarGrupoActivity extends AppCompatActivity implements View.OnCli
         cargarWebServiceAlumnos();
 
 
-        Collections.sort(al_alumnos, new Comparator<Alumno>(){
-            @Override
-            public int compare(Alumno alumno, Alumno a) {
-                return alumno.getNombre().compareTo(a.getNombre());
-            }
-        });
 
 
         btnGuardarCambios.setOnClickListener(new View.OnClickListener() {
@@ -124,16 +118,7 @@ public class EditarGrupoActivity extends AppCompatActivity implements View.OnCli
         }
     }
 
-    private void updateGrupoWebService() {
 
-        String url="http://"+((ObtenerIDs) this.getApplication()).getIp()+"/CoachManagerPHP/CoachManager_UpdateGrupo.php?nombre="+edNombreGrupo.getText().toString()
-                +"&categoria="+edCategoriaGrupo.getText().toString()
-                +"&id_entrenador="+String.valueOf(((ObtenerIDs) this.getApplication()).getId_entrenador())
-                +"&id_grupo="+String.valueOf(grupo.getId_grupo());
-
-        jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
-        VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
-    }
 
     private boolean comprovarIntegerYString(String s) {
 
@@ -150,6 +135,16 @@ public class EditarGrupoActivity extends AppCompatActivity implements View.OnCli
         return resultado;
     }
 
+    private void updateGrupoWebService() {
+
+        String url="http://"+((ObtenerIDs) this.getApplication()).getIp()+"/CoachManagerPHP/CoachManager_UpdateGrupo.php?nombre="+edNombreGrupo.getText().toString()
+                +"&categoria="+edCategoriaGrupo.getText().toString()
+                +"&id_entrenador="+String.valueOf(((ObtenerIDs) this.getApplication()).getId_entrenador())
+                +"&id_grupo="+String.valueOf(grupo.getId_grupo());
+
+        jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
+        VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
+    }
 
     private void cargarWebServiceAlumnosGrupo() {
         String url="http://"+((ObtenerIDs) this.getApplication()).getIp()+"/CoachManagerPHP/CoachManager_AlumnosGrupos.php?id_grupo="+String.valueOf(grupo.getId_grupo());
