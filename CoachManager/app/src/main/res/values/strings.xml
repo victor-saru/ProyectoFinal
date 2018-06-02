@@ -72,7 +72,7 @@
     <string name="btnGuardarEditAlum">Guardar cambios</string>
     <string name="btnAñadirAlumno">Añadir alumno</string>
     <string name="EliminarAlumno">Eliminar alumno</string>
-    <string name="EliminarAlumnoPregunta">¿Quieres eliminar al alumno </string>
+    <string name="EliminarAlumnoPregunta">"¿Quieres eliminar al alumno "</string>
     <string name="Si">Sí</string>
     <string name="Cancelar">Cancelar</string>
     <string name="AlumnoEliminado">Alumno eliminado</string>
