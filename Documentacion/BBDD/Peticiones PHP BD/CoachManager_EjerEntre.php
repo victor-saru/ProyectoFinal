@@ -35,8 +35,8 @@ mysqli_close($conexion);
 ?>
 
 
- String nombre, descripcion;
-    int id_entrenador, id_deporte, id_ejercicio;
+
+
 
 
 

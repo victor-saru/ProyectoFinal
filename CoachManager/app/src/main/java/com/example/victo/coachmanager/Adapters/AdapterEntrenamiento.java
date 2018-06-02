@@ -2,16 +2,23 @@ package com.example.victo.coachmanager.Adapters;
 
 import android.app.Activity;
 import android.content.Context;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+
 import com.example.victo.coachmanager.Entidades.Deporte;
-import com.example.victo.coachmanager.Entidades.Ejercicio;
+
 import com.example.victo.coachmanager.Entidades.Entrenamiento;
+
+import com.example.victo.coachmanager.MenuActivity;
+
 import com.example.victo.coachmanager.R;
+
+
 
 import java.util.ArrayList;
 
@@ -19,6 +26,7 @@ public class AdapterEntrenamiento extends BaseAdapter {
 
     protected Activity activity;
     protected ArrayList<Entrenamiento> items;
+    String deporte;
 
     public AdapterEntrenamiento(Activity activity, ArrayList<Entrenamiento> items) {
         this.activity = activity;
@@ -61,17 +69,32 @@ public class AdapterEntrenamiento extends BaseAdapter {
         }
 
         Entrenamiento dir = items.get(position);
-        Deporte d = new Deporte(dir.getId_deporte());
+        Deporte d = new Deporte(String.valueOf(dir.getId_deporte()));
 
         TextView title = (TextView) v.findViewById(R.id.lv_nombre_entre);
         title.setText(dir.getNombre());
 
-        TextView description = (TextView) v.findViewById(R.id.lv_deporte_entre);
-        description.setText(d.getNombre());
+
+        System.out.println(MenuActivity.deportes.get(0));
+
+        for (int i = 0; i < MenuActivity.deportes.size(); i++){
+            if(MenuActivity.deportes.get(i).getId_deporte() == dir.getId_deporte()){
+                deporte = MenuActivity.deportes.get(i).getNombre();
+                break;
+            }
+
+        }
+
+        System.out.println();
+
+        TextView sport = (TextView) v.findViewById(R.id.sport);
+        sport.setText(deporte);
 
         /*ImageView imagen = (ImageView) v.findViewById(R.id.imageView);
         imagen.setImageDrawable(dir.getImage());*/
 
         return v;
     }
+
+
 }
