@@ -87,7 +87,7 @@ public class AdapterEntrenamiento extends BaseAdapter {
 
         System.out.println();
 
-        TextView sport = (TextView) v.findViewById(R.id.sport);
+        TextView sport = (TextView) v.findViewById(R.id.lv_deporte_entre);
         sport.setText(deporte);
 
         /*ImageView imagen = (ImageView) v.findViewById(R.id.imageView);
