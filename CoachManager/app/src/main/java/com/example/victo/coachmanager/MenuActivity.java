@@ -111,6 +111,15 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
+        Button btnAyuda = (Button) findViewById(R.id.btnAyuda);
+
+        btnAyuda.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MenuActivity.this, AyudaActivity.class));
+            }
+        });
+
     }
 
     private void cargarWebServiceDeporte() {

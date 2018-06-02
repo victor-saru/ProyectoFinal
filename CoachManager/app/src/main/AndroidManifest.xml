@@ -46,7 +46,8 @@
         <activity android:name=".EntrenamientosActivity" />
         <activity android:name=".AnyadirEntrenamientoActivity" />
         <activity android:name=".VerEntrenamientoActivity" />
-        <activity android:name=".EditarEntrenamientoActivity"></activity>
+        <activity android:name=".EditarEntrenamientoActivity" />
+        <activity android:name=".AyudaActivity"></activity>
     </application>
 
 </manifest>

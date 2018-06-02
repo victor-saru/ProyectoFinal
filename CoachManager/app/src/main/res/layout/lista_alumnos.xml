@@ -6,25 +6,24 @@
     android:background="@android:color/background_light">
 
     <TextView
+        android:id="@+id/lv_obs_alumno"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Texto Frase"
-        android:id="@+id/texto"
-        android:layout_below="@+id/category"
-        android:layout_toRightOf="@+id/imageView4"
-        android:layout_toEndOf="@+id/imageView4" />
+        android:layout_alignStart="@+id/lv_nombre_alum"
+        android:layout_below="@+id/lv_nombre_alum"
+        android:text="Texto Frase" />
 
     <TextView
+        android:id="@+id/lv_nombre_alum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Titulo Frase"
-        android:id="@+id/category"
-        android:textSize="21sp"
-        android:textColor="#01C321"
         android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/imageView4"
         android:layout_toRightOf="@+id/imageView4"
-        android:layout_toEndOf="@+id/imageView4" />
+        android:text="Titulo Frase"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#01C321"
+        android:textSize="21sp" />
 
     <ImageView
         android:layout_width="wrap_content"

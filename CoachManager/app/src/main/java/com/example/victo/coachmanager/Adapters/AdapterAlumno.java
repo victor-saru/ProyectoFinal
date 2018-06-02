@@ -61,10 +61,10 @@ public class AdapterAlumno extends BaseAdapter {
 
         Alumno dir = items.get(position);
 
-        TextView title = (TextView) v.findViewById(R.id.category);
+        TextView title = (TextView) v.findViewById(R.id.lv_nombre_alum);
         title.setText(dir.getNombre() + " " + dir.getPrimer_apellido() + " " + dir.getSegundo_apellido());
 
-        TextView description = (TextView) v.findViewById(R.id.texto);
+        TextView description = (TextView) v.findViewById(R.id.lv_obs_alumno);
         description.setText(dir.getObservaciones());
 
         /*ImageView imagen = (ImageView) v.findViewById(R.id.imageView);
