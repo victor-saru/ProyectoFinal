@@ -49,7 +49,7 @@
     <string name="errorEmailVacio">Introduce un email</string>
 
     <!-- Desplegable usuario -->
-    <string name="ajustesUsuario">Ajustes</string>
+    <string name="ajustesUsuario">Mi perfil</string>
     <string name="cerrarSesion">Cerrar sesión</string>
 
     <!-- Tres opciones del fondo en el menú principal -->
@@ -128,5 +128,6 @@
     <string name="Ejercicios">Ejercicios</string>
     <string name="Entrenamientos">Entrenamientos</string>
     <string name="lblAyuda">¿De qué módulo le gustaría recibir ayuda?</string>
+    <string name="Perfil">Perfil</string>
 
 </resources>

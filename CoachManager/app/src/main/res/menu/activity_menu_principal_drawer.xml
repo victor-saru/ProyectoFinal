@@ -4,8 +4,9 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
+
         <item
-            android:id="@+id/ajustesUsuario"
+            android:id="@+id/perfilUsuario"
             android:icon="@drawable/ic_menu_manage"
             android:title="@string/ajustesUsuario" />
 
