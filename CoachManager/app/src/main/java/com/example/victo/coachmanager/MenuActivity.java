@@ -21,11 +21,14 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.victo.coachmanager.Entidades.Deporte;
 import com.example.victo.coachmanager.Entidades.VolleySingleton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class MenuActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener , Response.Listener<JSONObject>, Response.ErrorListener{
 
@@ -35,6 +38,7 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
     String resultado;
     TextView lblNombreApellidosBar;
     TextView lblCorreoBar;
+    public static ArrayList<Deporte> deportes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +52,10 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
 
         id_persona = ((ObtenerIDs) this.getApplication()).getId_persona_Logeada();
 
+        deportes = new ArrayList<>();
+
         cargarWebService();
+        cargarWebServiceDeporte();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -103,6 +110,15 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(new Intent(MenuActivity.this, EntrenamientosActivity.class));
             }
         });
+
+    }
+
+    private void cargarWebServiceDeporte() {
+
+        String url = "http://"+((ObtenerIDs) this.getApplication()).getIp()+"/CoachManagerPHP/CoachManager_Deportes.php";
+
+        jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
+        VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
 
     }
 
@@ -161,32 +177,76 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
 
         JSONArray json = response.optJSONArray("persona");
 
-        try {
-            String nombre = null;
-            String apellidos = null;
-            String correo = null;
+        JSONArray jsonDeportes = response.optJSONArray("deportes");
+        JSONObject jsonObjectDeportes=null;
 
-            for(int i = 0; i < json.length(); i++){
-                JSONObject jsonObject = null;
-                jsonObject = json.getJSONObject(i);
-                nombre = jsonObject.optString("nombre");
-                apellidos = jsonObject.optString("primer_apellido");
-                apellidos += " " + jsonObject.optString("segundo_apellido");
-                correo = jsonObject.optString("CORREO");
+        if(jsonDeportes != null){
+            try {
+                jsonObjectDeportes = jsonDeportes.getJSONObject(0);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
 
-            NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+            String resultado = (jsonObjectDeportes.optString("resultado"));
 
-            View hView = navigationView.getHeaderView(0);
+            if(!resultado.equals("Null")){
+                deportes.removeAll(deportes);
 
-            lblNombreApellidosBar = (TextView) hView.findViewById(R.id.lblNombreApellidosBar);
-            lblCorreoBar = (TextView) hView.findViewById(R.id.lblCorreoBar);
-            lblNombreApellidosBar.setText(nombre + " " + apellidos);
-            lblCorreoBar.setText(correo);
+                try {
 
-        }catch (JSONException e){
-            e.printStackTrace();
+                    for(int i = 0; i < jsonDeportes.length(); i++){
+                        Deporte d = new Deporte();
+                        JSONObject jsonObject = null;
+                        jsonObject=jsonDeportes.getJSONObject(i);
+                        d.setId_deporte(jsonObject.optInt("id_deporte"));
+                        d.setNombre(jsonObject.optString("nombre"));
+
+
+                        deportes.add(d);
+                        System.out.println(d.getNombre());
+
+
+                    }
+
+                }catch(JSONException e){
+                    e.printStackTrace();
+                }
+
+
+
+            }
         }
+
+        if(json != null){
+            try {
+                String nombre = null;
+                String apellidos = null;
+                String correo = null;
+
+                for(int i = 0; i < json.length(); i++){
+                    JSONObject jsonObject = null;
+                    jsonObject = json.getJSONObject(i);
+                    nombre = jsonObject.optString("nombre");
+                    apellidos = jsonObject.optString("primer_apellido");
+                    apellidos += " " + jsonObject.optString("segundo_apellido");
+                    correo = jsonObject.optString("CORREO");
+                }
+
+                NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+
+                View hView = navigationView.getHeaderView(0);
+
+                lblNombreApellidosBar = (TextView) hView.findViewById(R.id.lblNombreApellidosBar);
+                lblCorreoBar = (TextView) hView.findViewById(R.id.lblCorreoBar);
+                lblNombreApellidosBar.setText(nombre + " " + apellidos);
+                lblCorreoBar.setText(correo);
+
+            }catch (JSONException e){
+                e.printStackTrace();
+            }
+        }
+
+
 
     }
 
