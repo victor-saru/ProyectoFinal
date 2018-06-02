@@ -159,11 +159,11 @@ VALUES
 INSERT INTO DEPORTES
     (NOMBRE)
 VALUE
-    ('Fútbol'),
+    ('Futbol'),
     ('Baloncesto'),
 	('Golf'),
 	('Tenis'),
-	('Pádel'),
+	('Padel'),
 	('Judo');
 
 

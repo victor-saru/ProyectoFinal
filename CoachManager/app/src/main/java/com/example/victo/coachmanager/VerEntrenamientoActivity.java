@@ -16,6 +16,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.victo.coachmanager.Adapters.AdapterEjercicio;
 import com.example.victo.coachmanager.Entidades.Deporte;
 import com.example.victo.coachmanager.Entidades.Ejercicio;
 import com.example.victo.coachmanager.Entidades.Entrenamiento;
@@ -37,6 +38,7 @@ public class VerEntrenamientoActivity extends AppCompatActivity implements Respo
     ArrayList<Ejercicio> al_ejercicios;
     Entrenamiento entrenamiento;
     Deporte d;
+    AdapterEjercicio adapterEjercicio;
 
     String resultado;
     RequestQueue request;
@@ -53,6 +55,8 @@ public class VerEntrenamientoActivity extends AppCompatActivity implements Respo
         lv_ejercicios_deporte = (ListView) findViewById(R.id.lv_ejercicios_deporteVer);
         btnVolver = (ImageView) findViewById(R.id.btnVolverVerEntre);
 
+        al_ejercicios = new ArrayList<>();
+
         entrenamiento = (Entrenamiento) getIntent().getParcelableExtra("entrenamiento");
 
         edNombreEntre.setText(entrenamiento.getNombre());
@@ -60,14 +64,20 @@ public class VerEntrenamientoActivity extends AppCompatActivity implements Respo
         cargarWebServiceDeporte();
         cargarWebService();
 
-
+        btnEditarEntre.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(VerEntrenamientoActivity.this, EditarEntrenamientoActivity.class);
+                intent.putExtra("entrenamiento", entrenamiento);
+                startActivityForResult(intent,1);
+            }
+        });
 
 
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(VerEntrenamientoActivity.this, EntrenamientosActivity.class);
-                startActivityForResult(intent,1);
+                finish();
             }
         });
     }
@@ -77,6 +87,7 @@ public class VerEntrenamientoActivity extends AppCompatActivity implements Respo
         String id_entrenador = ((ObtenerIDs) this.getApplication()).getId_entrenador();
 
         String url="http://"+((ObtenerIDs) this.getApplication()).getIp()+"/CoachManagerPHP/CoachManager_EjerEntre.php?id_entrenamiento="+entrenamiento.getId_entrenamiento();
+        System.out.println(url);
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
         VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
     }
@@ -93,6 +104,47 @@ public class VerEntrenamientoActivity extends AppCompatActivity implements Respo
 
         JSONArray jsonDeporte = response.optJSONArray("deporte");
         JSONObject jsonObjectDeporte = null;
+
+
+        JSONArray jsonEjercicios = response.optJSONArray("ejerentre");
+        JSONObject jsonObjectEjercicios = null;
+
+        if(jsonEjercicios != null){
+            try {
+                jsonObjectEjercicios = jsonEjercicios.getJSONObject(0);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            resultado = (jsonObjectEjercicios.optString("resultado"));
+
+            if (!resultado.equals("Null")) {
+
+                for(int i = 0; i < jsonEjercicios.length(); i++){
+                    Ejercicio e = new Ejercicio();
+                    JSONObject jsonObject = null;
+                    try {
+                        jsonObject = jsonEjercicios.getJSONObject(i);
+                    } catch (JSONException e1) {
+                        e1.printStackTrace();
+                    }
+
+                    e.setId_ejercicio(jsonObject.optInt("id_ejercicio"));
+                    e.setNombre(jsonObject.optString("nombre"));
+                    e.setDescripcion(jsonObject.optString("descripcion"));
+                    e.setId_deporte(jsonObject.optInt("id_deporte"));
+                    e.setId_entrenador(jsonObject.optInt("id_entrenador"));
+
+                    al_ejercicios.add(e);
+
+                }
+
+                adapterEjercicio = new AdapterEjercicio(this, al_ejercicios);
+                lv_ejercicios_deporte.setAdapter(adapterEjercicio);
+            }
+
+
+        }
 
         if(jsonDeporte != null){
             try {

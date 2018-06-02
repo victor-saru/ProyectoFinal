@@ -151,10 +151,12 @@ public class VerGrupoActivity extends AppCompatActivity implements Response.List
                         al_alumnos.add(a);
 
 
-                        adapterAlumnos = new AdapterAlumno(this, al_alumnos);
-                        lv_alumnos_grupo.setAdapter(adapterAlumnos);
-
                     }
+
+                    adapterAlumnos = new AdapterAlumno(this, al_alumnos);
+                    lv_alumnos_grupo.setAdapter(adapterAlumnos);
+
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

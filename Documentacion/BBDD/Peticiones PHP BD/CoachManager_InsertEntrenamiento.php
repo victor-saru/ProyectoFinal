@@ -14,7 +14,7 @@ if($_GET["nombre"] != ""){
     //Consulta Nombre
     $nombre = $_GET["nombre"];
     $id_entrenador = $_GET["id_entrenador"];
-    $consulta = "SELECT nombre FROM grupos WHERE UPPER(nombre) = UPPER('{$nombre}') and id_entrenador = {$id_entrenador}";
+    $consulta = "SELECT nombre FROM entrenamientos WHERE UPPER(nombre) = UPPER('{$nombre}') and id_entrenador = {$id_entrenador}";
     $resultado = mysqli_query($conexion, $consulta);
     $nombreResultado = mysqli_fetch_row($resultado);
 
