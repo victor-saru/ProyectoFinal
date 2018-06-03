@@ -1,5 +1,6 @@
 package com.example.victo.coachmanager;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +13,8 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -56,8 +59,10 @@ public class AnyadirSesionActivity extends AppCompatActivity implements View.OnC
     Button btnAnyadirSesion;
     ArrayList<Entrenamiento> entrenamientosSelecionados;
     String sesionesPK;
+    ImageView btnVolver;
 
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,16 +77,36 @@ public class AnyadirSesionActivity extends AppCompatActivity implements View.OnC
         chbRealizadaSesion  = (CheckBox) findViewById(R.id.chbRealizadaSesion);
         lv_entrenamientos_sesion  = (ListView) findViewById(R.id.lv_entrenamientos_sesion);
         btnAnyadirSesion = (Button) findViewById(R.id.btnAñadirSesion);
+        btnVolver = (ImageView) findViewById(R.id.btnVolverAñadirSesion);
 
         al_grupos = new ArrayList<>();
         al_entrenamientos = new ArrayList<>();
         nombreEntrenamientos = new ArrayList<>();
         entrenamientosSelecionados = new ArrayList<>();
 
-
+        edMotivoSesion.setEnabled(false);
 
        cargarWebServiceGrupos();
        cargarWebServiceEntrenamientos();
+
+
+       chbRealizadaSesion.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               if(chbRealizadaSesion.isChecked())
+                   edMotivoSesion.setEnabled(true);
+               else
+                   edMotivoSesion.setEnabled(false);
+           }
+       });
+
+
+        btnVolver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         edFechaSesion.setOnClickListener(new View.OnClickListener() {
             @Override

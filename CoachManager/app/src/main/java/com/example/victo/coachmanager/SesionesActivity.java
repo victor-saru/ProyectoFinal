@@ -59,7 +59,7 @@ public class SesionesActivity extends AppCompatActivity implements Response.List
 
         cargarWebServiceGrupos();
 
-        /*lista_sesiones.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        lista_sesiones.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
 
@@ -71,7 +71,7 @@ public class SesionesActivity extends AppCompatActivity implements Response.List
 
             }
         });
-*/
+
         flbtnAñadirSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

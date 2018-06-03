@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.victo.coachmanager.VerAlumnoActivity"
+    android:background="#FFFFFF">
+
+    <TextView
+        android:id="@+id/edHoraFinVerSesion"
+        android:layout_width="170dp"
+        android:layout_height="30dp"
+        android:layout_alignStart="@+id/lblHoraFinVerSesion"
+        android:layout_below="@+id/lblHoraFinVerSesion"
+        android:background="@drawable/editextborder"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:singleLine="false"
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/lblHoraFinVerSesion"
+        android:layout_width="170dp"
+        android:layout_height="20dp"
+        android:layout_alignBaseline="@+id/lblInicioSesionVerSesion"
+        android:layout_alignBottom="@+id/lblInicioSesionVerSesion"
+        android:layout_alignStart="@+id/edValoracionSesionVerSesion"
+        android:text="@string/Hora_fin_sesion"
+        android:textColor="@android:color/background_dark"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/edMotivoSesionVerSesion"
+        android:layout_width="170dp"
+        android:layout_height="30dp"
+        android:layout_alignStart="@+id/lblMotivoSesionVerSesion"
+        android:layout_below="@+id/lblMotivoSesionVerSesion"
+        android:background="@drawable/editextborder"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:singleLine="false"
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/lblMotivoSesionVerSesion"
+        android:layout_width="170dp"
+        android:layout_height="20dp"
+        android:layout_alignStart="@+id/edHoraFinVerSesion"
+        android:layout_below="@+id/edHoraFinVerSesion"
+        android:layout_marginTop="10dp"
+        android:text="@string/Motivo_cancelacion_sesion"
+        android:textColor="@android:color/background_dark"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/edValoracionSesionVerSesion"
+        android:layout_width="170dp"
+        android:layout_height="30dp"
+        android:layout_alignStart="@+id/lblValoracionSesionVerSesion"
+        android:layout_below="@+id/lblValoracionSesionVerSesion"
+        android:background="@drawable/editextborder"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:singleLine="false"
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/lblValoracionSesionVerSesion"
+        android:layout_width="170dp"
+        android:layout_height="20dp"
+        android:layout_alignBaseline="@+id/lblFechaSesionVerSesion"
+        android:layout_alignBottom="@+id/lblFechaSesionVerSesion"
+        android:layout_marginStart="22dp"
+        android:layout_toEndOf="@+id/lblFechaSesionVerSesion"
+        android:text="@string/Valoracion_sesion"
+        android:textColor="@android:color/background_dark"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/lblFechaSesionVerSesion"
+        android:layout_width="170dp"
+        android:layout_height="20dp"
+        android:layout_alignStart="@+id/edFechaInicioSesionVerSesion"
+        android:layout_below="@+id/btnVolverAñadirSesionVerSesion"
+        android:layout_marginTop="14dp"
+        android:text="@string/Fecha_Sesion"
+        android:textColor="@android:color/background_dark"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/edFechaInicioSesionVerSesion"
+        android:layout_width="170dp"
+        android:layout_height="30dp"
+        android:layout_alignStart="@+id/lblGruposSesionVerSesion"
+        android:layout_below="@+id/lblFechaSesionVerSesion"
+        android:background="@drawable/editextborder"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:singleLine="false"
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/lblInicioSesionVerSesion"
+        android:layout_width="170dp"
+        android:layout_height="20dp"
+        android:layout_alignStart="@+id/edFechaInicioSesionVerSesion"
+        android:layout_below="@+id/edFechaInicioSesionVerSesion"
+        android:layout_marginTop="10dp"
+        android:text="@string/Hora_inicio_sesion"
+        android:textColor="@android:color/background_dark"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/edInicioSesionVerSesion"
+        android:layout_width="170dp"
+        android:layout_height="30dp"
+        android:layout_alignBaseline="@+id/edHoraFinVerSesion"
+        android:layout_alignBottom="@+id/edHoraFinVerSesion"
+        android:layout_alignStart="@+id/lblInicioSesionVerSesion"
+        android:background="@drawable/editextborder"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:singleLine="false"
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/lblGruposSesionVerSesion"
+        android:layout_width="170dp"
+        android:layout_height="20dp"
+        android:layout_alignStart="@+id/SpGruposSesionVerSesion"
+        android:layout_below="@+id/edMotivoSesionVerSesion"
+        android:layout_marginTop="8dp"
+        android:text="@string/GrupoSesion"
+        android:textColor="@android:color/background_dark"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/lblEntreSesionVerSesion"
+        android:layout_width="170dp"
+        android:layout_height="20dp"
+        android:layout_alignStart="@+id/SpGruposSesionVerSesion"
+        android:layout_centerVertical="true"
+        android:text="@string/Entrenamientos"
+        android:textColor="@android:color/background_dark"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/SpGruposSesionVerSesion"
+        style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+        android:layout_width="170dp"
+        android:layout_height="37dp"
+        android:layout_alignStart="@+id/btnVolverAñadirSesionVerSesion"
+        android:layout_below="@+id/lblGruposSesionVerSesion"
+        android:layout_marginStart="8dp"
+        android:backgroundTint="#01C321"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:paddingStart="0dp"
+        android:paddingTop="5dp"
+        android:singleLine="false"
+        android:textSize="16dp" />
+
+    <Button
+        android:id="@+id/btnAñadirSesionVerSesion"
+        android:layout_width="wrap_content"
+        android:layout_height="26dp"
+        android:layout_alignEnd="@+id/lblValoracionSesionVerSesion"
+        android:layout_alignTop="@+id/btnVolverAñadirSesionVerSesion"
+        android:background="@drawable/boton_redondeado"
+        android:padding="4dip"
+        android:text="@string/btnAñadirSesion"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/btnVolverAñadirSesionVerSesion"
+        android:layout_width="34dp"
+        android:layout_height="44dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/fotoAlumnoAñadir"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        app:srcCompat="@drawable/flechaatras" />
+
+
+    <CheckBox
+        android:id="@+id/chbRealizadaSesionVerSesion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/lblRealizadaSesionVerSesion"
+        android:layout_alignBottom="@+id/lblRealizadaSesionVerSesion"
+        android:layout_marginStart="6dp"
+        android:layout_toEndOf="@+id/lblRealizadaSesionVerSesion" />
+
+    <TextView
+        android:id="@+id/lblRealizadaSesionVerSesion"
+        android:layout_width="120dp"
+        android:layout_height="20dp"
+        android:layout_alignStart="@+id/edInicioSesionVerSesion"
+        android:layout_alignTop="@+id/lblMotivoSesionVerSesion"
+        android:layout_marginTop="10dp"
+        android:text="@string/SesionRealizada"
+        android:isScrollContainer="false"
+        android:textColor="@android:color/background_dark"
+        android:windowSoftInputMode="adjustResize"
+        android:textStyle="bold" />
+
+    <ListView
+        android:id="@+id/lv_entrenamientos_sesionVerSesion"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignStart="@+id/lblEntreSesionVerSesion"
+        android:layout_below="@+id/lblEntreSesionVerSesion"
+        android:choiceMode="multipleChoice"
+        android:isScrollContainer="false"
+        android:windowSoftInputMode="adjustResize"
+        android:clickable="false" />
+
+
+
+
+</RelativeLayout>

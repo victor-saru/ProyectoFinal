@@ -51,7 +51,8 @@
         <activity android:name=".VerPerfilActivity" />
         <activity android:name=".EditarPerfilActivity" />
         <activity android:name=".SesionesActivity" />
-        <activity android:name=".AnyadirSesionActivity"></activity>
+        <activity android:name=".AnyadirSesionActivity" />
+        <activity android:name=".VerSesionActivity"></activity>
     </application>
 
 </manifest>
