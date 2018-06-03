@@ -106,5 +106,11 @@
     <string name="EliminarEntrenamiento">Eliminar entrenament</string>
     <string name="EntrenamientoEliminado">Entrenament eliminat</string>
     <string name="EliminarEntrenamientoPregunta">"Vols eliminar l'entrenament "</string>
+    <string name="Fecha_Sesion">Data</string>
+    <string name="Hora_inicio_sesion">Hora d\'inici</string>
+    <string name="Hora_fin_sesion">Hora fi</string>
+    <string name="SesionRealizada">Sessió realitzada</string>
+    <string name="Valoracion_sesion">Valoració</string>
+    <string name="Motivo_cancelacion_sesion">Motiu cancel·lació</string>
 
 </resources>

@@ -107,5 +107,11 @@
     <string name="EliminarEntrenamiento">Delete training</string>
     <string name="EntrenamientoEliminado">Training deleted</string>
     <string name="EliminarEntrenamientoPregunta">"Do you want to delete the training "</string>
+    <string name="Fecha_Sesion">Date</string>
+    <string name="Hora_inicio_sesion">Start time</string>
+    <string name="Hora_fin_sesion">End time</string>
+    <string name="SesionRealizada">Done session</string>
+    <string name="Valoracion_sesion">Assessment</string>
+    <string name="Motivo_cancelacion_sesion">Reason for cancellation</string>
 
 </resources>
