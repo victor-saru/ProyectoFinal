@@ -49,7 +49,8 @@
         <activity android:name=".EditarEntrenamientoActivity" />
         <activity android:name=".AyudaActivity" />
         <activity android:name=".VerPerfilActivity" />
-        <activity android:name=".EditarPerfilActivity"></activity>
+        <activity android:name=".EditarPerfilActivity" />
+        <activity android:name=".SesionesActivity"></activity>
     </application>
 
 </manifest>

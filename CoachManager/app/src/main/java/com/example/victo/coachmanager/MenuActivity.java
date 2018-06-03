@@ -102,6 +102,15 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
+        ImageButton btnSesiones = (ImageButton) findViewById(R.id.btnSesiones);
+
+        btnSesiones.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MenuActivity.this, SesionesActivity.class));
+            }
+        });
+
         ImageButton btnEntrenamientos = (ImageButton) findViewById(R.id.btnEntrenamiento);
 
         btnEntrenamientos.setOnClickListener(new View.OnClickListener() {

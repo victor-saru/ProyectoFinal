@@ -98,5 +98,7 @@
     <string name="EliminarEjercicioPregunta">"Vols eliminar l'exercici "</string>
     <string name="EliminarEjercicio">Eliminar exercici</string>
     <string name="Deportes">Esports</string>
+    <string name="btnEditarPerfil">Editar perfil</string>
+    <string name="Sesiones">Sessions</string>
 
 </resources>

@@ -61,6 +61,17 @@
         android:src="@drawable/botonentrenamientos" />
 
     <ImageButton
+        android:id="@+id/btnSesiones"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnEntrenamiento"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/ripple_effect"
+        android:padding="3dp"
+        android:src="@drawable/botonentrenamientos" />
+
+    <ImageButton
         android:id="@+id/btnAlumnos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

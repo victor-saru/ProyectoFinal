@@ -18,7 +18,7 @@ public class SobreNosotrosActivity extends AppCompatActivity {
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SobreNosotrosActivity.this, MenuActivity.class));
+                finish();
             }
         });
 

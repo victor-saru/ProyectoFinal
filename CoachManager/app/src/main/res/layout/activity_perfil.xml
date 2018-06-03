@@ -272,7 +272,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginVertical="60dp"
                 android:background="@drawable/boton_redondeado"
-                android:text="@string/btnHacerRegistro"
+                android:text="@string/btnEditarPerfil"
                 android:textColor="@android:color/white"
                 android:textStyle="bold" />
 

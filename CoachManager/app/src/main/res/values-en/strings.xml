@@ -99,5 +99,7 @@
     <string name="EliminarEjercicioPregunta">"Do you want to delete the exercise "</string>
     <string name="EliminarEjercicio">Delete exercise</string>
     <string name="Deportes">Sports</string>
+    <string name="btnEditarPerfil">Edit profile</string>
+    <string name="Sesiones">Sessions</string>
 
 </resources>

@@ -137,5 +137,7 @@
     <string name="EliminarEjercicio">Eliminar ejercicio</string>
     <string name="EjercicioEliminado">Ejercicio eliminado</string>
     <string name="EliminarEjercicioPregunta">"¿Quieres eliminar el ejercicio "</string>
+    <string name="btnEditarPerfil">Editar perfil</string>
+    <string name="Sesiones">Sesiones</string>
 
 </resources>
