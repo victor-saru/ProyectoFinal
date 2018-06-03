@@ -8,11 +8,11 @@
     android:background="#FFFFFF">
 
     <TextView
-        android:id="@+id/edHoraInicioSesion"
+        android:id="@+id/edHoraFin"
         android:layout_width="170dp"
         android:layout_height="30dp"
-        android:layout_alignStart="@+id/lblInicioSesion"
-        android:layout_below="@+id/lblInicioSesion"
+        android:layout_alignStart="@+id/lblHoraFin"
+        android:layout_below="@+id/lblHoraFin"
         android:background="@drawable/editextborder"
         android:ems="10"
         android:inputType="textPersonName"
@@ -20,13 +20,13 @@
         android:textSize="16dp" />
 
     <TextView
-        android:id="@+id/lblInicioSesion"
+        android:id="@+id/lblHoraFin"
         android:layout_width="170dp"
         android:layout_height="20dp"
-        android:layout_alignBaseline="@+id/lblGruposSesion"
-        android:layout_alignBottom="@+id/lblGruposSesion"
-        android:layout_alignStart="@+id/edMotivoSesion"
-        android:text="@string/Hora_inicio_sesion"
+        android:layout_alignBaseline="@+id/lblInicioSesion"
+        android:layout_alignBottom="@+id/lblInicioSesion"
+        android:layout_alignStart="@+id/edValoracionSesion"
+        android:text="@string/Hora_fin_sesion"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
@@ -46,9 +46,9 @@
         android:id="@+id/lblMotivoSesion"
         android:layout_width="170dp"
         android:layout_height="20dp"
-        android:layout_alignBaseline="@+id/lblHoraFin"
-        android:layout_alignBottom="@+id/lblHoraFin"
-        android:layout_alignStart="@+id/edValoracionSesion"
+        android:layout_alignStart="@+id/edHoraFin"
+        android:layout_below="@+id/edHoraFin"
+        android:layout_marginTop="10dp"
         android:text="@string/Motivo_cancelacion_sesion"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
@@ -101,23 +101,23 @@
         android:textSize="16dp" />
 
     <TextView
-        android:id="@+id/lblHoraFin"
+        android:id="@+id/lblInicioSesion"
         android:layout_width="170dp"
         android:layout_height="20dp"
-        android:layout_above="@+id/lblGruposSesion"
-        android:layout_alignStart="@+id/edHoraFin"
-        android:layout_marginBottom="28dp"
-        android:text="@string/Hora_fin_sesion"
+        android:layout_alignStart="@+id/edFechaInicioSesion"
+        android:layout_below="@+id/edFechaInicioSesion"
+        android:layout_marginTop="10dp"
+        android:text="@string/Hora_inicio_sesion"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/edHoraFin"
+        android:id="@+id/edInicioSesion"
         android:layout_width="170dp"
         android:layout_height="30dp"
-        android:layout_alignStart="@+id/edFechaInicioSesion"
-        android:layout_below="@+id/edFechaInicioSesion"
-        android:layout_marginTop="52dp"
+        android:layout_alignBaseline="@+id/edHoraFin"
+        android:layout_alignBottom="@+id/edHoraFin"
+        android:layout_alignStart="@+id/lblInicioSesion"
         android:background="@drawable/editextborder"
         android:ems="10"
         android:inputType="textPersonName"
@@ -129,12 +129,22 @@
         android:layout_width="170dp"
         android:layout_height="20dp"
         android:layout_alignStart="@+id/SpGruposSesion"
-        android:layout_below="@+id/edHoraFin"
-        android:layout_marginTop="69dp"
-        android:text="@string/Grupos"
+        android:layout_below="@+id/edMotivoSesion"
+        android:layout_marginTop="8dp"
+        android:text="@string/GrupoSesion"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
+
+    <TextView
+        android:id="@+id/lblEntreSesion"
+        android:layout_width="170dp"
+        android:layout_height="20dp"
+        android:layout_alignStart="@+id/SpGruposSesion"
+        android:layout_centerVertical="true"
+        android:text="@string/Entrenamientos"
+        android:textColor="@android:color/background_dark"
+        android:textStyle="bold" />
 
     <Spinner
         android:id="@+id/SpGruposSesion"
@@ -155,13 +165,12 @@
     <Button
         android:id="@+id/btnAñadirSesion"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="25dp"
+        android:layout_height="26dp"
+        android:layout_alignEnd="@+id/lblValoracionSesion"
+        android:layout_alignTop="@+id/btnVolverAñadirSesion"
         android:background="@drawable/boton_redondeado"
         android:padding="4dip"
-        android:text="@string/btnAñadirAlumno"
+        android:text="@string/btnAñadirSesion"
         android:textColor="@android:color/white"
         android:textStyle="bold" />
 
@@ -172,6 +181,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignTop="@+id/fotoAlumnoAñadir"
         android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
         app:srcCompat="@drawable/flechaatras" />
 
 
@@ -179,29 +189,34 @@
         android:id="@+id/chbRealizadaSesion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/lblRealizadaSesion"
-        android:layout_below="@+id/lblRealizadaSesion" />
+        android:layout_alignBaseline="@+id/lblRealizadaSesion"
+        android:layout_alignBottom="@+id/lblRealizadaSesion"
+        android:layout_marginStart="6dp"
+        android:layout_toEndOf="@+id/lblRealizadaSesion" />
 
     <TextView
         android:id="@+id/lblRealizadaSesion"
-        android:layout_width="170dp"
+        android:layout_width="120dp"
         android:layout_height="20dp"
-        android:layout_alignStart="@+id/SpGruposSesion"
-        android:layout_below="@+id/SpGruposSesion"
-        android:layout_marginTop="31dp"
+        android:layout_alignStart="@+id/edInicioSesion"
+        android:layout_alignTop="@+id/lblMotivoSesion"
+        android:layout_marginTop="10dp"
         android:text="@string/SesionRealizada"
+        android:isScrollContainer="false"
         android:textColor="@android:color/background_dark"
+        android:windowSoftInputMode="adjustResize"
         android:textStyle="bold" />
 
     <ListView
         android:id="@+id/lv_entrenamientos_sesion"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignStart="@+id/btnVolverAñadirSesion"
-        android:layout_below="@+id/chbRealizadaSesion"
-        android:clickable="false"
+        android:layout_alignStart="@+id/lblEntreSesion"
+        android:layout_below="@+id/lblEntreSesion"
         android:choiceMode="multipleChoice"
-        android:layout_marginTop="24dp" />
+        android:isScrollContainer="false"
+        android:windowSoftInputMode="adjustResize"
+        android:clickable="false" />
 
 
 

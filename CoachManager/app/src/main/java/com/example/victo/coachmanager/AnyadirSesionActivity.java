@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.SparseBooleanArray;
-import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -25,7 +24,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.victo.coachmanager.Adapters.AdapterEntrenamiento;
-import com.example.victo.coachmanager.Adapters.AdapterGrupo;
 import com.example.victo.coachmanager.Entidades.Entrenamiento;
 import com.example.victo.coachmanager.Entidades.Grupo;
 import com.example.victo.coachmanager.Entidades.VolleySingleton;
@@ -34,8 +32,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.sql.Array;
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -68,8 +64,7 @@ public class AnyadirSesionActivity extends AppCompatActivity implements View.OnC
         setContentView(R.layout.activity_anyadir_sesion);
 
         edFechaSesion = (TextView) findViewById(R.id.edFechaInicioSesion);
-
-        edHoraInicioSesion = (TextView) findViewById(R.id.edHoraInicioSesion);
+        edHoraInicioSesion = (TextView) findViewById(R.id.edInicioSesion);
         edHoraFinSesion = (TextView) findViewById(R.id.edHoraFin);
         edValoracionSesion = (EditText) findViewById(R.id.edValoracionSesion);
         edMotivoSesion = (EditText) findViewById(R.id.edMotivoSesion);

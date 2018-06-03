@@ -147,13 +147,16 @@
     <string name="EliminarEntrenamiento">Eliminar entrenamiento</string>
     <string name="EntrenamientoEliminado">Entrenamiento eliminado</string>
     <string name="EliminarEntrenamientoPregunta">"¿Quieres eliminar el entrenamiento "</string>
-    <string name="Fecha_Sesion">Fecha</string>
-    <string name="Hora_inicio_sesion">Hora inicio</string>
-    <string name="Hora_fin_sesion">Hora fin</string>
-    <string name="SesionRealizada">Sesion realizada</string>
-    <string name="Valoracion_sesion">Valoración</string>
-    <string name="Motivo_cancelacion_sesion">Motivo cancelación</string>
-    <string name="ErrorEntreNoSelecionado">Selecciona uno o más entrenamientos</string>
 
+    <!-- AnyadirSesionActivity -->
+    <string name="Fecha_Sesion">Fecha</string>
+    <string name="Hora_inicio_sesion">Hora de inicio</string>
+    <string name="Hora_fin_sesion">Hora de fin</string>
+    <string name="SesionRealizada">¿Sesión realizada?</string>
+    <string name="Valoracion_sesion">Valoración</string>
+    <string name="Motivo_cancelacion_sesion">Motivo de cancelación</string>
+    <string name="ErrorEntreNoSelecionado">Selecciona uno o más entrenamientos</string>
+    <string name="btnAñadirSesion">Añadir sesión</string>
+    <string name="GrupoSesion">Grupo</string>
 
 </resources>
