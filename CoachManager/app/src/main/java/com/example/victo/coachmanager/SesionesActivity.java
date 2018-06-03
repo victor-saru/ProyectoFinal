@@ -1,9 +1,15 @@
 package com.example.victo.coachmanager;
 
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.media.MediaCas;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -33,6 +39,7 @@ public class SesionesActivity extends AppCompatActivity implements Response.List
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
     AdapterSesion adapter;
+    String nombreGrupo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +58,82 @@ public class SesionesActivity extends AppCompatActivity implements Response.List
 
         cargarWebService();
         cargarWebServiceGrupos();
+
+        /*lista_sesiones.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+
+                Intent intent = new Intent(SesionesActivity.this,VerSesionActivity.class);
+                Sesiones s = new Sesiones();
+                s = al_sesiones.get(position);
+                intent.putExtra("sesion", s);
+                startActivityForResult(intent, 1);
+
+            }
+        });
+
+        flbtnAñadirSesion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SesionesActivity.this, AnyadirSesionActivity.class);
+                startActivityForResult(intent,1);
+            }
+        });*/
+
+        lista_sesiones.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, final int pos, long l) {
+                AlertDialog.Builder confirmacio = new AlertDialog.Builder(SesionesActivity.this);
+                confirmacio.setTitle(getString(R.string.EliminarSesion));
+
+                for(int i = 0; i < al_grupos.size(); i++){
+                    if(al_grupos.get(i).getId_grupo() == al_sesiones.get(i).getId_grupo()){
+                        nombreGrupo = al_grupos.get(i).getNombre();
+                        break;
+                    }
+                }
+
+                String nombre = nombreGrupo + " - " + al_sesiones.get(pos).getFecha_hora_inicio();
+                confirmacio.setMessage(getString(R.string.EliminarSesionPregunta) + nombre + "?");
+                confirmacio.setCancelable(false);
+
+                confirmacio.setPositiveButton(getString(R.string.Si), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        aceptar(al_sesiones.get(pos));
+                    }
+                });
+
+                confirmacio.setNegativeButton(getString(R.string.Cancelar), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+
+                confirmacio.show();
+
+                return true;
+            }
+
+            private void aceptar(Sesiones s) {
+
+                eliminarGrupo(s);
+                al_sesiones.remove(s);
+
+            }
+
+        });
+    }
+
+    private void eliminarGrupo(Sesiones s) {
+
+
+        String url = "http://"+((ObtenerIDs) this.getApplication()).getIp()+"/CoachManagerPHP/CoachManager_DeleteSesion.php?id_sesion="+String.valueOf(s.getId_sesion());
+
+
+        jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
+        VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
     }
 
     private void cargarWebServiceGrupos() {
@@ -123,7 +206,7 @@ public class SesionesActivity extends AppCompatActivity implements Response.List
             String resultado = (jsonObjectSesiones.optString("resultado"));
 
             if(resultado.equals("Eliminado")){
-                Toast.makeText(getApplicationContext(), getString(R.string.GrupoEliminado), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), getString(R.string.SesionEliminada), Toast.LENGTH_SHORT).show();
                 adapter = new AdapterSesion(this, al_sesiones);
                 lista_sesiones.setAdapter(adapter);
             }

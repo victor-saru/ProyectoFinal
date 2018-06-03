@@ -101,5 +101,8 @@
     <string name="Deportes">Sports</string>
     <string name="btnEditarPerfil">Edit profile</string>
     <string name="Sesiones">Sessions</string>
+    <string name="SesionEliminada">Session deleted</string>
+    <string name="EliminarSesionPregunta">"Do you want to delete the session of group "</string>
+    <string name="EliminarSesion">Delete session</string>
 
 </resources>
