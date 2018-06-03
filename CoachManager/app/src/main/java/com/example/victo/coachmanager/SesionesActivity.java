@@ -71,14 +71,14 @@ public class SesionesActivity extends AppCompatActivity implements Response.List
 
             }
         });
-
+*/
         flbtnAñadirSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(SesionesActivity.this, AnyadirSesionActivity.class);
                 startActivityForResult(intent,1);
             }
-        });*/
+        });
 
         lista_sesiones.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override

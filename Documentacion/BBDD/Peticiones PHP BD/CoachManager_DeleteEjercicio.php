@@ -13,6 +13,9 @@ $conexion = mysqli_connect($hostname_localhost, $username_localhost, $password_l
 
 $id_ejercicio = $_GET["id_ejercicio"];
 
+$deleteEjerEntre = "DELETE FROM ejercicios_entrenamientos WHERE id_ejercicio = {$id_ejercicio}";
+$resultado_deleteEjerEntre = mysqli_query($conexion, $deleteEjerEntre);
+
 $deleteEjercicio = "DELETE FROM ejercicios WHERE id_ejercicio = {$id_ejercicio}";
 $resultado_deleteEjercicio = mysqli_query($conexion, $deleteEjercicio);
 
