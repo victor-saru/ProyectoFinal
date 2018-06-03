@@ -56,7 +56,7 @@ public class SesionesActivity extends AppCompatActivity implements Response.List
 
         FloatingActionButton flbtnAñadirSesion = (FloatingActionButton) findViewById(R.id.flbtnAñadirSesion);
 
-        cargarWebService();
+
         cargarWebServiceGrupos();
 
         /*lista_sesiones.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -126,6 +126,10 @@ public class SesionesActivity extends AppCompatActivity implements Response.List
         });
     }
 
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        cargarWebService();
+    }
+
     private void eliminarGrupo(Sesiones s) {
 
 
@@ -187,6 +191,8 @@ public class SesionesActivity extends AppCompatActivity implements Response.List
                         al_grupos.add(g);
 
                     }
+
+                    cargarWebService();
 
 
                 } catch (JSONException e) {
