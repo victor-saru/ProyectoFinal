@@ -153,6 +153,7 @@
     <string name="SesionRealizada">Sesion realizada</string>
     <string name="Valoracion_sesion">Valoración</string>
     <string name="Motivo_cancelacion_sesion">Motivo cancelación</string>
+    <string name="ErrorEntreNoSelecionado">Selecciona uno o más entrenamientos</string>
 
 
 </resources>

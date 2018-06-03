@@ -139,13 +139,6 @@ public class AnyadirGrupoActivity extends AppCompatActivity implements View.OnCl
 
             cargarWebService();
 
-
-
-
-
-
-
-
         }
         
     }
