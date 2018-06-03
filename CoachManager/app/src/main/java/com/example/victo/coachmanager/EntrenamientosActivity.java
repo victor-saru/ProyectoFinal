@@ -91,10 +91,10 @@ public class EntrenamientosActivity extends AppCompatActivity implements Respons
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, final int pos, long l) {
 
                 AlertDialog.Builder confirmacio = new AlertDialog.Builder(EntrenamientosActivity.this);
-                confirmacio.setTitle(getString(R.string.EliminarGrupo));
+                confirmacio.setTitle(getString(R.string.EliminarEntrenamiento));
 
                 String nombre = al_entrenamientos.get(pos).getNombre();
-                confirmacio.setMessage(getString(R.string.EliminarGrupoPregunta) + nombre + "?");
+                confirmacio.setMessage(getString(R.string.EliminarEntrenamientoPregunta) + nombre + "?");
                 confirmacio.setCancelable(false);
 
                 confirmacio.setPositiveButton(getString(R.string.Si), new DialogInterface.OnClickListener() {
@@ -171,7 +171,7 @@ public class EntrenamientosActivity extends AppCompatActivity implements Respons
         String resultado = (jsonObject2.optString("resultado"));
 
         if(resultado.equals("Eliminado")){
-            Toast.makeText(getApplicationContext(), getString(R.string.GrupoEliminado), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.EntrenamientoEliminado), Toast.LENGTH_SHORT).show();
             adapter = new AdapterEntrenamiento(this, al_entrenamientos);
             lista_entrenamientos.setAdapter(adapter);
         }

@@ -104,5 +104,8 @@
     <string name="SesionEliminada">Session deleted</string>
     <string name="EliminarSesionPregunta">"Do you want to delete the session of group "</string>
     <string name="EliminarSesion">Delete session</string>
+    <string name="EliminarEntrenamiento">Delete training</string>
+    <string name="EntrenamientoEliminado">Training deleted</string>
+    <string name="EliminarEntrenamientoPregunta">"Do you want to delete the training "</string>
 
 </resources>

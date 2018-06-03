@@ -103,5 +103,8 @@
     <string name="SesionEliminada">Sessió eliminada</string>
     <string name="EliminarSesionPregunta">Vols eliminar la sessió del grupo</string>
     <string name="EliminarSesion">Eliminar sessió</string>
+    <string name="EliminarEntrenamiento">Eliminar entrenament</string>
+    <string name="EntrenamientoEliminado">Entrenament eliminat</string>
+    <string name="EliminarEntrenamientoPregunta">"Vols eliminar l'entrenament "</string>
 
 </resources>

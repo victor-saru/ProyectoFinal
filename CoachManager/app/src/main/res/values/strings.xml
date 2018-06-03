@@ -143,4 +143,10 @@
     <string name="EliminarSesionPregunta">¿Quieres eliminar la sesion del grupo</string>
     <string name="EliminarSesion">Eliminar sesión</string>
 
+    <!-- EntrenamientosActivity -->
+    <string name="EliminarEntrenamiento">Eliminar entrenamiento</string>
+    <string name="EntrenamientoEliminado">Entrenamiento eliminado</string>
+    <string name="EliminarEntrenamientoPregunta">"¿Quieres eliminar el entrenamiento "</string>
+
+
 </resources>
