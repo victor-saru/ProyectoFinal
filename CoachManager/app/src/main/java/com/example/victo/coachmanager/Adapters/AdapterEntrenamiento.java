@@ -75,7 +75,7 @@ public class AdapterEntrenamiento extends BaseAdapter {
         title.setText(dir.getNombre());
 
 
-        System.out.println(MenuActivity.deportes.get(0));
+//        System.out.println(MenuActivity.deportes.get(0));
 
         for (int i = 0; i < MenuActivity.deportes.size(); i++){
             if(MenuActivity.deportes.get(i).getId_deporte() == dir.getId_deporte()){
