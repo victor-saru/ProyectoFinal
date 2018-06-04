@@ -92,11 +92,11 @@ public class EditarAlumnoActivity extends AppCompatActivity implements View.OnCl
         edSegundoApellidoAlumno.setText(alumno.getSegundo_apellido());
 
         if(alumno.getGenero().equals("Masculino") || alumno.getGenero().equals("Masculí") || alumno.getGenero().equals("Male"))
-            genero = 2;
+            genero = 1;
         else if (alumno.getGenero().equals(" "))
             genero = 0;
         else
-            genero = 1;
+            genero = 2;
 
 
         spGeneroAlumno.post(new Runnable() {
