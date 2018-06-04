@@ -10,14 +10,15 @@ import android.os.Parcelable;
 public class Sesiones implements Parcelable{
 
     int id_sesion, id_grupo, id_entrenamiento, id_entrenador;
-    String fecha_hora_inicio, fecha_hora_fin, motivo_cancelacion, valoracion;
+    String fecha, fecha_hora_inicio, fecha_hora_fin, motivo_cancelacion, valoracion;
     Boolean realizada;
 
 
-    public Sesiones(int id_sesion, int id_grupo, int id_entrenamiento, String fecha_hora_inicio, String fecha_hora_fin, String motivo_cancelacion, String valoracion, Boolean realizada, int id_entrenador) {
+    public Sesiones(int id_sesion, int id_grupo, int id_entrenamiento, String fecha_hora_inicio,String fecha, String fecha_hora_fin, String motivo_cancelacion, String valoracion, Boolean realizada, int id_entrenador) {
         this.id_sesion = id_sesion;
         this.id_grupo = id_grupo;
         this.id_entrenamiento = id_entrenamiento;
+        this.fecha = fecha;
         this.fecha_hora_inicio = fecha_hora_inicio;
         this.fecha_hora_fin = fecha_hora_fin;
         this.motivo_cancelacion = motivo_cancelacion;
@@ -33,6 +34,7 @@ public class Sesiones implements Parcelable{
         id_sesion = in.readInt();
         id_grupo = in.readInt();
         id_entrenamiento = in.readInt();
+        fecha = in.readString();
         fecha_hora_inicio = in.readString();
         fecha_hora_fin = in.readString();
         motivo_cancelacion = in.readString();
@@ -63,6 +65,7 @@ public class Sesiones implements Parcelable{
         parcel.writeInt(id_sesion);
         parcel.writeInt(id_grupo);
         parcel.writeInt(id_entrenamiento);
+        parcel.writeString(fecha);
         parcel.writeString(fecha_hora_inicio);
         parcel.writeString(fecha_hora_fin);
         parcel.writeString(motivo_cancelacion);
@@ -141,5 +144,13 @@ public class Sesiones implements Parcelable{
 
     public void setId_entrenador(int id_entrenador) {
         this.id_entrenador = id_entrenador;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 }

@@ -46,7 +46,7 @@ public class VerSesionActivity extends AppCompatActivity implements Response.Lis
     JsonObjectRequest jsonObjectRequest;
     ImageView btnVolver;
     Sesiones sesion;
-    ArrayList<Entrenamiento> al_entrenamientos;
+    public static ArrayList<Entrenamiento> al_entrenamientos;
     AdapterEntrenamiento adapterEntrenamiento;
     Button btnEditarSesion;
 
@@ -70,7 +70,7 @@ public class VerSesionActivity extends AppCompatActivity implements Response.Lis
 
         sesion = (Sesiones) getIntent().getParcelableExtra("sesion");
 
-        edFechaSesion.setText(sesion.getFecha_hora_inicio());
+        edFechaSesion.setText(sesion.getFecha());
         edHoraInicioSesion.setText(sesion.getFecha_hora_inicio());
         edHoraFinSesion.setText(sesion.getFecha_hora_fin());
         edValoracionSesion.setText(sesion.getValoracion());
@@ -102,6 +102,8 @@ public class VerSesionActivity extends AppCompatActivity implements Response.Lis
             }
         });
 
+
+
         btnEditarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -110,6 +112,10 @@ public class VerSesionActivity extends AppCompatActivity implements Response.Lis
                 startActivityForResult(intent,1);
             }
         });
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        finish();
     }
 
     private void cargarWebService() {

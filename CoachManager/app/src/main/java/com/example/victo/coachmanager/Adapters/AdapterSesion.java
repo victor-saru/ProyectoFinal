@@ -76,7 +76,7 @@ public class AdapterSesion extends BaseAdapter {
         title.setText(grupo);
 
         TextView description = (TextView) v.findViewById(R.id.lv_obs_alumno);
-        description.setText(dir.getFecha_hora_inicio());
+        description.setText(dir.getFecha() + " - " + dir.getFecha_hora_inicio());
 
         /*ImageView imagen = (ImageView) v.findViewById(R.id.imageView);
         imagen.setImageDrawable(dir.getImage());*/
