@@ -116,5 +116,6 @@
     <string name="btnAñadirSesion">Add session</string>
     <string name="ErrorEntreNoSelecionado">Select one or more training</string>
     <string name="GrupoSesion">Group</string>
+    <string name="btnEditarSesion">Edit session</string>
 
 </resources>

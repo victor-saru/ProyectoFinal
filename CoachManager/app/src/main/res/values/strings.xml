@@ -158,5 +158,6 @@
     <string name="ErrorEntreNoSelecionado">Selecciona uno o más entrenamientos</string>
     <string name="btnAñadirSesion">Añadir sesión</string>
     <string name="GrupoSesion">Grupo</string>
+    <string name="btnEditarSesion">Editar sesión</string>
 
 </resources>

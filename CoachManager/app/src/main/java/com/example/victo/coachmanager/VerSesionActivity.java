@@ -1,8 +1,10 @@
 package com.example.victo.coachmanager;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -46,6 +48,7 @@ public class VerSesionActivity extends AppCompatActivity implements Response.Lis
     Sesiones sesion;
     ArrayList<Entrenamiento> al_entrenamientos;
     AdapterEntrenamiento adapterEntrenamiento;
+    Button btnEditarSesion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +64,7 @@ public class VerSesionActivity extends AppCompatActivity implements Response.Lis
         chbRealizadaSesion  = (CheckBox) findViewById(R.id.chbRealizadaSesionVerSesion);
         lv_entrenamientos_sesion  = (ListView) findViewById(R.id.lv_entrenamientos_sesionVerSesion);
         btnVolver = (ImageView) findViewById(R.id.btnVolverAñadirSesionVerSesion);
+        btnEditarSesion = (Button) findViewById(R.id.btnEditarSesionVerSesion);
 
         al_entrenamientos = new ArrayList<>();
 
@@ -72,12 +76,18 @@ public class VerSesionActivity extends AppCompatActivity implements Response.Lis
         edValoracionSesion.setText(sesion.getValoracion());
         edMotivoSesion.setText(sesion.getMotivo_cancelacion());
 
+        String[] GrupoSesion = new String[SesionesActivity.al_grupos.size()];
+
         for(int i = 0; i < SesionesActivity.al_grupos.size(); i++){
-            if(SesionesActivity.al_grupos.get(i).getId_grupo() == sesion.getId_grupo()){
+            if(sesion.getId_grupo() == SesionesActivity.al_grupos.get(i).getId_grupo()){
                 spGruposSesion.setText(SesionesActivity.al_grupos.get(i).getNombre());
                 break;
             }
+
+
         }
+
+
 
 
         chbRealizadaSesion.setChecked(sesion.getRealizada());
@@ -89,6 +99,15 @@ public class VerSesionActivity extends AppCompatActivity implements Response.Lis
             @Override
             public void onClick(View view) {
                 finish();
+            }
+        });
+
+        btnEditarSesion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(VerSesionActivity.this, EditarSesionActivity.class);
+                intent.putExtra("sesion", sesion);
+                startActivityForResult(intent,1);
             }
         });
     }

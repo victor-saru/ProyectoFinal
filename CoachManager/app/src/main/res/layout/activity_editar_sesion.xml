@@ -7,12 +7,12 @@
     tools:context="com.example.victo.coachmanager.VerAlumnoActivity"
     android:background="#FFFFFF">
 
-    <TextView
-        android:id="@+id/edHoraFinVerSesion"
+    <EditText
+        android:id="@+id/edHoraFinEditarSesion"
         android:layout_width="170dp"
         android:layout_height="30dp"
-        android:layout_alignStart="@+id/lblHoraFinVerSesion"
-        android:layout_below="@+id/lblHoraFinVerSesion"
+        android:layout_alignStart="@+id/lblHoraFinEditarSesion"
+        android:layout_below="@+id/lblHoraFinEditarSesion"
         android:background="@drawable/editextborder"
         android:ems="10"
         android:inputType="textPersonName"
@@ -20,22 +20,22 @@
         android:textSize="16dp" />
 
     <TextView
-        android:id="@+id/lblHoraFinVerSesion"
+        android:id="@+id/lblHoraFinEditarSesion"
         android:layout_width="170dp"
         android:layout_height="20dp"
-        android:layout_alignBaseline="@+id/lblInicioSesionVerSesion"
-        android:layout_alignBottom="@+id/lblInicioSesionVerSesion"
-        android:layout_alignStart="@+id/edValoracionSesionVerSesion"
+        android:layout_alignBaseline="@+id/lblInicioSesionEditarSesion"
+        android:layout_alignBottom="@+id/lblInicioSesionEditarSesion"
+        android:layout_alignStart="@+id/edValoracionSesionEditarSesion"
         android:text="@string/Hora_fin_sesion"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/edMotivoSesionVerSesion"
+    <EditText
+        android:id="@+id/edMotivoSesionEditarSesion"
         android:layout_width="170dp"
         android:layout_height="30dp"
-        android:layout_alignStart="@+id/lblMotivoSesionVerSesion"
-        android:layout_below="@+id/lblMotivoSesionVerSesion"
+        android:layout_alignStart="@+id/lblMotivoSesionEditarSesion"
+        android:layout_below="@+id/lblMotivoSesionEditarSesion"
         android:background="@drawable/editextborder"
         android:ems="10"
         android:inputType="textPersonName"
@@ -43,22 +43,22 @@
         android:textSize="16dp" />
 
     <TextView
-        android:id="@+id/lblMotivoSesionVerSesion"
+        android:id="@+id/lblMotivoSesionEditarSesion"
         android:layout_width="170dp"
         android:layout_height="20dp"
-        android:layout_alignStart="@+id/edHoraFinVerSesion"
-        android:layout_below="@+id/edHoraFinVerSesion"
+        android:layout_alignStart="@+id/edHoraFinEditarSesion"
+        android:layout_below="@+id/edHoraFinEditarSesion"
         android:layout_marginTop="10dp"
         android:text="@string/Motivo_cancelacion_sesion"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/edValoracionSesionVerSesion"
+    <EditText
+        android:id="@+id/edValoracionSesionEditarSesion"
         android:layout_width="170dp"
         android:layout_height="30dp"
-        android:layout_alignStart="@+id/lblValoracionSesionVerSesion"
-        android:layout_below="@+id/lblValoracionSesionVerSesion"
+        android:layout_alignStart="@+id/lblValoracionSesionEditarSesion"
+        android:layout_below="@+id/lblValoracionSesionEditarSesion"
         android:background="@drawable/editextborder"
         android:ems="10"
         android:inputType="textPersonName"
@@ -66,34 +66,34 @@
         android:textSize="16dp" />
 
     <TextView
-        android:id="@+id/lblValoracionSesionVerSesion"
+        android:id="@+id/lblValoracionSesionEditarSesion"
         android:layout_width="170dp"
         android:layout_height="20dp"
-        android:layout_alignBaseline="@+id/lblFechaSesionVerSesion"
-        android:layout_alignBottom="@+id/lblFechaSesionVerSesion"
+        android:layout_alignBaseline="@+id/lblFechaSesionEditarSesion"
+        android:layout_alignBottom="@+id/lblFechaSesionEditarSesion"
         android:layout_marginStart="22dp"
-        android:layout_toEndOf="@+id/lblFechaSesionVerSesion"
+        android:layout_toEndOf="@+id/lblFechaSesionEditarSesion"
         android:text="@string/Valoracion_sesion"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/lblFechaSesionVerSesion"
+        android:id="@+id/lblFechaSesionEditarSesion"
         android:layout_width="170dp"
         android:layout_height="20dp"
-        android:layout_alignStart="@+id/edFechaInicioSesionVerSesion"
-        android:layout_below="@+id/btnVolverAñadirSesionVerSesion"
+        android:layout_alignStart="@+id/edFechaInicioSesionEditarSesion"
+        android:layout_below="@+id/btnVolverAñadirSesionEditarSesion"
         android:layout_marginTop="14dp"
         android:text="@string/Fecha_Sesion"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/edFechaInicioSesionVerSesion"
+    <EditText
+        android:id="@+id/edFechaInicioSesionEditarSesion"
         android:layout_width="170dp"
         android:layout_height="30dp"
-        android:layout_alignStart="@+id/lblGruposSesionVerSesion"
-        android:layout_below="@+id/lblFechaSesionVerSesion"
+        android:layout_alignStart="@+id/lblGruposSesionEditarSesion"
+        android:layout_below="@+id/lblFechaSesionEditarSesion"
         android:background="@drawable/editextborder"
         android:ems="10"
         android:inputType="textPersonName"
@@ -101,23 +101,23 @@
         android:textSize="16dp" />
 
     <TextView
-        android:id="@+id/lblInicioSesionVerSesion"
+        android:id="@+id/lblInicioSesionEditarSesion"
         android:layout_width="170dp"
         android:layout_height="20dp"
-        android:layout_alignStart="@+id/edFechaInicioSesionVerSesion"
-        android:layout_below="@+id/edFechaInicioSesionVerSesion"
+        android:layout_alignStart="@+id/edFechaInicioSesionEditarSesion"
+        android:layout_below="@+id/edFechaInicioSesionEditarSesion"
         android:layout_marginTop="10dp"
         android:text="@string/Hora_inicio_sesion"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/edInicioSesionVerSesion"
+    <EditText
+        android:id="@+id/edInicioSesionEditarSesion"
         android:layout_width="170dp"
         android:layout_height="30dp"
-        android:layout_alignBaseline="@+id/edHoraFinVerSesion"
-        android:layout_alignBottom="@+id/edHoraFinVerSesion"
-        android:layout_alignStart="@+id/lblInicioSesionVerSesion"
+        android:layout_alignBaseline="@+id/edHoraFinEditarSesion"
+        android:layout_alignBottom="@+id/edHoraFinEditarSesion"
+        android:layout_alignStart="@+id/lblInicioSesionEditarSesion"
         android:background="@drawable/editextborder"
         android:ems="10"
         android:inputType="textPersonName"
@@ -125,11 +125,11 @@
         android:textSize="16dp" />
 
     <TextView
-        android:id="@+id/lblGruposSesionVerSesion"
+        android:id="@+id/lblGruposSesionEditarSesion"
         android:layout_width="170dp"
         android:layout_height="20dp"
-        android:layout_alignStart="@+id/SpGruposSesionVerSesion"
-        android:layout_below="@+id/edMotivoSesionVerSesion"
+        android:layout_alignStart="@+id/SpGruposSesionEditarSesion"
+        android:layout_below="@+id/edMotivoSesionEditarSesion"
         android:layout_marginTop="8dp"
         android:text="@string/GrupoSesion"
         android:textColor="@android:color/background_dark"
@@ -137,44 +137,45 @@
 
 
     <TextView
-        android:id="@+id/lblEntreSesionVerSesion"
+        android:id="@+id/lblEntreSesionEditarSesion"
         android:layout_width="170dp"
         android:layout_height="20dp"
-        android:layout_alignStart="@+id/SpGruposSesionVerSesion"
+        android:layout_alignStart="@+id/SpGruposSesionEditarSesion"
         android:layout_centerVertical="true"
         android:text="@string/Entrenamientos"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/SpGruposSesionVerSesion"
+    <Spinner
+        android:id="@+id/SpGruposSesionEditarSesion"
+        style="@style/Base.Widget.AppCompat.Spinner.Underlined"
         android:layout_width="170dp"
         android:layout_height="37dp"
-        android:layout_alignStart="@+id/btnVolverAñadirSesionVerSesion"
-        android:layout_below="@+id/lblGruposSesionVerSesion"
+        android:layout_alignStart="@+id/btnVolverAñadirSesionEditarSesion"
+        android:layout_below="@+id/lblGruposSesionEditarSesion"
         android:layout_marginStart="8dp"
-        android:background="@drawable/editextborder"
         android:ems="10"
         android:inputType="textPersonName"
+        android:backgroundTint="#01C321"
         android:paddingStart="0dp"
         android:paddingTop="5dp"
         android:singleLine="false"
         android:textSize="16dp" />
 
     <Button
-        android:id="@+id/btnEditarSesionVerSesion"
+        android:id="@+id/btnEditarSesionEditarSesion"
         android:layout_width="wrap_content"
         android:layout_height="26dp"
-        android:layout_alignEnd="@+id/lblValoracionSesionVerSesion"
-        android:layout_alignTop="@+id/btnVolverAñadirSesionVerSesion"
+        android:layout_alignEnd="@+id/lblValoracionSesionEditarSesion"
+        android:layout_alignTop="@+id/btnVolverAñadirSesionEditarSesion"
         android:background="@drawable/boton_redondeado"
         android:padding="4dip"
-        android:text="@string/btnEditarSesion"
+        android:text="@string/btnGuardarEditAlum"
         android:textColor="@android:color/white"
         android:textStyle="bold" />
 
     <ImageView
-        android:id="@+id/btnVolverAñadirSesionVerSesion"
+        android:id="@+id/btnVolverAñadirSesionEditarSesion"
         android:layout_width="34dp"
         android:layout_height="44dp"
         android:layout_alignParentStart="true"
@@ -185,20 +186,20 @@
 
 
     <CheckBox
-        android:id="@+id/chbRealizadaSesionVerSesion"
+        android:id="@+id/chbRealizadaSesionEditarSesion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/lblRealizadaSesionVerSesion"
-        android:layout_alignBottom="@+id/lblRealizadaSesionVerSesion"
+        android:layout_alignBaseline="@+id/lblRealizadaSesionEditarSesion"
+        android:layout_alignBottom="@+id/lblRealizadaSesionEditarSesion"
         android:layout_marginStart="6dp"
-        android:layout_toEndOf="@+id/lblRealizadaSesionVerSesion" />
+        android:layout_toEndOf="@+id/lblRealizadaSesionEditarSesion" />
 
     <TextView
-        android:id="@+id/lblRealizadaSesionVerSesion"
+        android:id="@+id/lblRealizadaSesionEditarSesion"
         android:layout_width="120dp"
         android:layout_height="20dp"
-        android:layout_alignStart="@+id/edInicioSesionVerSesion"
-        android:layout_alignTop="@+id/lblMotivoSesionVerSesion"
+        android:layout_alignStart="@+id/edInicioSesionEditarSesion"
+        android:layout_alignTop="@+id/lblMotivoSesionEditarSesion"
         android:layout_marginTop="10dp"
         android:text="@string/SesionRealizada"
         android:isScrollContainer="false"
@@ -207,11 +208,11 @@
         android:textStyle="bold" />
 
     <ListView
-        android:id="@+id/lv_entrenamientos_sesionVerSesion"
+        android:id="@+id/lv_entrenamientos_sesionEditarSesion"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignStart="@+id/lblEntreSesionVerSesion"
-        android:layout_below="@+id/lblEntreSesionVerSesion"
+        android:layout_alignStart="@+id/lblEntreSesionEditarSesion"
+        android:layout_below="@+id/lblEntreSesionEditarSesion"
         android:choiceMode="multipleChoice"
         android:isScrollContainer="false"
         android:windowSoftInputMode="adjustResize"
