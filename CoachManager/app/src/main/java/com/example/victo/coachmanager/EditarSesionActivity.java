@@ -134,6 +134,13 @@ public class EditarSesionActivity extends AppCompatActivity implements Response.
             }
         });
 
+        btnVolver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
         chbRealizadaSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
