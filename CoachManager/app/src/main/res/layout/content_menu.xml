@@ -69,7 +69,8 @@
         android:layout_marginTop="18dp"
         android:background="@drawable/ripple_effect"
         android:padding="3dp"
-        android:src="@drawable/botonentrenamientos" />
+        android:src="@drawable/botonentrenamientos"
+        android:visibility="visible" />
 
     <ImageButton
         android:id="@+id/btnAlumnos"
