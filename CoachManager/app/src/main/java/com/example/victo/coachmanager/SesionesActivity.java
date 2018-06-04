@@ -149,6 +149,7 @@ public class SesionesActivity extends AppCompatActivity implements Response.List
     private void cargarWebService() {
 
         String url="http://"+((ObtenerIDs) this.getApplication()).getIp()+"/CoachManagerPHP/CoachManager_Sesiones.php?id_entrenador="+((ObtenerIDs) this.getApplication()).getId_entrenador();
+        System.out.println(url);
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
         VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
     }
@@ -231,9 +232,17 @@ public class SesionesActivity extends AppCompatActivity implements Response.List
                         s.setId_sesion(jsonObject.optInt("id_sesion"));
                         s.setId_grupo(jsonObject.optInt("id_grupo"));
                         s.setId_entrenamiento(jsonObject.optInt("id_grupo"));
-                        s.setFecha_hora_inicio(jsonObject.optString("fecha_hora_inicio"));
-                        s.setFecha_hora_fin(jsonObject.optString("fecha_hora_fin"));
-                        s.setRealizada(jsonObject.optBoolean("realizada"));
+                        s.setFecha(jsonObject.optString("DATE(fecha_hora_inicio)"));
+                        s.setFecha_hora_inicio(jsonObject.optString("TIME(fecha_hora_inicio)"));
+                        s.setFecha_hora_fin(jsonObject.optString("TIME(fecha_hora_fin)"));
+
+                        if(jsonObject.optString("realizada").equals("1"))
+                            s.setRealizada(true);
+                        else
+                            s.setRealizada(false);
+
+                        System.out.println("Realizada: "  + s.getRealizada());
+
                         s.setMotivo_cancelacion(jsonObject.optString("motivo_cancelacion"));
                         s.setValoracion(jsonObject.optString("valoracion"));
                         s.setId_entrenador(jsonObject.optInt("id_entrenador"));

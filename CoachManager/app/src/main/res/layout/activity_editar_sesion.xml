@@ -7,7 +7,7 @@
     tools:context="com.example.victo.coachmanager.VerAlumnoActivity"
     android:background="#FFFFFF">
 
-    <EditText
+    <TextView
         android:id="@+id/edHoraFinEditarSesion"
         android:layout_width="170dp"
         android:layout_height="30dp"
@@ -88,7 +88,7 @@
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
-    <EditText
+    <TextView
         android:id="@+id/edFechaInicioSesionEditarSesion"
         android:layout_width="170dp"
         android:layout_height="30dp"
@@ -111,7 +111,7 @@
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />
 
-    <EditText
+    <TextView
         android:id="@+id/edInicioSesionEditarSesion"
         android:layout_width="170dp"
         android:layout_height="30dp"
